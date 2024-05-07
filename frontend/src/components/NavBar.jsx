@@ -6,7 +6,7 @@ const Navbar = () => (
         <Box p="2">Logo</Box>
         <Spacer />
         <Box>
-            <Link px="3">Home</Link>
+            <Link px="3">Volunteer</Link>
             <Link px="3">Programs</Link>
             <Link px="3">Events</Link>
             <Link px="3">Newsletter</Link>
