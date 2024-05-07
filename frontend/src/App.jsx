@@ -1,51 +1,43 @@
-import axios from "axios";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { ChakraProvider, Box, Text } from '@chakra-ui/react';
+import NavBar from './components/NavBar';
+import Banner from './components/Banner';
+import Cards from './components/Cards';
+import Footer from './components/Footer';
 
-const url = "http://localhost:1337/api/programs";
+const url = 'http://localhost:1337/api/programs';
 
 function App() {
-  const [programTitles, setProgramTitles] = useState(null); // Initialize state to null
-  const [loading, setLoading] = useState(true); // Track loading state
+  const [programTitles, setProgramTitles] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(url);
-        console.log("Data retrieved", response.data);
-        setProgramTitles(
-          response.data.data.map((item) => item.attributes.title)
-        ); // Set titles
-        setLoading(false); // Set loading to false
-      } catch (error) {
-        if (error.response) {
-          console.error("Error response", error.response.data);
-          setProgramTitles(null); // In case of error, clear titles
-          setLoading(false); // Set loading to false
-        } else {
-          console.error("Error", error);
-          setProgramTitles(null);
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchData();
+    axios.get(url)
+      .then(response => {
+        const titles = response.data.data.map(item => ({
+          title: item.attributes.title,
+          description: item.attributes.description,
+          image: item.attributes.imageUrl
+        }));
+        setProgramTitles(titles);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setProgramTitles([]);
+      });
   }, []);
 
-  if (loading) return <h1>Loading...</h1>; // Show loading while data is being fetched
-
-  if (!programTitles) return <h1>Failed to fetch data</h1>; // Show error message if no data
+  if (!programTitles.length) return <Text>Loading...</Text>;
 
   return (
-    <>
-      <h1>Program Titles</h1>
-      <ul>
-        {programTitles.map((title, index) => (
-          <li key={index}>{title}</li>
-        ))}
-      </ul>
-    </>
+    <ChakraProvider>
+      <Box>
+        <NavBar />
+        <Banner />
+        <Cards cardsData={programTitles} />
+        <Footer />
+      </Box>
+    </ChakraProvider>
   );
 }
 
