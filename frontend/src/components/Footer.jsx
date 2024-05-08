@@ -97,13 +97,13 @@ const Footer = () => {
               Follow us
             </Heading>
             <Stack direction={"row"} spacing={6}>
-              <Link href={"#"}>
+              <Link href={"https://www.facebook.com/KOMCPC"}>
                 <Icon as={FaFacebook} />
               </Link>
-              <Link href={"#"}>
+              <Link href={"https://twitter.com/komcpc"}>
                 <Icon as={FaTwitter} />
               </Link>
-              <Link href={"#"}>
+              <Link href={"https://www.instagram.com/komcpc"}>
                 <Icon as={FaInstagram} />
               </Link>
             </Stack>
