@@ -56,5 +56,40 @@
 				}
 			]
 		}
+	],
+	"FAQs": [
+		{
+			"title": "Frequently Asked Questions",
+			"questions": [
+				{
+					"title": "Who can volunteer for the KOM CPC?",
+					"description": [
+						"Anyone who is 16 years or older, and has a clean criminal record, can volunteer for the KOM CPC."
+					]
+				},
+				{
+					"title": "Is volunteering required for a law-enforcement career?",
+					"description": [
+						"No, volunteering is not required for a law-enforcement career, but it is highly recommended."
+					]
+				},
+				{
+					"title": "I have limited mobility or a disability, do I need to participate in patrols?",
+					"description": [
+						"No, there are many other activities that you can participate in, such as event participation or VPD program organization & support."
+					]
+				},
+				{
+					"title": "Can I volunteer if I am in high school?",
+					"description": ["The minimum age to volunteer is 16 years old."]
+				},
+				{
+					"title": "I applied to volunteer but didn't hear back or was rejected. Why?",
+					"description": [
+						"The KOM CPC receives many applications and can only accept a limited number of volunteers. If you were rejected, it may be due to a lack of availability or a lack of fit with the organization."
+					]
+				}
+			]
+		}
 	]
 }

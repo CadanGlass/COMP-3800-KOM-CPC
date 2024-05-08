@@ -8,10 +8,11 @@ import {
 	Text,
 } from '@chakra-ui/react';
 
-const VolunteerAccordion = ({ volunteerData: data = [] }) => {
+const CustomAccordion = ({ accordionData: data = [] }) => {
 	if (!data.length) {
 		return <Text>No data to display</Text>;
 	}
+	console.log(data);
 
 	return (
 		<Accordion allowMultiple>
@@ -38,4 +39,4 @@ const VolunteerAccordion = ({ volunteerData: data = [] }) => {
 	);
 };
 
-export default VolunteerAccordion;
+export default CustomAccordion;

@@ -1,4 +1,4 @@
-import VolunteerAccordion from '../AccordionMenu';
+import CustomAccordion from '../AccordionMenu';
 import { Box, Heading, Stack, useBreakpointValue } from '@chakra-ui/react';
 
 const VolunteeringActivitiesCard = ({ volunteerData, title, description }) => {
@@ -14,7 +14,7 @@ const VolunteeringActivitiesCard = ({ volunteerData, title, description }) => {
 					<p>{description}</p>
 				</Box>
 				<Box flex={1}>
-					<VolunteerAccordion volunteerData={volunteerData} />
+					<CustomAccordion accordionData={volunteerData} />
 				</Box>
 			</Stack>
 		</Box>

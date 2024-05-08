@@ -1,10 +1,12 @@
 import { VStack, useBreakpointValue } from '@chakra-ui/react';
 import VolunteeringActivitiesCard from '../components/volunteer/VolunteeringActivitiesCard';
 import WhyVolunteerCard from '../components/volunteer/WhyVolunteerCard';
+import FAQCard from '../components/volunteer/FAQ';
 import data from '../test_data/volunteer/volunteer_page.json';
 
 const activities = data.Activities[0];
 const why = data.WhyVolunteer[0];
+const faq = data.FAQs[0];
 
 export default function VolunteerPage() {
 	const stackPadding = useBreakpointValue({ base: 4, lg: 16 });
@@ -20,6 +22,7 @@ export default function VolunteerPage() {
 				description={why.description}
 				subtext={why.subtext}
 			/>
+			<FAQCard faqData={faq} />
 		</VStack>
 	);
 }
