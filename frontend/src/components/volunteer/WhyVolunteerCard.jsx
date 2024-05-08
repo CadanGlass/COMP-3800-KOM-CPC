@@ -9,13 +9,19 @@ import {
 import WhyVolunteerSubtextCard from './WhyVolunteerSubtextCard';
 
 const WhyVolunteerCard = ({ title, description, subtext = [] }) => {
-	const stackSpacing = useBreakpointValue({ base: 8, md: 12, lg: 32 });
+	const stackSpacing = useBreakpointValue({ base: 8, md: 12, xl: 32 });
 	const stackDirection = useBreakpointValue({ base: 'column', lg: 'row' });
 	const subtextSpacing = useBreakpointValue({ base: 4, md: 8, lg: 16 });
 	const subtextDirection = useBreakpointValue({ base: 'column', lg: 'row' });
+	const boxPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 });
 
 	return (
-		<Box paddingX={[4, 8]} py={4} backgroundColor={'gray.50'} width={'100%'}>
+		<Box
+			paddingX={boxPaddingX}
+			py={6}
+			backgroundColor={'gray.50'}
+			width={'100%'}
+		>
 			<Stack
 				direction={stackDirection}
 				maxW="100%"
@@ -34,7 +40,8 @@ const WhyVolunteerCard = ({ title, description, subtext = [] }) => {
 						))}
 					</Box>
 				</Box>
-				<Box flex={1}>
+				{/* decide how to justify the image */}
+				<Box flex={1} alignSelf="center">
 					<Image
 						src="https://via.placeholder.com/1000x300"
 						alt="test image"
