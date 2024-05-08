@@ -1,0 +1,60 @@
+{
+	"Activities": [
+		{
+			"title": "Volunteering Activities",
+			"description": "Community policing volunteers participate in a number of activities for the KOM CPC. We encourage all volunteers to try each one, so they can experience our organization to the fullest. For a full list of activities, visit our Programs page.",
+			"volunteerData": [
+				{
+					"title": "Volunteer Patrols",
+					"description": [
+						"Our high visibility volunteer patrols are our best-known activity. Utilizing current and historic crime data, as well as inputs from residents, patrols are dispatched into neighbourhoods to be ‘eyes and ears’ for the community, and a deterrent. Patrols also provide awareness to residents in the event of heightened criminal activity, and are happy to answer any questions.",
+						"Certain patrols also conduct ICBC Speed Watch or Vehicle Audits.",
+						"Patrols take place on foot or bicycle, and can be conducted during the day or night. Volunteers are continually trained and educated on proper protocol. Patrols do not intervene in criminal activity and do not perform arrests."
+					]
+				},
+				{
+					"title": "Event Participation",
+					"description": ["Volunteer Description 2"]
+				},
+				{
+					"title": "VPD Program Organization & Support",
+					"description": [
+						"Working closely with the Vancouver Police Department, KOM CPC volunteers help organize and support public safety initiatives. Programs such as the VPD Women’s Safety Workshop and Project 529 owe their success to the efforts of community policing volunteers."
+					]
+				}
+			]
+		}
+	],
+
+	"WhyVolunteer": [
+		{
+			"title": "Why Volunteer with us?",
+			"description": [
+				"Community policing volunteers experience great pride and enjoyment during their time with the KOM CPC. Through helping others, our volunteers have also forged friendships that often carry on into their careers, even after leaving the KOM CPC.",
+				"We also offer a number of other rewarding benefits for our volunteers."
+			],
+			"subtext": [
+				{
+					"title": "Unique Activities & Events",
+					"description": [
+						"Some activities include participating in VPD training sessions, supporting VPD safety initiatives and attending law-enforcement and safety seminars not available to the public. The Volunteer Coordinator may also arrange specific activities for volunteers entering law-enforcement careers.",
+						"Volunteers are also regularly treated to appreciation days, with plenty of food, fun and friends."
+					]
+				},
+				{
+					"title": "Networking & Career",
+					"description": [
+						"Whether you’re considering a law-enforcement career or anything else, you can find help, mentoring and networking opportunities from many KOM CPC volunteers who are career professionals.",
+						"Volunteers may request a written reference letter from KOM CPC staff, which can be used during job searches or as part of a career portfolio."
+					]
+				},
+				{
+					"title": "Flexible Commitment",
+					"description": [
+						"Many KOM CPC volunteers attend school or have careers, and our volunteering program is set up to allow for maximum time flexibility. We use a simple online scheduling system that provides reminders for upcoming volunteer events."
+					]
+				}
+			]
+		}
+	]
+}

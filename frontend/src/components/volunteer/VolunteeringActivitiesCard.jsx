@@ -1,41 +1,24 @@
-import React from 'react';
-
 import VolunteerAccordion from '../AccordionMenu';
-import { Box, Heading, Grid, GridItem, useMediaQuery } from '@chakra-ui/react';
+import { Box, Heading, Stack, useBreakpointValue } from '@chakra-ui/react';
 
 const VolunteeringActivitiesCard = ({ volunteerData, title, description }) => {
-	const [isLargeScreen] = useMediaQuery('(min-width: 800px)');
+	const stackSpacing = useBreakpointValue({ base: 8, md: 12, lg: 32 });
 
 	return (
-		<Grid
-			templateAreas={
-				!isLargeScreen
-					? `"header" "description" "accordion"`
-					: `"header accordion" "description accordion"`
-			}
-			gridTemplateRows={!isLargeScreen ? 'auto auto auto' : '50px 1fr'}
-			gridTemplateColumns={!isLargeScreen ? '1fr' : '1fr 1fr'}
-			rowGap={4}
-			columnGap={16}
-			paddingX={!isLargeScreen ? 4 : 8}
-			marginX={!isLargeScreen ? 4 : 16}
-			py={4}
-			backgroundColor={'gray.50'}
-		>
-			<GridItem gridArea="header">
-				<Heading as="h3" size="lg" color={'gray.500'}>
-					{title}
-				</Heading>
-			</GridItem>
-			<GridItem gridArea="description">
-				<Box>
+		<Box paddingX={[4, 8]} py={4} backgroundColor={'gray.50'} width={'100%'}>
+			<Stack direction={['column', 'row']} maxW="100%" spacing={stackSpacing}>
+				<Box flex={1}>
+					<Heading as="h3" size="lg" color={'gray.500'} pb={8}>
+						{title}
+					</Heading>
 					<p>{description}</p>
 				</Box>
-			</GridItem>
-			<GridItem gridArea="accordion">
-				<VolunteerAccordion volunteerData={volunteerData} />
-			</GridItem>
-		</Grid>
+				<Box flex={1}>
+					<VolunteerAccordion volunteerData={volunteerData} />
+				</Box>
+			</Stack>
+		</Box>
 	);
 };
+
 export default VolunteeringActivitiesCard;

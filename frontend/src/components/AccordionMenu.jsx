@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {
 	Accordion,
 	AccordionItem,
@@ -17,17 +15,23 @@ const VolunteerAccordion = ({ volunteerData: data = [] }) => {
 
 	return (
 		<Accordion allowMultiple>
-			{data.map((volunteer, index) => (
+			{data.map((item, index) => (
 				<AccordionItem key={index} paddingY={4}>
 					<h2>
-						<AccordionButton p={4}>
-							<Box flex="1" textAlign="left">
-								<Text as="b"> {volunteer.title} </Text>
+						<AccordionButton p={'4px 4px 4px 0px'}>
+							<Box flex={1} textAlign="left">
+								<Text as="b"> {item.title} </Text>
 							</Box>
 							<AccordionIcon />
 						</AccordionButton>
 					</h2>
-					<AccordionPanel pb={4}>{volunteer.description}</AccordionPanel>
+					<AccordionPanel pb={4} pl={0}>
+						{item.description.map((line, index) => (
+							<Text key={`line${index}`} paddingTop={4}>
+								{line}
+							</Text>
+						))}
+					</AccordionPanel>
 				</AccordionItem>
 			))}
 		</Accordion>
