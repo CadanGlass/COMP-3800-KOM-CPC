@@ -1,15 +1,11 @@
 import {
   Container,
-  Flex,
   Box,
   Heading,
   Text,
-  IconButton,
   Button,
   VStack,
   HStack,
-  Wrap,
-  WrapItem,
   FormControl,
   FormLabel,
   Input,
@@ -24,10 +20,9 @@ import {
   MdEmail,
   MdLocationOn,
   MdAccessTimeFilled,
-  MdFacebook,
   MdOutlineEmail,
+  MdOutlinePerson,
 } from 'react-icons/md';
-import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 
 import Header from '../components/Header';
 
@@ -88,17 +83,17 @@ export default function ContactUsPage() {
                 <VStack spacing={5}>
                   <FormControl id='name'>
                     <FormLabel>Name</FormLabel>
-                    <InputGroup borderColor='#E0E1E7'>
+                    <InputGroup borderColor='gray.300'>
                       <InputLeftElement
                         pointerEvents='none'
-                        children={<BsPerson color='gray.800' />}
+                        children={<MdOutlinePerson color='gray.800' />}
                       />
                       <Input type='text' size='md' />
                     </InputGroup>
                   </FormControl>
                   <FormControl id='email'>
                     <FormLabel>Email</FormLabel>
-                    <InputGroup borderColor='#E0E1E7'>
+                    <InputGroup borderColor='gray.300'>
                       <InputLeftElement
                         pointerEvents='none'
                         children={<MdOutlineEmail color='gray.800' />}
@@ -108,7 +103,7 @@ export default function ContactUsPage() {
                   </FormControl>
                   <FormControl id='phone'>
                     <FormLabel>Phone</FormLabel>
-                    <InputGroup borderColor='#E0E1E7'>
+                    <InputGroup borderColor='gray.300'>
                       <InputLeftElement
                         pointerEvents='none'
                         children={<MdPhone color='gray.800' />}
