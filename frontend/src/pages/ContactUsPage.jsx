@@ -32,7 +32,7 @@ export default function ContactUsPage() {
       <Header
         title='Contact KOM CPC'
         description='Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore'
-        imageUrl='https://bit.ly/naruto-sage'
+        imageUrl='https://via.placeholder.com/150'
         btn1='Volunteer Now'
         btn2='Donate Now'
       />
