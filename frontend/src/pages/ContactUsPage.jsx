@@ -49,14 +49,12 @@ export default function ContactUsPage() {
         </Stack>
       </Box>
 
-      <Container maxW={'8xl'} p={4}>
+      <Container maxW={'8xl'} p={8} bg='gray.50' borderRadius='lg' mb='8'>
         <Stack
           align={'center'}
           spacing={{ base: 4, md: 0 }}
           py={{ base: 8, md: 12 }}
           direction={{ base: 'column', md: 'row' }}
-          bg='gray.50'
-          borderRadius='lg'
         >
           <VStack flex={0.5} spacing={{ base: 5, md: 10 }} m={8}>
             <HStack spacing={4}>
@@ -77,7 +75,7 @@ export default function ContactUsPage() {
             </HStack>
           </VStack>
 
-          <Stack flex={1} minW={{ base: '100%', md: 'auto' }} p={4}>
+          <Stack flex={1} minW={{ base: '100%', md: 'auto' }}>
             <Box bg='white' borderRadius='lg'>
               <Box m={8} color='#0B0E3F'>
                 <VStack spacing={5}>
