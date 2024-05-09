@@ -192,6 +192,10 @@ const CommunityPolicingCentres = () => {
                   <Td><a href="https://www.wechcpc.com/" target="_blank" rel="noopener noreferrer">West End – Coal Harbour CPC</a></Td>
                   <Td><a href="tel:604-717-2924">604-717-2924</a> | <a href="mailto:info@wechcpc.com">info@wechcpc.com</a></Td>
                 </Tr>
+                <Tr>
+                  <Td><a href="https://https://mpcpc.ca/" target="_blank" rel="noopener noreferrer">Mount Pleasant CPC</a></Td>
+                  <Td><a href="tel:604-717-0684">604-717-0684</a> | <a href="mailto:info@mpcpc.ca">info@mpcpc.ca</a></Td>
+                </Tr>
               </Tbody>
             </Table>
           </Center>
