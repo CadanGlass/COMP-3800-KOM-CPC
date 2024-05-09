@@ -50,7 +50,7 @@ const MissionStatement = () => {
         </Text>
       </Container>
 
-      
+
       <Container maxW="container.md">
         <Box textAlign="center" mb={20}>
           {/* Border Map of KOM CPC area */}
@@ -204,7 +204,7 @@ const CommunityPolicingCentres = () => {
 
 
 
-const HomePage = () => {
+const AboutPage = () => {
   return (
     <Box bg='white'>
     <Stack spacing={8} p={8}>
@@ -217,4 +217,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default AboutPage;
