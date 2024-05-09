@@ -14,7 +14,7 @@ import komPartnersImage from "../assets/kom_partners_in_safety_.png";
 
 const MissionStatement = () => {
   return (
-    <Box as="section" bg="gray.100" py={24}>
+    <Box as="section" bg="gray.200" py={24} >
       <Container maxW="container.xl">
         <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={12}>
           <GridItem>
@@ -56,16 +56,18 @@ const MissionStatement = () => {
               <br />The KOM CPC provides community policing services, such as patrols, event support and information in partnership with the Vancouver Police Department, the City of Vancouver and other area organizations. Our range of initiatives can be viewed on the Programs page.
               <br />
               <br />As part of Patrol District Four, the KOM CPC’s jurisdiction is nearly 40% of Vancouver’s landmass, encompassing the majority of Vancouver’s west side communities including:
-              <br />
-              <br />Arbutus Ridge (South)
-              <br />Dunbar – Southlands
-              <br />Hillcrest – Riley Park
-              <br />Kerrisdale
-              <br />Oakridge
-              <br />Marpole
-              <br />Shaughnessy
-              <br />South Cambie
-              <br />
+                <br />
+                <br />
+                  <ul style={{ paddingLeft: "20px" }}>
+                        <li>Arbutus Ridge (South)</li>
+                        <li>Dunbar – Southlands</li>
+                        <li>Hillcrest – Riley Park</li>
+                        <li>Kerrisdale</li>
+                        <li>Oakridge</li>
+                        <li>Marpole</li>
+                        <li>Shaughnessy</li>
+                        <li>South Cambie</li>
+                </ul>
               <br />The Kerrisdale Oakridge Marpole Community Policing Centre is a registered non-profit society overseen by a board, and staffed by an Executive Director and a Volunteer Coordinator.
               <br />
             </Text>
@@ -94,7 +96,7 @@ const MissionStatement = () => {
 
 const BorderMap = () => {
   return (
-    <Box as="section" bg="gray.400" py={24}>
+    <Box as="section" bg="gray.300" py={24}>
       <Container maxW="container.xl">
         <Box textAlign="center" mb={20}>
           {/* Border Map of KOM CPC area */}
@@ -213,7 +215,6 @@ const HomePage = () => {
     <>
       <MissionStatement />
       <BorderMap />
-
       <PartnersInSafety />
       <CommunityPolicingCentres />
     </>
