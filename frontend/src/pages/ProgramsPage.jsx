@@ -1,24 +1,37 @@
 import React from 'react';
-import { Box, SimpleGrid, Image, Text, Button, VStack, Heading } from '@chakra-ui/react';
+import { Box, SimpleGrid, Text, VStack, Heading, Button, Image } from '@chakra-ui/react';
+import ProgramCard from '../components/programs/ProgramCard';
 
 const cardData = [
   {
-    title: "Program 1",
-    description: "This is a short description of Program 1.",
+    title: "Community Patrol Programs",
+    description: "The KOM CPC’s patrols are our most high-visibility activities, and most popular. Trained volunteers patrol, based on VPD crime data, input from authorities and the community, and historical data, and are required to record information, and communicate with residents and businesses about any recent criminal activities or safety concerns.",
     imageUrl: "https://via.placeholder.com/150",
-    learnMoreLink: "#"
+    learnMoreLink: "#",
+    accordionItems: [
+      { title: "Patrol Routes", content: "Details about patrol routes..." },
+      { title: "Volunteer Training", content: "Information about volunteer training..." },
+    ]
   },
   {
-    title: "Program 2",
-    description: "This is a short description of Program 2.",
+    title: "Law Enforcement Partnerships",
+    description: "In conjunction with ICBC and the VPD, our volunteers participate in activities such as ICBC Speedwatch and Theft From Auto (TFA) alerts. These activities may coincide with patrols or be part of larger prevention activities involving other community policing centres or law-enforcement agencies.",
     imageUrl: "https://via.placeholder.com/150",
-    learnMoreLink: "#"
+    learnMoreLink: "#",
+    accordionItems: [
+      { title: "ICBC Speedwatch", content: "Details about ICBC Speedwatch..." },
+      { title: "Theft From Auto Alerts", content: "Information about TFA alerts..." },
+    ]
   },
   {
-    title: "Program 3",
-    description: "This is a short description of Program 3.",
+    title: "Community Outreach & Initiatives",
+    description: "KOM CPC volunteers take part in numerous community and outreach events, with the goals of improving community safety and providing awareness of policing resources.",
     imageUrl: "https://via.placeholder.com/150",
-    learnMoreLink: "#"
+    learnMoreLink: "#",
+    accordionItems: [
+      { title: "Community Events", content: "Details about community events..." },
+      { title: "Safety Awareness Programs", content: "Information about safety programs..." },
+    ]
   }
 ];
 
@@ -51,20 +64,18 @@ export default function ProgramsPage() {
       <CustomBanner />
       <Box textAlign="center" mb="8">
         <Heading as="h1" mb="4">KOM CPC Programs</Heading>
-        <Text>Explore our various programs designed to empower and educate our community. Each program is tailored to address specific needs and interests.</Text>
+        <Text>The KOM CPC offers a variety of public safety and crime-prevention programs. Initiatives such as community policing patrols, ICBC Speedwatch and event outreach are just some of our most popular.</Text>
       </Box>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing="8">
+      <SimpleGrid columns={{ base: 1 }} spacing="8">
         {cardData.map((card, index) => (
-          <Box key={index} borderWidth="1px" borderRadius="lg" overflow="hidden" display="flex" flexDirection="column" width="100%">
-            <VStack align="start" spacing="4" p="4" flex="1">
-              <Text fontWeight="bold" fontSize="xl">{card.title}</Text>
-              <Text>{card.description}</Text>
-              <Button colorScheme="red" onClick={() => window.location.href = card.learnMoreLink}>Learn More →</Button>
-            </VStack>
-            <Box flexShrink="0" p="4">
-              <Image src={card.imageUrl} alt={`Image of ${card.title}`} width="100%" objectFit="cover" borderRadius="md" />
-            </Box>
-          </Box>
+          <ProgramCard
+            key={index}
+            title={card.title}
+            description={card.description}
+            imageUrl={card.imageUrl}
+            learnMoreLink={card.learnMoreLink}
+            accordionItems={card.accordionItems}
+          />
         ))}
       </SimpleGrid>
     </Box>
