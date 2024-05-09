@@ -128,6 +128,7 @@ const CommunityPolicingCentres = () => {
             Below is the information for KOM Policing Centres:
           </Text>
           <Center>
+            <Box overflowX="auto">
             <Table variant="simple">
               <Thead>
                 <Tr borderBottom="2px solid" borderColor="gray.500">
@@ -183,6 +184,7 @@ const CommunityPolicingCentres = () => {
 
               </Tbody>
             </Table>
+            </Box>
           </Center>
         </Box>
       </Container>
