@@ -37,7 +37,7 @@ const events = [
 ];
 
 const EventsPage = () => {
-  const bg = useColorModeValue("gray.50", "gray.800");
+  const bg = useColorModeValue("white", "gray.700");
   const inputColor = useColorModeValue("gray.300", "gray.700");
   const cardBg = useColorModeValue("white", "gray.700");
   const textColor = useColorModeValue("gray.800", "gray.100");
