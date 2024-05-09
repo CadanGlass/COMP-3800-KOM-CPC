@@ -49,7 +49,9 @@ const MissionStatement = () => {
           <br />
         </Text>
       </Container>
-            <Container maxW="container.md">
+
+      
+      <Container maxW="container.md">
         <Box textAlign="center" mb={20}>
           {/* Border Map of KOM CPC area */}
           <Box display="flex" justifyContent="center">
