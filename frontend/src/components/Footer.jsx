@@ -29,11 +29,11 @@ const Footer = () => {
       <Container as={Stack} maxW={"6xl"} py={10}>
         <Stack
           direction={{ base: "column", lg: "row" }}
-          spacing={10}
+          spacing={20} // Increased spacing
           justify="space-between"
-          align={{ base: "center", lg: "flex-start" }} // Center align on small screens, left align on large
+          align={{ base: "center", lg: "flex-start" }}
         >
-          <VStack spacing={4} alignItems={{ base: "center", lg: "flex-start" }}>
+          <VStack spacing={6} alignItems={{ base: "center", lg: "flex-start" }}>
             <Link
               display="flex"
               alignItems="center"
@@ -56,7 +56,7 @@ const Footer = () => {
           </VStack>
           <Stack
             direction={{ base: "column", md: "row" }}
-            spacing={10}
+            spacing={12} // Increased spacing
             alignItems={{ base: "center", md: "flex-start" }}
           >
             <Box textAlign={{ base: "center", md: "left" }}>
@@ -71,7 +71,9 @@ const Footer = () => {
               <Heading size="md" mb={2}>
                 Volunteer
               </Heading>
-              <VStack spacing={1} align="stretch">
+              <VStack spacing={3} align="stretch">
+                {" "}
+                // Increased spacing
                 <Link href="#">Program</Link>
                 <Link href="#">Calendar</Link>
                 <Link href="#">Newsletter</Link>
@@ -96,7 +98,9 @@ const Footer = () => {
             <Heading size="md" mb={2}>
               Follow us
             </Heading>
-            <Stack direction={"row"} spacing={6}>
+            <Stack direction={"row"} spacing={10}>
+              {" "}
+              // Increased spacing
               <Link href={"https://www.facebook.com/KOMCPC"}>
                 <Icon as={FaFacebook} />
               </Link>
