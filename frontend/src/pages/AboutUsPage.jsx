@@ -7,87 +7,56 @@
 // }
 
 
-import { Box, Container, Heading, Text, Grid, GridItem, Image, Center, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import { Box, Container, Heading, Text,  Image, Center, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 
 import komPartnersImage from "../assets/kom_partners_in_safety_.png";
 
-
 const MissionStatement = () => {
   return (
-    <Box as="section" bg="gray.200" py={24} >
+    <Box as="section" bg="gray.200" py={12} px={6} borderRadius="xl" mb={8}>
       <Container maxW="container.xl">
-        <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={12}>
-          <GridItem>
-            <Heading as="h2" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>
-              <div id="outer-wrap" className="wpex-clr">
-                <div id="wrap" className="wpex-clr">
-                  <main id="main" className="site-main wpex-clr">
-                    <div id="content-wrap" className="container wpex-clr">
-                      <div id="primary" className="content-area wpex-clr">
-                        <div id="content" className="site-content wpex-clr">
-                          <article id="single-blocks" className="single-page-article wpex-clr">
-                            <div className="single-page-content single-content entry wpex-clr">
-                              <div className="vc_row wpb_row vc_row-fluid wpex-vc-row-boxed-layout-stretched">
-                                <div className="wpb_column vc_column_container vc_col-sm-12">
-                                  <div className="vc_column-inner">
-                                    <div className="wpb_wrapper">
-                                      <div className="wpb_text_column has-custom-color wpex-child-inherit-color wpb_content_element vc_custom_1607907227802">
-                                        <div className="wpb_wrapper">
-                                          <h2></h2>
-                                          <h2 id="iv9f9">Mission Statement</h2>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </article>
-                        </div>
-                      </div>
-                    </div>
-                  </main>
-                </div>
-              </div>
-            </Heading>
-            <Text mb={8}>
-              The KOM CPC mobilizes the efforts of volunteers, community members and the Vancouver Police Department to promote safety, justice and understanding in accordance with Vancouver’s Community Policing mandate.
-              <br />
-              <br />The KOM CPC provides community policing services, such as patrols, event support and information in partnership with the Vancouver Police Department, the City of Vancouver and other area organizations. Our range of initiatives can be viewed on the Programs page.
-              <br />
-              <br />As part of Patrol District Four, the KOM CPC’s jurisdiction is nearly 40% of Vancouver’s landmass, encompassing the majority of Vancouver’s west side communities including:
-                <br />
-                <br />
-                  <ul style={{ paddingLeft: "20px" }}>
-                        <li>Arbutus Ridge (South)</li>
-                        <li>Dunbar – Southlands</li>
-                        <li>Hillcrest – Riley Park</li>
-                        <li>Kerrisdale</li>
-                        <li>Oakridge</li>
-                        <li>Marpole</li>
-                        <li>Shaughnessy</li>
-                        <li>South Cambie</li>
-                </ul>
-              <br />The Kerrisdale Oakridge Marpole Community Policing Centre is a registered non-profit society overseen by a board, and staffed by an Executive Director and a Volunteer Coordinator.
-              <br />
-            </Text>
-          </GridItem>
-          <GridItem>
-            <Heading as="h2" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Our Story</Heading>
-            <Text mb={8}>
-              The KOM CPC traces its roots to the late 1980’s, when the area surrounding Oakridge Centre experienced increased criminal activity. The closure of the neighbourhood’s policing sub-station removed a visible police presence, further concerning residents.
-              <br />
-              <br />Citizens eventually created a focus group at the Oakridge Senior’s Centre, with the goal of improving area safety and crime awareness.
-              <br />
-              <br />At the same time, the Marpole Oakridge Area Council Society (MOACS) sought a location for its members to access crime prevention information.
-              <br />
-              <br />Sensing an opportunity for collaboration, the Vancouver Police Department advised both organizations to work together, and assigned a full-time constable to the area. Office space on 5655 Cambie Street was donated by Dr. Chun Gunn, and furnishings were donated by volunteers and the VPD.
-              <br />
-              <br />On July 5th, 1999, the Marpole Oakridge Community Policing Centre opened its doors and became a part of Vancouver’s community policing system. It’s initial jurisdictions of Marpole and Oakridge would soon expand, adding Kerrisdale and Dunbar in 2001, becoming the KOM CPC. The office’s location would move shortly afterward, for a geographically central location.
-              <br />
-            </Text>
-          </GridItem>
-        </Grid>
+        <Heading as="h2" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Mission Statement</Heading>
+        <Text mb={8}>
+          The KOM CPC mobilizes the efforts of volunteers, community members and the Vancouver Police Department to promote safety, justice and understanding in accordance with Vancouver’s Community Policing mandate.
+          <br />
+          <br />The KOM CPC provides community policing services, such as patrols, event support and information in partnership with the Vancouver Police Department, the City of Vancouver and other area organizations. Our range of initiatives can be viewed on the Programs page.
+          <br />
+          <br />As part of Patrol District Four, the KOM CPC’s jurisdiction is nearly 40% of Vancouver’s landmass, encompassing the majority of Vancouver’s west side communities including:
+          <ul style={{ paddingLeft: "20px" }}>
+            <li>Arbutus Ridge (South)</li>
+            <li>Dunbar – Southlands</li>
+            <li>Hillcrest – Riley Park</li>
+            <li>Kerrisdale</li>
+            <li>Oakridge</li>
+            <li>Marpole</li>
+            <li>Shaughnessy</li>
+            <li>South Cambie</li>
+          </ul>
+          <br />The Kerrisdale Oakridge Marpole Community Policing Centre is a registered non-profit society overseen by a board, and staffed by an Executive Director and a Volunteer Coordinator.
+          <br />
+        </Text>
+      </Container>
+    </Box>
+  );
+};
+
+const OurStory = () => {
+  return (
+    <Box as="section" bg="white" py={12} px={6} borderRadius="md" mb={8}>
+      <Container maxW="container.xl">
+        <Heading as="h2" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Our Story</Heading>
+        <Text mb={8}>
+          The KOM CPC traces its roots to the late 1980’s, when the area surrounding Oakridge Centre experienced increased criminal activity. The closure of the neighbourhood’s policing sub-station removed a visible police presence, further concerning residents.
+          <br />
+          <br />Citizens eventually created a focus group at the Oakridge Senior’s Centre, with the goal of improving area safety and crime awareness.
+          <br />
+          <br />At the same time, the Marpole Oakridge Area Council Society (MOACS) sought a location for its members to access crime prevention information.
+          <br />
+          <br />Sensing an opportunity for collaboration, the Vancouver Police Department advised both organizations to work together, and assigned a full-time constable to the area. Office space on 5655 Cambie Street was donated by Dr. Chun Gunn, and furnishings were donated by volunteers and the VPD.
+          <br />
+          <br />On July 5th, 1999, the Marpole Oakridge Community Policing Centre opened its doors and became a part of Vancouver’s community policing system. It’s initial jurisdictions of Marpole and Oakridge would soon expand, adding Kerrisdale and Dunbar in 2001, becoming the KOM CPC. The office’s location would move shortly afterward, for a geographically central location.
+          <br />
+        </Text>
       </Container>
     </Box>
   );
@@ -96,7 +65,7 @@ const MissionStatement = () => {
 
 const BorderMap = () => {
   return (
-    <Box as="section" bg="gray.300" py={24}>
+    <Box as="section" bg="gray.200" py={24}>
       <Container maxW="container.xl">
         <Box textAlign="center" mb={20}>
           {/* Border Map of KOM CPC area */}
@@ -136,7 +105,7 @@ const PartnersInSafety = () => {
 const CommunityPolicingCentres = () => {
   return (
     <Box as="section" bg="gray.300" py={24}>
-      <Container maxW="container.xl">
+      <Container maxW="container.xl" >
         <Box textAlign="center" mb={20}>
           <Heading as="h1" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Vancouver Community Policing Centres</Heading>
           <Text mb={8}>
@@ -215,6 +184,7 @@ const HomePage = () => {
     <>
       <MissionStatement />
       <BorderMap />
+      <OurStory />
       <PartnersInSafety />
       <CommunityPolicingCentres />
     </>
