@@ -4,7 +4,6 @@ import { DefaultCard } from '../DefaultComponents';
 
 const VolunteeringActivitiesCard = ({ volunteerData, title, description }) => {
 	const stackSpacing = useBreakpointValue({ base: 8, md: 12, xl: 32 });
-	const boxPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 });
 
 	return (
 		<DefaultCard>
