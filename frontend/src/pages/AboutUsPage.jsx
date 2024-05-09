@@ -13,6 +13,7 @@ import { Box,
         Text,  
         Image, 
         Center, 
+        Stack,
         Table, 
         Thead, 
         Tbody, 
@@ -24,8 +25,9 @@ import komPartnersImage from "../assets/kom_partners_in_safety_.png";
 
 const MissionStatement = () => {
   return (
-    <Box as="section" bg="gray.200" py={12} px={6} borderRadius="lg" mb={8} m='2rem'>
-      <Container maxW="container.md">
+    <Box as="section" bg="gray.100" py={12} px={6} borderRadius="lg" mb={8} m='2rem'>
+      <Container>
+      {/* <Container maxW="container.md"> */}
         <Heading as="h2" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Mission Statement</Heading>
         <Text mb={8}>
           The KOM CPC mobilizes the efforts of volunteers, community members and the Vancouver Police Department to promote safety, justice and understanding in accordance with Vancouver’s Community Policing mandate.
@@ -53,7 +55,7 @@ const MissionStatement = () => {
 
 const OurStory = () => {
   return (
-    <Box as="section" bg="white" py={12} px={6} borderRadius="md" mb={8}>
+    <Box as="section" bg="gray.100" py={12} px={6} borderRadius="lg" mb={8} m='2rem' >
       <Container maxW="container.md">
         <Heading as="h2" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Our Story</Heading>
         <Text mb={8}>
@@ -76,7 +78,7 @@ const OurStory = () => {
 
 const BorderMap = () => {
   return (
-    <Box as="section" bg="gray.200" py={24}>
+    <Box as="section" bg="gray.100" py={24}  borderRadius="lg"  m='2rem' >
       <Container maxW="container.md">
         <Box textAlign="center" mb={20}>
           {/* Border Map of KOM CPC area */}
@@ -91,7 +93,7 @@ const BorderMap = () => {
 
 const PartnersInSafety = () => {
   return (
-    <Box as="section" bg="gray.200" py={24}>
+    <Box as="section" bg="gray.100" py={24}  borderRadius="lg"  m='2rem' >
       <Container maxW="container.md">
         <Box textAlign="center" mb={20}>
           <Heading as="h1" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Our Partners In Safety</Heading>
@@ -115,7 +117,7 @@ const PartnersInSafety = () => {
 
 const CommunityPolicingCentres = () => {
   return (
-    <Box as="section" bg="gray.300" py={24}>
+    <Box as="section" bg="gray.100" py={24}  borderRadius="lg" m='2rem'  >
       <Container maxW="container.md" >
         <Box textAlign="center" mb={20}>
           <Heading as="h1" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Vancouver Community Policing Centres</Heading>
@@ -128,53 +130,53 @@ const CommunityPolicingCentres = () => {
           <Center>
             <Table variant="simple">
               <Thead>
-                <Tr>
+                <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Th>Policing Centre</Th>
                   <Th>Contact</Th>
                 </Tr>
               </Thead>
               <Tbody>
-                <Tr>
+                <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.vacpc.org/" target="_blank" rel="noopener noreferrer">Aboriginal CPC</a></Td>
                   <Td><a href="tel:604-678-3790">604-678-3790</a> | <a href="mailto:info@vacpc.org">info@vacpc.org</a></Td>
                 </Tr>
-                <Tr>
+                 <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.chinesecpc.com/" target="_blank" rel="noopener noreferrer">Chinese CPC</a></Td>
                   <Td><a href="tel:604-688-5030">604-688-5030</a> | <a href="mailto:info@chinesecpc.com">info@chinesecpc.com</a></Td>
                 </Tr>
-                <Tr>
+                 <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.collingwoodcpc.com/" target="_blank" rel="noopener noreferrer">Collingwood CPC</a></Td>
                   <Td><a href="tel:604-717-2935">604-717-2935</a> | <a href="mailto:info@collingwoodcpc.com">info@collingwoodcpc.com</a></Td>
                 </Tr>
-                <Tr>
+                 <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.gwcpc.ca/" target="_blank" rel="noopener noreferrer">Grandview-Woodland CPC</a></Td>
                   <Td><a href="tel:604-717-2932">604-717-2932</a> | <a href="mailto:info@gwcpc.ca">info@gwcpc.ca</a></Td>
                 </Tr>
-                <Tr>
+                <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.granvillecpc.ca/" target="_blank" rel="noopener noreferrer">Granville Downtown South CPC</a></Td>
                   <Td><a href="tel:604-717-2920">604-717-2920</a> | <a href="mailto:office@granvillecpc.ca">office@granvillecpc.ca</a></Td>
                 </Tr>
-                <Tr>
+                 <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.hscpc.com/" target="_blank" rel="noopener noreferrer">Hastings – Sunrise CPC</a></Td>
                   <Td><a href="tel:604-678-3790">604-678-3790</a> | <a href="mailto:info@hscpc.com">info@hscpc.com</a></Td>
                 </Tr>
-                <Tr>
+                 <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.kitsfaircpc.ca/" target="_blank" rel="noopener noreferrer">Kitsilano Fairview CPC</a></Td>
                   <Td><a href="tel:604-717-4023">604-717-4023</a> | <a href="mailto:kitsfaircpc@gmail.com">kitsfaircpc@gmail.com</a></Td>
                 </Tr>
-                <Tr>
+                 <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://https://mpcpc.ca/" target="_blank" rel="noopener noreferrer">Mount Pleasant CPC</a></Td>
                   <Td><a href="tel:604-717-0684">604-717-0684</a> | <a href="mailto:info@mpcpc.ca">info@mpcpc.ca</a></Td>
                 </Tr>
-                <Tr>
+                 <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.svcpc.com/" target="_blank" rel="noopener noreferrer">South Vancouver CPC</a></Td>
                   <Td><a href="tel:604-717-2940">604-717-2940</a> | <a href="mailto:beata.fischer@svcpc.com">beata.fischer@svcpc.com</a></Td>
                 </Tr>
-                <Tr>
+                 <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.strathconacpc.ca/" target="_blank" rel="noopener noreferrer">Strathcona CPC</a></Td>
                   <Td><a href="tel:604-717-0622">604-717-0622</a> | <a href="mailto:info@strathconacpc.ca">info@strathconacpc.ca</a></Td>
                 </Tr>
-                <Tr>
+                <Tr borderBottom="2px solid" borderColor="gray.500">
                   <Td><a href="https://www.wechcpc.com/" target="_blank" rel="noopener noreferrer">West End – Coal Harbour CPC</a></Td>
                   <Td><a href="tel:604-717-2924">604-717-2924</a> | <a href="mailto:info@wechcpc.com">info@wechcpc.com</a></Td>
                 </Tr>
@@ -192,13 +194,15 @@ const CommunityPolicingCentres = () => {
 
 const HomePage = () => {
   return (
-    <>
+    <Box bg='white'>
+    <Stack spacing={8} p={8}>
       <MissionStatement />
       <BorderMap />
       <OurStory />
       <PartnersInSafety />
       <CommunityPolicingCentres />
-    </>
+   </Stack>
+    </Box>
   );
 };
 
