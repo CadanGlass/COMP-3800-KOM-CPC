@@ -17,6 +17,7 @@ import VolunteerNowButton from './VolunteerNowButton';
 import KOM_logo from '../assets/KOM_Logo.png';
 
 const NAV_ITEMS = [
+	{ label: 'Home', path: '/' },
 	{
 		label: 'Volunteer',
 		path: 'volunteer',
