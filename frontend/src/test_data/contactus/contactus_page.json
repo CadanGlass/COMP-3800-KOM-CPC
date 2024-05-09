@@ -1,0 +1,13 @@
+{
+  "HeroTitle": "Contact KOM CPC",
+  "ContactInfo": {
+    "Phone": "604 717 3434",
+    "Email": "test@gmail.com",
+    "Address": "6070 East Boulevard",
+    "Hours": "Monday - Saturday: 10:00am - 4:00pm"
+  },
+  "EmergencyCard": {
+    "Title": "In An Emergency, Call 9-1-1",
+    "Description": "Do not contact the KOM CPC in emergencies. If an immediate police response IS NOT required or you need to report crimes after they’ve occurred, contact VPD Non-Emergency at 604.717.3321 or use the Citizen’s Crime Reporting website."
+  }
+}
