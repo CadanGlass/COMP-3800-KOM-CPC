@@ -50,7 +50,7 @@ const Footer = () => {
                 KOM CPC
               </Text>
             </Link>
-            <Text fontSize="sm">
+            <Text fontSize="sm" textAlign={{ base: "center", lg: "center" }}>
               © Kerrisdale Oakridge Marpole Community Policing Centre - 2024
             </Text>
           </VStack>
