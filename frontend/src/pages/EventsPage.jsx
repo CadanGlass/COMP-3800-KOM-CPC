@@ -2,7 +2,7 @@ import {
   Box,
   Flex,
   VStack,
-  HStack,
+  Stack,
   Text,
   Input,
   IconButton,
@@ -10,6 +10,7 @@ import {
   Heading,
   Divider,
   useColorModeValue,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { SearchIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
@@ -20,7 +21,12 @@ const events = [
     price: "Free",
     time: "10:00",
   },
-  { date: "OCT 27", name: "Community Outreach", price: "$12.99", time: "16:00" },
+  {
+    date: "OCT 27",
+    name: "Community Outreach",
+    price: "$12.99",
+    time: "16:00",
+  },
   {
     date: "OCT 30",
     name: "Networking with VPD",
@@ -36,6 +42,7 @@ const EventsPage = () => {
   const cardBg = useColorModeValue("white", "gray.700");
   const textColor = useColorModeValue("gray.800", "gray.100");
   const hoverBg = useColorModeValue("gray.100", "gray.600");
+  const stackDirection = useBreakpointValue({ base: "column", md: "row" });
 
   return (
     <Box bg={bg} minHeight="100vh" p={4}>
@@ -56,8 +63,14 @@ const EventsPage = () => {
             variant="ghost"
           />
         </Flex>
-        <HStack spacing={4} overflowX="auto">
-          {["All", "Speed Control", "Neighbourhood Watch", "Workshops", "Education"].map((category) => (
+        <Stack direction={stackDirection} spacing={4} overflowX="auto">
+          {[
+            "All",
+            "Speed Control",
+            "Neighbourhood Watch",
+            "Workshops",
+            "Education",
+          ].map((category) => (
             <Button
               key={category}
               variant="outline"
@@ -68,7 +81,7 @@ const EventsPage = () => {
               {category}
             </Button>
           ))}
-        </HStack>
+        </Stack>
         <Divider orientation="horizontal" borderColor={inputColor} my={2} />
         <VStack spacing={4}>
           {events.map((event, index) => (
