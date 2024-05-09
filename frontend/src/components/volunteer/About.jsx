@@ -6,20 +6,15 @@ import {
 	Text,
 	Image,
 } from '@chakra-ui/react';
+import { DefaultCard } from '../DefaultComponents';
 
 const AboutCard = ({ aboutData }) => {
 	// add image
 	const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
 	const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
-	const boxPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 });
 
 	return (
-		<Box
-			paddingX={boxPaddingX}
-			py={6}
-			backgroundColor={'gray.50'}
-			width={'100%'}
-		>
+		<DefaultCard>
 			<Stack direction={stackDirection} spacing={stackSpacing}>
 				<Box flex={1} alignSelf={'center'}>
 					<Image
@@ -38,7 +33,7 @@ const AboutCard = ({ aboutData }) => {
 					))}
 				</Box>
 			</Stack>
-		</Box>
+		</DefaultCard>
 	);
 };
 export default AboutCard;

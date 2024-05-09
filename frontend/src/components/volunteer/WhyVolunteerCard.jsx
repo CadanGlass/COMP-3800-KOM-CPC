@@ -6,22 +6,17 @@ import {
 	Stack,
 	useBreakpointValue,
 } from '@chakra-ui/react';
-import WhyVolunteerSubtextCard from './WhyVolunteerSubtextCard';
+import SubtextCardWithIcon from '../SubtextCardWithIcon';
+import { DefaultCard } from '../DefaultComponents';
 
 const WhyVolunteerCard = ({ title, description, subtext = [] }) => {
 	const stackSpacing = useBreakpointValue({ base: 8, md: 12, xl: 32 });
 	const stackDirection = useBreakpointValue({ base: 'column', lg: 'row' });
 	const subtextSpacing = useBreakpointValue({ base: 4, md: 8, lg: 16 });
 	const subtextDirection = useBreakpointValue({ base: 'column', lg: 'row' });
-	const boxPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 });
 
 	return (
-		<Box
-			paddingX={boxPaddingX}
-			py={6}
-			backgroundColor={'gray.50'}
-			width={'100%'}
-		>
+		<DefaultCard>
 			<Stack
 				direction={stackDirection}
 				maxW="100%"
@@ -54,11 +49,11 @@ const WhyVolunteerCard = ({ title, description, subtext = [] }) => {
 			<Stack direction={subtextDirection} spacing={subtextSpacing}>
 				{subtext.map((subtextData, index) => (
 					<Box key={`subtext${index}`} flex={1}>
-						<WhyVolunteerSubtextCard subtextData={subtextData} />
+						<SubtextCardWithIcon subtextData={subtextData} />
 					</Box>
 				))}
 			</Stack>
-		</Box>
+		</DefaultCard>
 	);
 };
 

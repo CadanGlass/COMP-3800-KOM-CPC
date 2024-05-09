@@ -8,6 +8,7 @@ import {
 	Flex,
 } from '@chakra-ui/react';
 import VolunteerNowButton from '../VolunteerNowButton';
+import { DefaultCard } from '../DefaultComponents';
 
 const Hero = ({ title }) => {
 	// add the image
@@ -20,18 +21,11 @@ const Hero = ({ title }) => {
 		base: '1fr',
 		xl: '1fr 1fr',
 	});
-	const boxPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 });
-	const internalPaddingY = useBreakpointValue({ base: 0, xl: 4, '2xl': 12 });
 	const headingTextAlign = useBreakpointValue({ base: 'center', xl: 'left' });
 	const buttonJustify = useBreakpointValue({ base: 'right', xl: 'left' });
 
 	return (
-		<Box
-			paddingX={boxPaddingX}
-			py={6}
-			backgroundColor={'gray.50'}
-			width={'100%'}
-		>
+		<DefaultCard>
 			<Flex justify={'center'}>
 				<Grid
 					templateAreas={gridTemplateAreas}
@@ -65,7 +59,7 @@ const Hero = ({ title }) => {
 					</GridItem>
 				</Grid>
 			</Flex>
-		</Box>
+		</DefaultCard>
 	);
 };
 
