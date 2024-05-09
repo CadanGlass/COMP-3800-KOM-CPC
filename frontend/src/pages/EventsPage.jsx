@@ -37,12 +37,12 @@ const events = [
 ];
 
 const EventsPage = () => {
-  const bg = useColorModeValue("white", "gray.700");
-  const inputColor = useColorModeValue("gray.300", "gray.700");
-  const cardBg = useColorModeValue("white", "gray.700");
-  const textColor = useColorModeValue("gray.800", "gray.100");
-  const hoverBg = useColorModeValue("gray.100", "gray.600");
-  const stackDirection = useBreakpointValue({ base: "column", md: "row" });
+  const bg = useColorModeValue("white", "gray.800"); // Background for the entire page
+  const cardBg = useColorModeValue("gray.50", "gray.700"); // Background for the cards
+  const textColor = useColorModeValue("gray.800", "white"); // Text color based on theme
+  const borderColor = useColorModeValue("gray.200", "gray.600"); // Border color for inputs and buttons
+  const hoverBg = useColorModeValue("gray.100", "gray.600"); // Hover background color for buttons
+  const stackDirection = useBreakpointValue({ base: "column", md: "row" }); // Responsive direction for the stack
 
   return (
     <Box bg={bg} minHeight="100vh" p={4}>
@@ -55,12 +55,14 @@ const EventsPage = () => {
             icon={<SearchIcon />}
             aria-label="Search Events"
             variant="ghost"
+            colorScheme="gray"
           />
-          <Input placeholder="Search Events" borderColor={inputColor} />
+          <Input placeholder="Search Events" borderColor={borderColor} />
           <IconButton
             icon={<ChevronRightIcon />}
             aria-label="Open Menu"
             variant="ghost"
+            colorScheme="gray"
           />
         </Flex>
         <Stack direction={stackDirection} spacing={4} overflowX="auto">
@@ -74,7 +76,7 @@ const EventsPage = () => {
             <Button
               key={category}
               variant="outline"
-              borderColor={inputColor}
+              borderColor={borderColor}
               color={textColor}
               _hover={{ bg: hoverBg }}
             >
@@ -82,7 +84,7 @@ const EventsPage = () => {
             </Button>
           ))}
         </Stack>
-        <Divider orientation="horizontal" borderColor={inputColor} my={2} />
+        <Divider orientation="horizontal" borderColor={borderColor} my={2} />
         <VStack spacing={4}>
           {events.map((event, index) => (
             <Box
