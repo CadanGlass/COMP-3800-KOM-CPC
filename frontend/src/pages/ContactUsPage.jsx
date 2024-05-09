@@ -24,11 +24,12 @@ import {
   MdOutlinePerson,
 } from 'react-icons/md';
 
+import { DefaultPage } from '../components/DefaultComponents';
 import Header from '../components/Header';
 
 export default function ContactUsPage() {
   return (
-    <>
+    <DefaultPage>
       <Header
         title='Contact KOM CPC'
         description='Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore'
@@ -49,14 +50,14 @@ export default function ContactUsPage() {
         </Stack>
       </Box>
 
-      <Container maxW={'8xl'} p={8} bg='gray.50' borderRadius='lg' mb='8'>
+      <Container maxW='100%' p={8} bg='gray.50' borderRadius='lg'>
         <Stack
           align={'center'}
-          spacing={{ base: 4, md: 0 }}
+          spacing='8'
           py={{ base: 8, md: 12 }}
           direction={{ base: 'column', md: 'row' }}
         >
-          <VStack flex={0.5} spacing={{ base: 5, md: 10 }} m={8}>
+          <VStack flex={0.5} spacing={{ base: 5, md: 10 }}>
             <HStack spacing={4}>
               <Icon as={MdPhone} color={'gray.500'} />
               <Text>604 717 3434</Text>
@@ -77,64 +78,59 @@ export default function ContactUsPage() {
 
           <Stack flex={1} minW={{ base: '100%', md: 'auto' }}>
             <Box bg='white' borderRadius='lg'>
-              <Box m={8} color='#0B0E3F'>
-                <VStack spacing={5}>
-                  <FormControl id='name'>
-                    <FormLabel>Name</FormLabel>
-                    <InputGroup borderColor='gray.300'>
-                      <InputLeftElement
-                        pointerEvents='none'
-                        children={<MdOutlinePerson color='gray.800' />}
-                      />
-                      <Input type='text' size='md' />
-                    </InputGroup>
-                  </FormControl>
-                  <FormControl id='email'>
-                    <FormLabel>Email</FormLabel>
-                    <InputGroup borderColor='gray.300'>
-                      <InputLeftElement
-                        pointerEvents='none'
-                        children={<MdOutlineEmail color='gray.800' />}
-                      />
-                      <Input type='text' size='md' />
-                    </InputGroup>
-                  </FormControl>
-                  <FormControl id='phone'>
-                    <FormLabel>Phone</FormLabel>
-                    <InputGroup borderColor='gray.300'>
-                      <InputLeftElement
-                        pointerEvents='none'
-                        children={<MdPhone color='gray.800' />}
-                      />
-                      <Input type='text' size='md' />
-                    </InputGroup>
-                  </FormControl>
-                  <FormControl id='message'>
-                    <FormLabel>How can we help you?</FormLabel>
-                    <Textarea
-                      borderColor='gray.300'
-                      _hover={{
-                        borderRadius: 'gray.300',
-                      }}
-                      placeholder='Your message here...'
+              <VStack spacing={5} m={8} color='#0B0E3F'>
+                <FormControl id='name'>
+                  <FormLabel>Name</FormLabel>
+                  <InputGroup borderColor='gray.300'>
+                    <InputLeftElement
+                      pointerEvents='none'
+                      children={<MdOutlinePerson color='gray.800' />}
                     />
-                  </FormControl>
-                  <FormControl id='name' float='right'>
-                    <Button
-                      variant='solid'
-                      bg='#0D74FF'
-                      color='white'
-                      _hover={{}}
-                    >
-                      Send Message
-                    </Button>
-                  </FormControl>
-                </VStack>
-              </Box>
+                    <Input type='text' size='md' />
+                  </InputGroup>
+                </FormControl>
+                <FormControl id='email'>
+                  <FormLabel>Email</FormLabel>
+                  <InputGroup borderColor='gray.300'>
+                    <InputLeftElement
+                      pointerEvents='none'
+                      children={<MdOutlineEmail color='gray.800' />}
+                    />
+                    <Input type='text' size='md' />
+                  </InputGroup>
+                </FormControl>
+                <FormControl id='phone'>
+                  <FormLabel>Phone</FormLabel>
+                  <InputGroup borderColor='gray.300'>
+                    <InputLeftElement
+                      pointerEvents='none'
+                      children={<MdPhone color='gray.800' />}
+                    />
+                    <Input type='text' size='md' />
+                  </InputGroup>
+                </FormControl>
+                <FormControl id='message'>
+                  <FormLabel>How can we help you?</FormLabel>
+                  <Textarea
+                    borderColor='gray.300'
+                    placeholder='Your message here...'
+                  />
+                </FormControl>
+                <FormControl id='name' float='right'>
+                  <Button
+                    variant='solid'
+                    bg='blue.500'
+                    color='white'
+                    _hover={{ color: 'white', bg: '#0B0E3F' }}
+                  >
+                    Send Message
+                  </Button>
+                </FormControl>
+              </VStack>
             </Box>
           </Stack>
         </Stack>
       </Container>
-    </>
+    </DefaultPage>
   );
 }

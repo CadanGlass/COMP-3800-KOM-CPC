@@ -17,7 +17,7 @@ export default function Header({
   imageUrl,
 }) {
   return (
-    <Container maxW={'8xl'} bg='gray.50' borderRadius='lg' p={8} mt='8'>
+    <Container maxW='100%' bg='gray.50' borderRadius='lg' p={8}>
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
