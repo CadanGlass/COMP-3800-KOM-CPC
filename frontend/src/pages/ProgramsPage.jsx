@@ -36,7 +36,7 @@ function CustomBanner() {
       <VStack align="start" spacing="4" flex="1">
         <Heading as="h2" size="lg">Shield Your Sip</Heading>
         <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ipsa explicabo quasi. Illo nihil ex praesentium officiis maiores alias expedita!</Text>
-        <Button colorScheme="teal" onClick={() => window.location.href = "#"}>Learn More</Button>
+        <Button colorScheme="teal" onClick={() => window.location.href = "#"}>Learn More →</Button>
       </VStack>
       <Box boxSize="150px" ml="4">
         <Image src="https://via.placeholder.com/150" alt="Shield Your Sip" />
@@ -59,7 +59,7 @@ export default function ProgramsPage() {
             <VStack align="start" spacing="4" p="4" flex="1">
               <Text fontWeight="bold" fontSize="xl">{card.title}</Text>
               <Text>{card.description}</Text>
-              <Button colorScheme="red" onClick={() => window.location.href = card.learnMoreLink}>Learn More</Button>
+              <Button colorScheme="red" onClick={() => window.location.href = card.learnMoreLink}>Learn More →</Button>
             </VStack>
             <Box flexShrink="0" p="4">
               <Image src={card.imageUrl} alt={`Image of ${card.title}`} width="100%" objectFit="cover" borderRadius="md" />
