@@ -7,14 +7,25 @@
 // }
 
 
-import { Box, Container, Heading, Text,  Image, Center, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import { Box,
+        Container, 
+        Heading, 
+        Text,  
+        Image, 
+        Center, 
+        Table, 
+        Thead, 
+        Tbody, 
+        Tr, 
+        Th, 
+        Td } from "@chakra-ui/react";
 
 import komPartnersImage from "../assets/kom_partners_in_safety_.png";
 
 const MissionStatement = () => {
   return (
-    <Box as="section" bg="gray.200" py={12} px={6} borderRadius="xl" mb={8}>
-      <Container maxW="container.xl">
+    <Box as="section" bg="gray.200" py={12} px={6} borderRadius="lg" mb={8} m='2rem'>
+      <Container maxW="container.md">
         <Heading as="h2" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Mission Statement</Heading>
         <Text mb={8}>
           The KOM CPC mobilizes the efforts of volunteers, community members and the Vancouver Police Department to promote safety, justice and understanding in accordance with Vancouver’s Community Policing mandate.
@@ -43,7 +54,7 @@ const MissionStatement = () => {
 const OurStory = () => {
   return (
     <Box as="section" bg="white" py={12} px={6} borderRadius="md" mb={8}>
-      <Container maxW="container.xl">
+      <Container maxW="container.md">
         <Heading as="h2" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Our Story</Heading>
         <Text mb={8}>
           The KOM CPC traces its roots to the late 1980’s, when the area surrounding Oakridge Centre experienced increased criminal activity. The closure of the neighbourhood’s policing sub-station removed a visible police presence, further concerning residents.
@@ -66,7 +77,7 @@ const OurStory = () => {
 const BorderMap = () => {
   return (
     <Box as="section" bg="gray.200" py={24}>
-      <Container maxW="container.xl">
+      <Container maxW="container.md">
         <Box textAlign="center" mb={20}>
           {/* Border Map of KOM CPC area */}
           <Box display="flex" justifyContent="center">
@@ -81,7 +92,7 @@ const BorderMap = () => {
 const PartnersInSafety = () => {
   return (
     <Box as="section" bg="gray.200" py={24}>
-      <Container maxW="container.xl">
+      <Container maxW="container.md">
         <Box textAlign="center" mb={20}>
           <Heading as="h1" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Our Partners In Safety</Heading>
           <Text mb={8}>
@@ -105,7 +116,7 @@ const PartnersInSafety = () => {
 const CommunityPolicingCentres = () => {
   return (
     <Box as="section" bg="gray.300" py={24}>
-      <Container maxW="container.xl" >
+      <Container maxW="container.md" >
         <Box textAlign="center" mb={20}>
           <Heading as="h1" fontSize={{ base: "2xl", sm: "3xl" }} mb={4}>Vancouver Community Policing Centres</Heading>
           <Text mb={8}>
