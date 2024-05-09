@@ -49,6 +49,14 @@ const MissionStatement = () => {
           <br />
         </Text>
       </Container>
+            <Container maxW="container.md">
+        <Box textAlign="center" mb={20}>
+          {/* Border Map of KOM CPC area */}
+          <Box display="flex" justifyContent="center">
+            <iframe src="https://www.google.com/maps/d/embed?mid=14EQlSHq7tJJVlNIn_Sb3Y9PbVWk&ehbc=2E312F" width="640" height="480" title="Border Map" />
+          </Box>
+        </Box>
+      </Container>
     </Box>
   );
 };
@@ -76,20 +84,20 @@ const OurStory = () => {
 };
 
 
-const BorderMap = () => {
-  return (
-    <Box as="section" bg="gray.100" py={24}  borderRadius="lg"  m='2rem' >
-      <Container maxW="container.md">
-        <Box textAlign="center" mb={20}>
-          {/* Border Map of KOM CPC area */}
-          <Box display="flex" justifyContent="center">
-            <iframe src="https://www.google.com/maps/d/embed?mid=14EQlSHq7tJJVlNIn_Sb3Y9PbVWk&ehbc=2E312F" width="640" height="480" title="Border Map" />
-          </Box>
-        </Box>
-      </Container>
-    </Box>
-  );
-};
+// const BorderMap = () => {
+//   return (
+//     <Box as="section" bg="gray.100" py={24}  borderRadius="lg"  m='2rem' >
+//       <Container maxW="container.md">
+//         <Box textAlign="center" mb={20}>
+//           {/* Border Map of KOM CPC area */}
+//           <Box display="flex" justifyContent="center">
+//             <iframe src="https://www.google.com/maps/d/embed?mid=14EQlSHq7tJJVlNIn_Sb3Y9PbVWk&ehbc=2E312F" width="640" height="480" title="Border Map" />
+//           </Box>
+//         </Box>
+//       </Container>
+//     </Box>
+//   );
+// };
 
 const PartnersInSafety = () => {
   return (
@@ -199,7 +207,6 @@ const HomePage = () => {
     <Box bg='white'>
     <Stack spacing={8} p={8}>
       <MissionStatement />
-      <BorderMap />
       <OurStory />
       <PartnersInSafety />
       <CommunityPolicingCentres />
