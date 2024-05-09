@@ -12,7 +12,6 @@ const CustomAccordion = ({ accordionData: data = [] }) => {
 	if (!data.length) {
 		return <Text>No data to display</Text>;
 	}
-	console.log(data);
 
 	return (
 		<Accordion allowMultiple>
