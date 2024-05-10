@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Text, VStack, Container, IconButton } from '@chakra-ui/react';
+import {
+	Text,
+	VStack,
+	Container,
+	IconButton,
+	Divider,
+	Box,
+	Stack,
+} from '@chakra-ui/react';
 import { DefaultPage } from '../components/DefaultComponents';
 
 import Banner from '../components/home/Banner';
@@ -9,6 +17,8 @@ import PartnershipBanner from '../components/home/PartnershipBanner';
 import CallPoliceBanner from '../components/home/CallPoliceBanner';
 import AboutUs from '../components/home/AboutUs';
 import data from '../test_data/home_page.json';
+import SubtextCardWithIcon from '../components/SubtextCardWithIcon';
+import WhoWeAreCard from '../components/home/WhoWeAreCard';
 
 const url = 'http://localhost:1337/api/programs';
 
@@ -34,13 +44,16 @@ export default function HomePage() {
 
 	if (!programTitles.length) return <Text>Loading...</Text>;
 
+	const whoWeAreData = data.WhoWeAre;
 	return (
 		<>
 			<CallPoliceBanner />
 			<DefaultPage>
 				<Banner />
-				<Cards cardsData={programTitles} />
-				<PartnershipBanner />
+				{/* <Cards cardsData={programTitles} /> */}
+				<WhoWeAreCard data={whoWeAreData} />
+
+				{/* <PartnershipBanner /> */}
 			</DefaultPage>
 		</>
 	);

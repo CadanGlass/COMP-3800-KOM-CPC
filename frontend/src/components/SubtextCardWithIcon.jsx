@@ -5,7 +5,6 @@ import { QuestionIcon } from '@chakra-ui/icons';
 const SubtextCardWithIcon = ({ subtextData = {}, spacing = 4 }) => {
 	// icon, title, description
 	const icon = <QuestionIcon boxSize={8} alignSelf={'center'} />;
-
 	return (
 		<VStack align="left" spacing={spacing}>
 			{icon}
