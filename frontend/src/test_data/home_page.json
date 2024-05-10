@@ -1,0 +1,25 @@
+{
+	"WhoWeAre": {
+		"title": "Who We Are",
+		"intro": [
+			"The KOM CPC is a community policing organization that works closely with the Vancouver Police Department to promote safety and security in the Greater Vancouver area. Our volunteers are dedicated to making our communities safer and more secure for everyone."
+		],
+		"subPoints": [
+			{
+				"icon": null,
+				"title": "Our Mission",
+				"text": "We are a non-profit organization that is committed to making our communities safer and more secure for everyone."
+			},
+			{
+				"icon": null,
+				"title": "Our Vision",
+				"text": "We work closely with the Vancouver Police Department to promote safety and security in the Greater Vancouver area."
+			},
+			{
+				"icon": null,
+				"title": "Our Volunteers",
+				"text": "Our volunteers are dedicated to making our communities safer and more secure for everyone."
+			}
+		]
+	}
+}
