@@ -1,0 +1,186 @@
+{
+  "title": "Our Programs",
+  "description": "The KOM CPC offers a variety of public safety and crime-prevention programs. Initiatives such as community policing patrols, ICBC Speedwatch and event outreach are just some of our most popular.",
+  "programs": [
+    {
+      "title": "Patrol",
+      "description": "The KOM CPC’s patrols are our most high-visibility activities, and most popular. Trained volunteers patrol, based on VPD crime data, input from authorities and the community, and historical data, and are required to record information, and communicate with residents and businesses about any recent criminal activities or safety concerns.",
+      "image": "https://via.placeholder.com/150",
+      "learnMoreLink": "#",
+      "subprograms": [
+        {
+          "title": "Day Patrol",
+          "content": "Details about patrol routes..."
+        },
+        {
+          "title": "Night Patrol",
+          "content": "Information about volunteer training..."
+        },
+        {
+          "title": "Business Patrol",
+          "content": ""
+        },
+        {
+          "title": "Bike Patrol",
+          "content": ""
+        },
+        {
+          "title": "Community Crime Alerts",
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Road Safety",
+      "description": "In conjunction with ICBC and the VPD, our volunteers participate in activities such as ICBC Speedwatch and Theft From Auto (TFA) alerts. These activities may coincide with patrols or be part of larger prevention activities involving other community policing centres or law-enforcement agencies.",
+      "image": "https://via.placeholder.com/150",
+      "learnMoreLink": "#",
+      "subprograms": [
+        {
+          "title": "Speed Watch",
+          "content": "Details about ICBC Speedwatch..."
+        },
+        {
+          "title": "SWOOP",
+          "content": "Information about TFA alerts..."
+        },
+        {
+          "title": "School Safety",
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Outreach",
+      "description": "KOM CPC volunteers take part in numerous community and outreach events, with the goals of improving community safety and providing awareness of policing resources.",
+      "image": "https://via.placeholder.com/150",
+      "learnMoreLink": "#",
+      "subprograms": [
+        {
+          "title": "Childrens Educational Scavenger Hunt",
+          "content": "This is a fun and educational event for children and their families. The event is held in a local park and includes a scavenger hunt, face painting, and other activities."
+        },
+        {
+          "title": "Outdoor Cinema",
+          "content": "This event is held in a local park and features a family-friendly movie. Popcorn and drinks are provided, and the event is free to attend."
+        },
+        {
+          "title": "Warm Winter Wishes",
+          "content": "This event is held in a local park and provides warm clothing and blankets to those in need. The event is free to attend and includes hot chocolate and snacks."
+        },
+        {
+          "title": "Valentine's KOMmunity Love",
+          "content": "This event is held in a local park and provides free valentines to those in need. The event is free to attend and includes hot chocolate and snacks."
+        },
+        {
+          "title": "Shield Your Sip",
+          "content": "This program educates the public about the dangers of drink spiking and provides free drink covers to help prevent this crime."
+        },
+        {
+          "title": "Project 529",
+          "content": "This program educates the public about bike theft prevention and provides free bike registration and stickers to help prevent this crime."
+        },
+        {
+          "title": "Senioir Safety",
+          "content": "This program educates seniors about personal safety and provides free personal alarms to help prevent crime."
+        },
+        {
+          "title": "Bike Rodeo",
+          "content": "This event is held in a local park and provides free bike safety checks and helmets to children. The event is free to attend and includes a bike rodeo course and other activities."
+        },
+        {
+          "title": "Youth Safety Patrol",
+          "content": "This program educates youth about personal safety and provides free personal alarms to help prevent crime."
+        },
+        {
+          "title": "Car Seat Education",
+          "content": "This program educates parents about car seat safety and provides free car seat inspections to help prevent injury."
+        },
+        {
+          "title": "Newcomers to Canada Safety Talk",
+          "content": "This program educates newcomers to Canada about personal safety and provides free personal alarms to help prevent crime."
+        },
+        {
+          "title": "Community Clean-Up",
+          "content": "This event is held in a local park and provides free garbage bags and gloves to participants. The event is free to attend and includes a BBQ and other activities."
+        },
+        {
+          "title": "Graffiti Clean-Up",
+          "content": "This event is held in a local park and provides free graffiti removal supplies to participants. The event is free to attend and includes a BBQ and other activities."
+        },
+        {
+          "title": "Community Days",
+          "content": "This event is held in a local park and provides free food and entertainment to participants. The event is free to attend and includes a BBQ and other activities. (BIA's, CC, etc.)"
+        }
+      ]
+    },
+    {
+      "title": "Victim Information Service",
+      "description": "The KOM CPC provides information and support to victims of crime.",
+      "image": "https://via.placeholder.com/150",
+      "learnMoreLink": "#",
+      "subprograms": [
+        {
+          "title": "Community Concerns",
+          "content": "Details about community concerns..."
+        },
+        {
+          "title": "Lost and Found",
+          "content": "To help recover stolen property, the VPD created the Log It or Lose It program. This program allows residents to register their valuables with the VPD, which can help police return stolen property to its rightful owner."
+        }
+      ]
+    },
+    {
+      "title": "Safety Presentations",
+      "description": "The KOM CPC offers a variety of safety presentations to community groups, schools, businesses, and other organizations. Topics include personal safety, home security, fraud prevention, and more.",
+      "image": "https://via.placeholder.com/150",
+      "learnMoreLink": "#",
+      "subprograms": [
+        {
+          "title": "Newcomers to Canada Safety Talk",
+          "content": "This program educates newcomers to Canada about personal safety and provides free personal alarms to help prevent crime."
+        },
+        {
+          "title": "Business Safety Presentation",
+          "content": "This program educates business owners about crime prevention and provides free security audits to help prevent crime."
+        },
+        {
+          "title": "Senior Safety",
+          "content": "This program educates seniors about personal safety and provides free personal alarms to help prevent crime."
+        },
+        {
+          "title": "Volunteer Fairs",
+          "content": "This program educates the public about the benefits of volunteering and provides information about volunteer opportunities with the VPD."
+        }
+      ]
+    },
+    {
+      "title": "Youths",
+      "description": "The KOM CPC offers a variety of programs for youth, including bike rodeos, youth safety patrol, and road safety education.",
+      "image": "https://via.placeholder.com/150",
+      "learnMoreLink": "#",
+      "subprograms": [
+        {
+          "title": "Bike Rodeos",
+          "content": "This program educates children about bike safety and provides free bike helmets to help prevent injury."
+        },
+        {
+          "title": "Youth Safety Patrol",
+          "content": "This program educates youth about personal safety and provides free personal alarms to help prevent crime."
+        },
+        {
+          "title": "Think of Me",
+          "content": "This program educates drivers about the dangers of speeding and provides free bumper stickers to help prevent injury."
+        },
+        {
+          "title": "Pink Shirt Day",
+          "content": "This program educates children about bullying prevention and provides free pink shirts to help prevent bullying."
+        },
+        {
+          "title": "Road Safety Education",
+          "content": "This program educates children about road safety and provides free reflective armbands to help prevent injury."
+        }
+      ]
+    }
+  ]
+}
