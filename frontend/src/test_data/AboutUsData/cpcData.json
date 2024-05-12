@@ -1,0 +1,61 @@
+{
+  "title": "Vancouver Community Policing Centres",
+  "description": "The KOM CPC is one of 11 Vancouver community policing centres. Together, we strive to positively connect our communities to the VPD, reduce crime and build safe, welcoming communities for our residents.",
+  "cpcContactData": [
+    {
+      "name": "Aboriginal CPC",
+      "phone": "604-678-3790",
+      "email": "info@vacpc.org"
+    },
+    {
+      "name": "Chinese CPC",
+      "phone": "604-688-5030",
+      "email": "info@chinesecpc.com"
+    },
+    {
+      "name": "Collingwood CPC",
+      "phone": "604-717-2935",
+      "email": "info@collingwoodcpc.com"
+    },
+    {
+      "name": "Grandview-Woodland CPC",
+      "phone": "604-717-2932",
+      "email": "info@gwcpc.ca"
+    },
+    {
+      "name": "Granville Downtown South CPC",
+      "phone": "604-717-2920",
+      "email": "office@granvillecpc.ca"
+    },
+    {
+      "name": "Hastings – Sunrise CPC",
+      "phone": "604-678-3790",
+      "email": "info@hscpc.com"
+    },
+    {
+      "name": "Kitsilano Fairview CPC",
+      "phone": "604-717-4023",
+      "email": "kitsfaircpc@gmail.com"
+    },
+    {
+      "name": "Mount Pleasant CPC",
+      "phone": "604-717-0684",
+      "email": "info@mpcpc.ca"
+    },
+    {
+      "name": "South Vancouver CPC",
+      "phone": "604-717-2940",
+      "email": "beata.fischer@svcpc.com"
+    },
+    {
+      "name": "Strathcona CPC",
+      "phone": "604-717-0622",
+      "email": "info@strathconacpc.ca"
+    },
+    {
+      "name": "West End – Coal Harbour CPC",
+      "phone": "604-717-2924",
+      "email": "info@wechcpc.com"
+    }
+  ]
+}
