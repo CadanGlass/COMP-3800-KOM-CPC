@@ -6,15 +6,15 @@ import {
     Image,
     GridItem,
     Flex,
+    Text,
 } from '@chakra-ui/react';
-import LearnMoreButton from '../LearnMoreButton';
 import { DefaultCard } from '../DefaultComponents';
 
-const ProgramsHero = ({ title }) => {
+const ProgramsHero = ({ title, description }) => {
     const gridGap = useBreakpointValue({ base: 8, l: 12, xl: 32 });
     const gridTemplateAreas = useBreakpointValue({
-        base: `"title" "image" "button"`,
-        xl: `"title image" "button image"`,
+        base: `"title" "description" "image" "button"`,
+        xl: `"title image" "description image" "button image"`,
     });
     const gridTemplateColumns = useBreakpointValue({
         base: '1fr',
@@ -38,6 +38,12 @@ const ProgramsHero = ({ title }) => {
                         </Heading>
                     </GridItem>
 
+                    <GridItem gridArea="description" alignSelf={'center'}>
+                        <Text textAlign={headingTextAlign}>
+                            {description}
+                        </Text>
+                    </GridItem>
+
                     <GridItem gridArea="image" alignSelf="center">
                         <Box flex={1}>
                             <Image
@@ -54,7 +60,6 @@ const ProgramsHero = ({ title }) => {
                         alignSelf={'center'}
                         justifySelf={buttonJustify}
                     >
-                        <LearnMoreButton />
                     </GridItem>
                 </Grid>
             </Flex>

@@ -5,8 +5,9 @@ import {
   Heading,
   useColorModeValue,
 } from "@chakra-ui/react";
-import NewsletterSignup from "../components/newsletter/NewsletterSignup";
+
 import PastNewsletters from "../components/newsletter/PastNewsletters";
+import MailchimpForm from "../components/newsletter/MailchimpForm";
 
 export default function NewsletterPage() {
   const newsletters = [
@@ -24,7 +25,7 @@ export default function NewsletterPage() {
   return (
     <Box p={4}>
       <VStack spacing={8}>
-        <NewsletterSignup />
+        <MailchimpForm></MailchimpForm>
         <PastNewsletters newsletters={newsletters} />
       </VStack>
     </Box>

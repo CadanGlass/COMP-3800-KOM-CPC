@@ -1,11 +1,19 @@
 import { Button } from '@chakra-ui/react';
 
-const LearnMoreButton = () => {
+export default function LearnMoreButton() {
     return (
-        <Button colorScheme="teal" variant="solid">
+        <Button
+            as={Button}
+            fontSize={'sm'}
+            fontWeight={600}
+            color={'white'}
+            bg={'teal.500'}
+            href={'#'}
+            _hover={{
+                bg: 'teal.300',
+            }}
+        >
             Learn More
         </Button>
     );
-};
-
-export default LearnMoreButton;
+}
