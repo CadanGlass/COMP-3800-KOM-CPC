@@ -10,11 +10,7 @@ import {
 
 export default function EventCard({ name, date, time, price, image }) {
   return (
-    <Card
-      direction={{ base: 'column', sm: 'row' }}
-      overflow="hidden"
-      variant="outline"
-    >
+    <Card direction={'row'} overflow="hidden" variant="outline">
       {image && (
         <AspectRatio ratio={3 / 4} minW={36}>
           <Image objectFit="cover" src={image} alt="image" />
