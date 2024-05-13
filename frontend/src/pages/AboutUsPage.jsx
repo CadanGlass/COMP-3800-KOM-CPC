@@ -18,6 +18,10 @@ import komPartnersImage from "../assets/kom_partners_in_safety_.png";
 
 //----------------------------------------------
 
+// import dummy catchment data
+import catchmentData from '../test_data/AboutUsData/catchmentData.json';
+
+
 
 //----------------------------------------------
 
