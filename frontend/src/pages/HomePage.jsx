@@ -20,6 +20,7 @@ import data from '../test_data/home_page.json';
 import SubtextCardWithIcon from '../components/SubtextCardWithIcon';
 import WhoWeAreCard from '../components/home/WhoWeAreCard';
 import Programs from '../components/home/Programs';
+import Events from '../components/home/Events';
 
 const url = 'http://localhost:1337/api/programs';
 
