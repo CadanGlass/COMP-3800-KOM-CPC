@@ -1,11 +1,3 @@
-// import React from 'react'
-
-// export default function AboutUsPage() {
-//   return (
-//     <div>AboutUs Page</div>
-//   )
-// }
-
 
 import { Box,
         Container, 
@@ -21,7 +13,13 @@ import { Box,
         Th, 
         Td } from "@chakra-ui/react";
 
+
 import komPartnersImage from "../assets/kom_partners_in_safety_.png";
+
+//----------------------------------------------
+
+
+//----------------------------------------------
 
 const MissionStatement = () => {
   return (
