@@ -4,12 +4,19 @@ import { DefaultCard } from '../DefaultComponents';
 import EventCard from './EventCard';
 
 const events = [
-  { date: 'OCT 24', name: 'Speed Control', price: 'Free', time: '10:00' },
+  {
+    date: 'OCT 24',
+    name: 'Speed Control',
+    price: 'Free',
+    time: '10:00',
+    image: 'https://via.placeholder.com/100x75',
+  },
   {
     date: 'OCT 27',
     name: 'Community Outreach',
     price: '$12.99',
     time: '16:00',
+    image: 'https://via.placeholder.com/100x75',
   },
   {
     date: 'OCT 30',
@@ -59,6 +66,7 @@ export default function Events() {
                 date={event.date}
                 time={event.time}
                 price={event.price}
+                image={event.image}
               />
             ))}
           </SimpleGrid>
