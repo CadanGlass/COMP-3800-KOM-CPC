@@ -19,7 +19,10 @@ import komPartnersImage from "../assets/kom_partners_in_safety_.png";
 //----------------------------------------------
 
 // import dummy catchment data
-import catchmentData from '../test_data/AboutUsData/catchmentData.json';
+import data from '../test_data/AboutUsData/catchmentData.json';
+
+// variable for catchment data
+const CatchmentData = data.catchmentData;
 
 
 
