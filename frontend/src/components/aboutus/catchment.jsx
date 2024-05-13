@@ -24,8 +24,8 @@ const CatchmentCard = ({ catchmentData }) => {
                     <Heading as="h2" size="lg" paddingBottom={4}>
                         {catchmentData.title}
                     </Heading>
-                    <p> {catchmentData.description} </p>
-                    {catchmentData.areas.map((line, index) => (
+                    <p> {catchmentData} </p>
+                    {catchmentData.description.map((line, index) => (
                         <Text key={`line${index}`} paddingBottom={4}>
                             {line}
                         </Text>

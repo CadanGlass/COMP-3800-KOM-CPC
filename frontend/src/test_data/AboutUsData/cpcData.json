@@ -1,6 +1,10 @@
 {
   "title": "Vancouver Community Policing Centres",
-  "description": "The KOM CPC is one of 11 Vancouver community policing centres. Together, we strive to positively connect our communities to the VPD, reduce crime and build safe, welcoming communities for our residents.",
+
+  "description": ["The KOM CPC is one of 11 Vancouver community policing centres. Together,",
+                  "we strive to positively connect our communities to the VPD,",
+                  "reduce crime and build safe, welcoming communities for our residents." ],
+
   "cpcContactData": [
     {
       "name": "Aboriginal CPC",
