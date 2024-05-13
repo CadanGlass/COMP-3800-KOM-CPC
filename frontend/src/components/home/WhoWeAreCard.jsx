@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 
 const WhoWeAreCard = ({ data }) => {
-  const stackSpacing = useBreakpointValue({ base: 8, md: 12, xl: 32 });
+  const stackSpacing = useBreakpointValue({ base: 8, md: 12, "2xl": 32 });
   const subPoints = data.subPoints;
 
   return (
@@ -48,13 +48,8 @@ const WhoWeAreCard = ({ data }) => {
             );
           })}
         </Stack>
-        <AspectRatio ratio={{ base: 4 / 3, md: 21 / 9 }} minW={"100%"}>
-          <iframe
-            src={data.mapUrl}
-            width="100%"
-            height="480"
-            title="Border Map"
-          />
+        <AspectRatio ratio={{ base: 4 / 3, md: 4 / 2 }} width={"100%"}>
+          <iframe src={data.mapUrl} title="Border Map" />
         </AspectRatio>
       </VStack>
     </DefaultCard>

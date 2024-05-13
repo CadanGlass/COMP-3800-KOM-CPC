@@ -18,6 +18,13 @@
         "description": [
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero quaerat molestiae iusto esse dolorum. Provident, perspiciatis architecto rerum numquam ut, atque quod odio nihil optio doloremque fugiat eligendi officia commodi."
         ]
+      },
+      {
+        "icon": null,
+        "title": "Our Catchment Area",
+        "description": [
+          "The KOM CPC serves the Kerrisdale, Oakridge, and Marpole communities. The map below shows the boundaries of our catchment area."
+        ]
       }
     ],
     "mapUrl": "https://www.google.com/maps/d/embed?mid=14EQlSHq7tJJVlNIn_Sb3Y9PbVWk&ehbc=2E312F"
