@@ -4,7 +4,10 @@ import data from '../../test_data/programs.json';
 import { DefaultCard } from '../DefaultComponents';
 import { ProgramCard } from './ProgramCard';
 
+const firstThreePrograms = data.programs.slice(0, 3);
+
 export default function Programs() {
+  console.log(firstThreePrograms);
   return (
     <>
       <DefaultCard>
@@ -15,13 +18,13 @@ export default function Programs() {
             align={'start'}
             spacing={8}
           >
-            <Heading as='h3' size='lg'>
+            <Heading as="h3" size="lg">
               {data.title}
             </Heading>
-            <Link href='/programs'>
+            <Link href="/programs">
               <Button
-                bg='blue.500'
-                color='white'
+                bg="blue.500"
+                color="white"
                 _hover={{ color: 'gray.600', bg: 'blue.200' }}
               >
                 View All Programs
@@ -30,7 +33,7 @@ export default function Programs() {
           </Stack>
           <p>{data.description}</p>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-            {data.programs.map((program) => (
+            {firstThreePrograms.map((program) => (
               <ProgramCard
                 key={program.title}
                 title={program.title}
