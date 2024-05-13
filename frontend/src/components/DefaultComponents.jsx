@@ -27,12 +27,13 @@ export const DefaultCard = ({
 	internalPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 }),
 	internalPaddingY = 6,
 	borderRadius = 'xl',
+	backgroundColor = 'gray.50',
 }) => {
 	return (
 		<Box
 			px={internalPaddingX}
 			py={internalPaddingY}
-			backgroundColor={'gray.50'}
+			backgroundColor={backgroundColor}
 			width={'100%'}
 			borderRadius={borderRadius}
 		>
