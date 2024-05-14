@@ -8,6 +8,7 @@ import {
   Button,
   VStack,
 } from '@chakra-ui/react';
+import { DefaultCard } from './DefaultComponents';
 
 export default function Header({
   title,
@@ -17,7 +18,7 @@ export default function Header({
   imageUrl,
 }) {
   return (
-    <Container maxW='100%' bg='gray.50' borderRadius='lg' p={8}>
+    <DefaultCard>
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
@@ -28,7 +29,7 @@ export default function Header({
           <Heading fontWeight={700} fontSize={{ base: '3xl', sm: '4xl' }}>
             {title}
           </Heading>
-          {description && <Text color={'gray.600'}>{description}</Text>}
+          {description && <Text>{description}</Text>}
 
           {btn1 && (
             <VStack spacing='4' align={{ sm: 'start' }}>
@@ -53,6 +54,6 @@ export default function Header({
           />
         </AspectRatio>
       </Stack>
-    </Container>
+    </DefaultCard>
   );
 }
