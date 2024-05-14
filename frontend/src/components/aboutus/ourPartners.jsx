@@ -4,6 +4,8 @@ import { DefaultCard } from '../DefaultComponents';
 import komPartners from '../../assets/kom_partners_in_safety_.png';
 
 
+
+
 const OurPartnersCard = ({ ourPartnersData }) => {
     const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
     const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
@@ -42,3 +44,5 @@ const OurPartnersCard = ({ ourPartnersData }) => {
 };
 
 export default OurPartnersCard;
+
+
