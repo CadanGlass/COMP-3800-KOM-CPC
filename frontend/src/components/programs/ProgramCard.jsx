@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Grid, GridItem, Image, Collapse } from '@chakra-ui/react';
+import { Box, Heading, Text, Grid, GridItem, Image, Collapse, Stack, VStack } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 import AccordionInfo from './AccordionInfo';
 import LearnMoreButton from '../LearnMoreButton';
@@ -7,27 +7,30 @@ const ProgramCard = ({ title, description, image, subprograms, isExpanded, onLea
     return (
         <DefaultCard>
             <Grid
-                templateColumns={{ base: '1fr', lg: '2fr 1fr' }}
+                templateColumns={{ base: '1fr', lg: '1fr 1fr' }}
                 gap={8}
-                alignItems="start"
+                alignItems="center"
             >
                 <GridItem>
-                    <Heading as="h4" size="md" mb={4}>{title}</Heading>
-                    <Text mb={4}>{description}</Text>
-                    <LearnMoreButton onClick={onLearnMoreClick} isExpanded={isExpanded} />
-                    <Box mt={4}>
+                    <VStack spacing={4} align="left" textAlign="left">
+                        <Heading as="h4" size="md">{title}</Heading>
+                        <Text>{description}</Text>
+                        <Box>
+                            <LearnMoreButton onClick={onLearnMoreClick} isExpanded={isExpanded} />
+                        </Box>
                         <Collapse in={isExpanded} animateOpacity>
                             <AccordionInfo items={subprograms} />
                         </Collapse>
-                    </Box>
+                    </VStack>
                 </GridItem>
                 <GridItem>
                     <Image
                         src={image}
                         alt={title}
-                        fit="cover"
-                        maxW="100%"
+                        objectFit="cover"
+                        width="100%"
                         height="auto"
+                        maxHeight="300px"
                         borderRadius="md"
                     />
                 </GridItem>
