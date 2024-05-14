@@ -7,7 +7,9 @@ import {
   Image,
   Text,
   AspectRatio,
+  Link,
 } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
 
 export const ProgramCard = ({ title, description, image, link }) => {
   return (
@@ -19,7 +21,9 @@ export const ProgramCard = ({ title, description, image, link }) => {
         <Stack mt={4} spacing={4} align='start'>
           <Heading size='md'>{title}</Heading>
           <Text noOfLines={3}>{description}</Text>
-          <Button to={link}>Learn More</Button>
+          <Link href="/programs">
+            <Button>Learn More →</Button>
+          </Link>
         </Stack>
       </CardBody>
     </Card>
