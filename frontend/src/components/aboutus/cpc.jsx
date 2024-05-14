@@ -2,22 +2,24 @@ import { Stack, Heading, Box, useBreakpointValue, Text, Table, Thead, Tbody, Tr,
 import { DefaultCard } from '../DefaultComponents';
 
 const CPCCard = ({ CPCData }) => {
-    const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
-    const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
+    const isMobile = useBreakpointValue({ base: true, lg: false });
 
     return (
         <DefaultCard>
-            <Stack direction={stackDirection} spacing={stackSpacing}>
-                <Box flex={1} alignSelf={'center'}>
-                    <Heading as="h2" size="lg" paddingBottom={4}>
-                        {CPCData.title}
-                    </Heading>
+            <Stack spacing={4}>
+                <Heading as="h2" size="lg">
+                    {CPCData.title}
+                </Heading>
+                <Text>
                     {CPCData.description.map((line, index) => (
-                        <Text key={`line${index}`} paddingBottom={4}>
+                        <span key={`line${index}`}>
                             {line}
-                        </Text>
+                            {index !== CPCData.description.length - 1 && <br />}
+                        </span>
                     ))}
-                    <Table variant="simple">
+                </Text>
+                <Box overflowX="auto">
+                    <Table variant="simple" minWidth="100%">
                         <Thead>
                             <Tr>
                                 <Th>Name</Th>
@@ -33,11 +35,13 @@ const CPCCard = ({ CPCData }) => {
                                             {contact.name}
                                         </a>
                                     </Td>
+                                    <Td>{isMobile ? contact.phone : <a href={`tel:${contact.phone}`}>{contact.phone}</a>}</Td>
                                     <Td>
-                                        <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-                                    </Td>
-                                    <Td>
-                                        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                                        {isMobile ? (
+                                            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                                        ) : (
+                                            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                                        )}
                                     </Td>
                                 </Tr>
                             ))}
