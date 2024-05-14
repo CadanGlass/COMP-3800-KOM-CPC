@@ -1,43 +1,63 @@
-import { Box, VStack, useBreakpointValue, Container } from '@chakra-ui/react';
+import {
+  Box,
+  VStack,
+  useBreakpointValue,
+  Container,
+  useColorModeValue,
+  Text,
+  Heading,
+} from "@chakra-ui/react";
+
 
 export const DefaultPage = ({
-	children,
-	stackSpacing = 8,
-	padding = useBreakpointValue({ base: 4, lg: 16 }),
+  children,
+  stackSpacing = 8,
+  padding = useBreakpointValue({ base: 4, lg: 16 }),
 }) => {
-	return (
-		<Container maxW="1700px" py={4} px={padding}>
-			<VStack spacing={stackSpacing} width={'100%'}>
-				{children}
-			</VStack>
-		</Container>
-	);
+  const bg = useColorModeValue("white", "gray.800");
+  const color = useColorModeValue("black", "white");
+
+  return (
+    <Container maxW="1700px" py={4} px={padding} bg={bg} color={color}>
+      <VStack spacing={stackSpacing} width={"100%"}>
+        {children}
+      </VStack>
+    </Container>
+  );
 };
 
 export const DefaultVStack = ({ children, spacing = 4 }) => {
-	return (
-		<VStack spacing={spacing} align="center">
-			{children}
-		</VStack>
-	);
+  return (
+    <VStack spacing={spacing} align="center">
+      {children}
+    </VStack>
+  );
 };
 
 export const DefaultCard = ({
-	children,
-	internalPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 }),
-	internalPaddingY = 6,
-	borderRadius = 'xl',
-	backgroundColor = 'gray.50',
+  children,
+  internalPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 }),
+  internalPaddingY = 6,
+  borderRadius = "xl",
 }) => {
-	return (
-		<Box
-			px={internalPaddingX}
-			py={internalPaddingY}
-			backgroundColor={backgroundColor}
-			width={'100%'}
-			borderRadius={borderRadius}
-		>
-			{children}
-		</Box>
-	);
+  const backgroundColor = useColorModeValue("white", "gray.700");
+  const color = useColorModeValue("black", "white");
+  const boxShadow = useColorModeValue(
+    "0px 4px 12px rgba(0, 0, 0, 0.15)", // Stronger shadow for light mode
+    "0px 4px 12px rgba(0, 0, 0, 0.5)" // Stronger shadow for dark mode
+  );
+
+  return (
+    <Box
+      px={internalPaddingX}
+      py={internalPaddingY}
+      backgroundColor={backgroundColor}
+      color={color}
+      width={"100%"}
+      borderRadius={borderRadius}
+      boxShadow={boxShadow}
+    >
+      {children}
+    </Box>
+  );
 };
