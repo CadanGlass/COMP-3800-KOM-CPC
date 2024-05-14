@@ -1,7 +1,8 @@
 {
   "title": "Catchment Area",
-  "description": ["As part of Patrol District Four, the KOM CPC’s jurisdiction is nearly 40% of Vancouver’s landmass,",
-                  "encompassing the majority of Vancouver’s west side communities including:"],
+  "description": [
+    "As part of Patrol District Four, the KOM CPC’s jurisdiction is nearly 40% of Vancouver’s landmass, encompassing the majority of Vancouver’s west side communities including:"
+  ],
   "areas": [
     "Arbutus Ridge",
     "Dunbar-Southlands",
