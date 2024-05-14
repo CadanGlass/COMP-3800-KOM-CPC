@@ -21,7 +21,7 @@ const Footer = () => {
       color={useColorModeValue("gray.100", "gray.200")}
       px={4}
     >
-      <Container as={Stack} maxW="6xl" py={10}>
+      <Container maxW="7xl" py={10}>
         <Stack
           direction={{ base: "column", lg: "row" }}
           spacing={10}
@@ -84,14 +84,10 @@ const Footer = () => {
             </Box>
           </Stack>
           <VStack align={{ base: "center", lg: "center" }}>
-            {" "}
-            // Ensure central alignment
             <Heading size="md" mb={2}>
               Follow us
             </Heading>
             <Box align="center">
-              {" "}
-
               <SocialMediaLinks />
             </Box>
           </VStack>
