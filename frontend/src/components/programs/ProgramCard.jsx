@@ -1,8 +1,9 @@
-import { Box, Heading, Text, Grid, GridItem, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, Grid, GridItem, Image, Collapse } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 import AccordionInfo from './AccordionInfo';
+import LearnMoreButton from '../LearnMoreButton';
 
-const ProgramCard = ({ title, description, image, subprograms }) => {
+const ProgramCard = ({ title, description, image, subprograms, isExpanded, onLearnMoreClick }) => {
     return (
         <DefaultCard>
             <Grid
@@ -13,15 +14,20 @@ const ProgramCard = ({ title, description, image, subprograms }) => {
                 <GridItem>
                     <Heading as="h4" size="md" mb={4}>{title}</Heading>
                     <Text mb={4}>{description}</Text>
-                    <AccordionInfo items={subprograms} />
+                    <LearnMoreButton onClick={onLearnMoreClick} isExpanded={isExpanded} />
+                    <Box mt={4}>
+                        <Collapse in={isExpanded} animateOpacity>
+                            <AccordionInfo items={subprograms} />
+                        </Collapse>
+                    </Box>
                 </GridItem>
-                <GridItem display="flex" alignItems="center">
+                <GridItem>
                     <Image
                         src={image}
                         alt={title}
                         fit="cover"
-                        width="100%"
-                        height="100%"
+                        maxW="100%"
+                        height="auto"
                         borderRadius="md"
                     />
                 </GridItem>

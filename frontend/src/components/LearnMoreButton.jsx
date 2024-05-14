@@ -1,19 +1,20 @@
 import { Button } from '@chakra-ui/react';
 
-export default function LearnMoreButton() {
+const LearnMoreButton = ({ onClick, isExpanded }) => {
     return (
         <Button
-            as={Button}
+            onClick={onClick}
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'teal.500'}
-            href={'#'}
+            bg={'blue.800'}
             _hover={{
-                bg: 'teal.300',
+                bg: 'blue.500',
             }}
         >
-            Learn More
+            {isExpanded ? 'Collapse' : 'Learn More'}
         </Button>
     );
-}
+};
+
+export default LearnMoreButton;
