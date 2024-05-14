@@ -1,4 +1,3 @@
-
 import {
   Box,
   Avatar,
@@ -8,60 +7,54 @@ import {
   Text,
   Link,
   Heading,
-  Input,
-  Button,
   useColorModeValue,
-  Icon,
 } from "@chakra-ui/react";
 
 import KOM_logo from "../assets/KOM_Logo.png";
-
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-
+import SocialMediaLinks from "./footer/SocialMediaLinks";
 import MailchimpForm from "./newsletter/MailchimpForm";
 
 const Footer = () => {
-  const date = new Date();
-
   return (
     <Box
       bg={useColorModeValue("gray.800", "gray.900")}
       color={useColorModeValue("gray.100", "gray.200")}
+      px={4}
     >
-      <Container as={Stack} maxW={"6xl"} py={10}>
+      <Container as={Stack} maxW="6xl" py={10}>
         <Stack
           direction={{ base: "column", lg: "row" }}
-          spacing={20} // Increased spacing
+          spacing={10} // Adjusted for more uniform spacing
           justify="space-between"
-          align={{ base: "center", lg: "flex-start" }}
+          align="flex-start" // Ensure everything starts at the top
         >
-          <VStack spacing={6} alignItems={{ base: "center", lg: "flex-start" }}>
+          <VStack spacing={4} alignItems="flex-start">
+            {" "}
+            // Adjust spacing for visual consistency
             <Link
               display="flex"
               alignItems="center"
-              p={2}
-              rounded={"md"}
+              href="/"
               _hover={{
                 textDecoration: "none",
                 bg: useColorModeValue("gray.200", "gray.700"),
               }}
-              href="/"
             >
-              <Avatar size={"md"} src={KOM_logo} />
+              <Avatar size="md" src={KOM_logo} />
               <Text fontSize="lg" fontWeight="bold" ml={2}>
                 KOM CPC
               </Text>
             </Link>
-            <Text fontSize="sm" textAlign={{ base: "center", lg: "center" }}>
+            <Text fontSize="sm">
               © Kerrisdale Oakridge Marpole Community Policing Centre - 2024
             </Text>
           </VStack>
           <Stack
             direction={{ base: "column", md: "row" }}
-            spacing={12} // Increased spacing
-            alignItems={{ base: "center", md: "flex-start" }}
+            spacing={10} // Consistent spacing with other elements
+            alignItems="flex-start" // Align items at the top
           >
-            <Box textAlign={{ base: "center", md: "left" }}>
+            <Box>
               <Heading size="md" mb={2}>
                 Contact
               </Heading>
@@ -69,11 +62,11 @@ const Footer = () => {
               <Text>Vancouver BC Canada</Text>
               <Text>email@email.com</Text>
             </Box>
-            <Box textAlign={{ base: "center", md: "left" }}>
+            <Box>
               <Heading size="md" mb={2}>
                 Volunteer
               </Heading>
-              <VStack spacing={3} align="stretch"> // Increased spacing
+              <VStack spacing={3} align="stretch">
                 <Link href="#">Program</Link>
                 <Link href="#">Calendar</Link>
                 <Link href="#">Newsletter</Link>
@@ -81,31 +74,23 @@ const Footer = () => {
                 <Link href="#">Contact Us</Link>
               </VStack>
             </Box>
-            <Box textAlign={{ base: "center", md: "left" }}>
+            <Box>
               <Heading size="md" mb={2}>
                 Subscribe
               </Heading>
               <Text mb={2}>
                 Want crime alerts, community safety tips and news?
               </Text>
-              <MailchimpForm/>
+              <MailchimpForm />
             </Box>
           </Stack>
-          <VStack align="center">
+          <VStack align="flex-start">
+            {" "}
+            // Align this stack at the start too
             <Heading size="md" mb={2}>
               Follow us
             </Heading>
-            <Stack direction={"row"} spacing={10}> // Increased spacing
-              <Link href={"https://www.facebook.com/KOMCPC"}>
-                <Icon as={FaFacebook} />
-              </Link>
-              <Link href={"https://twitter.com/komcpc"}>
-                <Icon as={FaTwitter} />
-              </Link>
-              <Link href={"https://www.instagram.com/komcpc"}>
-                <Icon as={FaInstagram} />
-              </Link>
-            </Stack>
+            <SocialMediaLinks />
           </VStack>
         </Stack>
       </Container>
