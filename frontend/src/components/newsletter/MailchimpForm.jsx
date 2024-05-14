@@ -1,5 +1,5 @@
 import React from "react";
-import { useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/react";
 
 const MailchimpForm = () => {
   const { colorMode } = useColorMode();
@@ -24,15 +24,16 @@ const MailchimpForm = () => {
         >
           <div id="mc_embed_signup_scroll">
             <div className="mc-field-group">
-              <label htmlFor="mce-EMAIL">
-                Email Address <span className="asterisk">*</span>
-              </label>
+              {/* <label htmlFor="mce-EMAIL">
+                Sign up here:
+              </label> */}
               <input
                 type="email"
                 name="EMAIL"
                 className="required email"
                 id="mce-EMAIL"
                 required
+                placeholder="* Enter email address"
               />
             </div>
             <div hidden>
@@ -94,20 +95,6 @@ const MailchimpForm = () => {
                       borderRadius: "4px",
                     }}
                   >
-                    <img
-                      className="refferal_badge"
-                      src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
-                      alt="Intuit Mailchimp"
-                      style={{
-                        width: "220px",
-                        height: "40px",
-                        display: "flex",
-                        padding: "2px 0px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        filter: isDark ? "invert(1)" : "none", // Invert colors in dark mode
-                      }}
-                    />
                   </a>
                 </p>
               </div>
