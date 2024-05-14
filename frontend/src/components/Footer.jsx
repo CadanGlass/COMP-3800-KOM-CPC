@@ -24,13 +24,11 @@ const Footer = () => {
       <Container as={Stack} maxW="6xl" py={10}>
         <Stack
           direction={{ base: "column", lg: "row" }}
-          spacing={10} // Uniform spacing across the footer
+          spacing={10}
           justify="space-between"
-          align="flex-start" // Align all elements at the top of their containers
+          align={{ base: "center", lg: "flex-start" }}
         >
-          <VStack spacing={4} align="center">
-            {" "}
-            // Ensure center alignment
+          <VStack spacing={4} align={{ base: "center", lg: "flex-start" }}>
             <Link
               display="flex"
               alignItems="center"
@@ -45,14 +43,15 @@ const Footer = () => {
                 KOM CPC
               </Text>
             </Link>
-            <Text fontSize="sm" textAlign="center">
+            <Text fontSize="sm" textAlign={{ base: "center", lg: "left" }}>
               © Kerrisdale Oakridge Marpole Community Policing Centre - 2024
             </Text>
           </VStack>
           <Stack
             direction={{ base: "column", md: "row" }}
             spacing={10}
-            alignItems="flex-start" // Align items at the top
+            align={{ base: "center", md: "flex-start" }}
+            textAlign={{ base: "center", md: "left" }}
           >
             <Box>
               <Heading size="md" mb={2}>
@@ -84,9 +83,7 @@ const Footer = () => {
               <MailchimpForm />
             </Box>
           </Stack>
-          <VStack align="center">
-            {" "}
-            // Center alignment for the Follow us section
+          <VStack align={{ base: "center", lg: "flex-start" }}>
             <Heading size="md" mb={2}>
               Follow us
             </Heading>
