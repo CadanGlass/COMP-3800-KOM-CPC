@@ -8,7 +8,6 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
-
 export const DefaultPage = ({
   children,
   stackSpacing = 8,
@@ -40,12 +39,8 @@ export const DefaultCard = ({
   internalPaddingY = 6,
   borderRadius = "xl",
 }) => {
-  const backgroundColor = useColorModeValue("white", "gray.700");
+  const backgroundColor = useColorModeValue("white", "gray.700"); // White in light mode, dark gray in dark mode
   const color = useColorModeValue("black", "white");
-  const boxShadow = useColorModeValue(
-    "0px 4px 12px rgba(0, 0, 0, 0.15)", // Stronger shadow for light mode
-    "0px 4px 12px rgba(0, 0, 0, 0.5)" // Stronger shadow for dark mode
-  );
 
   return (
     <Box
@@ -55,7 +50,7 @@ export const DefaultCard = ({
       color={color}
       width={"100%"}
       borderRadius={borderRadius}
-      boxShadow={boxShadow}
+      boxShadow="md" // Optional: Add a subtle shadow for better definition
     >
       {children}
     </Box>

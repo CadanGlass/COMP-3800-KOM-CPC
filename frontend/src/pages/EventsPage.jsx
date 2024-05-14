@@ -58,7 +58,11 @@ const EventsPage = () => {
       <DefaultVStack spacing={4}>
         {events.map((event, index) => (
           <DefaultCard key={index}>
-            <EventCard event={event} cardBg={cardBg} textColor={textColor} />
+            <Box width="600px">
+              {" "}
+              {/* Set the fixed width here */}
+              <EventCard event={event} cardBg={cardBg} textColor={textColor} />
+            </Box>
           </DefaultCard>
         ))}
       </DefaultVStack>
