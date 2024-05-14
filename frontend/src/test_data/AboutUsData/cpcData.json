@@ -1,65 +1,74 @@
 {
   "title": "Vancouver Community Policing Centres",
-
-  "description": ["The KOM CPC is one of 11 Vancouver community policing centres. Together,",
-                  "we strive to positively connect our communities to the VPD,",
-                  "reduce crime and build safe, welcoming communities for our residents." ],
-
-  "cpcContactData": [
+  "description": [
+    "The KOM CPC is one of 11 Vancouver community policing centres. Together, we strive to positively connect our communities to the VPD, reduce crime and build safe, welcoming communities for our residents."
+  ],
+  "ContactData": [
     {
       "name": "Aboriginal CPC",
       "phone": "604-678-3790",
-      "email": "info@vacpc.org"
+      "email": "info@vacpc.org",
+      "website": "https://www.vacpc.org/"
     },
     {
       "name": "Chinese CPC",
       "phone": "604-688-5030",
-      "email": "info@chinesecpc.com"
+      "email": "info@chinesecpc.com",
+      "website": "https://www.chinesecpc.com/"
     },
     {
       "name": "Collingwood CPC",
       "phone": "604-717-2935",
-      "email": "info@collingwoodcpc.com"
+      "email": "info@collingwoodcpc.com",
+      "website": "https://www.collingwoodcpc.com/"
     },
     {
       "name": "Grandview-Woodland CPC",
       "phone": "604-717-2932",
-      "email": "info@gwcpc.ca"
+      "email": "info@gwcpc.ca",
+      "website": "https://www.gwcpc.ca/"
     },
     {
       "name": "Granville Downtown South CPC",
       "phone": "604-717-2920",
-      "email": "office@granvillecpc.ca"
+      "email": "office@granvillecpc.ca",
+      "website": "https://www.granvillecpc.ca/"
     },
     {
       "name": "Hastings – Sunrise CPC",
       "phone": "604-678-3790",
-      "email": "info@hscpc.com"
+      "email": "info@hscpc.com",
+      "website": "https://www.hscpc.com/"
     },
     {
       "name": "Kitsilano Fairview CPC",
       "phone": "604-717-4023",
-      "email": "kitsfaircpc@gmail.com"
+      "email": "kitsfaircpc@gmail.com",
+      "website": "https://www.kitsfaircpc.ca/"
     },
     {
       "name": "Mount Pleasant CPC",
       "phone": "604-717-0684",
-      "email": "info@mpcpc.ca"
+      "email": "info@mpcpc.ca",
+      "website": "https://mpcpc.ca/"
     },
     {
       "name": "South Vancouver CPC",
       "phone": "604-717-2940",
-      "email": "beata.fischer@svcpc.com"
+      "email": "beata.fischer@svcpc.com",
+      "website": "https://www.svcpc.com/"
     },
     {
       "name": "Strathcona CPC",
       "phone": "604-717-0622",
-      "email": "info@strathconacpc.ca"
+      "email": "info@strathconacpc.ca",
+      "website": "https://www.strathconacpc.ca/"
     },
     {
       "name": "West End – Coal Harbour CPC",
       "phone": "604-717-2924",
-      "email": "info@wechcpc.com"
+      "email": "info@wechcpc.com",
+      "website": "https://www.wechcpc.com/"
     }
   ]
 }

@@ -21,11 +21,19 @@ import komPartnersImage from "../assets/kom_partners_in_safety_.png";
 
 
 
-import CatchmentCard from '../components/aboutus/catchment';
+
 import { DefaultPage } from '../components/DefaultComponents';
+
+import CatchmentCard from '../components/aboutus/catchment';
+import CPCCard from "../components/aboutus/cpc";
+
+
 import CatchData from '../test_data/AboutUsData/catchmentData.json';
+import cpcData from '../test_data/AboutUsData/cpcData.json';
+
 
 const CatchmentData = CatchData;
+const CPCData = cpcData;
 
 
 export default function AboutUsPage() {
@@ -33,6 +41,7 @@ export default function AboutUsPage() {
 		<DefaultPage>
 
 			<CatchmentCard catchmentData={CatchmentData} />
+      <CPCCard CPCData={CPCData} />
 
 		</DefaultPage>
 	);
