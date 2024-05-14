@@ -1,10 +1,5 @@
-import {
-  Box,
-  Flex,
-  VStack,
-  Heading,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import React from "react";
+import { Box, VStack, Heading, useColorModeValue } from "@chakra-ui/react";
 
 import PastNewsletters from "../components/newsletter/PastNewsletters";
 import MailchimpForm from "../components/newsletter/MailchimpForm";
@@ -23,11 +18,23 @@ export default function NewsletterPage() {
   ];
 
   return (
-    <Box p={4}>
-      <VStack spacing={8}>
-        <MailchimpForm></MailchimpForm>
-        <PastNewsletters newsletters={newsletters} />
-      </VStack>
-    </Box>
+    <>
+      <Heading
+        as="h1"
+        size="xl"
+        textAlign="center"
+        mt={5}
+        mb={5}
+        fontWeight="bold"
+      >
+        KOM Community Policing Centre Newsletter
+      </Heading>
+      <Box p={4}>
+        <VStack spacing={8}>
+          <MailchimpForm />
+          <PastNewsletters newsletters={newsletters} />
+        </VStack>
+      </Box>
+    </>
   );
 }

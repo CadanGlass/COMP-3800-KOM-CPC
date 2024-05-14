@@ -18,6 +18,8 @@ import KOM_logo from "../assets/KOM_Logo.png";
 
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
+import MailchimpForm from "./newsletter/MailchimpForm";
+
 const Footer = () => {
   const date = new Date();
 
@@ -71,9 +73,7 @@ const Footer = () => {
               <Heading size="md" mb={2}>
                 Volunteer
               </Heading>
-              <VStack spacing={3} align="stretch">
-                {" "}
-                // Increased spacing
+              <VStack spacing={3} align="stretch"> // Increased spacing
                 <Link href="#">Program</Link>
                 <Link href="#">Calendar</Link>
                 <Link href="#">Newsletter</Link>
@@ -88,19 +88,14 @@ const Footer = () => {
               <Text mb={2}>
                 Want crime alerts, community safety tips and news?
               </Text>
-              <Input placeholder="Your email" size="sm" />
-              <Button mt={2} colorScheme="red">
-                Subscribe →
-              </Button>
+              <MailchimpForm/>
             </Box>
           </Stack>
           <VStack align="center">
             <Heading size="md" mb={2}>
               Follow us
             </Heading>
-            <Stack direction={"row"} spacing={10}>
-              {" "}
-              // Increased spacing
+            <Stack direction={"row"} spacing={10}> // Increased spacing
               <Link href={"https://www.facebook.com/KOMCPC"}>
                 <Icon as={FaFacebook} />
               </Link>

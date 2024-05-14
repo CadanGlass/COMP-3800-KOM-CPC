@@ -19,7 +19,6 @@ const MailchimpForm = () => {
           noValidate
         >
           <div id="mc_embed_signup_scroll">
-            <h2>KOM Community Policing Centre Newsletter</h2>
             <div className="indicates-required">
               <span className="asterisk">*</span> indicates required
             </div>
@@ -72,6 +71,16 @@ const MailchimpForm = () => {
                   value="Subscribe"
                   id="mc-embedded-subscribe"
                   className="button"
+                  style={{
+                    backgroundColor: "#C02F2F", // Red color
+                    color: "white",
+                    borderColor: "#C02F2F",
+                    boxShadow:
+                      "0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2)",
+                    cursor: "pointer",
+                    padding: "-8px 20px",
+                    borderRadius: "5px",
+                  }} // Inline styles
                 />
                 <p style={{ margin: "0px auto" }}>
                   <a
