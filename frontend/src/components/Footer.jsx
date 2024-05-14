@@ -78,7 +78,7 @@ const Footer = () => {
               </Heading>
               <Text mb={2}>
                 Want crime alerts, community safety tips and news?
-                Sign up for our newsletter here:
+                Subscribe to our newsletter here:
                 <MailchimpForm />
               </Text>
 
