@@ -83,11 +83,17 @@ const Footer = () => {
               <MailchimpForm />
             </Box>
           </Stack>
-          <VStack align={{ base: "center", lg: "flex-start" }}>
+          <VStack align={{ base: "center", lg: "center" }}>
+            {" "}
+            // Ensure central alignment
             <Heading size="md" mb={2}>
               Follow us
             </Heading>
-            <SocialMediaLinks />
+            <Box align="center">
+              {" "}
+
+              <SocialMediaLinks />
+            </Box>
           </VStack>
         </Stack>
       </Container>
