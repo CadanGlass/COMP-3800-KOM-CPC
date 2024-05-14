@@ -26,20 +26,23 @@ import { DefaultPage } from '../components/DefaultComponents';
 
 import CatchmentCard from '../components/aboutus/catchment';
 import CPCCard from "../components/aboutus/cpc";
+import MissionCard from "../components/aboutus/mission";
 
 
 import CatchData from '../test_data/AboutUsData/catchmentData.json';
 import cpcData from '../test_data/AboutUsData/cpcData.json';
-
+import missionData from '../test_data/AboutUsData/missionData.json';
 
 const CatchmentData = CatchData;
 const CPCData = cpcData;
+const MissionData = missionData;
 
 
 export default function AboutUsPage() {
 	return (
 		<DefaultPage>
-
+      
+      <MissionCard missionData={MissionData} />
 			<CatchmentCard catchmentData={CatchmentData} />
       <CPCCard CPCData={CPCData} />
 
