@@ -103,36 +103,36 @@ export default function ContactUsForm() {
   const color = useColorModeValue('gray.700', 'white');
 
   return (
-    <Box bg={backgroundColor} borderRadius='lg'>
+    <Box bg={backgroundColor} borderRadius="lg">
       <VStack spacing={5} m={8}>
-        <FormControl id='name' isRequired isInvalid={formErrors.name}>
+        <FormControl id="name" isRequired isInvalid={formErrors.name}>
           <FormLabel color={color}>Name</FormLabel>
-          <InputGroup borderColor='gray.300'>
+          <InputGroup borderColor="gray.300">
             <InputLeftElement
-              pointerEvents='none'
+              pointerEvents="none"
               children={<MdOutlinePerson />}
             />
             <Input
-              type='text'
-              size='md'
-              id='name'
+              type="text"
+              size="md"
+              id="name"
               value={formData.name}
               onChange={handleChange}
             />
           </InputGroup>
           <FormErrorMessage>Please enter your name.</FormErrorMessage>
         </FormControl>
-        <FormControl id='email' isRequired isInvalid={formErrors.email}>
+        <FormControl id="email" isRequired isInvalid={formErrors.email}>
           <FormLabel color={color}>Email</FormLabel>
-          <InputGroup borderColor='gray.300'>
+          <InputGroup borderColor="gray.300">
             <InputLeftElement
-              pointerEvents='none'
+              pointerEvents="none"
               children={<MdOutlineEmail />}
             />
             <Input
-              type='email'
-              size='md'
-              id='email'
+              type="email"
+              size="md"
+              id="email"
               value={formData.email}
               onChange={handleChange}
             />
@@ -141,36 +141,36 @@ export default function ContactUsForm() {
             Please enter a valid email address.
           </FormErrorMessage>
         </FormControl>
-        <FormControl id='phone'>
+        <FormControl id="phone">
           <FormLabel color={color}>Phone</FormLabel>
-          <InputGroup borderColor='gray.300'>
-            <InputLeftElement pointerEvents='none' children={<MdPhone />} />
+          <InputGroup borderColor="gray.300">
+            <InputLeftElement pointerEvents="none" children={<MdPhone />} />
             <Input
-              type='text'
-              size='md'
-              id='phone'
+              type="text"
+              size="md"
+              id="phone"
               value={formData.phone}
               onChange={handleChange}
             />
           </InputGroup>
         </FormControl>
-        <FormControl id='message' isRequired isInvalid={formErrors.message}>
+        <FormControl id="message" isRequired isInvalid={formErrors.message}>
           <FormLabel color={color}>How can we help you?</FormLabel>
           <Textarea
-            borderColor='gray.300'
-            placeholder='Your message here...'
+            borderColor="gray.300"
+            placeholder="Your message here..."
             _placeholder={{ color: 'gray.400' }}
-            id='message'
+            id="message"
             value={formData.message}
             onChange={handleChange}
           />
           <FormErrorMessage>Please enter your message.</FormErrorMessage>
         </FormControl>
-        <FormControl id='name' float='right'>
+        <FormControl id="name" float="right">
           <Button
-            variant='solid'
-            bg='blue.500'
-            color='white'
+            variant="solid"
+            bg="blue.500"
+            color="white"
             _hover={{ color: 'white', bg: '#0B0E3F' }}
             onClick={handleSubmit}
             isDisabled={!formData.name || !formData.email || !formData.message}
