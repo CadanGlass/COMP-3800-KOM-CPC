@@ -11,18 +11,34 @@ import { Box,
         Tbody, 
         Tr, 
         Th, 
-        Td } from "@chakra-ui/react";
+        Td
+         } from "@chakra-ui/react";
 
 
 import komPartnersImage from "../assets/kom_partners_in_safety_.png";
 
 //----------------------------------------------
 
-// import dummy catchment data
-import data from '../test_data/AboutUsData/catchmentData.json';
 
-// variable for catchment data
-const CatchmentData = data.catchmentData;
+
+// import CatchmentCard from '../components/aboutus/catchment';
+// import { DefaultPage } from '../components/DefaultComponents';
+// import CatchData from '../test_data/AboutUsData/catchmentData.json';
+
+// const CatchmentData = CatchData;
+
+
+// export default function AboutUsPage() {
+// 	return (
+// 		<DefaultPage>
+
+// 			<CatchmentCard catchmentData={CatchmentData} />
+
+// 		</DefaultPage>
+// 	);
+// }
+
+
 
 
 
