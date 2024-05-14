@@ -34,7 +34,9 @@ const CPCCard = ({ CPCData }) => {
                                         </a>
                                     </Td>
                                     <Td>
-                                        <a href={`tel:${contact.phone}`}>{contact.phone}</a> |{' '}
+                                        <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+                                    </Td>
+                                    <Td>
                                         <a href={`mailto:${contact.email}`}>{contact.email}</a>
                                     </Td>
                                 </Tr>
