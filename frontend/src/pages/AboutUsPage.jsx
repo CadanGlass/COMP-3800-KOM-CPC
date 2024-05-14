@@ -15,7 +15,7 @@ import { Box,
          } from "@chakra-ui/react";
 
 
-import komPartnersImage from "../assets/kom_partners_in_safety_.png";
+//import komPartnersImage from "../assets/kom_partners_in_safety_.png";
 
 //----------------------------------------------
 
@@ -27,23 +27,27 @@ import { DefaultPage } from '../components/DefaultComponents';
 import CatchmentCard from '../components/aboutus/catchment';
 import CPCCard from "../components/aboutus/cpc";
 import MissionCard from "../components/aboutus/mission";
+import OurPartnersCard from "../components/aboutus/ourPartners";
 
 
 import CatchData from '../test_data/AboutUsData/catchmentData.json';
 import cpcData from '../test_data/AboutUsData/cpcData.json';
 import missionData from '../test_data/AboutUsData/missionData.json';
+import ourPartnersData from '../test_data/AboutUsData/ourPartnersData.json';
 
 const CatchmentData = CatchData;
 const CPCData = cpcData;
 const MissionData = missionData;
+const OurPartnersData = ourPartnersData;
 
 
 export default function AboutUsPage() {
 	return (
 		<DefaultPage>
-      
+
       <MissionCard missionData={MissionData} />
 			<CatchmentCard catchmentData={CatchmentData} />
+      <OurPartnersCard ourPartnersData={OurPartnersData} />
       <CPCCard CPCData={CPCData} />
 
 		</DefaultPage>
