@@ -28,17 +28,21 @@ import CatchmentCard from '../components/aboutus/catchment';
 import CPCCard from "../components/aboutus/cpc";
 import MissionCard from "../components/aboutus/mission";
 import OurPartnersCard from "../components/aboutus/ourPartners";
+import OurStoryCard from "../components/aboutus/ourStory";
 
 
 import CatchData from '../test_data/AboutUsData/catchmentData.json';
 import cpcData from '../test_data/AboutUsData/cpcData.json';
 import missionData from '../test_data/AboutUsData/missionData.json';
 import ourPartnersData from '../test_data/AboutUsData/ourPartnersData.json';
+import ourStoryData from '../test_data/AboutUsData/ourStoryData.json';
+
 
 const CatchmentData = CatchData;
 const CPCData = cpcData;
 const MissionData = missionData;
 const OurPartnersData = ourPartnersData;
+const OurStoryData = ourStoryData;
 
 
 export default function AboutUsPage() {
@@ -46,6 +50,7 @@ export default function AboutUsPage() {
 		<DefaultPage>
 
       <MissionCard missionData={MissionData} />
+      <OurStoryCard ourStoryData={OurStoryData} />
 			<CatchmentCard catchmentData={CatchmentData} />
       <OurPartnersCard ourPartnersData={OurPartnersData} />
       <CPCCard CPCData={CPCData} />
