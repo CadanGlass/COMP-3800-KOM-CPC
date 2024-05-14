@@ -1,6 +1,10 @@
 import React from "react";
+import { useColorMode, useColorModeValue } from "@chakra-ui/react";
 
 const MailchimpForm = () => {
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === "dark";
+
   return (
     <>
       <link
@@ -86,28 +90,26 @@ const MailchimpForm = () => {
                   <a
                     href="http://eepurl.com/iPO0iI"
                     title="Mailchimp - email marketing made easy and fun"
+                    style={{
+                      display: "inline-block",
+                      backgroundColor: "transparent",
+                      borderRadius: "4px",
+                    }}
                   >
-                    <span
+                    <img
+                      className="refferal_badge"
+                      src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
+                      alt="Intuit Mailchimp"
                       style={{
-                        display: "inline-block",
-                        backgroundColor: "transparent",
-                        borderRadius: "4px",
+                        width: "220px",
+                        height: "40px",
+                        display: "flex",
+                        padding: "2px 0px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        filter: isDark ? "invert(1)" : "none", // Invert colors in dark mode
                       }}
-                    >
-                      <img
-                        className="refferal_badge"
-                        src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
-                        alt="Intuit Mailchimp"
-                        style={{
-                          width: "220px",
-                          height: "40px",
-                          display: "flex",
-                          padding: "2px 0px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      />
-                    </span>
+                    />
                   </a>
                 </p>
               </div>
