@@ -23,9 +23,6 @@ const MailchimpForm = () => {
           noValidate
         >
           <div id="mc_embed_signup_scroll">
-            <div className="indicates-required">
-              <span className="asterisk">*</span> indicates required
-            </div>
             <div className="mc-field-group">
               <label htmlFor="mce-EMAIL">
                 Email Address <span className="asterisk">*</span>
