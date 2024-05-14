@@ -84,6 +84,7 @@ const MailchimpForm = () => {
                     cursor: "pointer",
                     padding: "-8px 20px",
                     borderRadius: "5px",
+                    fontWeight: "600"
                   }} // Inline styles
                 />
                 <p style={{ margin: "0px auto" }}>
