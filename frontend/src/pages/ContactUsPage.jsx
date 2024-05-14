@@ -1,6 +1,6 @@
 import { Container, Box, Heading, Text, VStack, Stack } from '@chakra-ui/react';
 
-import { DefaultPage } from '../components/DefaultComponents';
+import { DefaultPage, DefaultCard } from '../components/DefaultComponents';
 import Header from '../components/Header';
 import ContactUsForm from '../components/contactus/ContactUsForm';
 import ContactInfo from '../components/contactus/ContactInfo';
@@ -24,13 +24,11 @@ export default function ContactUsPage() {
       <Box py={{ base: 12, md: 16 }}>
         <Stack spacing={4} as={Container} maxW={'4xl'} textAlign={'center'}>
           <Heading fontSize={'2xl'}>{emergencyCard.Title}</Heading>
-          <Text color={'gray.600'} fontSize={'lg'}>
-            {emergencyCard.Description}
-          </Text>
+          <Text fontSize={'lg'}>{emergencyCard.Description}</Text>
         </Stack>
       </Box>
 
-      <Container maxW='100%' p={8} bg='gray.50' borderRadius='lg'>
+      <DefaultCard>
         <Stack
           align={'center'}
           spacing='8'
@@ -50,7 +48,7 @@ export default function ContactUsPage() {
             <ContactUsForm />
           </Stack>
         </Stack>
-      </Container>
+      </DefaultCard>
     </DefaultPage>
   );
 }

@@ -10,6 +10,7 @@ import {
   InputGroup,
   InputLeftElement,
   Textarea,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { MdPhone, MdOutlineEmail, MdOutlinePerson } from 'react-icons/md';
 
@@ -98,49 +99,69 @@ export default function ContactUsForm() {
     }
   };
 
+  const backgroundColor = useColorModeValue('gray.50', 'gray.600');
+  const color = useColorModeValue('gray.700', 'white');
+
   return (
-    <Box bg='white' borderRadius='lg'>
-      <VStack spacing={5} m={8} color='#0B0E3F'>
+    <Box bg={backgroundColor} borderRadius='lg'>
+      <VStack spacing={5} m={8}>
         <FormControl id='name' isRequired isInvalid={formErrors.name}>
-          <FormLabel>Name</FormLabel>
+          <FormLabel color={color}>Name</FormLabel>
           <InputGroup borderColor='gray.300'>
             <InputLeftElement
               pointerEvents='none'
-              children={<MdOutlinePerson color='gray.800' />}
+              children={<MdOutlinePerson />}
             />
-            <Input type='text' size='md' id='name' onChange={handleChange} />
+            <Input
+              type='text'
+              size='md'
+              id='name'
+              value={formData.name}
+              onChange={handleChange}
+            />
           </InputGroup>
           <FormErrorMessage>Please enter your name.</FormErrorMessage>
         </FormControl>
         <FormControl id='email' isRequired isInvalid={formErrors.email}>
-          <FormLabel>Email</FormLabel>
+          <FormLabel color={color}>Email</FormLabel>
           <InputGroup borderColor='gray.300'>
             <InputLeftElement
               pointerEvents='none'
-              children={<MdOutlineEmail color='gray.800' />}
+              children={<MdOutlineEmail />}
             />
-            <Input type='email' size='md' id='email' onChange={handleChange} />
+            <Input
+              type='email'
+              size='md'
+              id='email'
+              value={formData.email}
+              onChange={handleChange}
+            />
           </InputGroup>
           <FormErrorMessage>
             Please enter a valid email address.
           </FormErrorMessage>
         </FormControl>
         <FormControl id='phone'>
-          <FormLabel>Phone</FormLabel>
+          <FormLabel color={color}>Phone</FormLabel>
           <InputGroup borderColor='gray.300'>
-            <InputLeftElement
-              pointerEvents='none'
-              children={<MdPhone color='gray.800' />}
+            <InputLeftElement pointerEvents='none' children={<MdPhone />} />
+            <Input
+              type='text'
+              size='md'
+              id='phone'
+              value={formData.phone}
+              onChange={handleChange}
             />
-            <Input type='text' size='md' id='phone' onChange={handleChange} />
           </InputGroup>
         </FormControl>
         <FormControl id='message' isRequired isInvalid={formErrors.message}>
-          <FormLabel>How can we help you?</FormLabel>
+          <FormLabel color={color}>How can we help you?</FormLabel>
           <Textarea
             borderColor='gray.300'
             placeholder='Your message here...'
+            _placeholder={{ color: 'gray.400' }}
             id='message'
+            value={formData.message}
             onChange={handleChange}
           />
           <FormErrorMessage>Please enter your message.</FormErrorMessage>
