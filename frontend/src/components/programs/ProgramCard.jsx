@@ -3,7 +3,7 @@ import { DefaultCard } from '../DefaultComponents';
 import AccordionInfo from './AccordionInfo';
 import LearnMoreButton from '../LearnMoreButton';
 
-const ProgramCard = ({ title, description, image, subprograms, isExpanded, onLearnMoreClick }) => {
+const ProgramCard = ({ title, description, image, subprograms, isExpanded, onLearnMoreClick, isReversed }) => {
     return (
         <DefaultCard>
             <Grid
@@ -11,6 +11,19 @@ const ProgramCard = ({ title, description, image, subprograms, isExpanded, onLea
                 gap={8}
                 alignItems="center"
             >
+                {!isReversed && (
+                    <GridItem>
+                        <Image
+                            src={image}
+                            alt={title}
+                            objectFit="cover"
+                            width="100%"
+                            height="auto"
+                            maxHeight="300px"
+                            borderRadius="md"
+                        />
+                    </GridItem>
+                )}
                 <GridItem>
                     <VStack spacing={4} align="left" textAlign="left">
                         <Heading as="h4" size="md">{title}</Heading>
@@ -23,17 +36,19 @@ const ProgramCard = ({ title, description, image, subprograms, isExpanded, onLea
                         </Collapse>
                     </VStack>
                 </GridItem>
-                <GridItem>
-                    <Image
-                        src={image}
-                        alt={title}
-                        objectFit="cover"
-                        width="100%"
-                        height="auto"
-                        maxHeight="300px"
-                        borderRadius="md"
-                    />
-                </GridItem>
+                {isReversed && (
+                    <GridItem>
+                        <Image
+                            src={image}
+                            alt={title}
+                            objectFit="cover"
+                            width="100%"
+                            height="auto"
+                            maxHeight="300px"
+                            borderRadius="md"
+                        />
+                    </GridItem>
+                )}
             </Grid>
         </DefaultCard>
     );

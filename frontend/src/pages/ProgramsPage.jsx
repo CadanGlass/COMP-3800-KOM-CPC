@@ -26,10 +26,10 @@ export default function ProgramsPage() {
             title={program.title}
             description={program.description}
             image={program.image}
-            learnMoreLink={program.learnMoreLink}
             subprograms={program.subprograms}
             isExpanded={index === expandedIndex}
             onLearnMoreClick={() => handleLearnMoreClick(index)}
+            isReversed={index % 2 === 1}
           />
         ))}
       </VStack>
