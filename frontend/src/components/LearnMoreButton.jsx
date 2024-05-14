@@ -7,12 +7,14 @@ const LearnMoreButton = ({ onClick, isExpanded }) => {
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'blue.800'}
+            bg={'blue.900'}
+            border={'1px solid white'}
             _hover={{
                 bg: 'blue.500',
+                borderColor: 'white',
             }}
         >
-            {isExpanded ? 'Collapse' : 'Learn More'}
+            {isExpanded ? 'Collapse' : 'Learn More →'}
         </Button>
     );
 };
