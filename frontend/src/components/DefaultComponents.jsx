@@ -6,19 +6,19 @@ import {
   useColorModeValue,
   Text,
   Heading,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 export const DefaultPage = ({
   children,
   stackSpacing = 8,
   padding = useBreakpointValue({ base: 4, lg: 16 }),
 }) => {
-  const bg = useColorModeValue("white", "gray.800");
-  const color = useColorModeValue("black", "white");
+  const bg = useColorModeValue('white', 'gray.800');
+  const color = useColorModeValue('black', 'white');
 
   return (
     <Container maxW="1700px" py={4} px={padding} bg={bg} color={color}>
-      <VStack spacing={stackSpacing} width={"100%"}>
+      <VStack spacing={stackSpacing} width={'100%'}>
         {children}
       </VStack>
     </Container>
@@ -37,13 +37,13 @@ export const DefaultCard = ({
   children,
   internalPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 }),
   internalPaddingY = 6,
-  borderRadius = "xl",
+  borderRadius = 'xl',
 }) => {
-  const backgroundColor = useColorModeValue("white", "gray.700"); // White in light mode, dark gray in dark mode
-  const color = useColorModeValue("black", "white");
+  const backgroundColor = useColorModeValue('white', 'gray.700'); // White in light mode, dark gray in dark mode
+  const color = useColorModeValue('black', 'white');
   const boxShadow = useColorModeValue(
-    "0px 6px 15px rgba(0, 0, 0, 0.15)", // Slightly less strong shadow for light mode
-    "0px 6px 15px rgba(0, 0, 0, 0.5)" // Slightly less strong shadow for dark mode
+    '0px 6px 15px rgba(0, 0, 0, 0.15)', // Slightly less strong shadow for light mode
+    '0px 6px 15px rgba(0, 0, 0, 0.7)' // Stronger shadow for dark mode
   );
 
   return (
@@ -52,7 +52,7 @@ export const DefaultCard = ({
       py={internalPaddingY}
       backgroundColor={backgroundColor}
       color={color}
-      width={"100%"}
+      width={'100%'}
       borderRadius={borderRadius}
       boxShadow={boxShadow} // Apply the adjusted shadow
     >

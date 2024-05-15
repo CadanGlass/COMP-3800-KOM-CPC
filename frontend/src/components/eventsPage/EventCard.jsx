@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Flex, Text, IconButton, Image, Collapse } from "@chakra-ui/react";
-import { ChevronRightIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { Box, Flex, Text, IconButton, Image, Collapse } from '@chakra-ui/react';
+import { ChevronRightIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
 const EventCard = ({ event, cardBg, textColor }) => {
-  // State to manage whether the image is shown or not
   const [showImage, setShowImage] = useState(false);
 
-  // Toggle the image visibility
   const toggleImage = () => setShowImage(!showImage);
-
 
   return (
     <Box
@@ -17,7 +14,7 @@ const EventCard = ({ event, cardBg, textColor }) => {
       rounded="md"
       shadow="md"
       w="full"
-      _hover={{ shadow: "xl" }}
+      _hover={{ shadow: 'xl' }}
     >
       <Flex justify="space-between" align="center">
         <Box>
