@@ -4,7 +4,7 @@ import { DefaultPage, DefaultCard } from '../components/DefaultComponents';
 import Header from '../components/Header';
 import ContactUsForm from '../components/contactus/ContactUsForm';
 import ContactInfo from '../components/contactus/ContactInfo';
-import VolunteerNowButton from '../components/VolunteerNowButton';
+import VolunteerNowButton from '../components/buttons/VolunteerNowButton';
 import DonateButton from '../components/buttons/DonateButton';
 import data from '../test_data/contactus/contactus_page.json';
 
