@@ -101,7 +101,8 @@ const NewsEventsPage = () => {
 
   const currentNewsletter = {
     title: 'June Newsletter',
-    summary: "Summary of June's events and updates.",
+    summary:
+      "Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.",
   };
 
   const cardMinHeight = '400px'; // Set the minimum height for both sections
