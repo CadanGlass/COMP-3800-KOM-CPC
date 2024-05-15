@@ -13,6 +13,9 @@ import {
 import KOM_logo from "../assets/KOM_Logo.png";
 import SocialMediaLinks from "./footer/SocialMediaLinks";
 import MailchimpForm from "./newsletter/MailchimpForm";
+import OperationHours from "./footer/OperationHours";
+import QuickLinks from "./footer/QuickLinks";
+import ContactSection from "./footer/ContactSection";
 
 const Footer = () => {
   const bg = useColorModeValue("gray.50", "gray.900"); // Lighter background for light mode
@@ -20,12 +23,10 @@ const Footer = () => {
 
   return (
     <Box bg={bg} color={color} px={4} py={10}>
-      <Container maxW="7xl">
+      <Container maxW="90%" centerContent>
         <Stack
           direction={{ base: "column", lg: "row" }}
           spacing={10}
-          justify="space-between"
-          align={{ base: "center", lg: "flex-start" }}
         >
           <VStack spacing={4} align={{ base: "center", lg: "flex-start" }}>
             <Link
@@ -45,6 +46,7 @@ const Footer = () => {
             <Text fontSize="sm" textAlign={{ base: "center", lg: "left" }}>
               © Kerrisdale Oakridge Marpole Community Policing Centre - 2024
             </Text>
+            <SocialMediaLinks />
           </VStack>
           <Stack
             direction={{ base: "column", md: "row" }}
@@ -52,46 +54,22 @@ const Footer = () => {
             align={{ base: "center", md: "flex-start" }}
             textAlign={{ base: "center", md: "left" }}
           >
-            <Box>
-              <Heading size="md" mb={2}>
-                Contact
-              </Heading>
-              <Text>6070 East Boulevard,</Text>
-              <Text>Vancouver BC Canada</Text>
-              <Text>email@email.com</Text>
+            <ContactSection />
+            <QuickLinks />
+            <Box maxW="sm">
+              <OperationHours />
             </Box>
-            <Box>
-              <Heading size="md" mb={2}>
-                Volunteer
-              </Heading>
-              <VStack spacing={3} align="stretch">
-                <Link href="#">Program</Link>
-                <Link href="#">Calendar</Link>
-                <Link href="#">Newsletter</Link>
-                <Link href="#">About Us</Link>
-                <Link href="#">Contact Us</Link>
-              </VStack>
-            </Box>
-            <Box>
+            <Box maxW="sm">
               <Heading size="md" mb={2}>
                 Subscribe
               </Heading>
-              <Text mb={2}>
-                Want crime alerts, community safety tips and news?
-                Sign up for our newsletter here:
+              <VStack spacing={2} align="stretch">
+                <Text>Want crime alerts, community safety tips, and news?</Text>
+                <Text mb={2}>Subscribe to our newsletter here:</Text>
                 <MailchimpForm />
-              </Text>
-
+              </VStack>
             </Box>
           </Stack>
-          <VStack align={{ base: "center", lg: "center" }}>
-            <Heading size="md" mb={2}>
-              Follow us
-            </Heading>
-            <Box align="center">
-              <SocialMediaLinks />
-            </Box>
-          </VStack>
         </Stack>
       </Container>
     </Box>
