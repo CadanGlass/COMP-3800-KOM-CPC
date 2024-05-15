@@ -14,7 +14,8 @@ import KOM_logo from "../assets/KOM_Logo.png";
 import SocialMediaLinks from "./footer/SocialMediaLinks";
 import MailchimpForm from "./newsletter/MailchimpForm";
 import OperationHours from "./footer/OperationHours";
-import QuickLinks from "./footer/QuickLinks"; // Import the new component
+import QuickLinks from "./footer/QuickLinks";
+import ContactSection from "./footer/ContactSection";
 
 const Footer = () => {
   const bg = useColorModeValue("gray.50", "gray.900"); // Lighter background for light mode
@@ -22,7 +23,7 @@ const Footer = () => {
 
   return (
     <Box bg={bg} color={color} px={4} py={10}>
-      <Container maxW="8xl">
+      <Container maxW="90%" centerContent>
         <Stack
           direction={{ base: "column", lg: "row" }}
           spacing={10}
@@ -53,17 +54,8 @@ const Footer = () => {
             align={{ base: "center", md: "flex-start" }}
             textAlign={{ base: "center", md: "left" }}
           >
-            <Box maxW="sm">
-              <Heading size="md" mb={2}>
-                Contact Us
-              </Heading>
-              <VStack spacing={2} align="stretch">
-                <Text>6070 East Boulevard,</Text>
-                <Text>Vancouver BC Canada</Text>
-                <Text>email@email.com</Text>
-              </VStack>
-            </Box>
-            <QuickLinks /> {/* Use the new QuickLinks component */}
+            <ContactSection />
+            <QuickLinks />
             <Box maxW="sm">
               <OperationHours />
             </Box>
