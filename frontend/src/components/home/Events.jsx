@@ -1,22 +1,22 @@
-import { Heading, Stack, Button, Link, SimpleGrid } from '@chakra-ui/react';
+import {
+  Heading,
+  Stack,
+  Button,
+  Link,
+  SimpleGrid,
+  Box,
+} from '@chakra-ui/react';
 
 import { DefaultCard } from '../DefaultComponents';
-import EventCard from './EventCard';
+import EventCard from '../eventsPage/EventCard';
 
 const events = [
-  {
-    date: 'OCT 24',
-    name: 'Speed Control',
-    price: 'Free',
-    time: '10:00',
-    image: 'https://via.placeholder.com/100x75',
-  },
+  { date: 'OCT 24', name: 'Speed Control', price: 'Free', time: '10:00' },
   {
     date: 'OCT 27',
     name: 'Community Outreach',
     price: '$12.99',
     time: '16:00',
-    image: 'https://via.placeholder.com/100x75',
   },
   {
     date: 'OCT 30',
@@ -25,11 +25,24 @@ const events = [
     time: '18:00',
   },
   {
-    date: 'NOV 1',
-    name: 'Bike Safety',
+    date: 'NOV 02',
+    name: 'Self Defense Workshop',
+    price: '$9.99',
+    time: '14:00',
+  },
+  {
+    date: 'NOV 05',
+    name: 'Neighborhood Watch Training',
     price: 'Free',
     time: '10:00',
   },
+  {
+    date: 'NOV 10',
+    name: 'Fire Safety Seminar',
+    price: '$5.00',
+    time: '13:00',
+  },
+  { date: 'NOV 15', name: 'CPR Training', price: '$15.00', time: '09:00' },
 ];
 
 const firstThreeEvents = events.slice(0, 3);
@@ -60,14 +73,9 @@ export default function Events() {
           </Stack>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
             {firstThreeEvents.map((event, index) => (
-              <EventCard
-                key={index}
-                name={event.name}
-                date={event.date}
-                time={event.time}
-                price={event.price}
-                image={event.image}
-              />
+              <Box mb={4} key={index}>
+                <EventCard event={event} />
+              </Box>
             ))}
           </SimpleGrid>
         </Stack>
