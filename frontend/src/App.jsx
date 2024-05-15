@@ -14,6 +14,7 @@ import ContactUsPage from './pages/ContactUsPage';
 import ShieldYourSipPage from './pages/ShieldYourSipPage';
 import NewsEventsPage from './pages/NewsEventsPage';
 import ResourcesPage from './pages/ResourcesPage';
+import HowCanIHelpPage from './pages/HowCanIHelpPage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/programs" element={<ProgramsPage />} />
               <Route path="/shield-your-sip" element={<ShieldYourSipPage />} />
               <Route path="/news-events" element={<NewsEventsPage />} />
+              <Route path="/how-can-i-help" element={<HowCanIHelpPage />} />
               <Route path="/about-us" element={<AboutUsPage />} />
               <Route path="/resources" element={<ResourcesPage />} />
               <Route path="/events" element={<EventsPage />} />

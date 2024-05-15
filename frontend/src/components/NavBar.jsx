@@ -23,7 +23,8 @@ const NAV_ITEMS = [
   { label: 'Programs', path: 'programs' },
   { label: 'Shield Your Sip', path: 'shield-your-sip' },
   { label: 'News & Events', path: 'news-events' },
-  { label: 'About Us', path: 'about-us' },
+  { label: 'How Can I Help?', path: 'how-can-i-help' },
+  { label: 'About', path: 'about-us' },
   { label: 'Resources', path: 'resources' },
 ];
 
