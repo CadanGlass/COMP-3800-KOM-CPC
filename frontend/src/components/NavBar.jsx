@@ -13,18 +13,18 @@ import {
   useColorMode,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, SunIcon, MoonIcon } from '@chakra-ui/icons';
-import VolunteerNowButton from './VolunteerNowButton';
+import DonateButton from './buttons/DonateButton';
+import ContactUsButton from './buttons/ContactUsButton';
 
 import KOM_logo from '../assets/KOM_Logo.png';
 
 const NAV_ITEMS = [
-  { label: 'Home', path: '/' },
   { label: 'Volunteer', path: 'volunteer' },
   { label: 'Programs', path: 'programs' },
-  { label: 'Events', path: 'events' },
-  { label: 'Newsletter', path: 'newsletter' },
+  { label: 'Shield Your Sip', path: 'shield-your-sip' },
+  { label: 'News & Events', path: 'news-events' },
   { label: 'About Us', path: 'about-us' },
-  { label: 'Contact Us', path: 'contact-us' },
+  { label: 'Resources', path: 'resources' },
 ];
 
 const NavLink = ({ children }) => (
@@ -34,9 +34,11 @@ const NavLink = ({ children }) => (
     rounded={'md'}
     _hover={{
       textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
+      bg: 'gray.300',
+      color: 'black',
     }}
     href={children.path}
+    fontSize={{ lg: 'sm', xl: 'md' }}
   >
     {children.label}
   </Link>
@@ -54,7 +56,11 @@ export default function Navbar() {
         px={4}
         w="100%"
       >
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+        <Flex
+          h={16}
+          alignItems={'center'}
+          justify={{ base: 'center', lg: 'space-between' }}
+        >
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -63,15 +69,20 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
 
-          <HStack spacing={4} alignItems={'center'}>
+          <HStack
+            spacing={4}
+            flex={1}
+            justify={{ base: 'center', lg: 'start' }}
+          >
             <Link
               display="flex"
               alignItems="center"
-              p={2}
+              pr={2}
               rounded={'md'}
               _hover={{
                 textDecoration: 'none',
-                bg: useColorModeValue('gray.200', 'gray.700'),
+                bg: 'gray.300',
+                color: 'gray.700',
               }}
               href="/"
             >
@@ -83,7 +94,7 @@ export default function Navbar() {
           </HStack>
 
           <HStack
-            spacing={6}
+            spacing={{ base: 2, xl: 6 }}
             alignItems={'center'}
             display={{ base: 'none', lg: 'flex' }}
           >
@@ -95,8 +106,10 @@ export default function Navbar() {
               onClick={toggleColorMode}
               aria-label="Toggle dark mode"
               isRound={true}
+              size="sm"
             />
-            {VolunteerNowButton()}
+            {DonateButton()}
+            {ContactUsButton()}
           </HStack>
         </Flex>
 
@@ -106,15 +119,19 @@ export default function Navbar() {
               {NAV_ITEMS.map((navItem) => (
                 <NavLink key={navItem.path}>{navItem}</NavLink>
               ))}
-              <IconButton
-                icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                onClick={toggleColorMode}
-                aria-label="Toggle dark mode"
-                isRound={true}
-                size="lg"
-                alignSelf="center"
-              />
-              {VolunteerNowButton()}
+              <HStack flexWrap="wrap" spacing={4}>
+                {DonateButton()}
+                {ContactUsButton()}
+                <IconButton
+                  icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                  onClick={toggleColorMode}
+                  aria-label="Toggle dark mode"
+                  isRound={true}
+                  size="md"
+                  alignSelf="center"
+                />
+              </HStack>
+              {/* {VolunteerNowButton()} */}
             </Stack>
           </Box>
         ) : null}

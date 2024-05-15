@@ -11,6 +11,9 @@ import EventsPage from './pages/EventsPage';
 import NewsletterPage from './pages/NewsletterPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
+import ShieldYourSipPage from './pages/ShieldYourSipPage';
+import NewsEventsPage from './pages/NewsEventsPage';
+import ResourcesPage from './pages/ResourcesPage';
 
 function App() {
   return (
@@ -25,9 +28,12 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/volunteer" element={<VolunteerPage />} />
               <Route path="/programs" element={<ProgramsPage />} />
+              <Route path="/shield-your-sip" element={<ShieldYourSipPage />} />
+              <Route path="/news-events" element={<NewsEventsPage />} />
+              <Route path="/about-us" element={<AboutUsPage />} />
+              <Route path="/resources" element={<ResourcesPage />} />
               <Route path="/events" element={<EventsPage />} />
               <Route path="/newsletter" element={<NewsletterPage />} />
-              <Route path="/about-us" element={<AboutUsPage />} />
               <Route path="/contact-us" element={<ContactUsPage />} />
             </Routes>
           </Box>

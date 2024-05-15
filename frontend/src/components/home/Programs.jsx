@@ -7,7 +7,6 @@ import { ProgramCard } from './ProgramCard';
 const firstThreePrograms = data.programs.slice(0, 3);
 
 export default function Programs() {
-  console.log(firstThreePrograms);
   return (
     <>
       <DefaultCard>
