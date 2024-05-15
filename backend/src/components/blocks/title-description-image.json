@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_title_description_images",
+  "info": {
+    "displayName": "Title Description Image"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

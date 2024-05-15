@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_cpc_contact_data",
+  "info": {
+    "displayName": "CPC Contact Data"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    }
+  }
+}

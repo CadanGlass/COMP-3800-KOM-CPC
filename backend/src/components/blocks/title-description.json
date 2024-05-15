@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_title_descriptions",
+  "info": {
+    "displayName": "Title Description",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

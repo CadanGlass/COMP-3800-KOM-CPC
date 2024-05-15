@@ -1,6 +1,9 @@
 import { Stack, Heading, Box, useBreakpointValue, Text, Image } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 
+import missionImage from '../../assets/mission_pic.jpg';
+import { m } from 'framer-motion';
+
 const MissionCard = ({ missionData }) => {
     const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
     const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
@@ -23,7 +26,8 @@ const MissionCard = ({ missionData }) => {
                         <Box textAlign="center" mb={2}>
                             <Box display="flex" justifyContent="center">
                                 <Image
-                                    src="https://via.placeholder.com/1000x500"
+                                    
+                                    src={missionImage}
                                     alt="test image"
                                     fit="cover"
                                     maxW="100%"
