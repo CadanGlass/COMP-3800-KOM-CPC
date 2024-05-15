@@ -29,23 +29,65 @@
     ],
     "mapUrl": "https://www.google.com/maps/d/embed?mid=14EQlSHq7tJJVlNIn_Sb3Y9PbVWk&ehbc=2E312F"
   },
-  "Partners": {
+  "Partnerships": {
     "title": "Our Proud Partners",
-    "logos": [
-      "https://picsum.photos/id/10/200/200",
-      "https://picsum.photos/id/20/200/200",
-      "https://picsum.photos/id/30/200/200",
-      "https://picsum.photos/id/40/200/200",
-      "https://picsum.photos/id/50/200/200",
-      "https://picsum.photos/id/60/200/200",
-      "https://picsum.photos/id/70/200/200",
-      "https://picsum.photos/id/80/200/200",
-      "https://picsum.photos/id/90/200/200",
-      "https://picsum.photos/id/100/200/200",
-      "https://picsum.photos/id/110/200/200",
-      "https://picsum.photos/id/120/200/200",
-      "https://picsum.photos/id/130/200/200",
-      "https://picsum.photos/id/140/200/200"
+    "partners": [
+      {
+        "url": "https://picsum.photos/id/10/200/200",
+        "logo": "https://picsum.photos/id/10/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/20/200/200",
+        "logo": "https://picsum.photos/id/20/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/30/200/200",
+        "logo": "https://picsum.photos/id/30/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/40/200/200",
+        "logo": "https://picsum.photos/id/40/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/50/200/200",
+        "logo": "https://picsum.photos/id/50/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/60/200/200",
+        "logo": "https://picsum.photos/id/60/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/70/200/200",
+        "logo": "https://picsum.photos/id/70/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/80/200/200",
+        "logo": "https://picsum.photos/id/80/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/90/200/200",
+        "logo": "https://picsum.photos/id/90/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/100/200/200",
+        "logo": "https://picsum.photos/id/100/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/110/200/200",
+        "logo": "https://picsum.photos/id/110/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/120/200/200",
+        "logo": "https://picsum.photos/id/120/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/130/200/200",
+        "logo": "https://picsum.photos/id/130/200/200"
+      },
+      {
+        "url": "https://picsum.photos/id/140/200/200",
+        "logo": "https://picsum.photos/id/140/200/200"
+      }
     ]
   }
 }

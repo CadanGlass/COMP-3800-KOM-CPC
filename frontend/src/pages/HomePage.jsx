@@ -47,7 +47,7 @@ export default function HomePage() {
   if (!programTitles.length) return <Text>Loading...</Text>;
 
   const whoWeAreData = data.WhoWeAre;
-  const partners = data.Partners;
+  const partners = data.Partnerships;
 
   return (
     <>

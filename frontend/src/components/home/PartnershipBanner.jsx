@@ -13,6 +13,7 @@ import {
   grid,
   ScaleFade,
   SlideFade,
+  Link,
 } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 
@@ -40,11 +41,13 @@ const PartnershipGrid = ({ data }) => {
 };
 
 const PartnershipBanner = ({ data }) => {
-  const logos = data.logos;
-  const logoComponents = logos.map((logo, index) => (
+  const partners = data.partners;
+  const logoComponents = partners.map((partnerInfo, index) => (
     <AspectRatio key={index} ratio={1}>
-      {/* add links to image? */}
-      <Image src={logo} alt="logo" />
+      <Link href={partnerInfo.url} isExternal>
+        {/* add links to image? */}
+        <Image src={partnerInfo.logo} alt="logo" />
+      </Link>
     </AspectRatio>
   ));
 
