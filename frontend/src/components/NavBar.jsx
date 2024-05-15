@@ -96,7 +96,6 @@ export default function Navbar() {
 
           <HStack
             spacing={{ base: 2, xl: 6 }}
-            alignItems={'center'}
             display={{ base: 'none', lg: 'flex' }}
           >
             {NAV_ITEMS.map((navItem) => (
@@ -109,8 +108,8 @@ export default function Navbar() {
               isRound={true}
               size="sm"
             />
-            {DonateButton()}
             {ContactUsButton()}
+            {DonateButton()}
           </HStack>
         </Flex>
 
@@ -121,8 +120,8 @@ export default function Navbar() {
                 <NavLink key={navItem.path}>{navItem}</NavLink>
               ))}
               <HStack flexWrap="wrap" spacing={4}>
-                {DonateButton()}
                 {ContactUsButton()}
+                {DonateButton()}
                 <IconButton
                   icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                   onClick={toggleColorMode}
@@ -132,7 +131,6 @@ export default function Navbar() {
                   alignSelf="center"
                 />
               </HStack>
-              {/* {VolunteerNowButton()} */}
             </Stack>
           </Box>
         ) : null}

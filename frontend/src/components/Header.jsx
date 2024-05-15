@@ -24,7 +24,7 @@ export default function Header({ title, description, btn1, btn2, imageUrl }) {
           {description && <Text>{description}</Text>}
 
           {btn1 && (
-            <VStack spacing="4" align={{ sm: 'start' }}>
+            <VStack spacing="4" align="start">
               {btn1}
               {btn2 && btn2}
             </VStack>
