@@ -4,7 +4,7 @@ export default function ContactUsButton() {
   return (
     <Link href="/contact-us">
       <Button
-        fontSize={'md'}
+        fontSize={'sm'}
         fontWeight={600}
         color={'white'}
         bg={'red.600'}

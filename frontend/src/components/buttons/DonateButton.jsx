@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 export default function DonateButton() {
   return (
-    <Link to="https://www.canadahelps.org/en/dn/81226">
+    <Link
+      to="https://www.canadahelps.org/en/dn/81226"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Button
-        fontSize={'md'}
+        fontSize={'sm'}
         fontWeight={600}
         color={'white'}
         bg={'red.600'}

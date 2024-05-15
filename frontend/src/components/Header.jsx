@@ -1,28 +1,20 @@
 import {
-  Container,
   Image,
   Heading,
   Text,
   Stack,
   AspectRatio,
-  Button,
   VStack,
 } from '@chakra-ui/react';
 import { DefaultCard } from './DefaultComponents';
 
-export default function Header({
-  title,
-  description = '',
-  btn1 = '',
-  btn2 = '',
-  imageUrl,
-}) {
+export default function Header({ title, description, btn1, btn2, imageUrl }) {
   return (
     <DefaultCard>
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
-        py={{ base: 12, md: 16 }}
+        py={{ base: 4, md: 12 }}
         direction={{ base: 'column', md: 'row' }}
       >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
@@ -32,15 +24,9 @@ export default function Header({
           {description && <Text>{description}</Text>}
 
           {btn1 && (
-            <VStack spacing='4' align={{ sm: 'start' }}>
-              <Button bg={'red.600'} color={'white'}>
-                {btn1}
-              </Button>
-              {btn2 && (
-                <Button bg={'red.600'} color={'white'}>
-                  {btn2}
-                </Button>
-              )}
+            <VStack spacing="4" align={{ sm: 'start' }}>
+              {btn1}
+              {btn2 && btn2}
             </VStack>
           )}
         </Stack>

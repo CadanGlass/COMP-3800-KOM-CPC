@@ -4,6 +4,8 @@ import { DefaultPage, DefaultCard } from '../components/DefaultComponents';
 import Header from '../components/Header';
 import ContactUsForm from '../components/contactus/ContactUsForm';
 import ContactInfo from '../components/contactus/ContactInfo';
+import VolunteerNowButton from '../components/VolunteerNowButton';
+import DonateButton from '../components/buttons/DonateButton';
 import data from '../test_data/contactus/contactus_page.json';
 
 const title = data.HeroTitle;
@@ -15,10 +17,10 @@ export default function ContactUsPage() {
     <DefaultPage>
       <Header
         title={title}
-        description='Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore'
-        imageUrl='https://via.placeholder.com/150'
-        btn1='Volunteer Now'
-        btn2='Donate Now'
+        description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore"
+        imageUrl="https://via.placeholder.com/150"
+        btn1={<VolunteerNowButton />}
+        btn2={<DonateButton />}
       />
 
       <Box py={{ base: 12, md: 16 }}>
@@ -31,7 +33,7 @@ export default function ContactUsPage() {
       <DefaultCard>
         <Stack
           align={'center'}
-          spacing='8'
+          spacing="8"
           py={{ base: 8, md: 12 }}
           direction={{ base: 'column', md: 'row' }}
         >
