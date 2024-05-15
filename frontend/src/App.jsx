@@ -7,8 +7,6 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import VolunteerPage from './pages/VolunteerPage';
 import ProgramsPage from './pages/ProgramsPage';
-import EventsPage from './pages/EventsPage';
-import NewsletterPage from './pages/NewsletterPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
 import ShieldYourSipPage from './pages/ShieldYourSipPage';
@@ -34,8 +32,6 @@ function App() {
               <Route path="/how-can-i-help" element={<HowCanIHelpPage />} />
               <Route path="/about-us" element={<AboutUsPage />} />
               <Route path="/resources" element={<ResourcesPage />} />
-              <Route path="/events" element={<EventsPage />} />
-              <Route path="/newsletter" element={<NewsletterPage />} />
               <Route path="/contact-us" element={<ContactUsPage />} />
             </Routes>
           </Box>

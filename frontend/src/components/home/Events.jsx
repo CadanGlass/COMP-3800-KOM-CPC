@@ -48,7 +48,7 @@ export default function Events() {
             <Heading as="h3" size="lg">
               Upcoming Events
             </Heading>
-            <Link href="/events">
+            <Link href="/news-events">
               <Button
                 bg="blue.500"
                 color="white"
