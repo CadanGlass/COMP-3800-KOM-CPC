@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <>
       <Box
-        bg={useColorModeValue('gray.800', 'gray.900')}
+        bg={useColorModeValue('gray.800', '#1A202C')}
         color={useColorModeValue('gray.100', 'gray.200')}
         px={4}
         w="100%"
