@@ -89,8 +89,8 @@ export default function Navbar() {
               href="/"
             >
               <Avatar size={'md'} src={KOM_logo} />
-              <Text fontSize="lg" fontWeight="bold" ml={2}>
-                KOM CPC
+              <Text fontSize="md" fontWeight="bold" ml={2}>
+                Kerrisdale Oakridge Marpole Community Policing Centre
               </Text>
             </Link>
           </HStack>

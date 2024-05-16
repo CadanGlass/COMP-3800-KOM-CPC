@@ -5,7 +5,7 @@ import {
   VStack,
   Heading,
   AspectRatio,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 const Banner = () => (
   <VStack justify="center">
@@ -16,11 +16,11 @@ const Banner = () => (
       width="full"
       height="full"
     />
-    <Heading as="h1" size="xl" paddingTop={8} textAlign={"center"}>
-      {"Welcome to the KOM CPC"}
+    <Heading as="h1" size="2xl" paddingTop={8} textAlign={'center'}>
+      {'Welcome to the KOM CPC'}
     </Heading>
 
-    <Text fontSize="x-large" textAlign={"center"}>
+    <Text fontSize={'2xl'} textAlign={'center'}>
       Kerrisdale Oakridge Marpole Community Policing Centre
     </Text>
   </VStack>
