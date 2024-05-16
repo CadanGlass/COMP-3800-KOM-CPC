@@ -192,11 +192,6 @@ const NewsEventsPage = () => {
             </DefaultCard>
           </VStack>
         </HStack>
-        {/* Subscribe Section */}
-        <Divider orientation="horizontal" borderColor={borderColor} my={10} />
-        <Box textAlign="center">
-          <MailchimpForm />
-        </Box>
       </Container>
     </DefaultPage>
   );
