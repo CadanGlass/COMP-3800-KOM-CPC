@@ -3,9 +3,7 @@ import {
   VStack,
   useBreakpointValue,
   Container,
-  useColorModeValue,
-  Text,
-  Heading,
+  useColorMode,
 } from '@chakra-ui/react';
 import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
@@ -15,24 +13,20 @@ export const DefaultPage = ({
   stackSpacing = 8,
   padding = useBreakpointValue({ base: 4, lg: 16 }),
 }) => {
-  const contentBg = useColorModeValue('white', 'gray.900'); // White background in light mode
-  const color = useColorModeValue('black', 'white');
+  const { colorMode } = useColorMode();
+  const bgColor = colorMode === 'light' ? 'white' : '#171923';
 
   return (
-    <Box width="100%" bg={contentBg} color={color}>
-      {' '}
-      {/* Set the background to contentBg */}
-      <Box bg={contentBg} color={color} py={4} px={padding}>
+    <Box width="100%" bg={bgColor} minHeight="100vh">
+      <Box py={4} px={padding}>
         {/* Header content goes here if needed */}
       </Box>
-      <Container maxW="1700px" py={4} px={padding} bg={contentBg} color={color}>
-        {' '}
-        {/* Remove Box wrapping Container */}
+      <Container maxW="1700px" py={4} px={padding}>
         <VStack spacing={stackSpacing} width={'100%'}>
           {children}
         </VStack>
       </Container>
-      <Box bg={contentBg} color={color} py={4} px={padding}>
+      <Box py={4} px={padding}>
         {/* Footer content */}
       </Box>
     </Box>
@@ -53,12 +47,13 @@ export const DefaultCard = ({
   internalPaddingY = 6,
   borderRadius = 'xl',
 }) => {
-  const backgroundColor = useColorModeValue('white', 'gray.800'); // Darker gray in dark mode
-  const color = useColorModeValue('black', 'white');
-  const boxShadow = useColorModeValue(
-    '0px 6px 15px rgba(0, 0, 0, 0.15)', // Slightly less strong shadow for light mode
-    '0px 6px 15px rgba(0, 0, 0, 0.7)' // Stronger shadow for dark mode
-  );
+  const { colorMode } = useColorMode();
+  const backgroundColor = colorMode === 'light' ? 'white' : 'gray.800';
+  const color = colorMode === 'light' ? 'black' : 'white';
+  const boxShadow =
+    colorMode === 'light'
+      ? '0px 6px 15px rgba(0, 0, 0, 0.15)'
+      : '0px 6px 15px rgba(0, 0, 0, 0.7)';
 
   return (
     <Box w={'100%'}>
@@ -75,14 +70,14 @@ export const DefaultCard = ({
             <Box
               px={internalPaddingX}
               py={internalPaddingY}
-              backgroundColor={backgroundColor}
+              bg={backgroundColor}
               color={color}
               width={'100%'}
               borderRadius={borderRadius}
-              boxShadow={boxShadow} // Apply the adjusted shadow
+              boxShadow={boxShadow}
             >
               {children}
-            </Box>{' '}
+            </Box>
           </motion.div>
         )}
       </InView>
