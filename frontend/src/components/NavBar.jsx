@@ -60,20 +60,20 @@ export default function Navbar() {
         <Flex
           h={16}
           alignItems={'center'}
-          justify={{ base: 'center', lg: 'space-between' }}
+          justify={{ base: 'center', xl: 'space-between' }}
         >
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={'Open Menu'}
-            display={{ base: 'flex', lg: 'none' }}
+            display={{ base: 'flex', xl: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
 
           <HStack
             spacing={4}
             flex={1}
-            justify={{ base: 'center', lg: 'start' }}
+            justify={{ base: 'center', xl: 'start' }}
           >
             <Link
               display="flex"
@@ -96,8 +96,8 @@ export default function Navbar() {
           </HStack>
 
           <HStack
-            spacing={{ base: 2, xl: 6 }}
-            display={{ base: 'none', lg: 'flex' }}
+            spacing={{ base: 2, xl: 4, '2xl': 6 }}
+            display={{ base: 'none', xl: 'flex' }}
           >
             {NAV_ITEMS.map((navItem) => (
               <NavItem key={navItem.path}>{navItem}</NavItem>
@@ -115,7 +115,7 @@ export default function Navbar() {
         </Flex>
 
         {isOpen ? (
-          <Box pb={4} display={{ base: 'block', lg: 'none' }}>
+          <Box pb={4} display={{ base: 'block', xl: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {NAV_ITEMS.map((navItem) => (
                 <NavItem key={navItem.path}>{navItem}</NavItem>
