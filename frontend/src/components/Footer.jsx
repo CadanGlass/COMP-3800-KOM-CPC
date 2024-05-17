@@ -32,10 +32,8 @@ const Footer = () => {
           <Stack direction={{ base: 'column', md: 'row' }} spacing={8} justify="space-between">
             <LogoSection />
             <MailchimpForm />
-            {/* <QuickLinks /> */}
             <OperationHours />
             <ContactSection />
-            {/* <LogoSection /> */}
           </Stack>
         </Stack>
       </Container>

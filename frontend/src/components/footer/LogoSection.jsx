@@ -21,8 +21,8 @@ const LogoSection = () => {
           bg: useColorModeValue("gray.200", "gray.700"),
         }}
       >
-        <Avatar size="lg" src={KOM_logo} />
-        <Text fontSize="lg" ml={2}>
+        <Avatar size="2xl" src={KOM_logo} />
+        <Text fontSize="x1" ml={2}>
           KOM CPC <br></br>
           6070 East Boulevard,<br></br>
           Vancouver BC, Canada
