@@ -14,8 +14,7 @@ import {
 
 import EventCard from '../components/eventsPage/EventCard';
 import PastNewsletters from '../components/newsletter/PastNewsletters';
-import MailchimpForm from '../components/newsletter/MailchimpForm';
-
+import InstagramFeed from '../components/eventsPage/InstagramFeed';
 import { DefaultPage, DefaultCard } from '../components/DefaultComponents';
 
 const NewsEventsPage = () => {
@@ -192,6 +191,11 @@ const NewsEventsPage = () => {
             </DefaultCard>
           </VStack>
         </HStack>
+
+        <Divider orientation="horizontal" borderColor={borderColor} my={4} />
+        <Box mt={10}>
+          <InstagramFeed />
+        </Box>
       </Container>
     </DefaultPage>
   );
