@@ -13,10 +13,11 @@ import ShieldYourSipPage from './pages/ShieldYourSipPage';
 import NewsEventsPage from './pages/NewsEventsPage';
 import ResourcesPage from './pages/ResourcesPage';
 import HowCanIHelpPage from './pages/HowCanIHelpPage';
+import theme from './components/theme';
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Router>
         <Box display="flex" flexDirection="column" minHeight="100vh">
           <Flex position={'fixed'} w={'100%'} zIndex={200}>
