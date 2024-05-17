@@ -12,9 +12,9 @@ const theme = extendTheme({
   },
   components: {
     Heading: {
-      baseStyle: {
-        color: 'yellow.400', // Set the default color for all headings to yellow
-      },
+      baseStyle: (props) => ({
+        color: props.colorMode === 'light' ? 'blue.800' : 'yellow.400', // Blue in light mode, yellow in dark mode
+      }),
     },
   },
   colors: {
@@ -29,6 +29,18 @@ const theme = extendTheme({
       700: '#285e61',
       800: '#234e52',
       900: '#1d4044',
+    },
+    blue: {
+      50: '#ebf8ff',
+      100: '#bee3f8',
+      200: '#90cdf4',
+      300: '#63b3ed',
+      400: '#4299e1',
+      500: '#3182ce',
+      600: '#2b6cb0',
+      700: '#2c5282',
+      800: '#2A4365', // Custom blue color
+      900: '#1A365D',
     },
   },
 });
