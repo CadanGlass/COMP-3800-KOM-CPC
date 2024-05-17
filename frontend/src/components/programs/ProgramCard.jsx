@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Grid, GridItem, Image, Collapse, Stack, VStack } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 import AccordionInfo from './AccordionInfo';
-import LearnMoreButton from '../LearnMoreButton';
+import LearnMoreButton from '../buttons/LearnMoreButton';
 
 const ProgramCard = ({ title, description, image, subprograms, isExpanded, onLearnMoreClick, isReversed }) => {
     return (
