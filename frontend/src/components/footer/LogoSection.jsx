@@ -22,7 +22,7 @@ const LogoSection = () => {
         }}
       >
         <Avatar size="2xl" src={KOM_logo} />
-        <Text fontSize="x1" ml={2}>
+        <Text fontSize="x1" ml={2} fontWeight="semibold">
           KOM CPC <br></br>
           6070 East Boulevard,<br></br>
           Vancouver BC, Canada

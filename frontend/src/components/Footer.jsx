@@ -39,7 +39,7 @@ const Footer = () => {
       </Container>
       <Box mt={8}>
         <Divider borderColor={dividerColor} />
-        <Text textAlign="center" mt={4} color={textColor}>
+        <Text textAlign="center" mt={4} color={textColor} fontSize="xl" fontWeight="semibold">
           &copy; {new Date().getFullYear()} KOM Community Policing Centre. All rights reserved.
         </Text>
         <SocialMediaLinks />
