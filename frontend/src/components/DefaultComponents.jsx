@@ -15,15 +15,27 @@ export const DefaultPage = ({
   stackSpacing = 8,
   padding = useBreakpointValue({ base: 4, lg: 16 }),
 }) => {
-  const bg = useColorModeValue('white', 'gray.800');
+  const contentBg = useColorModeValue('white', 'gray.900'); // White background in light mode
   const color = useColorModeValue('black', 'white');
 
   return (
-    <Container maxW="1700px" py={4} px={padding} bg={bg} color={color}>
-      <VStack spacing={stackSpacing} width={'100%'}>
-        {children}
-      </VStack>
-    </Container>
+    <Box width="100%" bg={contentBg} color={color}>
+      {' '}
+      {/* Set the background to contentBg */}
+      <Box bg={contentBg} color={color} py={4} px={padding}>
+        {/* Header content goes here if needed */}
+      </Box>
+      <Container maxW="1700px" py={4} px={padding} bg={contentBg} color={color}>
+        {' '}
+        {/* Remove Box wrapping Container */}
+        <VStack spacing={stackSpacing} width={'100%'}>
+          {children}
+        </VStack>
+      </Container>
+      <Box bg={contentBg} color={color} py={4} px={padding}>
+        {/* Footer content */}
+      </Box>
+    </Box>
   );
 };
 
@@ -41,7 +53,7 @@ export const DefaultCard = ({
   internalPaddingY = 6,
   borderRadius = 'xl',
 }) => {
-  const backgroundColor = useColorModeValue('white', 'gray.700'); // White in light mode, dark gray in dark mode
+  const backgroundColor = useColorModeValue('white', 'gray.800'); // Darker gray in dark mode
   const color = useColorModeValue('black', 'white');
   const boxShadow = useColorModeValue(
     '0px 6px 15px rgba(0, 0, 0, 0.15)', // Slightly less strong shadow for light mode

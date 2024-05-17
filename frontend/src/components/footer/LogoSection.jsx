@@ -9,8 +9,6 @@ import {
 
 import KOM_logo from "../../assets/KOM_Logo.png";
 
-
-
 const LogoSection = () => {
   return (
     <VStack spacing={4} align={{ base: "center", lg: "flex-start" }}>
@@ -23,14 +21,13 @@ const LogoSection = () => {
           bg: useColorModeValue("gray.200", "gray.700"),
         }}
       >
-        <Avatar size="md" src={KOM_logo} />
-        <Text fontSize="lg" fontWeight="bold" ml={2}>
-          KOM CPC
+        <Avatar size="lg" src={KOM_logo} />
+        <Text fontSize="lg" ml={2}>
+          KOM CPC <br></br>
+          6070 East Boulevard,<br></br>
+          Vancouver BC, Canada
         </Text>
       </Link>
-      <Text fontSize="sm" textAlign={{ base: "center", lg: "left" }}>
-        © Kerrisdale Oakridge Marpole Community Policing Centre - 2024
-      </Text>
     </VStack>
   );
 };

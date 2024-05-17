@@ -102,7 +102,7 @@ const NewsEventsPage = () => {
   const currentNewsletter = {
     title: 'June Newsletter',
     summary:
-      "Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.Summary of June's events and updates.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Nullam auctor nisl quis nisi fermentum, non malesuada felis condimentum.',
   };
 
   const cardMinHeight = '400px'; // Set the minimum height for both sections
@@ -120,6 +120,36 @@ const NewsEventsPage = () => {
           alignItems="stretch" // Stretch the items to the full height
           flexDirection={{ base: 'column', lg: 'row' }}
         >
+          {/* Events Section */}
+          <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
+            <DefaultCard height="100%" minHeight={cardMinHeight}>
+              <Box width="100%">
+                <Heading as="h2" size="lg" textAlign="center" mb={4}>
+                  Upcoming Events
+                </Heading>
+
+                {events.slice(0, visibleEvents).map((event, index) => (
+                  <Box mb={4} key={index}>
+                    <EventCard
+                      event={event}
+                      cardBg={cardBg}
+                      textColor={textColor}
+                    />
+                  </Box>
+                ))}
+                {visibleEvents < events.length ? (
+                  <Button onClick={handleShowMoreEvents} mt={4}>
+                    Show More
+                  </Button>
+                ) : (
+                  <Button onClick={handleShowLessEvents} mt={4}>
+                    Show Less
+                  </Button>
+                )}
+              </Box>
+            </DefaultCard>
+          </VStack>
+
           {/* Newsletter Section */}
           <VStack flex={2} spacing={4} alignItems="stretch" width="100%">
             <DefaultCard height="100%" minHeight={cardMinHeight}>
@@ -161,42 +191,7 @@ const NewsEventsPage = () => {
               </Box>
             </DefaultCard>
           </VStack>
-
-          {/* Events Section */}
-          <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
-            <DefaultCard height="100%" minHeight={cardMinHeight}>
-              <Box width="100%">
-                <Heading as="h2" size="lg" textAlign="center" mb={4}>
-                  Upcoming Events
-                </Heading>
-
-                {events.slice(0, visibleEvents).map((event, index) => (
-                  <Box mb={4} key={index}>
-                    <EventCard
-                      event={event}
-                      cardBg={cardBg}
-                      textColor={textColor}
-                    />
-                  </Box>
-                ))}
-                {visibleEvents < events.length ? (
-                  <Button onClick={handleShowMoreEvents} mt={4}>
-                    Show More
-                  </Button>
-                ) : (
-                  <Button onClick={handleShowLessEvents} mt={4}>
-                    Show Less
-                  </Button>
-                )}
-              </Box>
-            </DefaultCard>
-          </VStack>
         </HStack>
-        {/* Subscribe Section */}
-        <Divider orientation="horizontal" borderColor={borderColor} my={10} />
-        <Box textAlign="center">
-          <MailchimpForm />
-        </Box>
       </Container>
     </DefaultPage>
   );

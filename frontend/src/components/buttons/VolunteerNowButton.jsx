@@ -9,8 +9,9 @@ export default function VolunteerNowButton() {
       rel="noopener noreferrer"
     >
       <Button
-        fontSize={'sm'}
-        fontWeight={600}
+        size={'lg'}
+        fontSize={'lg'}
+        fontWeight={700}
         color={'white'}
         bg={'red.600'}
         _hover={{
