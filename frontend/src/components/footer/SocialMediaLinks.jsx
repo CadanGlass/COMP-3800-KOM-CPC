@@ -1,9 +1,10 @@
 import React from 'react';
-import { HStack, IconButton } from '@chakra-ui/react';
+import { HStack, IconButton, useColorModeValue } from '@chakra-ui/react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const SocialMediaLinks = () => {
-  const iconSize = '48px'; // Increase the icon size
+  const iconColor = useColorModeValue('blue.500', 'yellow.400'); // Blue in light mode, yellow in dark mode
+  const iconSize = '48px'; // Increased icon size
 
   return (
     <HStack spacing={8}>
@@ -13,10 +14,13 @@ const SocialMediaLinks = () => {
         aria-label="Facebook"
         icon={<FaFacebook size={iconSize} />}
         variant="ghost"
-        color="yellow.400"
-        _hover={{ color: 'yellow.300', transform: 'scale(1.2)' }}
+        color={iconColor}
+        _hover={{
+          color: useColorModeValue('blue.300', 'yellow.300'),
+          transform: 'scale(1.2)',
+        }}
         size="lg"
-        boxSize={14} // Increase the button size
+        boxSize={16} // Increased button size
       />
       <IconButton
         as="a"
@@ -24,10 +28,13 @@ const SocialMediaLinks = () => {
         aria-label="Twitter"
         icon={<FaTwitter size={iconSize} />}
         variant="ghost"
-        color="yellow.400"
-        _hover={{ color: 'yellow.300', transform: 'scale(1.2)' }}
+        color={iconColor}
+        _hover={{
+          color: useColorModeValue('blue.300', 'yellow.300'),
+          transform: 'scale(1.2)',
+        }}
         size="lg"
-        boxSize={14} // Increase the button size
+        boxSize={16} // Increased button size
       />
       <IconButton
         as="a"
@@ -35,10 +42,13 @@ const SocialMediaLinks = () => {
         aria-label="Instagram"
         icon={<FaInstagram size={iconSize} />}
         variant="ghost"
-        color="yellow.400"
-        _hover={{ color: 'yellow.300', transform: 'scale(1.2)' }}
+        color={iconColor}
+        _hover={{
+          color: useColorModeValue('blue.300', 'yellow.300'),
+          transform: 'scale(1.2)',
+        }}
         size="lg"
-        boxSize={14} // Increase the button size
+        boxSize={16} // Increased button size
       />
     </HStack>
   );
