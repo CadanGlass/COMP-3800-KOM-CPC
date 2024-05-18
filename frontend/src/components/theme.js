@@ -11,6 +11,7 @@ const theme = extendTheme({
         color: props.colorMode === 'light' ? 'gray.800' : 'gray.100',
         bg: props.colorMode === 'light' ? 'white' : '#171923',
         minHeight: '100vh',
+        fontSize: '20px', // Increase base font size
       },
     }),
   },
@@ -21,20 +22,25 @@ const theme = extendTheme({
       }),
       sizes: {
         xl: {
-          fontSize: ['4xl', '5xl'], // Bigger font size for xl
+          fontSize: ['5xl', '6xl'], // Bigger font size for xl
         },
         lg: {
-          fontSize: ['3xl', '4xl'], // Bigger font size for lg
+          fontSize: ['4xl', '5xl'], // Bigger font size for lg
         },
         md: {
-          fontSize: ['2xl', '3xl'], // Bigger font size for md
+          fontSize: ['3xl', '4xl'], // Bigger font size for md
         },
         sm: {
-          fontSize: ['xl', '2xl'], // Bigger font size for sm
+          fontSize: ['2xl', '3xl'], // Bigger font size for sm
         },
         xs: {
-          fontSize: ['lg', 'xl'], // Bigger font size for xs
+          fontSize: ['xl', '2xl'], // Bigger font size for xs
         },
+      },
+    },
+    Text: {
+      baseStyle: {
+        fontSize: '20px', // Increase base font size for text
       },
     },
   },
