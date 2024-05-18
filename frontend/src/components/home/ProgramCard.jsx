@@ -10,6 +10,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import LearnMoreButton from '../buttons/LearnMoreButton';
 
 export const ProgramCard = ({ title, description, image, link }) => {
   return (
@@ -22,7 +23,7 @@ export const ProgramCard = ({ title, description, image, link }) => {
           <Heading size='md'>{title}</Heading>
           <Text noOfLines={3}>{description}</Text>
           <Link href="/programs">
-            <Button>Learn More →</Button>
+            <LearnMoreButton>Learn More →</LearnMoreButton>
           </Link>
         </Stack>
       </CardBody>
