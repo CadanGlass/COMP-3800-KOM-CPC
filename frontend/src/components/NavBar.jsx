@@ -30,13 +30,13 @@ const NAV_ITEMS = [
 
 const NavItem = ({ children, isActive }) => (
   <Link
-    px={2}
+    px={2} // Further adjusted padding to reduce spacing
     py={1}
     rounded={'md'}
     position="relative"
     zIndex={1}
     className={`nav-item ${isActive ? 'active' : ''}`}
-    fontSize={{ base: 'sm', md: 'md' }}
+    fontSize={{ lg: 'sm', xl: 'md' }}
     fontWeight={'bold'}
     href={children.path}
   >
@@ -61,7 +61,7 @@ export default function Navbar() {
         <Flex
           h={16}
           alignItems={'center'}
-          justify={{ base: 'space-between', '3xl': 'space-between' }}
+          justify={{ base: 'center', '3xl': 'space-between' }}
         >
           <IconButton
             size={'md'}
@@ -72,7 +72,7 @@ export default function Navbar() {
           />
 
           <HStack
-            spacing={4}
+            spacing={4} // Reduced spacing between items
             flex={1}
             justify={{ base: 'center', '3xl': 'start' }}
           >
@@ -83,6 +83,7 @@ export default function Navbar() {
               rounded={'md'}
               position="relative"
               zIndex={1}
+              className={`nav-item ${location.pathname === '/' ? '' : ''}`}
               href="/"
             >
               <Avatar size={'md'} src={KOM_logo} />
@@ -93,7 +94,7 @@ export default function Navbar() {
           </HStack>
 
           <HStack
-            spacing={{ base: 2, '3xl': 4, '4xl': 6 }}
+            spacing={5} // Reduced spacing between items
             display={{ base: 'none', '3xl': 'flex' }}
           >
             {NAV_ITEMS.map((navItem) => (
