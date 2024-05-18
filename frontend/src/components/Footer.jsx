@@ -12,7 +12,6 @@ import SocialMediaLinks from './footer/SocialMediaLinks';
 import MailchimpForm from './newsletter/MailchimpForm';
 import OperationHours from './footer/OperationHours';
 import ContactSection from './footer/ContactSection';
-import QuickLinks from './footer/QuickLinks';
 import LogoSection from './footer/LogoSection';
 
 const Footer = () => {
@@ -32,14 +31,16 @@ const Footer = () => {
           <Stack direction={{ base: 'column', md: 'row' }} spacing={8} justify="space-between">
             <LogoSection />
             <MailchimpForm />
+            {/* <QuickLinks /> */}
             <OperationHours />
             <ContactSection />
+            {/* <LogoSection /> */}
           </Stack>
         </Stack>
       </Container>
       <Box mt={8}>
         <Divider borderColor={dividerColor} />
-        <Text textAlign="center" mt={4} color={textColor} fontSize="xl" fontWeight="semibold">
+        <Text textAlign="center" mt={4} color={textColor}>
           &copy; {new Date().getFullYear()} KOM Community Policing Centre. All rights reserved.
         </Text>
         <SocialMediaLinks />

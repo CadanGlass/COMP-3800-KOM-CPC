@@ -24,17 +24,17 @@ const OperationHours = () => {
 
   return (
     <Box>
-      <Text fontSize="2xl" fontWeight="bold" mb={4}>
+      <Text fontSize="lg" fontWeight="bold" mb={2}>
         Operation Hours
       </Text>
-      <SimpleGrid columns={2} spacing={4}>
+      <SimpleGrid columns={2} spacing={2}>
         {days.map((day) => (
           <React.Fragment key={day.day}>
-            <Text fontSize="lg" fontWeight="medium" color={dayColor}>
+            <Text fontSize="sm" fontWeight="medium" color={dayColor}>
               {day.day}
             </Text>
             <Text
-              fontSize="lg"
+              fontSize="sm"
               fontWeight="medium"
               color={day.closed ? closedColor : hourColor}
             >
