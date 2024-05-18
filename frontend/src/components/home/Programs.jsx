@@ -1,8 +1,9 @@
-import { Heading, Stack, Button, SimpleGrid, Link } from '@chakra-ui/react';
+import { Heading, Stack, SimpleGrid } from '@chakra-ui/react';
 
 import data from '../../test_data/programs.json';
 import { DefaultCard } from '../DefaultComponents';
 import { ProgramCard } from './ProgramCard';
+import StyledButton from '../buttons/StyledButton';
 
 const firstThreePrograms = data.programs.slice(0, 3);
 
@@ -20,15 +21,7 @@ export default function Programs() {
             <Heading as="h3" size="lg">
               {data.title}
             </Heading>
-            <Link href="/programs">
-              <Button
-                bg="blue.500"
-                color="white"
-                _hover={{ color: 'gray.600', bg: 'blue.200' }}
-              >
-                View All Programs
-              </Button>
-            </Link>
+            <StyledButton href="/programs">View All Programs</StyledButton>
           </Stack>
           <p>{data.description}</p>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>

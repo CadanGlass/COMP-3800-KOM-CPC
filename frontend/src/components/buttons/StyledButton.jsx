@@ -1,26 +1,29 @@
+// components/StyledButton.jsx
 import { Button, Link } from '@chakra-ui/react';
 
-export default function ContactUsButton() {
+const StyledButton = ({ href, children }) => {
   return (
-    <Link href="/contact-us">
+    <Link href={href}>
       <Button
         fontSize={'sm'}
         fontWeight={600}
         color={'white'}
-        bgGradient="linear(to-r, red.500, red.700)"
+        bgGradient="linear(to-r, blue.500, blue.700)"
         _hover={{
-          bgGradient: 'linear(to-r, red.600, red.800)',
+          bgGradient: 'linear(to-r, blue.600, blue.800)',
           transform: 'scale(1.05)',
         }}
         _active={{
-          bgGradient: 'linear(to-r, red.700, red.900)',
+          bgGradient: 'linear(to-r, blue.700, blue.900)',
         }}
         borderRadius="md"
         boxShadow="lg"
         transition="all 0.2s ease-in-out"
       >
-        Contact Us
+        {children}
       </Button>
     </Link>
   );
-}
+};
+
+export default StyledButton;

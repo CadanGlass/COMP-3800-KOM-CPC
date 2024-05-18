@@ -1,5 +1,6 @@
+// components/newsletter/MailchimpForm.jsx
 import React, { useState } from 'react';
-import { Box, Input, Button, Heading, VStack } from '@chakra-ui/react';
+import { Box, Input, Heading, VStack, Button } from '@chakra-ui/react';
 
 const MailchimpForm = () => {
   const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ const MailchimpForm = () => {
   return (
     <VStack spacing={1} align="center">
       <Heading as="h5" textAlign="center" size="sm">
-    Subscribe
+        Subscribe
       </Heading>
       <link
         href="//cdn-images.mailchimp.com/embedcode/classic-061523.css"
@@ -46,10 +47,20 @@ const MailchimpForm = () => {
               <Button
                 type="submit"
                 id="mc-embedded-subscribe"
-                bg={'red.600'}
-                color={'white'}
+                fontSize={'sm'}
                 fontWeight={600}
-                _hover={{ bg: 'red.400' }}
+                color={'white'}
+                bgGradient="linear(to-r, red.500, red.700)"
+                _hover={{
+                  bgGradient: 'linear(to-r, red.600, red.800)',
+                  transform: 'scale(1.05)',
+                }}
+                _active={{
+                  bgGradient: 'linear(to-r, red.700, red.900)',
+                }}
+                borderRadius="md"
+                boxShadow="lg"
+                transition="all 0.2s ease-in-out"
                 size="md"
               >
                 Subscribe
