@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Text,
-  VStack,
-  SimpleGrid,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Text, VStack, useColorModeValue } from '@chakra-ui/react';
 
 const OperationHours = () => {
   const days = [
@@ -22,27 +16,37 @@ const OperationHours = () => {
   const hourColor = useColorModeValue('gray.600', 'gray.400');
   const closedColor = useColorModeValue('red.600', 'red.400');
 
+  const groupedDays = days.reduce((acc, current) => {
+    const lastGroup = acc[acc.length - 1];
+    if (lastGroup && lastGroup.hours === current.hours) {
+      lastGroup.days.push(current.day);
+    } else {
+      acc.push({
+        days: [current.day],
+        hours: current.hours,
+        closed: current.closed,
+      });
+    }
+    return acc;
+  }, []);
+
   return (
     <Box>
       <Text fontSize="lg" fontWeight="bold" mb={2}>
         Operation Hours
       </Text>
-      <SimpleGrid columns={2} spacing={2}>
-        {days.map((day) => (
-          <React.Fragment key={day.day}>
-            <Text fontSize="sm" fontWeight="medium" color={dayColor}>
-              {day.day}
-            </Text>
-            <Text
-              fontSize="sm"
-              fontWeight="medium"
-              color={day.closed ? closedColor : hourColor}
-            >
-              {day.hours}
-            </Text>
-          </React.Fragment>
+      <VStack align="start" spacing={2}>
+        {groupedDays.map((group, index) => (
+          <Text
+            key={index}
+            fontSize="sm"
+            fontWeight="medium"
+            color={group.closed ? closedColor : hourColor}
+          >
+            {group.days.join(', ')}: {group.hours}
+          </Text>
         ))}
-      </SimpleGrid>
+      </VStack>
     </Box>
   );
 };
