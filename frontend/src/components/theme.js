@@ -11,7 +11,7 @@ const theme = extendTheme({
     lg: '62em',
     xl: '80em',
     '2xl': '96em',
-    '3xl': '112em', // Custom 3xl breakpoint
+    '3xl': '112em',
   },
   styles: {
     global: (props) => ({
@@ -20,46 +20,13 @@ const theme = extendTheme({
       ],
       'html, body, #root': {
         color: props.colorMode === 'light' ? 'black' : 'gray.100',
-        bg:
-          props.colorMode === 'light'
-            ? '#ffffff'
-            : 'linear-gradient(to bottom right, #0d1117, #161b22, #21262d)',
+        bg: props.colorMode === 'light'
+          ? '#ffffff'
+          : 'linear-gradient(to bottom right, #0d1117, #161b22, #21262d)',
         minHeight: '100vh',
-        fontSize: '20px',
+        fontSize: '16px', // Set to a default value
         fontFamily: 'Inter, sans-serif',
         overflowX: 'hidden',
-      },
-      '.nav-item': {
-        position: 'relative',
-        overflow: 'hidden',
-        fontWeight: 'bold',
-        '&::after': {
-          content: '""',
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: '2px',
-          backgroundColor:
-            props.colorMode === 'light' ? 'blue.400' : 'teal.400',
-          transform: 'scaleX(0)',
-          transition: 'transform 0.3s ease',
-        },
-        '&:hover::after': {
-          transform: 'scaleX(1)',
-        },
-        '&:hover': {
-          color: props.colorMode === 'light' ? 'blue.400' : 'teal.400',
-        },
-        '&.active': {
-          fontWeight: 'bold',
-          color: props.colorMode === 'light' ? 'blue.500' : 'teal.500',
-          textDecoration: 'underline',
-        },
-      },
-      footer: {
-        bg: props.colorMode === 'light' ? '#f0f4f8' : '#0d1117',
-        color: props.colorMode === 'light' ? 'black' : 'gray.100',
       },
     }),
   },
@@ -113,7 +80,7 @@ const theme = extendTheme({
     },
     Text: {
       baseStyle: (props) => ({
-        fontSize: '20px',
+        fontSize: '16px', // Default font size
         fontFamily: 'Inter, sans-serif',
         color: props.colorMode === 'light' ? 'black' : 'gray.100',
       }),
@@ -132,7 +99,7 @@ const theme = extendTheme({
       sizes: {
         md: {
           field: {
-            fontSize: 'lg',
+            fontSize: '16px', // Consistent font size
             px: 4,
             py: 2,
           },

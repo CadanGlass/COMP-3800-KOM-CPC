@@ -5,6 +5,7 @@ import {
   HStack,
   Heading,
   Divider,
+  useColorMode,
   useColorModeValue,
   useBreakpointValue,
   Container,
@@ -15,9 +16,17 @@ import {
 import EventCard from '../components/eventsPage/EventCard';
 import PastNewsletters from '../components/newsletter/PastNewsletters';
 import InstagramFeed from '../components/eventsPage/InstagramFeed';
-import { DefaultPage, DefaultCard } from '../components/DefaultComponents';
+import {
+  Section,
+  DefaultCard,
+  PageHeading,
+} from '../components/DefaultComponents';
 
 const NewsEventsPage = () => {
+  const { colorMode } = useColorMode();
+  const getBackground = (darkGradient) =>
+    colorMode === 'light' ? '#ffffff' : darkGradient;
+
   const bg = useColorModeValue('white', 'gray.800');
   const cardBg = useColorModeValue('white', 'gray.700');
   const textColor = useColorModeValue('gray.800', 'white');
@@ -63,7 +72,7 @@ const NewsEventsPage = () => {
   const [visibleNewsletters, setVisibleNewsletters] = useState(2);
 
   const handleShowMoreEvents = () => {
-    setVisibleEvents((prev) => prev + 3);
+    setVisibleEvents(events.length);
   };
 
   const handleShowLessEvents = () => {
@@ -71,7 +80,7 @@ const NewsEventsPage = () => {
   };
 
   const handleShowMoreNewsletters = () => {
-    setVisibleNewsletters((prev) => prev + 2);
+    setVisibleNewsletters(newsletters.length);
   };
 
   const handleShowLessNewsletters = () => {
@@ -107,97 +116,103 @@ const NewsEventsPage = () => {
   const cardMinHeight = '400px'; // Set the minimum height for both sections
 
   return (
-    <DefaultPage>
-      <Container maxW="7xl">
-        <Heading as="h1" size="xl" textAlign="center" my={10}>
-          KOM CPC News & Events
-        </Heading>
-        <Divider orientation="horizontal" borderColor={borderColor} my={4} />
-        <HStack
-          spacing={10}
-          justify="center" // Center the content horizontally
-          alignItems="stretch" // Stretch the items to the full height
-          flexDirection={{ base: 'column', lg: 'row' }}
-        >
-          {/* Events Section */}
-          <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
-            <DefaultCard height="100%" minHeight={cardMinHeight}>
-              <Box width="100%">
-                <Heading as="h2" size="lg" textAlign="center" mb={4}>
-                  Upcoming Events
-                </Heading>
+    <>
+      <Section
+        bg={getBackground('linear-gradient(to bottom, #1a202c, #2d3748)')}
+      >
+        <PageHeading title="KOM CPC News & Events" />
+      </Section>
+      <Section
+        bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}
+      >
+        <Container maxW="7xl">
+          <Divider orientation="horizontal" borderColor={borderColor} my={4} />
+          <HStack
+            spacing={10}
+            justify="center" // Center the content horizontally
+            alignItems="stretch" // Stretch the items to the full height
+            flexDirection={{ base: 'column', lg: 'row' }}
+          >
+            {/* Events Section */}
+            <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
+              <DefaultCard height="100%" minHeight={cardMinHeight}>
+                <Box width="100%">
+                  <Heading as="h2" size="lg" textAlign="center" mb={4}>
+                    Upcoming Events
+                  </Heading>
 
-                {events.slice(0, visibleEvents).map((event, index) => (
-                  <Box mb={4} key={index}>
-                    <EventCard
-                      event={event}
-                      cardBg={cardBg}
-                      textColor={textColor}
-                    />
-                  </Box>
-                ))}
-                {visibleEvents < events.length ? (
-                  <Button onClick={handleShowMoreEvents} mt={4}>
-                    Show More
-                  </Button>
-                ) : (
-                  <Button onClick={handleShowLessEvents} mt={4}>
-                    Show Less
-                  </Button>
-                )}
-              </Box>
-            </DefaultCard>
-          </VStack>
-
-          {/* Newsletter Section */}
-          <VStack flex={2} spacing={4} alignItems="stretch" width="100%">
-            <DefaultCard height="100%" minHeight={cardMinHeight}>
-              <Box width="100%">
-                <Heading as="h2" size="lg" textAlign="center" mb={4}>
-                  Newsletters
-                </Heading>
-                <Text fontSize="lg" fontWeight="bold" mb={2}>
-                  Current Newsletter
-                </Text>
-                <Box p={5} shadow="md" borderWidth="1px" mb={4}>
-                  <Text>{currentNewsletter.title}</Text>
-                  <Text fontSize="sm">{currentNewsletter.summary}</Text>
-                </Box>
-                <Divider
-                  orientation="horizontal"
-                  borderColor={borderColor}
-                  my={4}
-                />
-                <Text fontSize="lg" fontWeight="bold" mb={2}>
-                  Past Newsletters
-                </Text>
-                {newsletters
-                  .slice(0, visibleNewsletters)
-                  .map((newsletter, index) => (
+                  {events.slice(0, visibleEvents).map((event, index) => (
                     <Box mb={4} key={index}>
-                      <PastNewsletters newsletters={[newsletter]} />
+                      <EventCard
+                        event={event}
+                        cardBg={cardBg}
+                        textColor={textColor}
+                      />
                     </Box>
                   ))}
-                {visibleNewsletters < newsletters.length ? (
-                  <Button onClick={handleShowMoreNewsletters} mt={4}>
-                    Show More
-                  </Button>
-                ) : (
-                  <Button onClick={handleShowLessNewsletters} mt={4}>
-                    Show Less
-                  </Button>
-                )}
-              </Box>
-            </DefaultCard>
-          </VStack>
-        </HStack>
+                  {visibleEvents < events.length ? (
+                    <Button onClick={handleShowMoreEvents} mt={4}>
+                      Show More
+                    </Button>
+                  ) : (
+                    <Button onClick={handleShowLessEvents} mt={4}>
+                      Show Less
+                    </Button>
+                  )}
+                </Box>
+              </DefaultCard>
+            </VStack>
 
-        <Divider orientation="horizontal" borderColor={borderColor} my={4} />
-        <Box mt={10}>
-          <InstagramFeed />
-        </Box>
-      </Container>
-    </DefaultPage>
+            {/* Newsletter Section */}
+            <VStack flex={2} spacing={4} alignItems="stretch" width="100%">
+              <DefaultCard height="100%" minHeight={cardMinHeight}>
+                <Box width="100%">
+                  <Heading as="h2" size="lg" textAlign="center" mb={4}>
+                    Newsletters
+                  </Heading>
+                  <Text fontSize="lg" fontWeight="bold" mb={2}>
+                    Current Newsletter
+                  </Text>
+                  <Box p={5} shadow="md" borderWidth="1px" mb={4}>
+                    <Text>{currentNewsletter.title}</Text>
+                    <Text fontSize="sm">{currentNewsletter.summary}</Text>
+                  </Box>
+                  <Divider
+                    orientation="horizontal"
+                    borderColor={borderColor}
+                    my={4}
+                  />
+                  <Text fontSize="lg" fontWeight="bold" mb={2}>
+                    Past Newsletters
+                  </Text>
+                  {newsletters
+                    .slice(0, visibleNewsletters)
+                    .map((newsletter, index) => (
+                      <Box mb={4} key={index}>
+                        <PastNewsletters newsletters={[newsletter]} />
+                      </Box>
+                    ))}
+                  {visibleNewsletters < newsletters.length ? (
+                    <Button onClick={handleShowMoreNewsletters} mt={4}>
+                      Show More
+                    </Button>
+                  ) : (
+                    <Button onClick={handleShowLessNewsletters} mt={4}>
+                      Show Less
+                    </Button>
+                  )}
+                </Box>
+              </DefaultCard>
+            </VStack>
+          </HStack>
+
+          <Divider orientation="horizontal" borderColor={borderColor} my={4} />
+          <Box mt={10}>
+            <InstagramFeed />
+          </Box>
+        </Container>
+      </Section>
+    </>
   );
 };
 

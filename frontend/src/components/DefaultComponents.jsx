@@ -1,20 +1,22 @@
+import React from 'react';
 import {
   Box,
   VStack,
   useBreakpointValue,
   Container,
-  useColorMode,
+  useColorModeValue,
+  Heading,
 } from '@chakra-ui/react';
 import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
+// DefaultPage Component
 export const DefaultPage = ({
   children,
   stackSpacing = 8,
   padding = useBreakpointValue({ base: 4, lg: 16 }),
 }) => {
-  const { colorMode } = useColorMode();
-  const bgColor = colorMode === 'light' ? '#f7f7f7' : '#171923';
+  const bgColor = useColorModeValue('#f7f7f7', '#171923');
 
   return (
     <Box width="100%" bg={bgColor} minHeight="100vh">
@@ -33,6 +35,7 @@ export const DefaultPage = ({
   );
 };
 
+// DefaultVStack Component
 export const DefaultVStack = ({ children, spacing = 4 }) => {
   return (
     <VStack spacing={spacing} align="center">
@@ -41,19 +44,19 @@ export const DefaultVStack = ({ children, spacing = 4 }) => {
   );
 };
 
+// DefaultCard Component
 export const DefaultCard = ({
   children,
   internalPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 }),
   internalPaddingY = 6,
   borderRadius = 'xl',
 }) => {
-  const { colorMode } = useColorMode();
-  const backgroundColor = colorMode === 'light' ? '#ffffff' : 'gray.800';
-  const color = colorMode === 'light' ? 'black' : 'white';
-  const boxShadow =
-    colorMode === 'light'
-      ? '0px 4px 10px rgba(0, 0, 0, 0.1)'
-      : '0px 4px 10px rgba(0, 0, 0, 0.7)';
+  const backgroundColor = useColorModeValue('#ffffff', 'gray.800');
+  const color = useColorModeValue('black', 'white');
+  const boxShadow = useColorModeValue(
+    '0px 4px 10px rgba(0, 0, 0, 0.1)',
+    '0px 4px 10px rgba(0, 0, 0, 0.7)'
+  );
 
   return (
     <Box w={'100%'}>
@@ -61,8 +64,8 @@ export const DefaultCard = ({
         {({ ref, inView }) => (
           <motion.div
             ref={ref}
-            initial={{ opacity: 0, x: 50 }} // Initial x position adjusted
-            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }} // Adjusted x position for inView and outView
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }}
             transition={{ duration: 0.8 }}
           >
             <Box
@@ -79,6 +82,36 @@ export const DefaultCard = ({
           </motion.div>
         )}
       </InView>
+    </Box>
+  );
+};
+
+// Section Component
+export const Section = ({ bg, children, ...props }) => {
+  return (
+    <Box
+      width="100%"
+      bg={bg}
+      px={{ base: 4, lg: 12 }}
+      py={{ base: 4, md: 6 }} // Further reduced vertical padding
+      {...props}
+    >
+      <Box maxW="1400px" mx="auto">
+        {children}
+      </Box>
+    </Box>
+  );
+};
+
+// PageHeading Component
+export const PageHeading = ({ title }) => {
+  const headingColor = useColorModeValue('black', 'white');
+
+  return (
+    <Box textAlign="center" py={8}>
+      <Heading size="2xl" color={headingColor}>
+        {title}
+      </Heading>
     </Box>
   );
 };

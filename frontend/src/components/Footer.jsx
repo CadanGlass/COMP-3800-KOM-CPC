@@ -6,7 +6,6 @@ import {
   Stack,
   Text,
   Divider,
-  useColorModeValue,
   HStack,
 } from '@chakra-ui/react';
 import SocialMediaLinks from './footer/SocialMediaLinks';
@@ -16,13 +15,12 @@ import ContactSection from './footer/ContactSection';
 import LogoSection from './footer/LogoSection';
 
 const Footer = () => {
-  const bg = useColorModeValue('white', 'gray.800');
-  const color = useColorModeValue('black', 'white');
-  const textColor = useColorModeValue('gray.600', 'gray.300');
-  const dividerColor = useColorModeValue('black', 'white');
+  const bg = 'gray.800'; // Keep the background color consistent in both modes
+  const textColor = 'white'; // Keep the text color consistent in both modes
+  const dividerColor = 'white';
 
   return (
-    <Box bg={bg} color={color} px={4} py={10}>
+    <Box bg={bg} color={textColor} px={4} py={10}>
       <Container maxW="container.xl">
         <Stack spacing={8}>
           <VStack align="start" spacing={4}>
@@ -32,21 +30,33 @@ const Footer = () => {
             direction={{ base: 'column', md: 'row' }}
             spacing={8}
             justify="space-between"
-            alignItems="center"
+            alignItems={{ base: 'center', md: 'flex-start' }} // Center items on mobile, align to top on larger screens
           >
-            <VStack alignItems="center">
+            <VStack
+              alignItems={{ base: 'center', md: 'flex-start' }}
+              color={textColor}
+            >
               <LogoSection />
               <HStack mt={4}>
                 <SocialMediaLinks />
               </HStack>
             </VStack>
-            <VStack alignItems="center">
+            <VStack
+              alignItems={{ base: 'center', md: 'flex-start' }}
+              color={textColor}
+            >
               <MailchimpForm />
             </VStack>
-            <VStack alignItems="center">
+            <VStack
+              alignItems={{ base: 'center', md: 'flex-start' }}
+              color={textColor}
+            >
               <OperationHours />
             </VStack>
-            <VStack alignItems="center">
+            <VStack
+              alignItems={{ base: 'center', md: 'flex-start' }}
+              color={textColor}
+            >
               <ContactSection />
             </VStack>
           </Stack>

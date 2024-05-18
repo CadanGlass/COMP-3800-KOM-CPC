@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   Flex,
@@ -28,21 +29,49 @@ const NAV_ITEMS = [
   { label: 'Resources', path: 'resources' },
 ];
 
-const NavItem = ({ children, isActive }) => (
-  <Link
-    px={2} // Further adjusted padding to reduce spacing
-    py={1}
-    rounded={'md'}
-    position="relative"
-    zIndex={1}
-    className={`nav-item ${isActive ? 'active' : ''}`}
-    fontSize={{ lg: 'sm', xl: 'md' }}
-    fontWeight={'bold'}
-    href={children.path}
-  >
-    {children.label}
-  </Link>
-);
+const NavItem = ({ children, isActive }) => {
+  const underlineColor = useColorModeValue('#0ea5e9', '#0ea5e9'); // Use the nice blue color
+  const activeColor = useColorModeValue('#0ea5e9', '#0ea5e9');
+
+  return (
+    <Link
+      px={2}
+      py={1}
+      rounded={'md'}
+      position="relative"
+      zIndex={1}
+      className={`nav-item ${isActive ? 'active' : ''}`}
+      fontSize={{ lg: 'sm', xl: 'md' }}
+      fontWeight={'bold'}
+      href={children.path}
+      color={isActive ? activeColor : 'inherit'}
+      _hover={{
+        color: activeColor,
+        textDecoration: 'none',
+      }}
+      _after={{
+        content: '""',
+        position: 'absolute',
+        width: '70%', // Shorter than the text width
+        height: '2px',
+        bottom: 0,
+        left: '15%',
+        bg: underlineColor,
+        transform: 'scaleX(0)',
+        transformOrigin: 'center',
+        transition: 'transform 0.3s ease',
+      }}
+      _hover={{
+        color: activeColor,
+        _after: {
+          transform: 'scaleX(1)',
+        },
+      }}
+    >
+      {children.label}
+    </Link>
+  );
+};
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -72,7 +101,7 @@ export default function Navbar() {
           />
 
           <HStack
-            spacing={4} // Reduced spacing between items
+            spacing={4}
             flex={1}
             justify={{ base: 'center', '3xl': 'start' }}
           >
@@ -83,7 +112,9 @@ export default function Navbar() {
               rounded={'md'}
               position="relative"
               zIndex={1}
-              className={`nav-item ${location.pathname === '/' ? '' : ''}`}
+              className={`nav-item ${
+                location.pathname === '/' ? 'active' : ''
+              }`}
               href="/"
             >
               <Avatar size={'md'} src={KOM_logo} />
@@ -93,10 +124,7 @@ export default function Navbar() {
             </Link>
           </HStack>
 
-          <HStack
-            spacing={5} // Reduced spacing between items
-            display={{ base: 'none', '3xl': 'flex' }}
-          >
+          <HStack spacing={5} display={{ base: 'none', '3xl': 'flex' }}>
             {NAV_ITEMS.map((navItem) => (
               <NavItem
                 key={navItem.path}
