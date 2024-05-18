@@ -1,6 +1,5 @@
 import { Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-
 import './DonateButton.css';
 
 export default function DonateButton() {
@@ -10,6 +9,7 @@ export default function DonateButton() {
       to="https://www.canadahelps.org/en/dn/81226"
       target="_blank"
       rel="noopener noreferrer"
+      style={{ width: '120px' }} // Set a fixed width
     >
       <Button
         className="btn"
@@ -20,6 +20,7 @@ export default function DonateButton() {
         _hover={{
           color: 'white',
         }}
+        width="full" // Ensure button takes the full width of its container
       >
         Donate
       </Button>
