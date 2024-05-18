@@ -11,8 +11,11 @@ const theme = extendTheme({
         "url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')",
       ],
       'html, body, #root': {
-        color: props.colorMode === 'light' ? 'gray.800' : 'gray.100',
-        bg: props.colorMode === 'light' ? '#ffffff' : '#171923',
+        color: props.colorMode === 'light' ? 'black' : 'gray.100',
+        bg:
+          props.colorMode === 'light'
+            ? '#ffffff'
+            : 'linear-gradient(to bottom right, #0d1117, #161b22, #21262d)', // Adding gradient for dark mode
         minHeight: '100vh',
         fontSize: '20px',
         fontFamily: 'Roboto, sans-serif',
@@ -28,7 +31,8 @@ const theme = extendTheme({
           left: 0,
           width: '100%',
           height: '2px',
-          backgroundColor: 'blue.400',
+          backgroundColor:
+            props.colorMode === 'light' ? 'blue.400' : 'teal.400',
           transform: 'scaleX(0)',
           transition: 'transform 0.3s ease',
         },
@@ -36,24 +40,24 @@ const theme = extendTheme({
           transform: 'scaleX(1)',
         },
         '&:hover': {
-          color: 'blue.400',
+          color: props.colorMode === 'light' ? 'blue.400' : 'teal.400',
         },
         '&.active': {
           fontWeight: 'bold',
-          color: 'blue.500',
+          color: props.colorMode === 'light' ? 'blue.500' : 'teal.500',
           textDecoration: 'underline',
         },
       },
       footer: {
-        bg: props.colorMode === 'light' ? '#f0f4f8' : 'gray.800',
-        color: props.colorMode === 'light' ? 'gray.800' : 'gray.100',
+        bg: props.colorMode === 'light' ? '#f0f4f8' : '#0d1117',
+        color: props.colorMode === 'light' ? 'black' : 'gray.100',
       },
     }),
   },
   components: {
     Heading: {
       baseStyle: (props) => ({
-        color: props.colorMode === 'light' ? 'blue.800' : 'blue.400',
+        color: props.colorMode === 'light' ? 'blue.800' : 'white',
         fontFamily: 'Roboto, sans-serif',
         textShadow:
           props.colorMode === 'light'
@@ -102,7 +106,7 @@ const theme = extendTheme({
       baseStyle: (props) => ({
         fontSize: '20px',
         fontFamily: 'Roboto, sans-serif',
-        color: props.colorMode === 'light' ? 'gray.800' : 'gray.100',
+        color: props.colorMode === 'light' ? 'black' : 'gray.100',
       }),
     },
     Input: {
@@ -218,6 +222,18 @@ const theme = extendTheme({
       700: '#2c5282',
       800: '#2A4365',
       900: '#1A365D',
+    },
+    teal: {
+      50: '#e6fffa',
+      100: '#b2f5ea',
+      200: '#81e6d9',
+      300: '#4fd1c5',
+      400: '#38b2ac',
+      500: '#319795',
+      600: '#2c7a7b',
+      700: '#285e61',
+      800: '#234e52',
+      900: '#1d4044',
     },
   },
 });
