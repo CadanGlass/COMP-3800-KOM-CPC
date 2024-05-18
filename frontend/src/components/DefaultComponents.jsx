@@ -10,33 +10,8 @@ import {
 import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
-// DefaultPage Component
-export const DefaultPage = ({
-  children,
-  stackSpacing = 8,
-  padding = useBreakpointValue({ base: 4, lg: 16 }),
-}) => {
-  const bgColor = useColorModeValue('#f7f7f7', '#171923');
-
-  return (
-    <Box width="100%" bg={bgColor} minHeight="100vh">
-      <Box py={4} px={padding}>
-        {/* Header content goes here if needed */}
-      </Box>
-      <Container maxW="1700px" py={4} px={padding}>
-        <VStack spacing={stackSpacing} width={'100%'}>
-          {children}
-        </VStack>
-      </Container>
-      <Box py={4} px={padding}>
-        {/* Footer content */}
-      </Box>
-    </Box>
-  );
-};
-
 // DefaultVStack Component
-export const DefaultVStack = ({ children, spacing = 4 }) => {
+const DefaultVStack = ({ children, spacing = 4 }) => {
   return (
     <VStack spacing={spacing} align="center">
       {children}
@@ -45,7 +20,7 @@ export const DefaultVStack = ({ children, spacing = 4 }) => {
 };
 
 // DefaultCard Component
-export const DefaultCard = ({
+const DefaultCard = ({
   children,
   internalPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 }),
   internalPaddingY = 6,
@@ -87,7 +62,7 @@ export const DefaultCard = ({
 };
 
 // Section Component
-export const Section = ({ bg, children, ...props }) => {
+const Section = ({ bg, children, ...props }) => {
   return (
     <Box
       width="100%"
@@ -104,7 +79,7 @@ export const Section = ({ bg, children, ...props }) => {
 };
 
 // PageHeading Component
-export const PageHeading = ({ title }) => {
+const PageHeading = ({ title }) => {
   const headingColor = useColorModeValue('black', 'white');
 
   return (
@@ -115,3 +90,5 @@ export const PageHeading = ({ title }) => {
     </Box>
   );
 };
+
+export { DefaultVStack, DefaultCard, Section, PageHeading };
