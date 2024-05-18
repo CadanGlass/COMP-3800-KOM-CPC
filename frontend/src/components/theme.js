@@ -57,7 +57,7 @@ const theme = extendTheme({
   components: {
     Heading: {
       baseStyle: (props) => ({
-        color: props.colorMode === 'light' ? 'blue.800' : 'white',
+        color: props.colorMode === 'light' ? 'black' : 'white',
         fontFamily: 'Roboto, sans-serif',
         textShadow:
           props.colorMode === 'light'
