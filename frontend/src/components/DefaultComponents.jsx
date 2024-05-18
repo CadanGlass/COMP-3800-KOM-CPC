@@ -14,7 +14,7 @@ export const DefaultPage = ({
   padding = useBreakpointValue({ base: 4, lg: 16 }),
 }) => {
   const { colorMode } = useColorMode();
-  const bgColor = colorMode === 'light' ? '#f7f7f7' : '#171923'; // Use a very light gray for the background in light mode
+  const bgColor = colorMode === 'light' ? '#f7f7f7' : '#171923';
 
   return (
     <Box width="100%" bg={bgColor} minHeight="100vh">
@@ -48,12 +48,12 @@ export const DefaultCard = ({
   borderRadius = 'xl',
 }) => {
   const { colorMode } = useColorMode();
-  const backgroundColor = colorMode === 'light' ? '#ffffff' : 'gray.800'; // Slightly darker background for cards in light mode
+  const backgroundColor = colorMode === 'light' ? '#ffffff' : 'gray.800';
   const color = colorMode === 'light' ? 'black' : 'white';
   const boxShadow =
     colorMode === 'light'
-      ? '0px 4px 10px rgba(0, 0, 0, 0.1)' // More subtle shadow for light mode
-      : '0px 4px 10px rgba(0, 0, 0, 0.7)'; // More subtle shadow for dark mode
+      ? '0px 4px 10px rgba(0, 0, 0, 0.1)'
+      : '0px 4px 10px rgba(0, 0, 0, 0.7)';
 
   return (
     <Box w={'100%'}>
@@ -61,10 +61,8 @@ export const DefaultCard = ({
         {({ ref, inView }) => (
           <motion.div
             ref={ref}
-            animate={{
-              opacity: inView ? 1 : 0,
-              x: inView ? 0 : 100,
-            }}
+            initial={{ opacity: 0, x: 50 }} // Initial x position adjusted
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }} // Adjusted x position for inView and outView
             transition={{ duration: 0.8 }}
           >
             <Box

@@ -36,8 +36,8 @@ const NavItem = ({ children, isActive }) => (
     position="relative"
     zIndex={1}
     className={`nav-item ${isActive ? 'active' : ''}`}
-    fontSize={{ base: 'sm', '3xl': 'md' }}
-    fontWeight={'bold'} // Make the links bold
+    fontSize={{ base: 'sm', md: 'md' }}
+    fontWeight={'bold'}
     href={children.path}
   >
     {children.label}
@@ -48,7 +48,7 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const location = useLocation();
-  const textColor = useColorModeValue('white', 'white'); // Use white color for the text in both light and dark mode
+  const textColor = useColorModeValue('white', 'white');
 
   return (
     <>
@@ -61,20 +61,25 @@ export default function Navbar() {
         <Flex
           h={16}
           alignItems={'center'}
-          justify={{ base: 'center', '3xl': 'space-between' }}
+          justify={{
+            base: 'space-between',
+            md: 'space-between',
+            lg: 'space-between',
+            xl: 'space-between',
+          }}
         >
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={'Open Menu'}
-            display={{ base: 'flex', '3xl': 'none' }}
+            display={{ base: 'flex', xl: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
 
           <HStack
             spacing={4}
             flex={1}
-            justify={{ base: 'center', '3xl': 'start' }}
+            justify={{ base: 'center', xl: 'start' }}
           >
             <Link
               display="flex"
@@ -83,7 +88,6 @@ export default function Navbar() {
               rounded={'md'}
               position="relative"
               zIndex={1}
-              className={`nav-item ${location.pathname === '/' ? '' : ''}`}
               href="/"
             >
               <Avatar size={'md'} src={KOM_logo} />
@@ -93,7 +97,10 @@ export default function Navbar() {
             </Link>
           </HStack>
 
-          <HStack spacing={4} display={{ base: 'none', '3xl': 'flex' }}>
+          <HStack
+            spacing={{ base: 2, xl: 4, '2xl': 6 }}
+            display={{ base: 'none', xl: 'flex' }}
+          >
             {NAV_ITEMS.map((navItem) => (
               <NavItem
                 key={navItem.path}
@@ -115,7 +122,7 @@ export default function Navbar() {
         </Flex>
 
         {isOpen ? (
-          <Box pb={4} display={{ base: 'block', '3xl': 'none' }}>
+          <Box pb={4} display={{ base: 'block', xl: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {NAV_ITEMS.map((navItem) => (
                 <NavItem
