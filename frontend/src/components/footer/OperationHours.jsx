@@ -12,8 +12,8 @@ const OperationHours = () => {
     { day: 'Sunday', hours: 'Closed', closed: true },
   ];
 
-  const dayColor = useColorModeValue('gray.800', 'gray.300');
-  const hourColor = useColorModeValue('gray.600', 'gray.400');
+  const dayColor = useColorModeValue('gray.800', 'white');
+  const hourColor = useColorModeValue('gray.600', 'gray.300');
   const closedColor = useColorModeValue('red.600', 'red.400');
 
   const groupedDays = days.reduce((acc, current) => {
@@ -32,7 +32,7 @@ const OperationHours = () => {
 
   return (
     <Box>
-      <Text fontSize="lg" fontWeight="bold" mb={2}>
+      <Text fontSize="lg" fontWeight="bold" mb={2} color={dayColor}>
         Operation Hours
       </Text>
       <VStack align="start" spacing={2}>
