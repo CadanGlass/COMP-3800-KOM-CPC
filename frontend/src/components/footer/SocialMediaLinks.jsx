@@ -21,6 +21,9 @@ const SocialMediaLinks = () => {
         }}
         size="lg"
         boxSize={16} // Increased button size
+        background="none"
+        boxShadow="none"
+        border="none"
       />
       <IconButton
         as="a"
@@ -35,6 +38,9 @@ const SocialMediaLinks = () => {
         }}
         size="lg"
         boxSize={16} // Increased button size
+        background="none"
+        boxShadow="none"
+        border="none"
       />
       <IconButton
         as="a"
@@ -49,6 +55,9 @@ const SocialMediaLinks = () => {
         }}
         size="lg"
         boxSize={16} // Increased button size
+        background="none"
+        boxShadow="none"
+        border="none"
       />
     </HStack>
   );

@@ -37,6 +37,7 @@ const NavItem = ({ children, isActive }) => (
     zIndex={1}
     className={`nav-item ${isActive ? 'active' : ''}`}
     fontSize={{ lg: 'sm', xl: 'md' }}
+    fontWeight={'bold'} // Make the links bold
     href={children.path}
   >
     {children.label}
@@ -145,32 +146,3 @@ export default function Navbar() {
     </>
   );
 }
-
-const styles = {
-  navItem: {
-    position: 'relative',
-    overflow: 'hidden',
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      width: '100%',
-      height: '2px',
-      backgroundColor: 'blue.400', // Subtle blue color
-      transform: 'scaleX(0)',
-      transition: 'transform 0.3s ease',
-    },
-    '&:hover::after': {
-      transform: 'scaleX(1)',
-    },
-    '&:hover': {
-      color: 'blue.400', // Subtle blue color
-    },
-    '&.active': {
-      fontWeight: 'bold',
-      color: 'blue.500', // Subtle blue color
-      textDecoration: 'underline',
-    },
-  },
-};

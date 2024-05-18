@@ -12,14 +12,15 @@ const theme = extendTheme({
       ],
       'html, body, #root': {
         color: props.colorMode === 'light' ? 'gray.800' : 'gray.100',
-        bg: props.colorMode === 'light' ? '#f5f5f5' : '#171923', // Use a soft off-white color for light mode
+        bg: props.colorMode === 'light' ? '#ffffff' : '#171923',
         minHeight: '100vh',
-        fontSize: '20px', // Increase base font size
-        fontFamily: 'Roboto, sans-serif', // Apply the new font
+        fontSize: '20px',
+        fontFamily: 'Roboto, sans-serif',
       },
       '.nav-item': {
         position: 'relative',
         overflow: 'hidden',
+        fontWeight: 'bold',
         '&::after': {
           content: '""',
           position: 'absolute',
@@ -27,7 +28,7 @@ const theme = extendTheme({
           left: 0,
           width: '100%',
           height: '2px',
-          backgroundColor: 'blue.400', // Changed to a subtle blue
+          backgroundColor: 'blue.400',
           transform: 'scaleX(0)',
           transition: 'transform 0.3s ease',
         },
@@ -35,15 +36,17 @@ const theme = extendTheme({
           transform: 'scaleX(1)',
         },
         '&:hover': {
-          color: 'blue.400', // Changed to a subtle blue
+          color: 'blue.400',
         },
         '&.active': {
           fontWeight: 'bold',
-          color: 'blue.500', // Changed to a subtle blue
-          background: 'rgba(255, 255, 255, 0.1)',
-          border: '2px solid blue.500', // Changed to a subtle blue
+          color: 'blue.500',
           textDecoration: 'underline',
         },
+      },
+      footer: {
+        bg: props.colorMode === 'light' ? '#f0f4f8' : 'gray.800',
+        color: props.colorMode === 'light' ? 'gray.800' : 'gray.100',
       },
     }),
   },
@@ -52,30 +55,55 @@ const theme = extendTheme({
       baseStyle: (props) => ({
         color: props.colorMode === 'light' ? 'blue.800' : 'blue.400',
         fontFamily: 'Roboto, sans-serif',
+        textShadow:
+          props.colorMode === 'light'
+            ? '1px 1px 2px lightgray'
+            : '1px 1px 2px black',
       }),
       sizes: {
-        xl: {
-          fontSize: ['4xl', '5xl'], // Smaller font size for xl
-        },
-        lg: {
-          fontSize: ['3xl', '4xl'], // Smaller font size for lg
-        },
-        md: {
-          fontSize: ['2xl', '3xl'], // Smaller font size for md
-        },
-        sm: {
-          fontSize: ['xl', '2xl'], // Smaller font size for sm
-        },
-        xs: {
-          fontSize: ['lg', 'xl'], // Smaller font size for xs
-        },
+        xl: (props) => ({
+          fontSize: ['4xl', '5xl'],
+          textShadow:
+            props.colorMode === 'light'
+              ? '2px 2px 4px lightgray'
+              : '2px 2px 4px black',
+        }),
+        lg: (props) => ({
+          fontSize: ['3xl', '4xl'],
+          textShadow:
+            props.colorMode === 'light'
+              ? '2px 2px 4px lightgray'
+              : '2px 2px 4px black',
+        }),
+        md: (props) => ({
+          fontSize: ['2xl', '3xl'],
+          textShadow:
+            props.colorMode === 'light'
+              ? '2px 2px 4px lightgray'
+              : '2px 2px 4px black',
+        }),
+        sm: (props) => ({
+          fontSize: ['xl', '2xl'],
+          textShadow:
+            props.colorMode === 'light'
+              ? '1px 1px 2px lightgray'
+              : '1px 1px 2px black',
+        }),
+        xs: (props) => ({
+          fontSize: ['lg', 'xl'],
+          textShadow:
+            props.colorMode === 'light'
+              ? '1px 1px 2px lightgray'
+              : '1px 1px 2px black',
+        }),
       },
     },
     Text: {
-      baseStyle: {
-        fontSize: '20px', // Increase base font size for text
-        fontFamily: 'Roboto, sans-serif', // Apply the new font
-      },
+      baseStyle: (props) => ({
+        fontSize: '20px',
+        fontFamily: 'Roboto, sans-serif',
+        color: props.colorMode === 'light' ? 'gray.800' : 'gray.100',
+      }),
     },
     Input: {
       baseStyle: (props) => ({
@@ -116,6 +144,55 @@ const theme = extendTheme({
         }),
       },
     },
+    Button: {
+      baseStyle: (props) => ({
+        fontWeight: 'bold',
+        borderRadius: 'md',
+        boxShadow: 'lg',
+        _hover: {
+          transform: 'scale(1.05)',
+        },
+        _active: {
+          transform: 'scale(1)',
+        },
+      }),
+      variants: {
+        solid: (props) => ({
+          bg: props.colorMode === 'light' ? 'blue.500' : 'blue.600',
+          color: 'white',
+          _hover: {
+            bg: props.colorMode === 'light' ? 'blue.400' : 'blue.700',
+          },
+          _active: {
+            bg: props.colorMode === 'light' ? 'blue.600' : 'blue.800',
+          },
+        }),
+        outline: (props) => ({
+          borderColor: props.colorMode === 'light' ? 'blue.500' : 'blue.600',
+          color: props.colorMode === 'light' ? 'blue.500' : 'blue.600',
+          _hover: {
+            bg: props.colorMode === 'light' ? 'blue.100' : 'blue.700',
+          },
+        }),
+        learnMore: (props) => ({
+          bgGradient: 'linear(to-r, blue.500, blue.700)',
+          fontSize: 'sm',
+          fontWeight: 600,
+          color: 'white',
+          textTransform: 'none',
+          _hover: {
+            bgGradient: 'linear(to-r, blue.600, blue.800)',
+            transform: 'scale(1.05)',
+          },
+          _active: {
+            bgGradient: 'linear(to-r, blue.700, blue.900)',
+          },
+          borderRadius: 'md',
+          boxShadow: 'lg',
+          transition: 'all 0.2s ease-in-out',
+        }),
+      },
+    },
   },
   colors: {
     brand: {
@@ -139,7 +216,7 @@ const theme = extendTheme({
       500: '#3182ce',
       600: '#2b6cb0',
       700: '#2c5282',
-      800: '#2A4365', // Custom blue color
+      800: '#2A4365',
       900: '#1A365D',
     },
   },

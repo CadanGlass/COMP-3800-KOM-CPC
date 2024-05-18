@@ -1,22 +1,24 @@
-import { Button } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+// components/VolunteerNowButton.jsx
+import { Button, Link } from '@chakra-ui/react';
 
 export default function VolunteerNowButton() {
   return (
-    <Link
-      to="https://app.betterimpact.com/PublicOrganization/9751335d-c792-494f-83e0-f504c28ed30c/1"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link href="/volunteer">
       <Button
-        size={'lg'}
-        fontSize={'lg'}
-        fontWeight={700}
+        fontSize={'sm'}
+        fontWeight={600}
         color={'white'}
-        bg={'red.600'}
+        bgGradient="linear(to-r, red.500, red.700)"
         _hover={{
-          bg: 'red.400',
+          bgGradient: 'linear(to-r, red.600, red.800)',
+          transform: 'scale(1.05)',
         }}
+        _active={{
+          bgGradient: 'linear(to-r, red.700, red.900)',
+        }}
+        borderRadius="md"
+        boxShadow="lg"
+        transition="all 0.2s ease-in-out"
       >
         Volunteer Now
       </Button>
