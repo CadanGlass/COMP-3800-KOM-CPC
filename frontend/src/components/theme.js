@@ -19,6 +19,23 @@ const theme = extendTheme({
       baseStyle: (props) => ({
         color: props.colorMode === 'light' ? 'blue.800' : 'yellow.400', // Blue in light mode, yellow in dark mode
       }),
+      sizes: {
+        xl: {
+          fontSize: ['4xl', '5xl'], // Bigger font size for xl
+        },
+        lg: {
+          fontSize: ['3xl', '4xl'], // Bigger font size for lg
+        },
+        md: {
+          fontSize: ['2xl', '3xl'], // Bigger font size for md
+        },
+        sm: {
+          fontSize: ['xl', '2xl'], // Bigger font size for sm
+        },
+        xs: {
+          fontSize: ['lg', 'xl'], // Bigger font size for xs
+        },
+      },
     },
   },
   colors: {
