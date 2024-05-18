@@ -16,7 +16,11 @@ const OperationHours = () => {
 
   const groupedDays = days.reduce((acc, current) => {
     const lastGroup = acc[acc.length - 1];
-    if (lastGroup && lastGroup.hours === current.hours) {
+    if (
+      lastGroup &&
+      lastGroup.hours === current.hours &&
+      lastGroup.closed === current.closed
+    ) {
       lastGroup.days.push(current.day);
     } else {
       acc.push({
@@ -29,17 +33,17 @@ const OperationHours = () => {
   }, []);
 
   return (
-    <Box>
+    <Box p={1} textAlign="center">
       <Heading as="h3" size="sm" mb={2}>
         Hours
       </Heading>
-      <VStack align="start" spacing={2}>
+      <VStack align="center" spacing={2}>
         {groupedDays.map((group, index) => (
           <Text
             key={index}
             fontSize="sm"
             fontWeight="medium"
-            color={group.closed ? closedColor : undefined} // Use default color for non-closed hours
+            color={group.closed ? closedColor : undefined}
           >
             {group.days.join(', ')}: {group.hours}
           </Text>
