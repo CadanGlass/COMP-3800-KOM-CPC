@@ -48,6 +48,7 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const location = useLocation();
+  const textColor = useColorModeValue('white', 'white'); // Use white color for the text in both light and dark mode
 
   return (
     <>
@@ -86,7 +87,7 @@ export default function Navbar() {
               href="/"
             >
               <Avatar size={'md'} src={KOM_logo} />
-              <Text fontSize="md" fontWeight="bold" ml={2}>
+              <Text fontSize="md" fontWeight="bold" ml={2} color={textColor}>
                 Kerrisdale Oakridge Marpole Community Policing Centre
               </Text>
             </Link>
