@@ -52,10 +52,10 @@ const NavItem = ({ children, isActive }) => {
       _after={{
         content: '""',
         position: 'absolute',
-        width: '70%', // Shorter than the text width
+        width: '100%', // Match the text width
         height: '2px',
         bottom: 0,
-        left: '15%',
+        left: 0, // Start from the left edge
         bg: underlineColor,
         transform: 'scaleX(0)',
         transformOrigin: 'center',
