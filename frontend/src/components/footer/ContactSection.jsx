@@ -9,7 +9,7 @@ const ContactSection = () => {
     <Box p={1}>
       <Flex align="center" mb={4}>
         <Heading size="md" ml={2}>
-          Contact Us
+          Contact 
         </Heading>
       </Flex>
       <Divider mb={4} borderColor={dividerColor} />
