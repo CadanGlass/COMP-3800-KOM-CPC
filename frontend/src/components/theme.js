@@ -8,17 +8,17 @@ const theme = extendTheme({
   styles: {
     global: (props) => ({
       '@import': [
-        "url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')",
+        "url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap')",
       ],
       'html, body, #root': {
         color: props.colorMode === 'light' ? 'black' : 'gray.100',
         bg:
           props.colorMode === 'light'
             ? '#ffffff'
-            : 'linear-gradient(to bottom right, #0d1117, #161b22, #21262d)', // Adding gradient for dark mode
+            : 'linear-gradient(to bottom right, #0d1117, #161b22, #21262d)',
         minHeight: '100vh',
         fontSize: '20px',
-        fontFamily: 'Roboto, sans-serif',
+        fontFamily: 'Inter, sans-serif',
       },
       '.nav-item': {
         position: 'relative',
@@ -58,7 +58,7 @@ const theme = extendTheme({
     Heading: {
       baseStyle: (props) => ({
         color: props.colorMode === 'light' ? 'black' : 'white',
-        fontFamily: 'Roboto, sans-serif',
+        fontFamily: 'Inter, sans-serif',
         textShadow:
           props.colorMode === 'light'
             ? '1px 1px 2px lightgray'
@@ -105,7 +105,7 @@ const theme = extendTheme({
     Text: {
       baseStyle: (props) => ({
         fontSize: '20px',
-        fontFamily: 'Roboto, sans-serif',
+        fontFamily: 'Inter, sans-serif',
         color: props.colorMode === 'light' ? 'black' : 'gray.100',
       }),
     },
