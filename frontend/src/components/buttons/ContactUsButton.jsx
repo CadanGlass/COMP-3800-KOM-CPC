@@ -20,7 +20,7 @@ export default function ContactUsButton() {
         transition="all 0.2s ease-in-out"
         size="lg" // Ensure size consistency
       >
-        Contact Us
+        CONTACT US
       </Button>
     </Link>
   );

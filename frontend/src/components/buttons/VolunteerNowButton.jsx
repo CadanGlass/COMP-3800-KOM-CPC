@@ -20,7 +20,7 @@ export default function VolunteerNowButton() {
         boxShadow="lg"
         transition="all 0.2s ease-in-out"
       >
-        Volunteer Now
+        VOLUNTEER NOW
       </Button>
     </Link>
   );
