@@ -32,7 +32,7 @@ const Footer = () => {
             direction={{ base: 'column', md: 'row' }}
             spacing={8}
             justify="space-between"
-            alignItems="flex-start"
+            alignItems="center"
           >
             <VStack alignItems="center">
               <LogoSection />
@@ -40,9 +40,15 @@ const Footer = () => {
                 <SocialMediaLinks />
               </HStack>
             </VStack>
-            <MailchimpForm />
-            <OperationHours />
-            <ContactSection />
+            <VStack alignItems="center">
+              <MailchimpForm />
+            </VStack>
+            <VStack alignItems="center">
+              <OperationHours />
+            </VStack>
+            <VStack alignItems="center">
+              <ContactSection />
+            </VStack>
           </Stack>
         </Stack>
       </Container>

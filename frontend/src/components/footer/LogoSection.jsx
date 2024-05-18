@@ -14,7 +14,7 @@ const LogoSection = () => {
         }}
       >
         <Avatar size="2xl" src={KOM_logo} />
-        <Text fontSize="xl" ml={2} fontWeight="semibold">
+        <Text fontSize="md" ml={2} fontWeight="semibold">
           KOM CPC <br />
           6070 East Boulevard,
           <br />
