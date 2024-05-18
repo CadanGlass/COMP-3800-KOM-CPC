@@ -10,7 +10,7 @@ const MailchimpForm = () => {
 
   return (
     <VStack spacing={1} align="center">
-      <Heading as="h5" textAlign="center" size="md">
+      <Heading as="h5" textAlign="center" size="sm">
     Subscribe
       </Heading>
       <link

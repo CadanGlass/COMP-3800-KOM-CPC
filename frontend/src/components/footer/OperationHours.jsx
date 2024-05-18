@@ -30,7 +30,7 @@ const OperationHours = () => {
 
   return (
     <Box>
-      <Heading as="h3" size="lg" mb={2}>
+      <Heading as="h3" size="sm" mb={2}>
         Hours
       </Heading>
       <VStack align="start" spacing={2}>

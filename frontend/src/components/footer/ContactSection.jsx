@@ -12,7 +12,7 @@ import { FaPhone, FaEnvelope } from 'react-icons/fa';
 const ContactSection = () => {
   return (
     <Box p={1}>
-      <Heading as="h3" size="lg" mb={2}>
+      <Heading as="h3" size="sm" mb={2}>
         Contact
       </Heading>
       <VStack align="stretch" spacing={1}>
