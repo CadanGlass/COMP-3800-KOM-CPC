@@ -12,7 +12,7 @@ const theme = extendTheme({
       ],
       'html, body, #root': {
         color: props.colorMode === 'light' ? 'gray.800' : 'gray.100',
-        bg: props.colorMode === 'light' ? 'white' : '#171923',
+        bg: props.colorMode === 'light' ? '#f5f5f5' : '#171923', // Use a soft off-white color for light mode
         minHeight: '100vh',
         fontSize: '20px', // Increase base font size
         fontFamily: 'Roboto, sans-serif', // Apply the new font
