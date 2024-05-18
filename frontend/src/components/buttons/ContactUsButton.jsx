@@ -18,6 +18,7 @@ export default function ContactUsButton() {
         borderRadius="md"
         boxShadow="lg"
         transition="all 0.2s ease-in-out"
+        size="lg" // Ensure size consistency
       >
         Contact Us
       </Button>
