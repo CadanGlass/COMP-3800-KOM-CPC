@@ -1,5 +1,13 @@
 import React from 'react';
-import { Container, Box, Heading, Text, VStack, Stack } from '@chakra-ui/react';
+import {
+  Container,
+  Box,
+  Heading,
+  Text,
+  VStack,
+  Stack,
+  useColorMode,
+} from '@chakra-ui/react';
 import { Section, PageHeading } from '../components/DefaultComponents';
 import Header from '../components/Header';
 import ContactUsForm from '../components/contactus/ContactUsForm';
@@ -13,6 +21,8 @@ const contactInfo = data.ContactInfo;
 const emergencyCard = data.EmergencyCard;
 
 export default function ContactUsPage() {
+  const { colorMode } = useColorMode();
+
   const getBackground = (darkGradient) =>
     colorMode === 'light' ? '#ffffff' : darkGradient;
 
