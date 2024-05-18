@@ -50,8 +50,8 @@ const theme = extendTheme({
   components: {
     Heading: {
       baseStyle: (props) => ({
-        color: props.colorMode === 'light' ? 'blue.800' : 'blue.400', 
-        fontFamily: 'Roboto, sans-serif', 
+        color: props.colorMode === 'light' ? 'blue.800' : 'blue.400',
+        fontFamily: 'Roboto, sans-serif',
       }),
       sizes: {
         xl: {
@@ -75,6 +75,45 @@ const theme = extendTheme({
       baseStyle: {
         fontSize: '20px', // Increase base font size for text
         fontFamily: 'Roboto, sans-serif', // Apply the new font
+      },
+    },
+    Input: {
+      baseStyle: (props) => ({
+        field: {
+          backgroundColor: props.colorMode === 'light' ? 'white' : 'gray.700',
+          borderColor: props.colorMode === 'light' ? 'gray.300' : 'gray.600',
+          color: props.colorMode === 'light' ? 'gray.800' : 'gray.100',
+          _placeholder: {
+            color: props.colorMode === 'light' ? 'gray.500' : 'gray.400',
+          },
+        },
+      }),
+      sizes: {
+        md: {
+          field: {
+            fontSize: 'lg',
+            px: 4,
+            py: 2,
+          },
+        },
+      },
+      variants: {
+        outline: (props) => ({
+          field: {
+            borderColor: props.colorMode === 'light' ? 'gray.300' : 'gray.600',
+            _hover: {
+              borderColor:
+                props.colorMode === 'light' ? 'gray.400' : 'gray.500',
+            },
+            _focus: {
+              borderColor:
+                props.colorMode === 'light' ? 'blue.500' : 'blue.300',
+              boxShadow: `0 0 0 1px ${
+                props.colorMode === 'light' ? 'blue.500' : 'blue.300'
+              }`,
+            },
+          },
+        }),
       },
     },
   },
