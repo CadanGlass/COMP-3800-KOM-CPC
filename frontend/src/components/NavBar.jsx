@@ -45,10 +45,6 @@ const NavItem = ({ children, isActive }) => {
       fontWeight={'bold'}
       href={children.path}
       color={isActive ? activeColor : 'inherit'}
-      _hover={{
-        color: activeColor,
-        textDecoration: 'none',
-      }}
       _after={{
         content: '""',
         position: 'absolute',

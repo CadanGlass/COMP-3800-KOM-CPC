@@ -8,7 +8,11 @@ import {
   Stack,
   useColorMode,
 } from '@chakra-ui/react';
-import { Section, PageHeading } from '../components/DefaultComponents';
+import {
+  Section,
+  PageHeading,
+  DefaultCard,
+} from '../components/DefaultComponents';
 import Header from '../components/Header';
 import ContactUsForm from '../components/contactus/ContactUsForm';
 import ContactInfo from '../components/contactus/ContactInfo';
@@ -60,25 +64,27 @@ export default function ContactUsPage() {
       <Section
         bg={getBackground('linear-gradient(to bottom, #4a566e, #5b6b7e)')}
       >
-        <Stack
-          align={'center'}
-          spacing="8"
-          py={{ base: 8, md: 12 }}
-          direction={{ base: 'column', md: 'row' }}
-        >
-          <VStack flex={0.5} spacing={{ base: 5, md: 10 }}>
-            <ContactInfo
-              phone={contactInfo.Phone}
-              email={contactInfo.Email}
-              address={contactInfo.Address}
-              hours={contactInfo.Hours}
-            />
-          </VStack>
+        <DefaultCard>
+          <Stack
+            align={'center'}
+            spacing="8"
+            py={{ base: 8, md: 12 }}
+            direction={{ base: 'column', md: 'row' }}
+          >
+            <VStack flex={0.5} spacing={{ base: 5, md: 10 }}>
+              <ContactInfo
+                phone={contactInfo.Phone}
+                email={contactInfo.Email}
+                address={contactInfo.Address}
+                hours={contactInfo.Hours}
+              />
+            </VStack>
 
-          <Stack flex={1} minW={{ base: '100%', md: 'auto' }}>
-            <ContactUsForm />
+            <Stack flex={1} minW={{ base: '100%', md: 'auto' }}>
+              <ContactUsForm />
+            </Stack>
           </Stack>
-        </Stack>
+        </DefaultCard>
       </Section>
     </>
   );
