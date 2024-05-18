@@ -27,19 +27,19 @@ const theme = extendTheme({
       }),
       sizes: {
         xl: {
-          fontSize: ['5xl', '6xl'], // Bigger font size for xl
+          fontSize: ['4xl', '5xl'], // Smaller font size for xl
         },
         lg: {
-          fontSize: ['4xl', '5xl'], // Bigger font size for lg
+          fontSize: ['3xl', '4xl'], // Smaller font size for lg
         },
         md: {
-          fontSize: ['3xl', '4xl'], // Bigger font size for md
+          fontSize: ['2xl', '3xl'], // Smaller font size for md
         },
         sm: {
-          fontSize: ['2xl', '3xl'], // Bigger font size for sm
+          fontSize: ['xl', '2xl'], // Smaller font size for sm
         },
         xs: {
-          fontSize: ['xl', '2xl'], // Bigger font size for xs
+          fontSize: ['lg', 'xl'], // Smaller font size for xs
         },
       },
     },
