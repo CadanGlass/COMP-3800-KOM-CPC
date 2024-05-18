@@ -5,6 +5,14 @@ const theme = extendTheme({
     initialColorMode: 'dark',
     useSystemColorMode: false,
   },
+  breakpoints: {
+    sm: '30em',
+    md: '48em',
+    lg: '62em',
+    xl: '80em',
+    '2xl': '96em',
+    '3xl': '112em', // Custom 3xl breakpoint
+  },
   styles: {
     global: (props) => ({
       '@import': [
