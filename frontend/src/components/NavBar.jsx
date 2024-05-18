@@ -1,9 +1,9 @@
+import React from 'react';
 import {
   Box,
   Flex,
   Avatar,
   HStack,
-  Link,
   IconButton,
   useDisclosure,
   useColorModeValue,
@@ -12,40 +12,42 @@ import {
   useColorMode,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, SunIcon, MoonIcon } from '@chakra-ui/icons';
+import { NavLink } from 'react-router-dom';
 import DonateButton from './buttons/DonateButton';
 import ContactUsButton from './buttons/ContactUsButton';
-
 import KOM_logo from '../assets/KOM_Logo.png';
 
 const NAV_ITEMS = [
-  { label: 'Volunteer', path: 'volunteer' },
-  { label: 'Programs', path: 'programs' },
-  { label: 'Shield Your Sip', path: 'shield-your-sip' },
-  { label: 'News & Events', path: 'news-events' },
-  { label: 'How Can I Help?', path: 'how-can-i-help' },
-  { label: 'About', path: 'about-us' },
-  { label: 'Resources', path: 'resources' },
+  { label: 'Volunteer', path: '/volunteer' },
+  { label: 'Programs', path: '/programs' },
+  { label: 'Shield Your Sip', path: '/shield-your-sip' },
+  { label: 'News & Events', path: '/news-events' },
+  { label: 'How Can I Help?', path: '/how-can-i-help' },
+  { label: 'About', path: '/about-us' },
+  { label: 'Resources', path: '/resources' },
 ];
 
-const NavItem = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    position="relative"
-    zIndex={1}
-    _hover={styles.navItem._hover}
-    _after={styles.navItem._after}
-    _before={{ transition: 'all 0.5s' }}
-    transition="all 0.5s"
-    href={children.path}
-    fontSize={{ lg: 'sm', xl: 'md' }}
+const NavItem = ({ label, path }) => (
+  <NavLink
+    to={path}
+    style={({ isActive }) => ({
+      padding: '0.5rem 1rem',
+      borderRadius: '0.375rem',
+      fontWeight: isActive ? 'bold' : 'normal',
+      color: isActive ? 'yellow.400' : 'inherit',
+      background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+      border: isActive ? '2px solid yellow.400' : 'none',
+      textDecoration: isActive ? 'underline' : 'none',
+      position: 'relative',
+      transition: 'all 0.3s ease',
+    })}
+    className="nav-item"
   >
-    {children.label}
-  </Link>
+    {label}
+  </NavLink>
 );
 
-export default function Navbar() {
+export default function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -75,24 +77,30 @@ export default function Navbar() {
             flex={1}
             justify={{ base: 'center', xl: 'start' }}
           >
-            <Link
-              display="flex"
-              alignItems="center"
-              pr={2}
-              rounded={'md'}
-              position="relative"
-              zIndex={1}
-              _hover={styles.navItem._hover}
-              _after={styles.navItem._after}
-              _before={{ transition: 'all 0.5s' }}
-              transition="all 0.5s"
-              href="/"
+            <NavLink
+              to="/"
+              style={({ isActive }) => ({
+                display: 'flex',
+                alignItems: 'center',
+                pr: 2,
+                borderRadius: '0.375rem',
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'yellow.400' : 'inherit',
+                background: isActive
+                  ? 'rgba(255, 255, 255, 0.1)'
+                  : 'transparent',
+                border: isActive ? '2px solid yellow.400' : 'none',
+                textDecoration: isActive ? 'underline' : 'none',
+                position: 'relative',
+                transition: 'all 0.3s ease',
+              })}
+              className="nav-item"
             >
               <Avatar size={'md'} src={KOM_logo} />
               <Text fontSize="md" fontWeight="bold" ml={2}>
                 Kerrisdale Oakridge Marpole Community Policing Centre
               </Text>
-            </Link>
+            </NavLink>
           </HStack>
 
           <HStack
@@ -100,7 +108,7 @@ export default function Navbar() {
             display={{ base: 'none', xl: 'flex' }}
           >
             {NAV_ITEMS.map((navItem) => (
-              <NavItem key={navItem.path}>{navItem}</NavItem>
+              <NavItem key={navItem.path} {...navItem} />
             ))}
             <IconButton
               icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
@@ -118,7 +126,7 @@ export default function Navbar() {
           <Box pb={4} display={{ base: 'block', xl: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {NAV_ITEMS.map((navItem) => (
-                <NavItem key={navItem.path}>{navItem}</NavItem>
+                <NavItem key={navItem.path} {...navItem} />
               ))}
               <HStack flexWrap="wrap" spacing={4}>
                 {ContactUsButton()}
@@ -139,37 +147,3 @@ export default function Navbar() {
     </>
   );
 }
-
-const styles = {
-  navItem: {
-    position: 'relative',
-    zIndex: 1,
-    _hover: {
-      textDecoration: 'none',
-      color: 'black',
-      _after: {
-        opacity: 1,
-        visibility: 'visible',
-        height: '100%',
-      },
-    },
-    _after: {
-      transition: 'all 0.5s',
-      display: 'block',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      bottom: 0,
-      right: 0,
-      margin: 'auto',
-      width: '100%',
-      height: '1px',
-      content: '"."',
-      color: 'transparent',
-      background: 'gray.300',
-      visibility: 'none',
-      opacity: 0,
-      zIndex: -1,
-    },
-  },
-};

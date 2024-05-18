@@ -17,12 +17,40 @@ const theme = extendTheme({
         fontSize: '20px', // Increase base font size
         fontFamily: 'Roboto, sans-serif', // Apply the new font
       },
+      '.nav-item': {
+        position: 'relative',
+        overflow: 'hidden',
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          width: '100%',
+          height: '2px',
+          backgroundColor: 'blue.400', // Changed to a subtle blue
+          transform: 'scaleX(0)',
+          transition: 'transform 0.3s ease',
+        },
+        '&:hover::after': {
+          transform: 'scaleX(1)',
+        },
+        '&:hover': {
+          color: 'blue.400', // Changed to a subtle blue
+        },
+        '&.active': {
+          fontWeight: 'bold',
+          color: 'blue.500', // Changed to a subtle blue
+          background: 'rgba(255, 255, 255, 0.1)',
+          border: '2px solid blue.500', // Changed to a subtle blue
+          textDecoration: 'underline',
+        },
+      },
     }),
   },
   components: {
     Heading: {
       baseStyle: (props) => ({
-        color: props.colorMode === 'light' ? 'blue.800' : 'yellow.400', // Blue in light mode, yellow in dark mode
+        color: props.colorMode === 'light' ? 'blue.800' : 'blue.400', // Changed to a subtle blue
         fontFamily: 'Roboto, sans-serif', // Apply the new font
       }),
       sizes: {
