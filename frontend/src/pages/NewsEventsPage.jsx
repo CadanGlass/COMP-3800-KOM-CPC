@@ -10,7 +10,6 @@ import {
   useBreakpointValue,
   Container,
   Text,
-  Button,
 } from '@chakra-ui/react';
 
 import EventCard from '../components/eventsPage/EventCard';
@@ -21,6 +20,7 @@ import {
   DefaultCard,
   PageHeading,
 } from '../components/DefaultComponents';
+import ShowMoreButton from '../components/buttons/ShowMoreButton';
 
 const NewsEventsPage = () => {
   const { colorMode } = useColorMode();
@@ -150,15 +150,14 @@ const NewsEventsPage = () => {
                       />
                     </Box>
                   ))}
-                  {visibleEvents < events.length ? (
-                    <Button onClick={handleShowMoreEvents} mt={4}>
-                      Show More
-                    </Button>
-                  ) : (
-                    <Button onClick={handleShowLessEvents} mt={4}>
-                      Show Less
-                    </Button>
-                  )}
+                  <ShowMoreButton
+                    onClick={
+                      visibleEvents < events.length
+                        ? handleShowMoreEvents
+                        : handleShowLessEvents
+                    }
+                    isExpanded={visibleEvents >= events.length}
+                  />
                 </Box>
               </DefaultCard>
             </VStack>
@@ -192,15 +191,14 @@ const NewsEventsPage = () => {
                         <PastNewsletters newsletters={[newsletter]} />
                       </Box>
                     ))}
-                  {visibleNewsletters < newsletters.length ? (
-                    <Button onClick={handleShowMoreNewsletters} mt={4}>
-                      Show More
-                    </Button>
-                  ) : (
-                    <Button onClick={handleShowLessNewsletters} mt={4}>
-                      Show Less
-                    </Button>
-                  )}
+                  <ShowMoreButton
+                    onClick={
+                      visibleNewsletters < newsletters.length
+                        ? handleShowMoreNewsletters
+                        : handleShowLessNewsletters
+                    }
+                    isExpanded={visibleNewsletters >= newsletters.length}
+                  />
                 </Box>
               </DefaultCard>
             </VStack>
