@@ -1,5 +1,11 @@
 import React from 'react';
-import { Box, Text, VStack, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Text,
+  VStack,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 const OperationHours = () => {
   const days = [
@@ -12,7 +18,6 @@ const OperationHours = () => {
     { day: 'Sunday', hours: 'Closed', closed: true },
   ];
 
-  const dayColor = useColorModeValue('gray.800', 'white');
   const hourColor = useColorModeValue('gray.600', 'gray.300');
   const closedColor = useColorModeValue('red.600', 'red.400');
 
@@ -32,9 +37,9 @@ const OperationHours = () => {
 
   return (
     <Box>
-      <Text fontSize="lg" fontWeight="bold" mb={2} color={dayColor}>
-        Operation Hours
-      </Text>
+      <Heading as="h3" size="lg" mb={2}>
+        Hours
+      </Heading>
       <VStack align="start" spacing={2}>
         {groupedDays.map((group, index) => (
           <Text
