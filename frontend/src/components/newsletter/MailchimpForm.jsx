@@ -1,4 +1,3 @@
-// components/newsletter/MailchimpForm.jsx
 import React, { useState } from 'react';
 import { Box, Input, Heading, VStack, Button } from '@chakra-ui/react';
 
@@ -61,7 +60,8 @@ const MailchimpForm = () => {
                 borderRadius="md"
                 boxShadow="lg"
                 transition="all 0.2s ease-in-out"
-                size="md"
+                size="lg"
+                textTransform="uppercase" // Makes the text uppercase
               >
                 Subscribe
               </Button>

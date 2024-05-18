@@ -22,7 +22,7 @@ export default function DonateButton() {
         }}
         width="full" // Ensure button takes the full width of its container
       >
-        Donate
+        DONATE
       </Button>
       <div className="button-bg"></div>
     </Link>
