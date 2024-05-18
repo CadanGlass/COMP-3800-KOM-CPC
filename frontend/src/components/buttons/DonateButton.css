@@ -11,8 +11,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
+  width: calc(100% + 8px);  /* Increase border thickness */
+  height: calc(100% + 8px); /* Increase border thickness */
   background: linear-gradient(
     90deg,
     #ff8038 0%,
@@ -25,7 +25,7 @@
   animation: AnimateBorder 4s ease infinite;
   -webkit-animation: AnimateBorder 4s ease infinite;
   -moz-animation: AnimateBorder 4s ease infinite;
-  transform: translate(-2px, -2px);
+  transform: translate(-4px, -4px); /* Adjust to match border thickness */
   transition: filter 1s ease-in;
 }
 
