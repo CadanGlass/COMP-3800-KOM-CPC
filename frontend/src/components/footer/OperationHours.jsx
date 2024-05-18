@@ -1,42 +1,50 @@
 import React from 'react';
-import { Box, Text, Heading, VStack, HStack, Divider, Flex, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Text,
+  VStack,
+  SimpleGrid,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 const OperationHours = () => {
-    const hours = [
-        { day: 'Monday', time: '10:00am - 4:00pm' },
-        { day: 'Tuesday', time: '10:00am - 4:00pm' },
-        { day: 'Wednesday', time: '10:00am - 4:00pm' },
-        { day: 'Thursday', time: '10:00am - 4:00pm' },
-        { day: 'Friday', time: '10:00am - 4:00pm' },
-        { day: 'Saturday', time: '10:00am - 4:00pm' },
-        { day: 'Sunday', time: 'Closed' },
-    ];
-    const dividerColor = useColorModeValue('black', 'white');
-    const textColor = useColorModeValue('gray.800', 'gray.200');
-    const closedColor = 'red.500';
+  const days = [
+    { day: 'Monday', hours: '10:00am - 4:00pm' },
+    { day: 'Tuesday', hours: '10:00am - 4:00pm' },
+    { day: 'Wednesday', hours: '10:00am - 4:00pm' },
+    { day: 'Thursday', hours: '10:00am - 4:00pm' },
+    { day: 'Friday', hours: '10:00am - 4:00pm' },
+    { day: 'Saturday', hours: '10:00am - 4:00pm' },
+    { day: 'Sunday', hours: 'Closed', closed: true },
+  ];
 
-    return (
-        <Box p={1}>
-            <Flex align="center" mb={4}>
-                <Heading size="md" ml={2}>
-                    Operation Hours
-                </Heading>
-            </Flex>
-            <Divider mb={4} borderColor={dividerColor} />
-            <VStack align="stretch" spacing={1}>
-                {hours.map((hour, index) => (
-                    <HStack key={index} justify="space-between">
-                        <Text fontSize="md" fontWeight="semibold" color={textColor}>
-                            {hour.day}
-                        </Text>
-                        <Text fontSize="md" color={hour.time === 'Closed' ? closedColor : textColor}>
-                            {hour.time}
-                        </Text>
-                    </HStack>
-                ))}
-            </VStack>
-        </Box>
-    );
+  const dayColor = useColorModeValue('gray.800', 'gray.300');
+  const hourColor = useColorModeValue('gray.600', 'gray.400');
+  const closedColor = useColorModeValue('red.600', 'red.400');
+
+  return (
+    <Box>
+      <Text fontSize="2xl" fontWeight="bold" mb={4}>
+        Operation Hours
+      </Text>
+      <SimpleGrid columns={2} spacing={4}>
+        {days.map((day) => (
+          <React.Fragment key={day.day}>
+            <Text fontSize="lg" fontWeight="medium" color={dayColor}>
+              {day.day}
+            </Text>
+            <Text
+              fontSize="lg"
+              fontWeight="medium"
+              color={day.closed ? closedColor : hourColor}
+            >
+              {day.hours}
+            </Text>
+          </React.Fragment>
+        ))}
+      </SimpleGrid>
+    </Box>
+  );
 };
 
 export default OperationHours;
