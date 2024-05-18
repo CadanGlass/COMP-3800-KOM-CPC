@@ -7,6 +7,7 @@ import {
   Text,
   Divider,
   HStack,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import SocialMediaLinks from './footer/SocialMediaLinks';
 import MailchimpForm from './newsletter/MailchimpForm';
@@ -15,9 +16,9 @@ import ContactSection from './footer/ContactSection';
 import LogoSection from './footer/LogoSection';
 
 const Footer = () => {
-  const bg = 'gray.800'; // Keep the background color consistent in both modes
-  const textColor = 'white'; // Keep the text color consistent in both modes
-  const dividerColor = 'white';
+  const bg = useColorModeValue('gray.100', 'gray.800');
+  const textColor = useColorModeValue('black', 'white');
+  const dividerColor = useColorModeValue('gray.300', 'white');
 
   return (
     <Box bg={bg} color={textColor} px={4} py={10}>
