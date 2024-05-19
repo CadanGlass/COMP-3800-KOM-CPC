@@ -1,0 +1,77 @@
+.sys-btn {
+  color: #1a202c;
+  width: 160px;
+  height: 45px;
+  font-weight: 550;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  background: #fff352;
+  line-height: 45px;
+  border: none;
+  box-shadow: 0 0 5px #fff352;
+}
+.sys-btn span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.sys-btn:hover {
+  background: #1a202c;
+  color: #fff352;
+}
+.sys-btn:before,
+.sys-btn:after {
+  position: absolute;
+  content: '';
+  height: 0%;
+  width: 2px;
+  background: #fff352;
+  box-shadow: 0 0 5px #fff352;
+}
+.sys-btn:before {
+  right: 0;
+  top: 0;
+  transition: all 500ms ease;
+}
+.sys-btn:after {
+  left: 0;
+  bottom: 0;
+  transition: all 500ms ease;
+}
+.sys-btn:hover:before {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.sys-btn:hover:after {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.sys-btn span:before,
+.sys-btn span:after {
+  position: absolute;
+  content: '';
+  background: #fff352;
+  box-shadow: 0 0 5px #fff352;
+}
+.sys-btn span:before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 500ms ease;
+}
+.sys-btn span:after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 500ms ease;
+}
+.sys-btn span:hover:before {
+  width: 100%;
+}
+.sys-btn span:hover:after {
+  width: 100%;
+}

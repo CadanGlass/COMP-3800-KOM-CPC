@@ -14,7 +14,7 @@ export default function Header({ title, description, btn1, btn2, imageUrl }) {
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
-        py={{ base: 4, md: 12 }}
+        py={{ base: 4, md: 8 }}
         direction={{ base: 'column', md: 'row' }}
       >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
