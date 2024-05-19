@@ -12,7 +12,7 @@ export default function Header({ title, description, btn1, btn2, imageUrl }) {
   return (
     <DefaultCard>
       <Stack
-        align={'center'}
+        align={{ base: 'start', md: 'center' }}
         spacing={{ base: 8, md: 10 }}
         py={{ base: 4, md: 8 }}
         direction={{ base: 'column', md: 'row' }}

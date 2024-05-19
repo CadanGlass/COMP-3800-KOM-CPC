@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
-import {
-  VStack,
-  useColorMode,
-  Heading,
-  Text,
-  Image,
-  Button,
-} from '@chakra-ui/react';
+import { VStack, useColorMode, Image } from '@chakra-ui/react';
 import CallPoliceBanner from '../components/home/CallPoliceBanner';
-import {
-  Section,
-  PageHeading,
-  DefaultCard,
-} from '../components/DefaultComponents';
+import { Section } from '../components/DefaultComponents';
 import sys_logo from '../assets/sys_logo.png';
 import drink_cover from '../assets/drink_cover.png';
 import Header from '../components/Header';
 import GetYourShieldButton from '../components/buttons/GetYourShieldButton';
+import SysInfoCard from '../components/sys/SysInfoCard';
+
+const data = {
+  subPoints: [
+    {
+      title: 'What is #ShieldYourSip?',
+      description: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend dolor. Nullam sit amet scelerisque nunc',
+      ],
+    },
+    {
+      title: 'The SYS Team!',
+      description: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend dolor. Nullam sit amet scelerisque nunc',
+      ],
+    },
+    {
+      title: 'SYS Survey',
+      description: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend dolor. Nullam sit amet scelerisque nunc',
+      ],
+    },
+  ],
+};
 
 export default function ShieldYourSipPage() {
   const { colorMode } = useColorMode();
@@ -24,7 +36,7 @@ export default function ShieldYourSipPage() {
   return (
     <>
       <VStack
-        spacing={14}
+        spacing={4}
         bgGradient={
           colorMode === 'light'
             ? 'linear(yellow.100, red.100, green.100)'
@@ -55,7 +67,7 @@ export default function ShieldYourSipPage() {
         </Section>
 
         <Section>
-          <DefaultCard>asdfasdf</DefaultCard>
+          <SysInfoCard data={data} />
         </Section>
       </VStack>
     </>

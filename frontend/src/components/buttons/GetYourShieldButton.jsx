@@ -8,7 +8,7 @@ export default function GetYourShieldButton() {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <button class="sys-btn">
+      <button className="sys-btn">
         <span>Get Your Shield</span>
       </button>
     </Link>
