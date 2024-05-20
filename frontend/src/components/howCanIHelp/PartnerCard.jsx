@@ -1,7 +1,17 @@
 import React from 'react';
-import { Card, Heading, Stack, Image, AspectRatio } from '@chakra-ui/react';
+import {
+  Card,
+  Heading,
+  Stack,
+  Image,
+  AspectRatio,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 export default function PartnerCard({ name, image }) {
+  const cardBg = useColorModeValue('#ffffff', '#1A202C');
+  const textColor = useColorModeValue('gray.800', 'white');
+
   return (
     <Card
       direction={'column'}
@@ -17,7 +27,7 @@ export default function PartnerCard({ name, image }) {
       borderRadius="lg"
       transition="transform 0.3s, box-shadow 0.3s"
       _hover={{ transform: 'scale(1.05)', boxShadow: 'xl' }}
-      bg="#1A202C"
+      bg={cardBg}
     >
       {image && (
         <AspectRatio ratio={1} w="100px" h="100px">
@@ -25,7 +35,7 @@ export default function PartnerCard({ name, image }) {
         </AspectRatio>
       )}
       <Stack mt={4} align="center">
-        <Heading size="sm" textAlign="center" color="white">
+        <Heading size="sm" textAlign="center" color={textColor}>
           {name}
         </Heading>
       </Stack>
