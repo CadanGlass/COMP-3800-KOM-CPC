@@ -16,9 +16,9 @@ import ContactSection from './footer/ContactSection';
 import LogoSection from './footer/LogoSection';
 
 const Footer = () => {
-  const bg = useColorModeValue('gray.100', 'gray.800');
-  const textColor = useColorModeValue('black', 'white');
-  const dividerColor = useColorModeValue('gray.300', 'white');
+  const bg = useColorModeValue('#f7f7f7', 'gray.800'); // Light gray for light mode, dark gray for dark mode
+  const textColor = useColorModeValue('gray.800', 'white'); // Dark text for light mode, white text for dark mode
+  const dividerColor = useColorModeValue('gray.300', 'gray.600'); // Gray divider for light mode, lighter gray for dark mode
 
   return (
     <Box bg={bg} color={textColor} px={4} py={10}>
