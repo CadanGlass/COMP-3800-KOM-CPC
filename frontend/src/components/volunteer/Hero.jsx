@@ -11,7 +11,6 @@ import VolunteerNowButton from '../buttons/VolunteerNowButton';
 import { DefaultCard } from '../DefaultComponents';
 
 const Hero = ({ title }) => {
-  // add the image
   const gridGap = useBreakpointValue({ base: 8, l: 12, xl: 32 });
   const gridTemplateAreas = useBreakpointValue({
     base: `"title" "image" "button"`,
@@ -22,7 +21,7 @@ const Hero = ({ title }) => {
     xl: '1fr 1fr',
   });
   const headingTextAlign = useBreakpointValue({ base: 'center', xl: 'left' });
-  const buttonJustify = useBreakpointValue({ base: 'right', xl: 'left' });
+  const buttonJustify = useBreakpointValue({ base: 'center', xl: 'left' });
 
   return (
     <DefaultCard>
