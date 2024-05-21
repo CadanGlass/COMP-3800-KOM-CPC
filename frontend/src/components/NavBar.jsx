@@ -76,51 +76,34 @@ export default function Navbar() {
   const textColor = useColorModeValue('white', 'white');
 
   return (
-    <>
-      <Box
-        bg={useColorModeValue('gray.800', '#1A202C')}
-        color={useColorModeValue('gray.100', 'gray.200')}
-        px={4}
-        w="100%"
-      >
-        <Flex
-          h={16}
-          alignItems={'center'}
-          justify={{ base: 'center', '3xl': 'space-between' }}
+    <Box
+      bg={useColorModeValue('gray.800', '#1A202C')}
+      color={useColorModeValue('gray.100', 'gray.200')}
+      px={4}
+      w="100%"
+    >
+      <Flex h={16} alignItems={'center'} justify={'space-between'}>
+        <Link
+          display="flex"
+          alignItems="center"
+          rounded={'md'}
+          position="relative"
+          zIndex={1}
+          className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}
+          href="/"
         >
-          <IconButton
-            size={'md'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
-            display={{ base: 'flex', '3xl': 'none' }}
-            onClick={isOpen ? onClose : onOpen}
-          />
+          <Avatar size={'md'} src={KOM_logo} />
+          <Text fontSize="md" fontWeight="bold" ml={2} color={textColor}>
+            Kerrisdale Oakridge Marpole Community Policing Centre
+          </Text>
+        </Link>
 
+        <Flex alignItems={'center'}>
           <HStack
-            spacing={4}
-            flex={1}
-            justify={{ base: 'center', '3xl': 'start' }}
+            spacing={5}
+            display={{ base: 'none', '3xl': 'flex' }} // Collapse earlier on smaller screens
+            mr={4}
           >
-            <Link
-              display="flex"
-              alignItems="center"
-              pr={2}
-              rounded={'md'}
-              position="relative"
-              zIndex={1}
-              className={`nav-item ${
-                location.pathname === '/' ? 'active' : ''
-              }`}
-              href="/"
-            >
-              <Avatar size={'md'} src={KOM_logo} />
-              <Text fontSize="md" fontWeight="bold" ml={2} color={textColor}>
-                Kerrisdale Oakridge Marpole Community Policing Centre
-              </Text>
-            </Link>
-          </HStack>
-
-          <HStack spacing={5} display={{ base: 'none', '3xl': 'flex' }}>
             {NAV_ITEMS.map((navItem) => (
               <NavItem
                 key={navItem.path}
@@ -139,35 +122,42 @@ export default function Navbar() {
             {ContactUsButton()}
             {DonateButton()}
           </HStack>
+          <IconButton
+            size={'md'}
+            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            aria-label={'Open Menu'}
+            display={{ base: 'flex', '3xl': 'none' }}
+            onClick={isOpen ? onClose : onOpen}
+          />
         </Flex>
+      </Flex>
 
-        {isOpen ? (
-          <Box pb={4} display={{ base: 'block', '3xl': 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {NAV_ITEMS.map((navItem) => (
-                <NavItem
-                  key={navItem.path}
-                  isActive={location.pathname === `/${navItem.path}`}
-                >
-                  {navItem}
-                </NavItem>
-              ))}
-              <HStack flexWrap="wrap" spacing={4}>
-                {ContactUsButton()}
-                {DonateButton()}
-                <IconButton
-                  icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                  onClick={toggleColorMode}
-                  aria-label="Toggle dark mode"
-                  isRound={true}
-                  size="md"
-                  alignSelf="center"
-                />
-              </HStack>
-            </Stack>
-          </Box>
-        ) : null}
-      </Box>
-    </>
+      {isOpen ? (
+        <Box pb={4} display={{ base: 'block', '3xl': 'none' }} textAlign="center">
+          <Stack as={'nav'} spacing={4}>
+            {NAV_ITEMS.map((navItem) => (
+              <NavItem
+                key={navItem.path}
+                isActive={location.pathname === `/${navItem.path}`}
+              >
+                {navItem}
+              </NavItem>
+            ))}
+            <HStack flexWrap="wrap" spacing={4} justify="center">
+              {ContactUsButton()}
+              {DonateButton()}
+              <IconButton
+                icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                onClick={toggleColorMode}
+                aria-label="Toggle dark mode"
+                isRound={true}
+                size="md"
+                alignSelf="center"
+              />
+            </HStack>
+          </Stack>
+        </Box>
+      ) : null}
+    </Box>
   );
 }
