@@ -1,34 +1,40 @@
 import React from 'react';
-import { Card, Heading, Stack, Text, useColorMode } from '@chakra-ui/react';
+import { Heading, Stack, Text, Box } from '@chakra-ui/react';
+import { DefaultCard } from '../DefaultComponents';
+
+import DonateButton from '../buttons/DonateButton';
+import ContactUsButton from '../buttons/ContactUsButton';
 
 const HowCanYouHelpCard = () => {
-  const { colorMode } = useColorMode();
-
   return (
-    <Card
-      direction={'column'}
-      overflow="hidden"
-      variant="outline"
-      bg={colorMode === 'light' ? 'white' : 'gray.800'}
-      p={8}
-      maxW="800px"
-      mx="auto"
-      shadow="md"
+    <DefaultCard
+      internalPaddingX={{ base: 4, md: 8, xl: 16 }}
+      internalPaddingY={8}
     >
-      <Stack spacing={4} textAlign="center">
-        <Heading size="md">How You Can Help</Heading>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-          vestibulum erat. Vivamus vel augue sed odio malesuada egestas. Proin
-          sit amet ligula in nisl feugiat fermentum.
-        </Text>
-        <Text>
-          Donec nec nunc sit amet turpis hendrerit venenatis. Fusce at nunc
-          metus. Mauris vehicula urna sed urna suscipit, ac interdum nisi
-          mollis.
-        </Text>
+      <Stack spacing={8} textAlign="center">
+        <Box>
+          <Heading size="md" mb={4}>
+            How You Can Help
+          </Heading>
+          <Text mb={2}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+            vestibulum erat. Vivamus vel augue sed odio malesuada egestas. Proin
+            sit amet ligula in nisl feugiat fermentum.
+          </Text>
+          <Text>
+            Donec nec nunc sit amet turpis hendrerit venenatis. Fusce at nunc
+            metus. Mauris vehicula urna sed urna suscipit, ac interdum nisi
+            mollis. Donec nec nunc sit amet turpis hendrerit venenatis. Fusce at
+            nunc metus. Mauris vehicula urna sed urna suscipit, ac interdum nisi
+            mollis. Donec nec nunc sit amet turpis hendrerit venenatis. Fusce at
+            nunc metus. Mauris vehicula urna sed urna suscipit, ac interdum nisi
+            mollis. Donec nec nunc sit amet turpis hendrerit venenatis. Fusce at
+            nunc metus. Mauris vehicula urna sed urna suscipit, ac interdum nisi
+            mollis.
+          </Text>
+        </Box>
       </Stack>
-    </Card>
+    </DefaultCard>
   );
 };
 

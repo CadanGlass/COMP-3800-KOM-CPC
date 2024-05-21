@@ -3,14 +3,12 @@ import {
   Box,
   VStack,
   useBreakpointValue,
-  Container,
   useColorModeValue,
   Heading,
 } from '@chakra-ui/react';
 import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
-// DefaultVStack Component
 const DefaultVStack = ({ children, spacing = 4 }) => {
   return (
     <VStack spacing={spacing} align="center">
@@ -19,7 +17,6 @@ const DefaultVStack = ({ children, spacing = 4 }) => {
   );
 };
 
-// DefaultCard Component
 const DefaultCard = ({
   children,
   internalPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 }),
@@ -29,9 +26,10 @@ const DefaultCard = ({
   const backgroundColor = useColorModeValue('#ffffff', 'gray.800');
   const color = useColorModeValue('black', 'white');
   const boxShadow = useColorModeValue(
-    '0px 4px 10px rgba(0, 0, 0, 0.1)',
-    '0px 4px 10px rgba(0, 0, 0, 0.7)'
+    '0px 4px 20px rgba(0, 0, 0, 0.1)',
+    '0px 4px 20px rgba(0, 0, 0, 0.7)'
   );
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
 
   return (
     <Box w={'100%'}>
@@ -51,6 +49,7 @@ const DefaultCard = ({
               width={'100%'}
               borderRadius={borderRadius}
               boxShadow={boxShadow}
+              border={`1px solid ${borderColor}`}
             >
               {children}
             </Box>
@@ -61,14 +60,13 @@ const DefaultCard = ({
   );
 };
 
-// Section Component
 const Section = ({ bg, children, ...props }) => {
   return (
     <Box
       width="100%"
       bg={bg}
       px={{ base: 4, lg: 12 }}
-      py={{ base: 4, md: 6 }} // Further reduced vertical padding
+      py={{ base: 4, md: 6 }}
       {...props}
     >
       <Box maxW="1400px" mx="auto">
@@ -78,7 +76,6 @@ const Section = ({ bg, children, ...props }) => {
   );
 };
 
-// PageHeading Component
 const PageHeading = ({ title }) => {
   const headingColor = useColorModeValue('black', 'white');
 
