@@ -4,14 +4,18 @@ import { Section, PageHeading } from '../components/DefaultComponents';
 import MissionCard from '../components/aboutus/mission';
 import OurStoryCard from '../components/aboutus/ourStory';
 import CatchmentCard from '../components/aboutus/catchment';
+import OurPartnersCard from '../components/aboutus/ourPartners';
 
 import CatchData from '../test_data/AboutUsData/catchmentData.json';
 import missionData from '../test_data/AboutUsData/missionData.json';
 import ourStoryData from '../test_data/AboutUsData/ourStoryData.json';
+import ourPartnersData from '../test_data/AboutUsData/ourPartnersData.json';
 
 const CatchmentData = CatchData;
 const MissionData = missionData;
 const OurStoryData = ourStoryData;
+const OurPartnersData = ourPartnersData;
+
 
 export default function AboutUsPage() {
   const { colorMode } = useColorMode();
@@ -42,7 +46,10 @@ export default function AboutUsPage() {
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #5b6b82, #6c7f96)')}
-      ></Section>
+      >
+        <OurPartnersCard ourPartnersData={OurPartnersData} />
+
+      </Section>
     </>
   );
 }
