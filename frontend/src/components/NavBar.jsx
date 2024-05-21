@@ -5,12 +5,12 @@ import {
   HStack,
   Link,
   IconButton,
-  useDisclosure,
-  useColorModeValue,
   Stack,
   Text,
   useColorMode,
   Image,
+  useDisclosure,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { useLocation } from 'react-router-dom';
@@ -30,8 +30,8 @@ const NAV_ITEMS = [
 ];
 
 const NavItem = ({ children, isActive }) => {
-  const underlineColor = useColorModeValue('#0ea5e9', '#0ea5e9'); // Use the nice blue color
-  const activeColor = useColorModeValue('#0ea5e9', '#0ea5e9');
+  const underlineColor = '#0ea5e9'; // Use the nice blue color
+  const activeColor = '#0ea5e9';
 
   return (
     <Link
@@ -44,7 +44,7 @@ const NavItem = ({ children, isActive }) => {
       fontSize={{ lg: 'sm', xl: 'md' }}
       fontWeight={'bold'}
       href={children.path}
-      color={isActive ? activeColor : 'inherit'}
+      color={isActive ? activeColor : 'white'}
       _after={{
         content: '""',
         position: 'absolute',
@@ -73,7 +73,6 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const location = useLocation();
-  const textColor = useColorModeValue('white', 'white');
 
   return (
     <Box
@@ -82,7 +81,12 @@ export default function Navbar() {
       px={4}
       w="100%"
     >
-      <Flex h={16} alignItems={'center'} justify={'space-between'}>
+      <Flex
+        h={16}
+        alignItems={'center'}
+        justify={'space-between'}
+        py={{ base: 2, md: 4 }}
+      >
         <Link
           display="flex"
           alignItems="center"
@@ -93,23 +97,22 @@ export default function Navbar() {
           href="/"
         >
           <Image
-            boxSize="70px" // Increase this value to make the logo larger
+            boxSize="70px"
             objectFit="contain"
             src={KOM_logo}
             alt="KOM CPC Logo"
-            mt={2} // Add margin-top to create space between the logo and the top of the navbar
+            mt={2}
           />
-          <Text fontSize="md" fontWeight="bold" ml={2} color={textColor}>
-            Kerrisdale Oakridge Marpole Community Policing Centre
+          <Text fontSize="lg" fontWeight="bold" ml={2} color="white">
+            Kerrisdale Oakridge Marpole{' '}
+            <Text as="span" color="#0ea5e9" fontSize="lg">
+              Community Policing Centre
+            </Text>
           </Text>
         </Link>
 
         <Flex alignItems={'center'}>
-          <HStack
-            spacing={5}
-            display={{ base: 'none', '3xl': 'flex' }} // Collapse earlier on smaller screens
-            mr={4}
-          >
+          <HStack spacing={5} display={{ base: 'none', '3xl': 'flex' }} mr={4}>
             {NAV_ITEMS.map((navItem) => (
               <NavItem
                 key={navItem.path}
