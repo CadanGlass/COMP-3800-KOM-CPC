@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   Link,
   IconButton,
@@ -11,6 +10,7 @@ import {
   Stack,
   Text,
   useColorMode,
+  Image,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { useLocation } from 'react-router-dom';
@@ -92,7 +92,13 @@ export default function Navbar() {
           className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}
           href="/"
         >
-          <Avatar size={'md'} src={KOM_logo} />
+          <Image
+            boxSize="70px" // Increase this value to make the logo larger
+            objectFit="contain"
+            src={KOM_logo}
+            alt="KOM CPC Logo"
+            mt={2} // Add margin-top to create space between the logo and the top of the navbar
+          />
           <Text fontSize="md" fontWeight="bold" ml={2} color={textColor}>
             Kerrisdale Oakridge Marpole Community Policing Centre
           </Text>
@@ -133,7 +139,11 @@ export default function Navbar() {
       </Flex>
 
       {isOpen ? (
-        <Box pb={4} display={{ base: 'block', '3xl': 'none' }} textAlign="center">
+        <Box
+          pb={4}
+          display={{ base: 'block', '3xl': 'none' }}
+          textAlign="center"
+        >
           <Stack as={'nav'} spacing={4}>
             {NAV_ITEMS.map((navItem) => (
               <NavItem
