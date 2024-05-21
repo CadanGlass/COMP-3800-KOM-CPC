@@ -1,21 +1,9 @@
 import React from 'react';
-import {
-  Box,
-  VStack,
-  useColorModeValue,
-  Heading,
-  Stack,
-  Text,
-} from '@chakra-ui/react';
-import {
-  DefaultCard,
-  Section,
-  PageHeading,
-} from '../components/DefaultComponents';
+import { Box, VStack, useColorModeValue, Heading } from '@chakra-ui/react';
+import { Section, PageHeading } from '../components/DefaultComponents';
 import PartnersCarousel from '../components/howCanIHelp/PartnersCarousel';
 import HowCanYouHelpCard from '../components/howCanIHelp/HowCanYouHelpCard';
-import DonateButton from '../components/buttons/DonateButton';
-import ContactUsButton from '../components/buttons/ContactUsButton';
+import SupportUsCard from '../components/howCanIHelp/SupportUsCard'; // Import the new component
 
 export default function HowCanIHelpPage() {
   const getBackground = (darkGradient) =>
@@ -52,19 +40,7 @@ export default function HowCanIHelpPage() {
         bg={getBackground('linear-gradient(to bottom, #4a5568, #5a6b78)')}
         py={8}
       >
-        <DefaultCard>
-          <Stack spacing={4} align="center">
-            <Heading size="md">Support Us</Heading>
-            <Text>
-              You can support our cause by donating or getting in touch with us.
-              Every bit of help makes a difference!
-            </Text>
-            <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
-              <DonateButton />
-              <ContactUsButton />
-            </Stack>
-          </Stack>
-        </DefaultCard>
+        <SupportUsCard /> {/* Use the new component */}
       </Section>
     </>
   );
