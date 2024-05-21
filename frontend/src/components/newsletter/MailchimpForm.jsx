@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Input, Heading, VStack, Button } from '@chakra-ui/react';
+import { Box, Input, Heading, VStack, Button, Text } from '@chakra-ui/react';
 
 const MailchimpForm = () => {
   const [email, setEmail] = useState('');
@@ -13,6 +13,11 @@ const MailchimpForm = () => {
       <Heading as="h5" textAlign="center" size="sm">
         Subscribe
       </Heading>
+      <Text fontSize="xs" textAlign="center">
+        Want crime alerts, community safety tips and news? Subscribe to the
+        'KOMmunity Beacon' newsletter for all your Southwest Vancouver public
+        safety news and events.
+      </Text>
       <link
         href="//cdn-images.mailchimp.com/embedcode/classic-061523.css"
         rel="stylesheet"
