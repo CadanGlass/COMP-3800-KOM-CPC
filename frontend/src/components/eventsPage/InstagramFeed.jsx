@@ -16,8 +16,8 @@ const InstagramFeed = () => {
         Instagram Photos
       </Heading>
       <Box
-        id="tdJZVhSuagHzZ5VB0UIS"
-        data-behold-id="tdJZVhSuagHzZ5VB0UIS"
+        id="jOgFGHVZpDQA0n8yqzOo"
+        data-behold-id="jOgFGHVZpDQA0n8yqzOo"
       ></Box>
     </DefaultCard>
   );
