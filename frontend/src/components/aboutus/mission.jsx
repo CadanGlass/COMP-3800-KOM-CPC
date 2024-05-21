@@ -52,9 +52,9 @@ import { DefaultCard } from '../DefaultComponents';
 // import missionImage from '../../assets/mission_pic.jpg';
 
 const MissionCard = () => {
-    const [missionData, setMissionData] = useState(null);
     const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
     const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
+    const [missionData, setMissionData] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:1337/api/about-uses')
