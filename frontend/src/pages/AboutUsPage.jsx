@@ -11,7 +11,7 @@ import {
 import { Section, PageHeading } from '../components/DefaultComponents';
 
 import CatchmentCard from '../components/aboutus/catchment';
-import CommunityPolicingCentresCard from '../components/aboutus/CommunityPolicingCentresCard';
+
 import MissionCard from '../components/aboutus/mission';
 
 import OurStoryCard from '../components/aboutus/ourStory';
@@ -57,9 +57,7 @@ export default function AboutUsPage() {
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #5b6b82, #6c7f96)')}
-      >
-        <CommunityPolicingCentresCard CPCData={CPCData} />
-      </Section>
+      ></Section>
     </>
   );
 }

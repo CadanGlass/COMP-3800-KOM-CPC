@@ -1,33 +1,22 @@
 import React from 'react';
-import {
-  Stack,
-  Heading,
-  Box,
-  useBreakpointValue,
-  Text,
-  Image,
-  Link,
-  VStack,
-} from '@chakra-ui/react';
+import { Stack, Heading, Box, Text, Image, Link } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 import VPDLogo from '../../assets/VPDLogo.png';
 
-const CommunityPolicingCentresCard = ({ CPCData }) => {
-  const isMobile = useBreakpointValue({ base: true, lg: false });
-
+const CommunityPolicingCentresCard = () => {
   return (
     <DefaultCard>
       <Stack spacing={8} align="center">
         <Heading as="h2" size="lg">
-          {CPCData.title}
+          Community Policing Centres
         </Heading>
         <Text textAlign="center">
-          {CPCData.description.map((line, index) => (
-            <span key={`line${index}`}>
-              {line}
-              {index !== CPCData.description.length - 1 && <br />}
-            </span>
-          ))}
+          Community Policing Centres (CPCs) are volunteer-driven,
+          community-based crime prevention and safety initiatives in partnership
+          with the Vancouver Police Department. CPCs offer a variety of services
+          and programs designed to meet the unique needs of their local
+          communities. These include crime prevention workshops, community
+          patrols, and support for victims of crime.
         </Text>
         <Box textAlign="center" my={8}>
           <Image
