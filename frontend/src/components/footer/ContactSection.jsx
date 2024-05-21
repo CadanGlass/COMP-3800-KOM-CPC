@@ -20,7 +20,7 @@ const ContactSection = () => {
       <VStack align={alignment} spacing={1}>
         <HStack spacing={1} justifyContent={alignment}>
           <FaPhone />
-          <Text fontSize="sm"> (123) 456-7890</Text>
+          <Text fontSize="sm"> (604) 717-3434</Text>
         </HStack>
         <HStack spacing={1} justifyContent={alignment}>
           <FaEnvelope />

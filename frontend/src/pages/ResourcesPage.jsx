@@ -1,7 +1,10 @@
+// components/ResourcesPage.jsx
 import React from 'react';
-import { Box, VStack, Text, useColorModeValue } from '@chakra-ui/react';
+import { VStack, useColorModeValue } from '@chakra-ui/react';
 import { Section, PageHeading } from '../components/DefaultComponents';
 import CommunityPolicingCentresCard from '../components/resources/CommunityPolicingCentresCard';
+import VolunteerCard from '../components/resources/VolunteerCard';
+import WhoToCallCard from '../components/resources/WhoToCallCard';
 
 const ResourcesPage = () => {
   return (
@@ -20,8 +23,10 @@ const ResourcesPage = () => {
           'linear-gradient(to bottom, #2d3748, #3c4a5e)'
         )}
       >
-        <VStack spacing={4} align="start">
+        <VStack spacing={10} align="start">
           <CommunityPolicingCentresCard />
+          <VolunteerCard />
+          <WhoToCallCard />
         </VStack>
       </Section>
     </>

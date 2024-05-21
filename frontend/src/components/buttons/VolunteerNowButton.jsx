@@ -3,7 +3,10 @@ import { Button, Link } from '@chakra-ui/react';
 
 export default function VolunteerNowButton() {
   return (
-    <Link href="/volunteer">
+    <Link
+      href="https://app.betterimpact.com/PublicOrganization/9751335d-c792-494f-83e0-f504c28ed30c/1"
+      isExternal
+    >
       <Button
         fontSize={'sm'}
         fontWeight={600}
