@@ -16,6 +16,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
+import PartnersCarousel from '../howCanIHelp/PartnersCarousel';
 
 const PartnershipGrid = ({ data }) => {
   const templateRows = useBreakpointValue({
@@ -79,7 +80,10 @@ const PartnershipBanner = ({ data }) => {
         <Heading as="h3" size="lg">
           {data.title}
         </Heading>
-        <PartnershipGrid data={displayedLogos} />
+        {/* <PartnershipGrid data={displayedLogos} /> */}
+        <Box w="full">
+          <PartnersCarousel />
+        </Box>
       </VStack>
     </DefaultCard>
   );

@@ -9,7 +9,8 @@ export default function SysInfoCard({ data }) {
       <Stack
         direction={{ base: 'column', md: 'row' }}
         spacing={useBreakpointValue({ base: 8, md: 12, '2xl': 32 })}
-        py={8}
+        pt={8}
+        pb={4}
       >
         {subPoints.map((subtextData, index) => {
           return (
