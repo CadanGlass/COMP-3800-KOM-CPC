@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { Text, VStack, Container, Box, useColorMode } from '@chakra-ui/react';
 import { Section } from '../components/DefaultComponents';
 import Banner from '../components/home/Banner';
@@ -10,30 +9,9 @@ import Programs from '../components/home/Programs';
 import Events from '../components/home/Events';
 
 import data from '../test_data/home_page.json';
-const url = 'http://localhost:1337/api/programs';
 
 export default function HomePage() {
-  const [programTitles, setProgramTitles] = useState([]);
   const { colorMode } = useColorMode();
-
-  useEffect(() => {
-    axios
-      .get(url)
-      .then((response) => {
-        const titles = response.data.data.map((item) => ({
-          title: item.attributes.title,
-          description: item.attributes.description,
-          image: item.attributes.imageUrl,
-        }));
-        setProgramTitles(titles);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setProgramTitles([]);
-      });
-  }, []);
-
-  if (!programTitles.length) return <Text>Loading...</Text>;
 
   const whoWeAreData = data.WhoWeAre;
   const partners = data.Partnerships;
