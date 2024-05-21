@@ -29,26 +29,29 @@ export default function AboutUsPage() {
       >
         <PageHeading title="About Us" />
       </Section>
+      
       <Section
         bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}
       >
         <MissionCard missionData={MissionData} />
       </Section>
+
       <Section
         bg={getBackground('linear-gradient(to bottom, #3c4a5e, #4a566e)')}
       >
         <OurStoryCard ourStoryData={OurStoryData} />
       </Section>
+
       <Section
         bg={getBackground('linear-gradient(to bottom, #4a566e, #5b6b82)')}
       >
         <CatchmentCard catchmentData={CatchmentData} />
       </Section>
+
       <Section
         bg={getBackground('linear-gradient(to bottom, #5b6b82, #6c7f96)')}
       >
         <OurPartnersCard ourPartnersData={OurPartnersData} />
-
       </Section>
     </>
   );
