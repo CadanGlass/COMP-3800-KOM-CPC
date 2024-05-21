@@ -46,7 +46,7 @@
 
 
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Stack, Heading, Box, useBreakpointValue, Text, Image } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 // import missionImage from '../../assets/mission_pic.jpg';
