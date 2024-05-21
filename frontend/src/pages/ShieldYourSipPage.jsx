@@ -4,7 +4,7 @@ import { Section } from '../components/DefaultComponents';
 import sys_logo from '../assets/sys_logo.png';
 import drink_cover from '../assets/drink_cover.png';
 import Header from '../components/Header';
-import GetYourShieldButton from '../components/buttons/GetYourShieldButton';
+import SysButton from '../components/buttons/SysButton';
 import SysInfoCard from '../components/sys/SysInfoCard';
 
 const data = {
@@ -32,6 +32,14 @@ const data = {
 
 export default function ShieldYourSipPage() {
   const { colorMode } = useColorMode();
+  const GetYourShieldBtn = SysButton(
+    'Get Your Shield',
+    'https://www.canadahelps.org/en/dn/81226'
+  );
+  const VpdResourcesBtn = SysButton(
+    'VPD Resources',
+    'https://vpd.ca/crime-prevention-safety/drug-assisted-sex-assault/'
+  );
 
   return (
     <>
@@ -61,7 +69,8 @@ export default function ShieldYourSipPage() {
             description={
               'Sentence summing up the program like drink spiking protection.'
             }
-            btn1={GetYourShieldButton()}
+            btn1={GetYourShieldBtn}
+            btn2={VpdResourcesBtn}
             imageUrl={drink_cover}
           />
         </Section>
