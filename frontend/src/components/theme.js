@@ -20,9 +20,10 @@ const theme = extendTheme({
       ],
       'html, body, #root': {
         color: props.colorMode === 'light' ? 'black' : 'gray.100',
-        bg: props.colorMode === 'light'
-          ? '#ffffff'
-          : 'linear-gradient(to bottom right, #0d1117, #161b22, #21262d)',
+        bg:
+          props.colorMode === 'light'
+            ? '#ffffff'
+            : 'linear-gradient(to bottom right, #0d1117, #161b22, #21262d)',
         minHeight: '100vh',
         fontSize: '16px', // Set to a default value
         fontFamily: 'Inter, sans-serif',
@@ -33,7 +34,7 @@ const theme = extendTheme({
   components: {
     Heading: {
       baseStyle: (props) => ({
-        color: props.colorMode === 'light' ? 'black' : 'white',
+        color: props.colorMode === 'light' ? 'black' : 'yellow.400',
         fontFamily: 'Inter, sans-serif',
         textShadow:
           props.colorMode === 'light'
