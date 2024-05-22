@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlocksActivity extends Schema.Component {
+  collectionName: 'components_blocks_activities';
+  info: {
+    displayName: 'Activity';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Content: Attribute.Blocks;
+    Image: Attribute.Media;
+  };
+}
+
 export interface BlocksCpcContactData extends Schema.Component {
   collectionName: 'components_blocks_cpc_contact_data';
   info: {
@@ -52,6 +64,7 @@ export interface BlocksVolunteerCard extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'blocks.activity': BlocksActivity;
       'blocks.cpc-contact-data': BlocksCpcContactData;
       'blocks.title-description-image': BlocksTitleDescriptionImage;
       'blocks.title-description': BlocksTitleDescription;
