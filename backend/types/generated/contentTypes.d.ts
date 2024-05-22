@@ -824,7 +824,7 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomePageHomePage extends Schema.CollectionType {
+export interface ApiHomePageHomePage extends Schema.SingleType {
   collectionName: 'home_pages';
   info: {
     singularName: 'home-page';
@@ -836,9 +836,10 @@ export interface ApiHomePageHomePage extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Introduction: Attribute.Component<'home-page.who-we-are-section'>;
-    BannerImage: Attribute.Media;
-    Sponsors: Attribute.Component<'blocks.url-logo', true>;
+    Introduction: Attribute.Component<'home-page.who-we-are-section'> &
+      Attribute.Required;
+    BannerImage: Attribute.Media & Attribute.Required;
+    Sponsors: Attribute.Component<'blocks.url-logo', true> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -920,30 +921,29 @@ export interface ApiProgramProgram extends Schema.CollectionType {
   };
 }
 
-export interface ApiResourceResource extends Schema.CollectionType {
-  collectionName: 'resources';
+export interface ApiResourcePageResourcePage extends Schema.SingleType {
+  collectionName: 'resource_pages';
   info: {
-    singularName: 'resource';
-    pluralName: 'resources';
-    displayName: 'Resource';
-    description: '';
+    singularName: 'resource-page';
+    pluralName: 'resource-pages';
+    displayName: 'ResourcePage';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    VolunteerCard: Attribute.Component<'blocks.volunteer-card', true>;
+    ResourcesPage: Attribute.Component<'resources-page.resources-page', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::resource.resource',
+      'api::resource-page.resource-page',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::resource.resource',
+      'api::resource-page.resource-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1008,8 +1008,12 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::partner.partner': ApiPartnerPartner;
       'api::program.program': ApiProgramProgram;
+<<<<<<< HEAD
+      'api::resource-page.resource-page': ApiResourcePageResourcePage;
+=======
       'api::resource.resource': ApiResourceResource;
       'api::shield-your-sip-page.shield-your-sip-page': ApiShieldYourSipPageShieldYourSipPage;
+>>>>>>> 143835b52ca7032edbad446425f9d05c44e0cce4
     }
   }
 }

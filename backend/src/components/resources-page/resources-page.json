@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_resources_page_resources_pages",
+  "info": {
+    "displayName": "Resources-Page",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "communityPolicingCard": {
+      "displayName": "Community-Policing-Card",
+      "type": "component",
+      "repeatable": false,
+      "component": "resources-page.community-policing-card"
+    },
+    "volunteerCard": {
+      "displayName": "Volunteer-Card",
+      "type": "component",
+      "repeatable": false,
+      "component": "resources-page.volunteer-card"
+    },
+    "whoToCallCard": {
+      "displayName": "Who-To-Call-Card",
+      "type": "component",
+      "repeatable": false,
+      "component": "resources-page.who-to-call-card"
+    }
+  }
+}

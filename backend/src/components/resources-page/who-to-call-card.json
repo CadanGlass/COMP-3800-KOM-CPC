@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_resources_page_who_to_call_cards",
+  "info": {
+    "displayName": "Who-To-Call-Card"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Descirption": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

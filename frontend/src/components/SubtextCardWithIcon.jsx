@@ -46,14 +46,12 @@ const SubtextCardWithIcon = ({
     <VStack align="center" spacing={spacing}>
       {icon}
       <Heading as="h5" size="md" textAlign="center" color={titleColor}>
-        {subtextData.title}
+        {subtextData.Title}
       </Heading>
       <Box spacing={4} textAlign="center">
-        {subtextData.description.map((line, index) => (
-          <Text key={`line${index}`} color={descriptionColor} paddingBottom={4}>
-            {line}
-          </Text>
-        ))}
+        <Text color={descriptionColor} paddingBottom={4}>
+          {subtextData.Description}
+        </Text>
       </Box>
     </VStack>
   );

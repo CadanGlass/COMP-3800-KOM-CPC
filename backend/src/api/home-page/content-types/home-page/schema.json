@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "home_pages",
   "info": {
     "singularName": "home-page",
@@ -16,12 +16,13 @@
       "displayName": "Who We Are Section",
       "type": "component",
       "repeatable": false,
-      "component": "home-page.who-we-are-section"
+      "component": "home-page.who-we-are-section",
+      "required": true
     },
     "BannerImage": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]
@@ -29,7 +30,8 @@
     "Sponsors": {
       "type": "component",
       "repeatable": true,
-      "component": "blocks.url-logo"
+      "component": "blocks.url-logo",
+      "required": true
     }
   }
 }

@@ -7,15 +7,18 @@ import {
   AspectRatio,
 } from '@chakra-ui/react';
 
-const Banner = () => (
+const Banner = ({ data }) => (
   <VStack justify="center">
-    <Image
-      src="https://via.placeholder.com/1200x400"
-      alt="Banner"
-      fit="cover"
-      width="full"
-      height="full"
-    />
+    <AspectRatio ratio={3 / 1} w={'100%'}>
+      <Image
+        src={data.url}
+        alt={data.alternativeText}
+        fit="cover"
+        width="full"
+        height="full"
+        rounded={'lg'}
+      />
+    </AspectRatio>
     <Heading as="h1" size="2xl" paddingTop={8} textAlign={'center'}>
       {'Welcome to the KOM CPC'}
     </Heading>
