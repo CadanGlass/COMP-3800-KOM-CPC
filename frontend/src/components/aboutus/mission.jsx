@@ -159,10 +159,14 @@ const MissionCard = () => {
     const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
     const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
 
+    const endpointUrl = 'http://localhost:1337/api/about-uses'; // Adjust the endpoint URL as necessary
+
     const [missionData, setMissionData] = useState(null);
+    const attributeName = 'OurMission'; // Adjust the attribute name as necessary
+
 
     useEffect(() => {
-        processStrapiData('http://localhost:1337/api/about-uses', 'OurMission')
+        processStrapiData(endpointUrl, attributeName)
             .then(data => {
                 if (data) {
                     setMissionData(data);
