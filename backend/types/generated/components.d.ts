@@ -65,12 +65,13 @@ export interface BlocksTitleDescription extends Schema.Component {
 export interface BlocksUrlLogo extends Schema.Component {
   collectionName: 'components_blocks_url_logos';
   info: {
-    displayName: 'URL Logo';
+    displayName: 'Name URL Logo';
     description: '';
   };
   attributes: {
     Url: Attribute.String;
     Logo: Attribute.Media;
+    Name: Attribute.String;
   };
 }
 

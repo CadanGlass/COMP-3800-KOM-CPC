@@ -29,19 +29,18 @@ export default function HomePage() {
     const fetchData = async () => {
       axios
         .get(
-          `${baseURL}/api/home-pages?populate[BannerImage][fields][0]=url&populate[BannerImage][fields][1]=alternativeText&populate[Introduction][populate]=*`
+          `${baseURL}/api/home-page?populate[BannerImage][fields][0]=url&populate[BannerImage][fields][1]=alternativeText&populate[Introduction][populate]=*`
         )
         .then((response) => {
-          const bannerData =
-            response.data.data[0].attributes.BannerImage.data.attributes;
+          const apiData = response.data.data.attributes;
+          const bannerData = apiData.BannerImage.data.attributes;
 
           setBannerImage({
             url: `${baseURL}${bannerData.url}`,
             alternativeText: bannerData.alternativeText,
           });
 
-          const introductionData =
-            response.data.data[0].attributes.Introduction;
+          const introductionData = apiData.Introduction;
           setIntroduction(introductionData);
         })
         .catch((error) => {

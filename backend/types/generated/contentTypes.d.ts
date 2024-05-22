@@ -824,7 +824,7 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomePageHomePage extends Schema.CollectionType {
+export interface ApiHomePageHomePage extends Schema.SingleType {
   collectionName: 'home_pages';
   info: {
     singularName: 'home-page';
