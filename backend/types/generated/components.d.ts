@@ -36,12 +36,26 @@ export interface BlocksTitleDescription extends Schema.Component {
   };
 }
 
+export interface BlocksVolunteerCard extends Schema.Component {
+  collectionName: 'components_blocks_volunteer_cards';
+  info: {
+    displayName: 'Volunteer Card';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.String;
+    Image: Attribute.Media;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'blocks.cpc-contact-data': BlocksCpcContactData;
       'blocks.title-description-image': BlocksTitleDescriptionImage;
       'blocks.title-description': BlocksTitleDescription;
+      'blocks.volunteer-card': BlocksVolunteerCard;
     }
   }
 }
