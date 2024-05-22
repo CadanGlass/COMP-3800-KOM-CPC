@@ -1008,12 +1008,8 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::partner.partner': ApiPartnerPartner;
       'api::program.program': ApiProgramProgram;
-<<<<<<< HEAD
       'api::resource-page.resource-page': ApiResourcePageResourcePage;
-=======
-      'api::resource.resource': ApiResourceResource;
       'api::shield-your-sip-page.shield-your-sip-page': ApiShieldYourSipPageShieldYourSipPage;
->>>>>>> 143835b52ca7032edbad446425f9d05c44e0cce4
     }
   }
 }

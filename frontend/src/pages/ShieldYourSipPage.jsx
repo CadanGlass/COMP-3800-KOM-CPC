@@ -26,20 +26,20 @@ const data = {
   },
   subPoints: [
     {
-      title: 'What is #ShieldYourSip?',
-      description: [
+      Title: 'What is #ShieldYourSip?',
+      Description: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend dolor. Nullam sit amet scelerisque nunc',
       ],
     },
     {
-      title: 'The SYS Team!',
-      description: [
+      Title: 'The SYS Team!',
+      Description: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend dolor. Nullam sit amet scelerisque nunc',
       ],
     },
     {
-      title: 'SYS Survey',
-      description: [
+      Title: 'SYS Survey',
+      Description: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend dolor. Nullam sit amet scelerisque nunc',
       ],
     },
