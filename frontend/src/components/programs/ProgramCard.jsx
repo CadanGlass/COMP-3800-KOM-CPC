@@ -7,7 +7,6 @@ import {
   GridItem,
   Image,
   Collapse,
-  Stack,
   VStack,
 } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';

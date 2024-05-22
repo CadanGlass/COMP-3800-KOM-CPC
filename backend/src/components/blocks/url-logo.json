@@ -1,7 +1,7 @@
 {
   "collectionName": "components_blocks_url_logos",
   "info": {
-    "displayName": "URL Logo",
+    "displayName": "Name URL Logo",
     "description": ""
   },
   "options": {},
@@ -16,6 +16,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "Name": {
+      "type": "string"
     }
   }
 }

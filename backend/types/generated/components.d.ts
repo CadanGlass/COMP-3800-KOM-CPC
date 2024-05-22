@@ -13,6 +13,17 @@ export interface BlocksActivity extends Schema.Component {
   };
 }
 
+export interface BlocksButton extends Schema.Component {
+  collectionName: 'components_blocks_buttons';
+  info: {
+    displayName: 'Button';
+  };
+  attributes: {
+    ButtonLabel: Attribute.String;
+    Link: Attribute.String;
+  };
+}
+
 export interface BlocksCpcContactData extends Schema.Component {
   collectionName: 'components_blocks_cpc_contact_data';
   info: {
@@ -54,12 +65,13 @@ export interface BlocksTitleDescription extends Schema.Component {
 export interface BlocksUrlLogo extends Schema.Component {
   collectionName: 'components_blocks_url_logos';
   info: {
-    displayName: 'URL Logo';
+    displayName: 'Name URL Logo';
     description: '';
   };
   attributes: {
     Url: Attribute.String;
     Logo: Attribute.Media;
+    Name: Attribute.String;
   };
 }
 
@@ -92,6 +104,7 @@ export interface HomePageWhoWeAreSection extends Schema.Component {
   };
 }
 
+<<<<<<< HEAD
 export interface ResourcesPageCommunityPolicingCard extends Schema.Component {
   collectionName: 'components_resources_page_community_policing_cards';
   info: {
@@ -139,6 +152,42 @@ export interface ResourcesPageWhoToCallCard extends Schema.Component {
     Title: Attribute.String & Attribute.Required;
     Descirption: Attribute.String & Attribute.Required;
     Image: Attribute.Media & Attribute.Required;
+=======
+export interface ShieldYourSipPageHeader extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_headers';
+  info: {
+    displayName: 'Header';
+    description: '';
+  };
+  attributes: {
+    HeaderInfo: Attribute.Component<'blocks.title-description-image'>;
+    GetYourShieldButton: Attribute.Component<'blocks.button'>;
+    VPDResourcesButton: Attribute.Component<'blocks.button'>;
+  };
+}
+
+export interface ShieldYourSipPageSubHeading extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_sub_headings';
+  info: {
+    displayName: 'SubHeading';
+  };
+  attributes: {
+    WhatIsSys: Attribute.Component<'blocks.title-description'>;
+    SysTeam: Attribute.Component<'blocks.title-description'>;
+    SysSurvey: Attribute.Component<'blocks.title-description'>;
+  };
+}
+
+export interface ShieldYourSipPageSysFaq extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_sys_faqs';
+  info: {
+    displayName: 'Sys FAQ';
+    description: '';
+  };
+  attributes: {
+    QuestionAnswer: Attribute.Component<'blocks.title-description', true>;
+    Title: Attribute.String;
+>>>>>>> 143835b52ca7032edbad446425f9d05c44e0cce4
   };
 }
 
@@ -146,16 +195,23 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'blocks.activity': BlocksActivity;
+      'blocks.button': BlocksButton;
       'blocks.cpc-contact-data': BlocksCpcContactData;
       'blocks.title-description-image': BlocksTitleDescriptionImage;
       'blocks.title-description': BlocksTitleDescription;
       'blocks.url-logo': BlocksUrlLogo;
       'blocks.volunteer-card': BlocksVolunteerCard;
       'home-page.who-we-are-section': HomePageWhoWeAreSection;
+<<<<<<< HEAD
       'resources-page.community-policing-card': ResourcesPageCommunityPolicingCard;
       'resources-page.resources-page': ResourcesPageResourcesPage;
       'resources-page.volunteer-card': ResourcesPageVolunteerCard;
       'resources-page.who-to-call-card': ResourcesPageWhoToCallCard;
+=======
+      'shield-your-sip-page.header': ShieldYourSipPageHeader;
+      'shield-your-sip-page.sub-heading': ShieldYourSipPageSubHeading;
+      'shield-your-sip-page.sys-faq': ShieldYourSipPageSysFaq;
+>>>>>>> 143835b52ca7032edbad446425f9d05c44e0cce4
     }
   }
 }
