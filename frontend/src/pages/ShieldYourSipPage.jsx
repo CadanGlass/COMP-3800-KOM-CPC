@@ -1,3 +1,5 @@
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { VStack, useColorMode, Image } from '@chakra-ui/react';
 import CallPoliceBanner from '../components/home/CallPoliceBanner';
 import { Section } from '../components/DefaultComponents';
@@ -83,6 +85,29 @@ export default function ShieldYourSipPage() {
     data.header.secondButton.title,
     data.header.secondButton.link
   );
+
+  const [sysData, setSysData] = useState([]);
+
+  useEffect(() => {
+    const fetchSysData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:1337/api/shield-your-sip-page'
+        );
+        console.log(response);
+        // if (response.data && response.data.data) {
+        //   const fetchedCards = response.data.data.flatMap(
+        //     (item) => item.attributes.VolunteerCard || []
+        //   );
+        //   setSysData(fetchedCards);
+        // }
+      } catch (error) {
+        console.error('Error fetching volunteer cards:', error);
+      }
+    };
+
+    fetchSysData();
+  }, []);
 
   return (
     <>
