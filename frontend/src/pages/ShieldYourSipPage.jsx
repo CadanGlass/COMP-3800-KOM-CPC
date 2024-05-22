@@ -75,39 +75,50 @@ const data = {
   },
 };
 
+const baseURL = 'http://localhost:1337';
+
 export default function ShieldYourSipPage() {
   const { colorMode } = useColorMode();
-  const GetYourShieldBtn = SysButton(
-    data.header.firstButton.title,
-    data.header.firstButton.link
-  );
-  const VpdResourcesBtn = SysButton(
-    data.header.secondButton.title,
-    data.header.secondButton.link
-  );
-
-  const [sysData, setSysData] = useState([]);
+  const url = `${baseURL}/api/shield-your-sip-page`;
+  const [d, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchSysData = async () => {
+    const fetchData = async () => {
+      setLoading(true);
+
       try {
-        const response = await axios.get(
-          'http://localhost:1337/api/shield-your-sip-page'
-        );
-        console.log(response);
-        // if (response.data && response.data.data) {
-        //   const fetchedCards = response.data.data.flatMap(
-        //     (item) => item.attributes.VolunteerCard || []
-        //   );
-        //   setSysData(fetchedCards);
-        // }
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const json = await response.json();
+        setData(json.data.attributes);
+        setLoading(false);
       } catch (error) {
-        console.error('Error fetching volunteer cards:', error);
+        setError(error);
+        setLoading(false);
       }
     };
 
-    fetchSysData();
-  }, []);
+    fetchData();
+  }, [url]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
+  console.log(d);
+
+  const logo = `${baseURL}${d.Logo.data.attributes.url}`;
+  const header_image = `${baseURL}${d.Header.HeaderInfo.Image.data.attributes.url}`;
+  const GetYourShieldBtn = SysButton(
+    d.Header.GetYourShieldButton.ButtonLabel,
+    d.Header.GetYourShieldButton.Link
+  );
+  const VpdResourcesBtn = SysButton(
+    d.Header.VPDResourcesButton.ButtonLabel,
+    d.Header.VPDResourcesButton.Link
+  );
 
   return (
     <>
@@ -122,22 +133,16 @@ export default function ShieldYourSipPage() {
         <CallPoliceBanner />
 
         <Section align="center">
-          <Image
-            src={sys_logo}
-            alt="Banner"
-            fit="cover"
-            w={'100%'}
-            maxW="700px"
-          />
+          <Image src={logo} alt="Banner" fit="cover" w={'100%'} maxW="700px" />
         </Section>
 
         <Section>
           <Header
-            title={data.header.title}
-            description={data.header.description}
+            title={d.Header.HeaderInfo.Title}
+            description={d.Header.HeaderInfo.Description}
             btn1={GetYourShieldBtn}
             btn2={VpdResourcesBtn}
-            imageUrl={drink_cover}
+            imageUrl={header_image}
           />
         </Section>
 

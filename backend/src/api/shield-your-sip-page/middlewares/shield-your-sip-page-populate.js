@@ -4,15 +4,17 @@ const populate = {
   Logo: { populate: true },
   Header: {
     populate: {
-      HeaderInfo: { populate: true },
+      HeaderInfo: { populate: { Image: { populate: true } } },
       GetYourShieldButton: { populate: true },
       VPDResourcesButton: { populate: true },
     },
   },
   SubHeading: {
-    WhatIsSys: { populate: true },
-    SysTeam: { populate: true },
-    SysSurvey: { populate: true },
+    populate: {
+      WhatIsSys: { populate: true },
+      SysTeam: { populate: true },
+      SysSurvey: { populate: true },
+    },
   },
   SysFaqCard: {
     populate: {
