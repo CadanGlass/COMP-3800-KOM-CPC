@@ -54,6 +54,8 @@ import { DefaultCard } from '../DefaultComponents';
 const MissionCard = () => {
     const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
     const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
+
+    
     const [missionData, setMissionData] = useState(null);
 
     useEffect(() => {
