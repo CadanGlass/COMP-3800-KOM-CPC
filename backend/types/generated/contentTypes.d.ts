@@ -920,30 +920,29 @@ export interface ApiProgramProgram extends Schema.CollectionType {
   };
 }
 
-export interface ApiResourceResource extends Schema.CollectionType {
-  collectionName: 'resources';
+export interface ApiResourcePageResourcePage extends Schema.SingleType {
+  collectionName: 'resource_pages';
   info: {
-    singularName: 'resource';
-    pluralName: 'resources';
-    displayName: 'Resource';
-    description: '';
+    singularName: 'resource-page';
+    pluralName: 'resource-pages';
+    displayName: 'ResourcePage';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    VolunteerCard: Attribute.Component<'blocks.volunteer-card', true>;
+    ResourcesPage: Attribute.Component<'resources-page.resources-page', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::resource.resource',
+      'api::resource-page.resource-page',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::resource.resource',
+      'api::resource-page.resource-page',
       'oneToOne',
       'admin::user'
     > &
@@ -973,7 +972,7 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::partner.partner': ApiPartnerPartner;
       'api::program.program': ApiProgramProgram;
-      'api::resource.resource': ApiResourceResource;
+      'api::resource-page.resource-page': ApiResourcePageResourcePage;
     }
   }
 }

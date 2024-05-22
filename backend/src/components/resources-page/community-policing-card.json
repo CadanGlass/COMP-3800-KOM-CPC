@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_resources_page_community_policing_cards",
+  "info": {
+    "displayName": "Community-Policing-Card"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "string",
+      "required": true
+    },
+    "Logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
