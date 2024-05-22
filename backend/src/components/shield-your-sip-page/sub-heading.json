@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shield_your_sip_page_sub_headings",
+  "info": {
+    "displayName": "SubHeading"
+  },
+  "options": {},
+  "attributes": {
+    "WhatIsSys": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.title-description"
+    },
+    "SysTeam": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.title-description"
+    },
+    "SysSurvey": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.title-description"
+    }
+  }
+}

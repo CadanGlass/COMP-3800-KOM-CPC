@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shield_your_sip_page_headers",
+  "info": {
+    "displayName": "Header",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "HeaderInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.title-description-image"
+    },
+    "GetYourShieldButton": {
+      "displayName": "Button",
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.button"
+    },
+    "VPDResourcesButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.button"
+    }
+  }
+}

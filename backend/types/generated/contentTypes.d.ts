@@ -951,6 +951,41 @@ export interface ApiResourceResource extends Schema.CollectionType {
   };
 }
 
+export interface ApiShieldYourSipPageShieldYourSipPage
+  extends Schema.SingleType {
+  collectionName: 'shield_your_sip_pages';
+  info: {
+    singularName: 'shield-your-sip-page';
+    pluralName: 'shield-your-sip-pages';
+    displayName: 'Shield Your Sip Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Logo: Attribute.Media;
+    Header: Attribute.Component<'shield-your-sip-page.header'>;
+    SubHeading: Attribute.Component<'shield-your-sip-page.sub-heading'>;
+    SysFaqCard: Attribute.Component<'shield-your-sip-page.sys-faq'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::shield-your-sip-page.shield-your-sip-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::shield-your-sip-page.shield-your-sip-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -974,6 +1009,7 @@ declare module '@strapi/types' {
       'api::partner.partner': ApiPartnerPartner;
       'api::program.program': ApiProgramProgram;
       'api::resource.resource': ApiResourceResource;
+      'api::shield-your-sip-page.shield-your-sip-page': ApiShieldYourSipPageShieldYourSipPage;
     }
   }
 }

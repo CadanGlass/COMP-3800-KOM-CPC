@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "shield_your_sip_pages",
+  "info": {
+    "singularName": "shield-your-sip-page",
+    "pluralName": "shield-your-sip-pages",
+    "displayName": "Shield Your Sip Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Header": {
+      "displayName": "Header",
+      "type": "component",
+      "repeatable": false,
+      "component": "shield-your-sip-page.header"
+    },
+    "SubHeading": {
+      "displayName": "SubHeading",
+      "type": "component",
+      "repeatable": false,
+      "component": "shield-your-sip-page.sub-heading"
+    },
+    "SysFaqCard": {
+      "displayName": "Sys FAQ",
+      "type": "component",
+      "repeatable": false,
+      "component": "shield-your-sip-page.sys-faq"
+    }
+  }
+}
