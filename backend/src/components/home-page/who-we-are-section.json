@@ -6,26 +6,26 @@
   },
   "options": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "string"
     },
-    "intro": {
+    "Intro": {
       "type": "text"
     },
-    "mapUrl": {
+    "MapUrl": {
       "type": "string"
     },
-    "whoWeAre": {
+    "WhoWeAre": {
       "type": "component",
       "repeatable": false,
       "component": "blocks.title-description"
     },
-    "whatWeDo": {
+    "WhatWeDo": {
       "type": "component",
       "repeatable": false,
       "component": "blocks.title-description"
     },
-    "catchmentArea": {
+    "CatchmentArea": {
       "type": "component",
       "repeatable": false,
       "component": "blocks.title-description"

@@ -836,9 +836,9 @@ export interface ApiHomePageHomePage extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    WhoWeAreSection: Attribute.Component<'home-page.who-we-are-section'>;
-    bannerImage: Attribute.Media;
-    sponsors: Attribute.Component<'blocks.url-logo', true>;
+    Introduction: Attribute.Component<'home-page.who-we-are-section'>;
+    BannerImage: Attribute.Media;
+    Sponsors: Attribute.Component<'blocks.url-logo', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
