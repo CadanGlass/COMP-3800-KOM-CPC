@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "WhoWeAre": {
+    "WhoWeAreSection": {
       "displayName": "Who We Are Section",
       "type": "component",
       "repeatable": false,
