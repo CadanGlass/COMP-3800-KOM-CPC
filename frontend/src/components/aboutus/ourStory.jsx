@@ -82,36 +82,37 @@ const OurStoryCard = () => {
     }
 
     return (
-        <DefaultCard>
-            <Stack direction={stackDirection} spacing={stackSpacing}>
-                <Box flex={1} alignSelf={'center'}>
-                    <Heading as="h2" size="lg" paddingBottom={4}>
-                        {ourStoryData.dataTitle}
-                    </Heading>
-                    <Text paddingBottom={4}>
-                        {ourStoryData.dataDescription}
-                    </Text>
-                </Box>
-                {ourStoryData.dataImage && (
-                    <Box flex={1} alignSelf={'center'}>
-                        <Box as="section" bg="gray.100" py={4} borderRadius="lg" m="2rem">
-                            <Box textAlign="center" mb={2}>
-                                <Box display="flex" justifyContent="center">
-                                    <Image
-                                        src={ourStoryData.dataImage} // Set the image URL here
-                                        alt="Mission Image"
-                                        fit="cover"
-                                        maxW="100%"
-                                        height="auto"
-                                        onError={(e) => console.error('Image loading error:', e)} // Log any image loading errors
-                                    />
-                                </Box>
-                            </Box>
+      <DefaultCard>
+    <Stack direction={stackDirection} spacing={stackSpacing}>
+        {ourStoryData.dataImage && (
+            <Box flex={1} alignSelf={'center'}>
+                <Box as="section" bg="gray.100" py={4} borderRadius="lg" m="2rem">
+                    <Box textAlign="center" mb={2}>
+                        <Box display="flex" justifyContent="center">
+                            <Image
+                                src={ourStoryData.dataImage} // Set the image URL here
+                                alt="Mission Image"
+                                fit="cover"
+                                maxW="100%"
+                                height="auto"
+                                onError={(e) => console.error('Image loading error:', e)} // Log any image loading errors
+                            />
                         </Box>
                     </Box>
-                )}
-            </Stack>
-        </DefaultCard>
+                </Box>
+            </Box>
+        )}
+        <Box flex={1} alignSelf={'center'}>
+            <Heading as="h2" size="lg" paddingBottom={4}>
+                {ourStoryData.dataTitle}
+            </Heading>
+            <Text paddingBottom={4}>
+                {ourStoryData.dataDescription}
+            </Text>
+        </Box>
+    </Stack>
+</DefaultCard>
+
     );
 };
 
