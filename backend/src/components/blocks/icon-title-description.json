@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_icon_title_descriptions",
+  "info": {
+    "displayName": "Icon Title Description"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

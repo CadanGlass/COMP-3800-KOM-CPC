@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_url_logos",
+  "info": {
+    "displayName": "URL Logo"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

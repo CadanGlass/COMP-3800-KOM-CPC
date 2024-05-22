@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "WhoWeAre": {
+      "displayName": "Who We Are Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.who-we-are-section"
+    },
+    "bannerImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sponsors": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.url-logo"
+    }
+  }
+}

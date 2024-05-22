@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_home_page_who_we_are_sections",
+  "info": {
+    "displayName": "Who We Are Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "mapUrl": {
+      "type": "string"
+    },
+    "subpoint1": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.icon-title-description"
+    },
+    "subPoint2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.icon-title-description"
+    },
+    "subpoint3": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.icon-title-description"
+    }
+  }
+}
