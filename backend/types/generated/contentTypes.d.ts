@@ -836,9 +836,10 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Introduction: Attribute.Component<'home-page.who-we-are-section'>;
-    BannerImage: Attribute.Media;
-    Sponsors: Attribute.Component<'blocks.url-logo', true>;
+    Introduction: Attribute.Component<'home-page.who-we-are-section'> &
+      Attribute.Required;
+    BannerImage: Attribute.Media & Attribute.Required;
+    Sponsors: Attribute.Component<'blocks.url-logo', true> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
