@@ -101,7 +101,6 @@ export default function Navbar() {
             objectFit="contain"
             src={KOM_logo}
             alt="KOM CPC Logo"
-            mt={2}
           />
           <Text fontSize="lg" fontWeight="bold" ml={2} color="white">
             Kerrisdale Oakridge Marpole{' '}

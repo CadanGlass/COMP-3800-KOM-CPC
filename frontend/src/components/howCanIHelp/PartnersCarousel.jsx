@@ -33,30 +33,140 @@ import TranslinkLogo from '../../assets/partner_logos_individual/Translink_Logo-
 import VancouverLogo from '../../assets/partner_logos_individual/Vancouver_Logo-100x100-1.jpg';
 import VPDLogo from '../../assets/partner_logos_individual/VPD_Logo-1-100x100-1.jpg';
 
-const PartnersCarousel = ({ options }) => {
-  const logos = [
-    { name: 'BCCPA', src: BCCPALogo },
-    { name: 'Crime Stoppers', src: CrimeStoppersLogo },
-    { name: 'Douglas Park', src: DouglasParkLogo },
-    { name: 'E-Comm 911', src: ECommLogo },
-    { name: 'Hillcrest', src: HillcrestLogo },
-    { name: 'ICBC', src: ICBCLogo },
-    { name: 'JCC', src: JCCLogo },
-    { name: 'KCC', src: KCCLogo },
-    { name: 'KEM', src: KEMLogo },
-    { name: 'Langara', src: LangaraLogo },
-    { name: 'LKEL', src: LKELLogo },
-    { name: 'MNH', src: MNHLogo },
-    { name: 'MOCC', src: MOCCLogo },
-    { name: 'MOFP', src: MOFPLogo },
-    { name: 'PNE', src: PNELogo },
-    { name: 'Science World', src: ScienceWorldLogo },
-    { name: 'Total VSB', src: TotalVSBLogo },
-    { name: 'Transit Police', src: TransitPoliceLogo },
-    { name: 'Translink', src: TranslinkLogo },
-    { name: 'City of Vancouver', src: VancouverLogo },
-    { name: 'VPD', src: VPDLogo },
-  ];
+const PartnersCarousel = ({ sponsors = [], options = null }) => {
+  let sponsorsArr = [];
+  if (sponsors.length === 0) {
+    sponsorsArr = [
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'BCCPA',
+        logo: BCCPALogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'Crime Stoppers',
+        logo: CrimeStoppersLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'Douglas Park',
+        logo: DouglasParkLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'E-Comm 911',
+        logo: ECommLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'Hillcrest',
+        logo: HillcrestLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'ICBC',
+        logo: ICBCLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'JCC',
+        logo: JCCLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'KCC',
+        logo: KCCLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'KEM',
+        logo: KEMLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'Langara',
+        logo: LangaraLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'LKEL',
+        logo: LKELLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'MNH',
+        logo: MNHLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'MOCC',
+        logo: MOCCLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'MOFP',
+        logo: MOFPLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'PNE',
+        logo: PNELogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'Science World',
+        logo: ScienceWorldLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'Total VSB',
+        logo: TotalVSBLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'Transit Police',
+        logo: TransitPoliceLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'Translink',
+        logo: TranslinkLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'City of Vancouver',
+        logo: VancouverLogo,
+      },
+      {
+        alternativeText: 'test',
+        url: 'https://google.ca',
+        name: 'VPD',
+        logo: VPDLogo,
+      },
+    ];
+  } else {
+    sponsorsArr = sponsors;
+  }
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -83,14 +193,13 @@ const PartnersCarousel = ({ options }) => {
     const interval = setInterval(autoScroll, 3000); // Change slide every 3 seconds
     return () => clearInterval(interval);
   }, [emblaApi]);
-
   return (
     <section className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {logos.map((logo, index) => (
+          {sponsorsArr.map((sponsor, index) => (
             <div className="embla__slide" key={index}>
-              <PartnerCard name={logo.name} image={logo.src} />
+              <PartnerCard data={sponsor} />
             </div>
           ))}
         </div>
