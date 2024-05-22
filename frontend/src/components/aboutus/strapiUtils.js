@@ -66,6 +66,7 @@ export async function processStrapiData(endpointUrl, attributeName) {
       ) {
         const imageUrl = strapiData.Image.data.attributes.url;
         const dataImage = `${baseUrl}${imageUrl}`;
+        console.log(dataImage);
         // Return all three variables if image exists
         return { dataTitle, dataDescription, dataImage };
       } else {
