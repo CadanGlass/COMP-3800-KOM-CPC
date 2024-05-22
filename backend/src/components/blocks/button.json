@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "ButtonLabel": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

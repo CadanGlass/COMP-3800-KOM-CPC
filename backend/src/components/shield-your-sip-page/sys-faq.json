@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shield_your_sip_page_sys_faqs",
+  "info": {
+    "displayName": "Sys FAQ",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "QuestionAnswer": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.title-description"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}

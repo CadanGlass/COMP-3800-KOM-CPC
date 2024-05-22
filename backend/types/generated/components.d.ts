@@ -13,6 +13,17 @@ export interface BlocksActivity extends Schema.Component {
   };
 }
 
+export interface BlocksButton extends Schema.Component {
+  collectionName: 'components_blocks_buttons';
+  info: {
+    displayName: 'Button';
+  };
+  attributes: {
+    ButtonLabel: Attribute.String;
+    Link: Attribute.String;
+  };
+}
+
 export interface BlocksCpcContactData extends Schema.Component {
   collectionName: 'components_blocks_cpc_contact_data';
   info: {
@@ -92,16 +103,57 @@ export interface HomePageWhoWeAreSection extends Schema.Component {
   };
 }
 
+export interface ShieldYourSipPageHeader extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_headers';
+  info: {
+    displayName: 'Header';
+    description: '';
+  };
+  attributes: {
+    HeaderInfo: Attribute.Component<'blocks.title-description-image'>;
+    GetYourShieldButton: Attribute.Component<'blocks.button'>;
+    VPDResourcesButton: Attribute.Component<'blocks.button'>;
+  };
+}
+
+export interface ShieldYourSipPageSubHeading extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_sub_headings';
+  info: {
+    displayName: 'SubHeading';
+  };
+  attributes: {
+    WhatIsSys: Attribute.Component<'blocks.title-description'>;
+    SysTeam: Attribute.Component<'blocks.title-description'>;
+    SysSurvey: Attribute.Component<'blocks.title-description'>;
+  };
+}
+
+export interface ShieldYourSipPageSysFaq extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_sys_faqs';
+  info: {
+    displayName: 'Sys FAQ';
+    description: '';
+  };
+  attributes: {
+    QuestionAnswer: Attribute.Component<'blocks.title-description', true>;
+    Title: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'blocks.activity': BlocksActivity;
+      'blocks.button': BlocksButton;
       'blocks.cpc-contact-data': BlocksCpcContactData;
       'blocks.title-description-image': BlocksTitleDescriptionImage;
       'blocks.title-description': BlocksTitleDescription;
       'blocks.url-logo': BlocksUrlLogo;
       'blocks.volunteer-card': BlocksVolunteerCard;
       'home-page.who-we-are-section': HomePageWhoWeAreSection;
+      'shield-your-sip-page.header': ShieldYourSipPageHeader;
+      'shield-your-sip-page.sub-heading': ShieldYourSipPageSubHeading;
+      'shield-your-sip-page.sys-faq': ShieldYourSipPageSysFaq;
     }
   }
 }
