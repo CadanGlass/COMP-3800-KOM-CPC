@@ -1,9 +1,6 @@
-
-
-// Utility function to fetch and get attribute data for About Us page 
+// Utility function to fetch and get attribute data for About Us page
 // from Strapi About Collection.
 // Untested
-
 
 const fetchAboutData = async (url, attributeName) => {
   const response = await fetch(url);
@@ -35,3 +32,53 @@ const fetchAboutData = async (url, attributeName) => {
 };
 
 export { fetchAboutData };
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Utility function to process Strapi data and extract title, description, and image URL
+// if no image exists, only title and description are returned
+export async function processStrapiData(endpointUrl, attributeName) {
+  try {
+    // Fetch the JSON data from the endpoint
+    const response = await fetch(endpointUrl);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const jsonData = await response.json();
+
+    // Extract the base URL from the endpoint URL
+    const url = new URL(endpointUrl);
+    const baseUrl = `${url.protocol}//${url.host}`;
+
+    // Access the strapi data using the provided attribute name
+    const strapiData = jsonData.data[0].attributes[attributeName]; // needed [0] to access the first object in the array
+
+    if (strapiData) {
+      // Assign the required attributes to variables
+      const dataTitle = strapiData.Title;
+      const dataDescription = strapiData.Description;
+
+      if (
+        strapiData.Image &&
+        strapiData.Image.data &&
+        strapiData.Image.data.attributes &&
+        strapiData.Image.data.attributes.url
+      ) {
+        const imageUrl = strapiData.Image.data.attributes.url;
+        const dataImage = `${baseUrl}${imageUrl}`;
+        // Return all three variables if image exists
+        return { dataTitle, dataDescription, dataImage };
+      } else {
+        // Return only title and description if no image exists
+        return { dataTitle, dataDescription };
+      }
+    } else {
+      throw new Error(
+        `Attribute "${attributeName}" not found in the JSON data.`
+      );
+    }
+  } catch (error) {
+    console.error('Error fetching or processing data:', error);
+    return null;
+  }
+}
