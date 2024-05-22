@@ -12,24 +12,21 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "WhoWeAre": {
+    "Introduction": {
       "displayName": "Who We Are Section",
       "type": "component",
       "repeatable": false,
       "component": "home-page.who-we-are-section"
     },
-    "bannerImage": {
+    "BannerImage": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
-    "sponsors": {
+    "Sponsors": {
       "type": "component",
       "repeatable": true,
       "component": "blocks.url-logo"

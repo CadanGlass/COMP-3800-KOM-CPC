@@ -4,6 +4,7 @@ export interface BlocksActivity extends Schema.Component {
   collectionName: 'components_blocks_activities';
   info: {
     displayName: 'Activity';
+    description: '';
   };
   attributes: {
     Title: Attribute.String;
@@ -24,22 +25,11 @@ export interface BlocksCpcContactData extends Schema.Component {
   };
 }
 
-export interface BlocksIconTitleDescription extends Schema.Component {
-  collectionName: 'components_blocks_icon_title_descriptions';
-  info: {
-    displayName: 'Icon Title Description';
-  };
-  attributes: {
-    icon: Attribute.Media;
-    title: Attribute.String;
-    description: Attribute.Text;
-  };
-}
-
 export interface BlocksTitleDescriptionImage extends Schema.Component {
   collectionName: 'components_blocks_title_description_images';
   info: {
     displayName: 'Title Description Image';
+    description: '';
   };
   attributes: {
     Title: Attribute.String;
@@ -53,6 +43,7 @@ export interface BlocksTitleDescription extends Schema.Component {
   info: {
     displayName: 'Title Description';
     icon: 'chartBubble';
+    description: '';
   };
   attributes: {
     Title: Attribute.String;
@@ -64,10 +55,11 @@ export interface BlocksUrlLogo extends Schema.Component {
   collectionName: 'components_blocks_url_logos';
   info: {
     displayName: 'URL Logo';
+    description: '';
   };
   attributes: {
-    url: Attribute.String;
-    logo: Attribute.Media;
+    Url: Attribute.String;
+    Logo: Attribute.Media;
   };
 }
 
@@ -91,12 +83,12 @@ export interface HomePageWhoWeAreSection extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    intro: Attribute.Text;
-    mapUrl: Attribute.String;
-    subpoint1: Attribute.Component<'blocks.icon-title-description'>;
-    subPoint2: Attribute.Component<'blocks.icon-title-description'>;
-    subpoint3: Attribute.Component<'blocks.icon-title-description'>;
+    Title: Attribute.String;
+    Intro: Attribute.Text;
+    MapUrl: Attribute.String;
+    WhoWeAre: Attribute.Component<'blocks.title-description'>;
+    WhatWeDo: Attribute.Component<'blocks.title-description'>;
+    CatchmentArea: Attribute.Component<'blocks.title-description'>;
   };
 }
 
@@ -105,7 +97,6 @@ declare module '@strapi/types' {
     export interface Components {
       'blocks.activity': BlocksActivity;
       'blocks.cpc-contact-data': BlocksCpcContactData;
-      'blocks.icon-title-description': BlocksIconTitleDescription;
       'blocks.title-description-image': BlocksTitleDescriptionImage;
       'blocks.title-description': BlocksTitleDescription;
       'blocks.url-logo': BlocksUrlLogo;

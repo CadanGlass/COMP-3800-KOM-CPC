@@ -6,29 +6,29 @@
   },
   "options": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "string"
     },
-    "intro": {
+    "Intro": {
       "type": "text"
     },
-    "mapUrl": {
+    "MapUrl": {
       "type": "string"
     },
-    "subpoint1": {
+    "WhoWeAre": {
       "type": "component",
       "repeatable": false,
-      "component": "blocks.icon-title-description"
+      "component": "blocks.title-description"
     },
-    "subPoint2": {
+    "WhatWeDo": {
       "type": "component",
       "repeatable": false,
-      "component": "blocks.icon-title-description"
+      "component": "blocks.title-description"
     },
-    "subpoint3": {
+    "CatchmentArea": {
       "type": "component",
       "repeatable": false,
-      "component": "blocks.icon-title-description"
+      "component": "blocks.title-description"
     }
   }
 }

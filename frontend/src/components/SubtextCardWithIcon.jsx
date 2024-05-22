@@ -7,8 +7,13 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { QuestionIcon } from '@chakra-ui/icons';
+import { Icon } from '@chakra-ui/react';
 
-const SubtextCardWithIcon = ({ subtextData = {}, spacing = 4 }) => {
+const SubtextCardWithIcon = ({
+  subtextData = {},
+  spacing = 4,
+  iconName = QuestionIcon,
+}) => {
   // Colors and styles based on color mode
   const iconBgColor = useColorModeValue('blue.800', 'yellow.400');
   const iconColor = useColorModeValue('white', 'gray.800');
@@ -31,9 +36,9 @@ const SubtextCardWithIcon = ({ subtextData = {}, spacing = 4 }) => {
       color={iconColor}
       boxShadow={`0px 4px 6px ${boxShadowColor}`}
       border="2px solid"
-      borderColor={iconColor}
+      borderColor={iconBgColor}
     >
-      <QuestionIcon boxSize={6} />
+      <Icon as={iconName} boxSize={6} />
     </Box>
   );
 
