@@ -42,33 +42,6 @@ const PartnershipGrid = ({ data }) => {
 };
 
 const PartnershipBanner = ({ data }) => {
-  const partners = data.partners;
-  const logoComponents = partners.map((partnerInfo, index) => (
-    <AspectRatio key={index} ratio={1}>
-      <Link href={partnerInfo.url} isExternal>
-        {/* add links to image? */}
-        <Image src={partnerInfo.logo} alt="logo" />
-      </Link>
-    </AspectRatio>
-  ));
-
-  const [displayedLogos, setDisplayedLogos] = useState(
-    logoComponents.slice(0, 8)
-  );
-  const [count, setCount] = useState(8);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const nextLogoIndex = (count + 1) % logoComponents.length;
-      const newDisplayedLogos = [...displayedLogos];
-      newDisplayedLogos[count % 8] = logoComponents[nextLogoIndex];
-      setDisplayedLogos(newDisplayedLogos);
-      setCount((prevCount) => prevCount + 1);
-    }, 2000);
-
-    return () => clearInterval(intervalId);
-  }, [displayedLogos]);
-
   return (
     <DefaultCard>
       <VStack
@@ -80,7 +53,6 @@ const PartnershipBanner = ({ data }) => {
         <Heading as="h3" size="lg">
           {data.title}
         </Heading>
-        {/* <PartnershipGrid data={displayedLogos} /> */}
         <Box w="full">
           <PartnersCarousel />
         </Box>
