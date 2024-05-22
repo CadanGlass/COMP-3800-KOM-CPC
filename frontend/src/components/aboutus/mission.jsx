@@ -150,9 +150,11 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-import { useState, useEffect } from 'react';
+
 import { Stack, Heading, Box, useBreakpointValue, Text, Image } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
+
+import { useState, useEffect } from 'react';
 import { processStrapiData } from './strapiUtils'; // Adjust the path as necessary
 
 const MissionCard = () => {
