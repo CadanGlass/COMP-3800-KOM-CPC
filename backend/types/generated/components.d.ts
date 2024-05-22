@@ -24,18 +24,6 @@ export interface BlocksCpcContactData extends Schema.Component {
   };
 }
 
-export interface BlocksIconTitleDescription extends Schema.Component {
-  collectionName: 'components_blocks_icon_title_descriptions';
-  info: {
-    displayName: 'Icon Title Description';
-  };
-  attributes: {
-    icon: Attribute.Media;
-    title: Attribute.String;
-    description: Attribute.Text;
-  };
-}
-
 export interface BlocksTitleDescriptionImage extends Schema.Component {
   collectionName: 'components_blocks_title_description_images';
   info: {
@@ -94,9 +82,9 @@ export interface HomePageWhoWeAreSection extends Schema.Component {
     title: Attribute.String;
     intro: Attribute.Text;
     mapUrl: Attribute.String;
-    subpoint1: Attribute.Component<'blocks.icon-title-description'>;
-    subPoint2: Attribute.Component<'blocks.icon-title-description'>;
-    subpoint3: Attribute.Component<'blocks.icon-title-description'>;
+    whoWeAre: Attribute.Component<'blocks.title-description'>;
+    whatWeDo: Attribute.Component<'blocks.title-description'>;
+    catchmentArea: Attribute.Component<'blocks.title-description'>;
   };
 }
 
@@ -105,7 +93,6 @@ declare module '@strapi/types' {
     export interface Components {
       'blocks.activity': BlocksActivity;
       'blocks.cpc-contact-data': BlocksCpcContactData;
-      'blocks.icon-title-description': BlocksIconTitleDescription;
       'blocks.title-description-image': BlocksTitleDescriptionImage;
       'blocks.title-description': BlocksTitleDescription;
       'blocks.url-logo': BlocksUrlLogo;

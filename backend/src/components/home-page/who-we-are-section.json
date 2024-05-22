@@ -15,20 +15,20 @@
     "mapUrl": {
       "type": "string"
     },
-    "subpoint1": {
+    "whoWeAre": {
       "type": "component",
       "repeatable": false,
-      "component": "blocks.icon-title-description"
+      "component": "blocks.title-description"
     },
-    "subPoint2": {
+    "whatWeDo": {
       "type": "component",
       "repeatable": false,
-      "component": "blocks.icon-title-description"
+      "component": "blocks.title-description"
     },
-    "subpoint3": {
+    "catchmentArea": {
       "type": "component",
       "repeatable": false,
-      "component": "blocks.icon-title-description"
+      "component": "blocks.title-description"
     }
   }
 }
