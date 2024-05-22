@@ -6,8 +6,22 @@ import drink_cover from '../assets/drink_cover.png';
 import Header from '../components/Header';
 import SysButton from '../components/buttons/SysButton';
 import SysInfoCard from '../components/sys/SysInfoCard';
+import SysAwarenessCard from '../components/sys/SysAwarenessCard';
 
 const data = {
+  header: {
+    title: 'Shield Your Sip',
+    description:
+      'Shield Your Sip is a campaign to raise awareness about drink spiking and provide resources to help prevent it.',
+    firstButton: {
+      title: 'Get Your Shield',
+      link: 'https://www.canadahelps.org/en/dn/81226',
+    },
+    secondButton: {
+      title: 'VPD Resources',
+      link: 'https://vpd.ca/crime-prevention-safety/drug-assisted-sex-assault/',
+    },
+  },
   subPoints: [
     {
       title: 'What is #ShieldYourSip?',
@@ -28,17 +42,46 @@ const data = {
       ],
     },
   ],
+  awareness: {
+    title: 'Drink Spiking Awareness',
+    questions: [
+      {
+        title: 'What is Drink Spiking?',
+        description: [
+          'Drink spiking is when someone adds alcohol or drugs to your drink without you knowing. It can happen to anyone, anywhere, and at any time. Drink spiking is illegal and can have serious consequences.',
+        ],
+      },
+      {
+        title: 'What to Look Out For?',
+        description: [
+          'If you think you have been spiked, you may feel drunk even if you have not drunk any alcohol. You may feel dizzy, drowsy, or have memory loss. You may also feel sick, have difficulty speaking, or feel confused. If you think you have been spiked, you should seek help immediately.',
+        ],
+      },
+      {
+        title: 'I think I / My Friend Have Been Spiked?',
+        description: [
+          'If you think you or a friend have been spiked, you should seek help immediately. You should go to a safe place, tell someone you trust, and seek medical help. You should also report the incident to the police.',
+        ],
+      },
+      {
+        title: 'The Drugs and Reports',
+        description: [
+          'Common drugs used in drink spiking include GHB, ketamine, and Rohypnol. If you think you have been spiked, you should report the incident to the police. You should also seek medical help.',
+        ],
+      },
+    ],
+  },
 };
 
 export default function ShieldYourSipPage() {
   const { colorMode } = useColorMode();
   const GetYourShieldBtn = SysButton(
-    'Get Your Shield',
-    'https://www.canadahelps.org/en/dn/81226'
+    data.header.firstButton.title,
+    data.header.firstButton.link
   );
   const VpdResourcesBtn = SysButton(
-    'VPD Resources',
-    'https://vpd.ca/crime-prevention-safety/drug-assisted-sex-assault/'
+    data.header.secondButton.title,
+    data.header.secondButton.link
   );
 
   return (
@@ -65,10 +108,8 @@ export default function ShieldYourSipPage() {
 
         <Section>
           <Header
-            title={'Shield Your Sip'}
-            description={
-              'Sentence summing up the program like drink spiking protection.'
-            }
+            title={data.header.title}
+            description={data.header.description}
             btn1={GetYourShieldBtn}
             btn2={VpdResourcesBtn}
             imageUrl={drink_cover}
@@ -76,7 +117,11 @@ export default function ShieldYourSipPage() {
         </Section>
 
         <Section>
-          <SysInfoCard data={data} />
+          <SysInfoCard data={data.subPoints} />
+        </Section>
+
+        <Section>
+          <SysAwarenessCard data={data.awareness} />
         </Section>
       </VStack>
     </>

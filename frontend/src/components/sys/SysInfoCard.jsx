@@ -3,7 +3,6 @@ import { DefaultCard } from '../DefaultComponents';
 import SubtextCardWithIcon from '../SubtextCardWithIcon';
 
 export default function SysInfoCard({ data }) {
-  const subPoints = data.subPoints;
   return (
     <DefaultCard>
       <Stack
@@ -12,7 +11,7 @@ export default function SysInfoCard({ data }) {
         pt={8}
         pb={4}
       >
-        {subPoints.map((subtextData, index) => {
+        {data.map((subtextData, index) => {
           return (
             <Stack
               direction="column"
