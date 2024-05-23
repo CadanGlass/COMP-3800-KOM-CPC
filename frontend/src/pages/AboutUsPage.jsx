@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, VStack, useColorModeValue, useColorMode } from '@chakra-ui/react';
+
+import { useColorMode } from '@chakra-ui/react';
 import { Section, PageHeading } from '../components/DefaultComponents';
 import MissionCard from '../components/aboutus/mission';
 import OurStoryCard from '../components/aboutus/ourStory';
@@ -29,7 +29,7 @@ export default function AboutUsPage() {
       >
         <PageHeading title="About Us" />
       </Section>
-      
+
       <Section
         bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}
       >
