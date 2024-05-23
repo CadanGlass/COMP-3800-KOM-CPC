@@ -59,6 +59,7 @@ export async function processStrapiData(endpointUrl, attributeName) {
       const dataTitle = strapiData.Title;
       const dataDescription = strapiData.Description;
 
+      // not really necessary, b/c can just not use on front end if only need Title and Description
       if (
         strapiData.Image &&
         strapiData.Image.data &&
