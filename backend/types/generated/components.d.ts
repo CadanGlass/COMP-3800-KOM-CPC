@@ -36,6 +36,19 @@ export interface BlocksCpcContactData extends Schema.Component {
   };
 }
 
+export interface BlocksHeader extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_headers';
+  info: {
+    displayName: 'Header';
+    description: '';
+  };
+  attributes: {
+    HeaderInfo: Attribute.Component<'blocks.title-description-image'>;
+    FirstButton: Attribute.Component<'blocks.button'>;
+    SecondButton: Attribute.Component<'blocks.button'>;
+  };
+}
+
 export interface BlocksTitleDescriptionImage extends Schema.Component {
   collectionName: 'components_blocks_title_description_images';
   info: {
@@ -85,6 +98,20 @@ export interface BlocksVolunteerCard extends Schema.Component {
     Title: Attribute.String & Attribute.Required;
     Description: Attribute.String;
     Image: Attribute.Media;
+  };
+}
+
+export interface ContactPageContactInfo extends Schema.Component {
+  collectionName: 'components_contact_page_contact_infos';
+  info: {
+    displayName: 'ContactInfo';
+    description: '';
+  };
+  attributes: {
+    Phone: Attribute.String;
+    Email: Attribute.Email;
+    Address: Attribute.String;
+    Hours: Attribute.String;
   };
 }
 
@@ -173,19 +200,6 @@ export interface ResourcesPageWhoToCallCard extends Schema.Component {
     Title: Attribute.String & Attribute.Required;
     Descirption: Attribute.String & Attribute.Required;
     Image: Attribute.Media & Attribute.Required;
-  };
-}
-
-export interface ShieldYourSipPageHeader extends Schema.Component {
-  collectionName: 'components_shield_your_sip_page_headers';
-  info: {
-    displayName: 'Header';
-    description: '';
-  };
-  attributes: {
-    HeaderInfo: Attribute.Component<'blocks.title-description-image'>;
-    GetYourShieldButton: Attribute.Component<'blocks.button'>;
-    VPDResourcesButton: Attribute.Component<'blocks.button'>;
   };
 }
 
@@ -296,10 +310,12 @@ declare module '@strapi/types' {
       'blocks.activity': BlocksActivity;
       'blocks.button': BlocksButton;
       'blocks.cpc-contact-data': BlocksCpcContactData;
+      'blocks.header': BlocksHeader;
       'blocks.title-description-image': BlocksTitleDescriptionImage;
       'blocks.title-description': BlocksTitleDescription;
       'blocks.url-logo': BlocksUrlLogo;
       'blocks.volunteer-card': BlocksVolunteerCard;
+      'contact-page.contact-info': ContactPageContactInfo;
       'home-page.who-we-are-section': HomePageWhoWeAreSection;
       'program-page.accordion-content': ProgramPageAccordionContent;
       'program-page.hero': ProgramPageHero;
@@ -307,7 +323,6 @@ declare module '@strapi/types' {
       'resources-page.resources-page': ResourcesPageResourcesPage;
       'resources-page.volunteer-card': ResourcesPageVolunteerCard;
       'resources-page.who-to-call-card': ResourcesPageWhoToCallCard;
-      'shield-your-sip-page.header': ShieldYourSipPageHeader;
       'shield-your-sip-page.sub-heading': ShieldYourSipPageSubHeading;
       'shield-your-sip-page.sys-faq': ShieldYourSipPageSysFaq;
       'volunteer-page.about-section': VolunteerPageAboutSection;

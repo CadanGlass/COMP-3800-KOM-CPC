@@ -824,6 +824,40 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactUsPageContactUsPage extends Schema.SingleType {
+  collectionName: 'contact_us_pages';
+  info: {
+    singularName: 'contact-us-page';
+    pluralName: 'contact-us-pages';
+    displayName: 'ContactUsPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    PageTitle: Attribute.String;
+    Header: Attribute.Component<'blocks.header'>;
+    EmergencyInfoCard: Attribute.Component<'blocks.title-description'>;
+    ContactInfo: Attribute.Component<'contact-page.contact-info'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-us-page.contact-us-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-us-page.contact-us-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomePageHomePage extends Schema.SingleType {
   collectionName: 'home_pages';
   info: {
@@ -1004,7 +1038,7 @@ export interface ApiShieldYourSipPageShieldYourSipPage
   };
   attributes: {
     Logo: Attribute.Media;
-    Header: Attribute.Component<'shield-your-sip-page.header'>;
+    Header: Attribute.Component<'blocks.header'>;
     SubHeading: Attribute.Component<'shield-your-sip-page.sub-heading'>;
     SysFaqCard: Attribute.Component<'shield-your-sip-page.sys-faq'>;
     createdAt: Attribute.DateTime;
@@ -1079,6 +1113,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::partner.partner': ApiPartnerPartner;
       'api::program.program': ApiProgramProgram;

@@ -1,7 +1,6 @@
 "use strict";
 
 const populate = {
-  Logo: { populate: true },
   Header: {
     populate: {
       HeaderInfo: { populate: { Image: { populate: true } } },
@@ -9,18 +8,8 @@ const populate = {
       SecondButton: { populate: true },
     },
   },
-  SubHeading: {
-    populate: {
-      WhatIsSys: { populate: true },
-      SysTeam: { populate: true },
-      SysSurvey: { populate: true },
-    },
-  },
-  SysFaqCard: {
-    populate: {
-      QuestionAnswer: { populate: true },
-    },
-  },
+  EmergencyInfoCard: { populate: true },
+  ContactInfo: { populate: true },
 };
 
 module.exports = (config, { strapi }) => {

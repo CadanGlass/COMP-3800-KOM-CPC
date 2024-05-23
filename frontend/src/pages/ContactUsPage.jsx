@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Container,
   Box,
@@ -19,6 +19,7 @@ import ContactInfo from '../components/contactus/ContactInfo';
 import VolunteerNowButton from '../components/buttons/VolunteerNowButton';
 import DonateButton from '../components/buttons/DonateButton';
 import data from '../test_data/contactus/contactus_page.json';
+import axios from 'axios';
 
 const title = data.HeroTitle;
 const contactInfo = data.ContactInfo;
@@ -26,6 +27,14 @@ const emergencyCard = data.EmergencyCard;
 
 export default function ContactUsPage() {
   const { colorMode } = useColorMode();
+  useEffect(() => {
+    axios.get('http://localhost:1337/api/contact-us-page').then((response) => {
+      if (!response.data) {
+        return;
+      }
+      console.log(response);
+    });
+  });
 
   const getBackground = (darkGradient) =>
     colorMode === 'light' ? '#ffffff' : darkGradient;

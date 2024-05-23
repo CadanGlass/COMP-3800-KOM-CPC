@@ -112,12 +112,12 @@ export default function ShieldYourSipPage() {
   const header_image = `${baseURL}${headerInfo.Image.data.attributes.url}`;
 
   const GetYourShieldBtn = SysButton(
-    apiData.Header.GetYourShieldButton.ButtonLabel,
-    apiData.Header.GetYourShieldButton.Link
+    apiData.Header.FirstButton.ButtonLabel,
+    apiData.Header.FirstButton.Link
   );
   const VpdResourcesBtn = SysButton(
-    apiData.Header.VPDResourcesButton.ButtonLabel,
-    apiData.Header.VPDResourcesButton.Link
+    apiData.Header.SecondButton.ButtonLabel,
+    apiData.Header.SecondButton.Link
   );
 
   const subHeading = Object.keys(apiData.SubHeading)
