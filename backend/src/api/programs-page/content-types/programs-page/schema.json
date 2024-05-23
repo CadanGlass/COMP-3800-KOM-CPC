@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "programs_pages",
+  "info": {
+    "singularName": "programs-page",
+    "pluralName": "programs-pages",
+    "displayName": "ProgramsPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Hero": {
+      "displayName": "Hero",
+      "type": "component",
+      "repeatable": false,
+      "component": "program-page.hero"
+    }
+  }
+}

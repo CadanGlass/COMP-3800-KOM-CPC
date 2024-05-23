@@ -104,6 +104,28 @@ export interface HomePageWhoWeAreSection extends Schema.Component {
   };
 }
 
+export interface ProgramPageAccordionContent extends Schema.Component {
+  collectionName: 'components_program_page_accordion_contents';
+  info: {
+    displayName: 'AccordionContent';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Content: Attribute.Blocks;
+  };
+}
+
+export interface ProgramPageHero extends Schema.Component {
+  collectionName: 'components_program_page_heroes';
+  info: {
+    displayName: 'Hero';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+  };
+}
+
 export interface ResourcesPageCommunityPolicingCard extends Schema.Component {
   collectionName: 'components_resources_page_community_policing_cards';
   info: {
@@ -202,6 +224,8 @@ declare module '@strapi/types' {
       'blocks.url-logo': BlocksUrlLogo;
       'blocks.volunteer-card': BlocksVolunteerCard;
       'home-page.who-we-are-section': HomePageWhoWeAreSection;
+      'program-page.accordion-content': ProgramPageAccordionContent;
+      'program-page.hero': ProgramPageHero;
       'resources-page.community-policing-card': ResourcesPageCommunityPolicingCard;
       'resources-page.resources-page': ResourcesPageResourcesPage;
       'resources-page.volunteer-card': ResourcesPageVolunteerCard;

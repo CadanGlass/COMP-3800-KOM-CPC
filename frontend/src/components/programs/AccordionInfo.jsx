@@ -15,7 +15,15 @@ function AccordionInfo({ items }) {
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        <Text>{item.content}</Text>
+                        {Array.isArray(item.content) ? (
+                            item.content.map((contentItem, contentIndex) => (
+                                <Text key={contentIndex} mb={2}>
+                                    {contentItem}
+                                </Text>
+                            ))
+                        ) : (
+                            <Text>{item.content}</Text>
+                        )}
                     </AccordionPanel>
                 </AccordionItem>
             ))}

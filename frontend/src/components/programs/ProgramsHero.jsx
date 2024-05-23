@@ -49,7 +49,7 @@ const ProgramsHero = ({ title, description }) => {
                         <Box flex={1}>
                             <Image
                                 src="https://via.placeholder.com/1000x300"
-                                alt="test image"
+                                alt="Placeholder image"
                                 fit="cover"
                                 maxW="100%"
                                 height="auto"
@@ -69,3 +69,4 @@ const ProgramsHero = ({ title, description }) => {
 };
 
 export default ProgramsHero;
+

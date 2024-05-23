@@ -4,32 +4,41 @@
   "info": {
     "singularName": "program",
     "pluralName": "programs",
-    "displayName": "Program"
+    "displayName": "Program",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true,
-      "unique": true
+    "Title": {
+      "type": "string"
     },
-    "image": {
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "description": {
-      "type": "text",
-      "unique": true,
-      "required": true
+    "AccordionContent": {
+      "displayName": "AccordionContent",
+      "type": "component",
+      "repeatable": false,
+      "component": "program-page.accordion-content"
+    },
+    "AccordionContents": {
+      "type": "component",
+      "repeatable": true,
+      "component": "program-page.accordion-content"
     }
   }
 }

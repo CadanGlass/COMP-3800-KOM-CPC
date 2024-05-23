@@ -895,14 +895,20 @@ export interface ApiProgramProgram extends Schema.CollectionType {
     singularName: 'program';
     pluralName: 'programs';
     displayName: 'Program';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required & Attribute.Unique;
-    image: Attribute.Media;
-    description: Attribute.Text & Attribute.Required & Attribute.Unique;
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    Image: Attribute.Media;
+    AccordionContent: Attribute.Component<'program-page.accordion-content'>;
+    AccordionContents: Attribute.Component<
+      'program-page.accordion-content',
+      true
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -914,6 +920,39 @@ export interface ApiProgramProgram extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::program.program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProgramsPageProgramsPage extends Schema.SingleType {
+  collectionName: 'programs_pages';
+  info: {
+    singularName: 'programs-page';
+    pluralName: 'programs-pages';
+    displayName: 'ProgramsPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    Hero: Attribute.Component<'program-page.hero'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::programs-page.programs-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::programs-page.programs-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1008,6 +1047,7 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::partner.partner': ApiPartnerPartner;
       'api::program.program': ApiProgramProgram;
+      'api::programs-page.programs-page': ApiProgramsPageProgramsPage;
       'api::resource-page.resource-page': ApiResourcePageResourcePage;
       'api::shield-your-sip-page.shield-your-sip-page': ApiShieldYourSipPageShieldYourSipPage;
     }

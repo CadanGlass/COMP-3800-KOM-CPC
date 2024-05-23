@@ -1,56 +1,74 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { VStack, useColorMode, Box, Text } from '@chakra-ui/react';
-import ProgramCard from '../components/programs/ProgramCard';
-import ProgramsHero from '../components/programs/ProgramsHero';
+import { VStack, useColorModeValue } from '@chakra-ui/react';
 import { Section, PageHeading } from '../components/DefaultComponents';
+import ProgramsHero from '../components/programs/ProgramsHero';
+import ProgramCard from '../components/programs/ProgramCard';
+import axios from 'axios';
 
-const baseUrl = 'http://localhost:1337'; // Base URL for Strapi images
+const baseURL = 'http://localhost:1337';
 
-export default function ProgramsPage() {
-  const [programData, setProgramData] = useState(null);
-  const [expandedIndex, setExpandedIndex] = useState(null);
-  const { colorMode } = useColorMode();
-
-  const getBackground = (darkGradient) =>
-    colorMode === 'light' ? '#ffffff' : darkGradient;
+const ProgramsPage = () => {
+  const [pageData, setPageData] = useState({});
+  const [programsData, setProgramsData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('http://localhost:1337/api/programs?populate=*')
-      .then((response) => {
-        setProgramData(response.data.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching program data:', error);
-      });
+    const fetchData = async () => {
+      try {
+        const pageResponse = await axios.get(`${baseURL}/api/programs-page?populate=hero`);
+        if (pageResponse.data && pageResponse.data.data) {
+          setPageData(pageResponse.data.data.attributes);
+        }
+
+        const programsResponse = await axios.get(`${baseURL}/api/programs?populate=Image,AccordionContent`);
+        if (programsResponse.data && programsResponse.data.data) {
+          setProgramsData(programsResponse.data.data);
+          console.log("Programs Data:", programsResponse.data.data); // Log the data structure
+        }
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    };
+
+    fetchData();
   }, []);
-
-  const handleLearnMoreClick = (index) => {
-    setExpandedIndex(index === expandedIndex ? null : index);
-  };
-
-  if (!programData) return <Box>Loading...</Box>;
 
   return (
     <>
-      <Section bg={getBackground('linear-gradient(to bottom, #1a202c, #2d3748)')}>
-        <PageHeading title="Programs" />
+      <Section
+        bg={useColorModeValue(
+          'white',
+          'linear-gradient(to bottom, #1a202c, #2d3748)'
+        )}
+      >
+        <PageHeading title={pageData.Title} />
       </Section>
-      <Section bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}>
-        <ProgramsHero title="Our Programs" description="Learn more about our various programs and initiatives." />
+      <Section
+        bg={useColorModeValue(
+          'white',
+          'linear-gradient(to bottom, #2d3748, #3c4a5e)'
+        )}
+      >
+        {pageData.hero && (
+          <ProgramsHero
+            title={pageData.hero.title}
+            description={pageData.hero.description}
+          />
+        )}
       </Section>
-      <Section bg={getBackground('linear-gradient(to bottom, #3c4a5e, #4a566e)')}>
-        <VStack spacing={8}>
-          {programData.map((program, index) => (
+      <Section
+        bg={useColorModeValue(
+          'white',
+          'linear-gradient(to bottom, #3c4a5e, #4a566e)'
+        )}
+      >
+        <VStack spacing={10} align="start">
+          {programsData.map((program, index) => (
             <ProgramCard
               key={program.id}
-              title={program.attributes.title}
-              description={program.attributes.description}
-              image={program.attributes.image ? `${baseUrl}${program.attributes.image.data.attributes.url}` : ''}
-              subprograms={program.attributes.activities || []}
-              isExpanded={index === expandedIndex}
-              onLearnMoreClick={() => handleLearnMoreClick(index)}
+              title={program.attributes.Title}
+              description={program.attributes.Description}
+              image={`${baseURL}${program.attributes.Image.data.attributes.url}`}
+              accordionContent={program.attributes.AccordionContent ? [program.attributes.AccordionContent] : []}
               isReversed={index % 2 === 1}
             />
           ))}
@@ -58,4 +76,6 @@ export default function ProgramsPage() {
       </Section>
     </>
   );
-}
+};
+
+export default ProgramsPage;

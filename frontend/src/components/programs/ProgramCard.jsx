@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Heading,
@@ -10,18 +10,13 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
-import AccordionInfo from './AccordionInfo';
+import AccordionInfo from '../programs/AccordionInfo';
 import LearnMoreButton from '../buttons/LearnMoreButton';
 
-const ProgramCard = ({
-  title,
-  description,
-  image,
-  subprograms,
-  isExpanded,
-  onLearnMoreClick,
-  isReversed,
-}) => {
+const ProgramCard = ({ title, description, image, accordionContent, isReversed }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const handleLearnMoreClick = () => setIsExpanded(!isExpanded);
+
   return (
     <DefaultCard>
       <Grid
@@ -48,15 +43,19 @@ const ProgramCard = ({
               {title}
             </Heading>
             <Text>{description}</Text>
-            <Box>
-              <LearnMoreButton
-                onClick={onLearnMoreClick}
-                isExpanded={isExpanded}
-              />
-            </Box>
-            <Collapse in={isExpanded} animateOpacity>
-              <AccordionInfo items={subprograms} />
-            </Collapse>
+            {accordionContent && (
+              <>
+                <Box>
+                  <LearnMoreButton
+                    onClick={handleLearnMoreClick}
+                    isExpanded={isExpanded}
+                  />
+                </Box>
+                <Collapse in={isExpanded} animateOpacity>
+                  <AccordionInfo items={accordionContent} />
+                </Collapse>
+              </>
+            )}
           </VStack>
         </GridItem>
         {isReversed && (
