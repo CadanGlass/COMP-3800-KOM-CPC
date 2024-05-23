@@ -41,9 +41,6 @@ const ResourcesPage = () => {
 
   console.log('Final data state:', resourcesPage);
 
-  if (!resourcesPage || Object.keys(resourcesPage).length === 0) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <>
@@ -53,7 +50,7 @@ const ResourcesPage = () => {
           'linear-gradient(to bottom, #1a202c, #2d3748)'
         )}
       >
-        <PageHeading title="Resources" />
+        <PageHeading title={resourcesPage.Title} />
       </Section>
       <Section
         bg={useColorModeValue(
