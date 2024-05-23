@@ -74,9 +74,7 @@ import {
   Stack,
   useBreakpointValue,
   Heading,
-  Image,
   Text,
-  VStack,
   AspectRatio,
 } from '@chakra-ui/react';
 
@@ -88,7 +86,6 @@ const CatchmentCard = () => {
 
   // const stackSpacing = useBreakpointValue({ base: 8, md: 12, '2xl': 32 });
   const mapWidth = useBreakpointValue({ base: '100%', md: '65%' });
-  const textWidth = useBreakpointValue({ base: '100%', md: '35%' });
 
   const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
   const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
