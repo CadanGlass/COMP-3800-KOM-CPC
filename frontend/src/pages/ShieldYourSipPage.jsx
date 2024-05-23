@@ -147,11 +147,12 @@ export default function ShieldYourSipPage() {
         </Section>
 
         <Section>
-          <SysInfoCard data={data.subPoints} />
+          <SysInfoCard data={d.SubHeading} />
         </Section>
 
         <Section>
           <SysAwarenessCard data={data.awareness} />
+          {/* TODO: use data from response after AccordionMenu component has been refactored */}
         </Section>
       </VStack>
     </>
