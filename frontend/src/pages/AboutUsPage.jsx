@@ -1,20 +1,11 @@
 
+
 import { useColorMode } from '@chakra-ui/react';
 import { Section, PageHeading } from '../components/DefaultComponents';
 import MissionCard from '../components/aboutus/mission';
 import OurStoryCard from '../components/aboutus/ourStory';
 import CatchmentCard from '../components/aboutus/catchment';
 import OurPartnersCard from '../components/aboutus/ourPartners';
-
-import CatchData from '../test_data/AboutUsData/catchmentData.json';
-import missionData from '../test_data/AboutUsData/missionData.json';
-import ourStoryData from '../test_data/AboutUsData/ourStoryData.json';
-import ourPartnersData from '../test_data/AboutUsData/ourPartnersData.json';
-
-const CatchmentData = CatchData;
-const MissionData = missionData;
-const OurStoryData = ourStoryData;
-const OurPartnersData = ourPartnersData;
 
 
 export default function AboutUsPage() {
@@ -33,26 +24,27 @@ export default function AboutUsPage() {
       <Section
         bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}
       >
-        <MissionCard missionData={MissionData} />
+        <MissionCard/>
       </Section>
 
       <Section
         bg={getBackground('linear-gradient(to bottom, #3c4a5e, #4a566e)')}
       >
-        <OurStoryCard ourStoryData={OurStoryData} />
+        <OurStoryCard/>
       </Section>
 
       <Section
         bg={getBackground('linear-gradient(to bottom, #4a566e, #5b6b82)')}
       >
-        <CatchmentCard catchmentData={CatchmentData} />
+        <CatchmentCard/>
       </Section>
 
       <Section
         bg={getBackground('linear-gradient(to bottom, #5b6b82, #6c7f96)')}
       >
-        <OurPartnersCard ourPartnersData={OurPartnersData} />
+        <OurPartnersCard/>
       </Section>
     </>
   );
 }
+
