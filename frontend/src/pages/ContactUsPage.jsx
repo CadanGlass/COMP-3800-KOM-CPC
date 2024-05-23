@@ -19,6 +19,7 @@ import ContactInfo from '../components/contactus/ContactInfo';
 import VolunteerNowButton from '../components/buttons/VolunteerNowButton';
 import DonateButton from '../components/buttons/DonateButton';
 import axios from 'axios';
+import ErrorPage from './ErrorPage';
 
 const baseURL = 'http://localhost:1337';
 
@@ -67,7 +68,7 @@ export default function ContactUsPage() {
     fetchData();
   }, []);
 
-  if (error) return <p>Error!</p>;
+  if (error) return <ErrorPage />;
 
   const getBackground = (darkGradient) =>
     colorMode === 'light' ? '#ffffff' : darkGradient;
