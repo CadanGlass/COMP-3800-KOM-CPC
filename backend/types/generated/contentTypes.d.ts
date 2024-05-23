@@ -1076,6 +1076,7 @@ export interface ApiVolunteerPageVolunteerPage extends Schema.SingleType {
     ActivitiesCard: Attribute.Component<'volunteer-page.activities-card'>;
     WhyVolunteerCard: Attribute.Component<'volunteer-page.why-volunteer-card'>;
     FAQCard: Attribute.Component<'volunteer-page.faq-card'>;
+    PageTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

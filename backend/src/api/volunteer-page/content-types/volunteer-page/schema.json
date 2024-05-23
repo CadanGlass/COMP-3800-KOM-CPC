@@ -36,6 +36,9 @@
       "type": "component",
       "repeatable": false,
       "component": "volunteer-page.faq-card"
+    },
+    "PageTitle": {
+      "type": "string"
     }
   }
 }

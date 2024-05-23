@@ -1,6 +1,7 @@
 "use strict";
 
 const populate = {
+  PageTitle: { populate: true },
   Hero: {
     populate: {
       Title: { populate: true },
