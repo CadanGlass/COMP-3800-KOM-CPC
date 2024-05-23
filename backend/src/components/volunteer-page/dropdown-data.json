@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_volunteer_page_dropdown_data",
+  "info": {
+    "displayName": "Title Long Description",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    }
+  }
+}

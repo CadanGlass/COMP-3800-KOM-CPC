@@ -1025,6 +1025,41 @@ export interface ApiShieldYourSipPageShieldYourSipPage
   };
 }
 
+export interface ApiVolunteerPageVolunteerPage extends Schema.SingleType {
+  collectionName: 'volunteer_pages';
+  info: {
+    singularName: 'volunteer-page';
+    pluralName: 'volunteer-pages';
+    displayName: 'VolunteerPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Hero: Attribute.Component<'volunteer-page.hero'>;
+    AboutSection: Attribute.Component<'volunteer-page.about-section'>;
+    ActivitiesCard: Attribute.Component<'volunteer-page.activities-card'>;
+    WhyVolunteerCard: Attribute.Component<'volunteer-page.why-volunteer-card'>;
+    FAQCard: Attribute.Component<'volunteer-page.faq-card'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::volunteer-page.volunteer-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::volunteer-page.volunteer-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1050,6 +1085,7 @@ declare module '@strapi/types' {
       'api::programs-page.programs-page': ApiProgramsPageProgramsPage;
       'api::resource-page.resource-page': ApiResourcePageResourcePage;
       'api::shield-your-sip-page.shield-your-sip-page': ApiShieldYourSipPageShieldYourSipPage;
+      'api::volunteer-page.volunteer-page': ApiVolunteerPageVolunteerPage;
     }
   }
 }

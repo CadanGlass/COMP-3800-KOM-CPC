@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_volunteer_page_why_volunteer_cards",
+  "info": {
+    "displayName": "Why Volunteer Card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Info": {
+      "type": "component",
+      "repeatable": false,
+      "component": "volunteer-page.dropdown-data"
+    },
+    "Subtext": {
+      "type": "component",
+      "repeatable": true,
+      "component": "volunteer-page.dropdown-data",
+      "max": 3,
+      "min": 3
+    },
+    "Banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

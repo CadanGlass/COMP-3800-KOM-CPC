@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "volunteer_pages",
+  "info": {
+    "singularName": "volunteer-page",
+    "pluralName": "volunteer-pages",
+    "displayName": "VolunteerPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "volunteer-page.hero"
+    },
+    "AboutSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "volunteer-page.about-section"
+    },
+    "ActivitiesCard": {
+      "type": "component",
+      "repeatable": false,
+      "component": "volunteer-page.activities-card"
+    },
+    "WhyVolunteerCard": {
+      "type": "component",
+      "repeatable": false,
+      "component": "volunteer-page.why-volunteer-card"
+    },
+    "FAQCard": {
+      "type": "component",
+      "repeatable": false,
+      "component": "volunteer-page.faq-card"
+    }
+  }
+}

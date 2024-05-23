@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_volunteer_page_about_sections",
+  "info": {
+    "displayName": "About Section"
+  },
+  "options": {},
+  "attributes": {
+    "Banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Description": {
+      "type": "blocks"
+    }
+  }
+}
