@@ -104,7 +104,6 @@ export interface HomePageWhoWeAreSection extends Schema.Component {
   };
 }
 
-<<<<<<< HEAD
 export interface ResourcesPageCommunityPolicingCard extends Schema.Component {
   collectionName: 'components_resources_page_community_policing_cards';
   info: {
@@ -152,7 +151,9 @@ export interface ResourcesPageWhoToCallCard extends Schema.Component {
     Title: Attribute.String & Attribute.Required;
     Descirption: Attribute.String & Attribute.Required;
     Image: Attribute.Media & Attribute.Required;
-=======
+  };
+}
+
 export interface ShieldYourSipPageHeader extends Schema.Component {
   collectionName: 'components_shield_your_sip_page_headers';
   info: {
@@ -187,7 +188,6 @@ export interface ShieldYourSipPageSysFaq extends Schema.Component {
   attributes: {
     QuestionAnswer: Attribute.Component<'blocks.title-description', true>;
     Title: Attribute.String;
->>>>>>> 143835b52ca7032edbad446425f9d05c44e0cce4
   };
 }
 
@@ -202,16 +202,13 @@ declare module '@strapi/types' {
       'blocks.url-logo': BlocksUrlLogo;
       'blocks.volunteer-card': BlocksVolunteerCard;
       'home-page.who-we-are-section': HomePageWhoWeAreSection;
-<<<<<<< HEAD
       'resources-page.community-policing-card': ResourcesPageCommunityPolicingCard;
       'resources-page.resources-page': ResourcesPageResourcesPage;
       'resources-page.volunteer-card': ResourcesPageVolunteerCard;
       'resources-page.who-to-call-card': ResourcesPageWhoToCallCard;
-=======
       'shield-your-sip-page.header': ShieldYourSipPageHeader;
       'shield-your-sip-page.sub-heading': ShieldYourSipPageSubHeading;
       'shield-your-sip-page.sys-faq': ShieldYourSipPageSysFaq;
->>>>>>> 143835b52ca7032edbad446425f9d05c44e0cce4
     }
   }
 }
