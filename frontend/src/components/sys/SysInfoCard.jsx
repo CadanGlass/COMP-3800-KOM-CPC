@@ -11,25 +11,21 @@ export default function SysInfoCard({ data }) {
         pt={8}
         pb={4}
       >
-        {Object.keys(data)
-          .filter((key) => key !== 'id')
-          .map((key) => {
-            const subtextData = data[key];
-
-            return (
-              <Stack
-                direction="column"
-                key={key}
-                spacing={{ base: 2, md: 4 }}
-                flex={1}
-              >
-                <SubtextCardWithIcon
-                  subtextData={subtextData}
-                  spacing={{ base: 4, md: 8 }}
-                />
-              </Stack>
-            );
-          })}
+        {data.map((item) => {
+          return (
+            <Stack
+              direction="column"
+              key={item.id}
+              spacing={{ base: 2, md: 4 }}
+              flex={1}
+            >
+              <SubtextCardWithIcon
+                subtextData={item}
+                spacing={{ base: 4, md: 8 }}
+              />
+            </Stack>
+          );
+        })}
       </Stack>
     </DefaultCard>
   );

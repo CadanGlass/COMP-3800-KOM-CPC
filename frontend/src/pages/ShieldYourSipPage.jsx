@@ -1,10 +1,7 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { VStack, useColorMode, Image } from '@chakra-ui/react';
 import CallPoliceBanner from '../components/home/CallPoliceBanner';
 import { Section } from '../components/DefaultComponents';
-import sys_logo from '../assets/sys_logo.png';
-import drink_cover from '../assets/drink_cover.png';
 import Header from '../components/Header';
 import SysButton from '../components/buttons/SysButton';
 import SysInfoCard from '../components/sys/SysInfoCard';
@@ -80,6 +77,7 @@ const baseURL = 'http://localhost:1337';
 export default function ShieldYourSipPage() {
   const { colorMode } = useColorMode();
   const url = `${baseURL}/api/shield-your-sip-page`;
+
   const [d, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -94,7 +92,7 @@ export default function ShieldYourSipPage() {
           throw new Error('Failed to fetch data');
         }
         const json = await response.json();
-        setData(json.data.attributes);
+        setData(json);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -107,18 +105,26 @@ export default function ShieldYourSipPage() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
-  console.log(d);
 
-  const logo = `${baseURL}${d.Logo.data.attributes.url}`;
-  const header_image = `${baseURL}${d.Header.HeaderInfo.Image.data.attributes.url}`;
+  const apiData = d.data.attributes;
+  const headerInfo = apiData.Header.HeaderInfo;
+  const logo = `${baseURL}${apiData.Logo.data.attributes.url}`;
+  const header_image = `${baseURL}${headerInfo.Image.data.attributes.url}`;
+
   const GetYourShieldBtn = SysButton(
-    d.Header.GetYourShieldButton.ButtonLabel,
-    d.Header.GetYourShieldButton.Link
+    apiData.Header.GetYourShieldButton.ButtonLabel,
+    apiData.Header.GetYourShieldButton.Link
   );
   const VpdResourcesBtn = SysButton(
-    d.Header.VPDResourcesButton.ButtonLabel,
-    d.Header.VPDResourcesButton.Link
+    apiData.Header.VPDResourcesButton.ButtonLabel,
+    apiData.Header.VPDResourcesButton.Link
   );
+
+  const subHeading = Object.keys(apiData.SubHeading)
+    .filter((key) => key !== 'id')
+    .map((key) => {
+      return apiData.SubHeading[key];
+    });
 
   return (
     <>
@@ -133,22 +139,24 @@ export default function ShieldYourSipPage() {
         <CallPoliceBanner />
 
         <Section align="center">
-          <Image src={logo} alt="Banner" fit="cover" w={'100%'} maxW="700px" />
+          {logo && (
+            <Image src={logo} alt="Logo" fit="cover" w={'100%'} maxW="700px" />
+          )}
         </Section>
 
         <Section>
-          <Header
-            title={d.Header.HeaderInfo.Title}
-            description={d.Header.HeaderInfo.Description}
-            btn1={GetYourShieldBtn}
-            btn2={VpdResourcesBtn}
-            imageUrl={header_image}
-          />
+          {headerInfo && header_image && (
+            <Header
+              title={headerInfo.Title}
+              description={headerInfo.Description}
+              btn1={GetYourShieldBtn}
+              btn2={VpdResourcesBtn}
+              imageUrl={header_image}
+            />
+          )}
         </Section>
 
-        <Section>
-          <SysInfoCard data={d.SubHeading} />
-        </Section>
+        <Section>{subHeading && <SysInfoCard data={subHeading} />}</Section>
 
         <Section>
           <SysAwarenessCard data={data.awareness} />
