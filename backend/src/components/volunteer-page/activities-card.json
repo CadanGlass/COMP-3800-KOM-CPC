@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_volunteer_page_activities_cards",
+  "info": {
+    "displayName": "Activities Card"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "DropdownData": {
+      "displayName": "Dropdown Data",
+      "type": "component",
+      "repeatable": true,
+      "component": "volunteer-page.dropdown-data"
+    }
+  }
+}

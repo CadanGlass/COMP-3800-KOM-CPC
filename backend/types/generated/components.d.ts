@@ -227,6 +227,83 @@ export interface ShieldYourSipPageSysFaq extends Schema.Component {
   };
 }
 
+export interface VolunteerPageAboutSection extends Schema.Component {
+  collectionName: 'components_volunteer_page_about_sections';
+  info: {
+    displayName: 'About Section';
+  };
+  attributes: {
+    Banner: Attribute.Media;
+    Description: Attribute.Blocks;
+  };
+}
+
+export interface VolunteerPageActivitiesCard extends Schema.Component {
+  collectionName: 'components_volunteer_page_activities_cards';
+  info: {
+    displayName: 'Activities Card';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Blocks;
+    DropdownData: Attribute.Component<'volunteer-page.dropdown-data', true>;
+  };
+}
+
+export interface VolunteerPageDropdownData extends Schema.Component {
+  collectionName: 'components_volunteer_page_dropdown_data';
+  info: {
+    displayName: 'Title Long Description';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Blocks;
+  };
+}
+
+export interface VolunteerPageFaqCard extends Schema.Component {
+  collectionName: 'components_volunteer_page_faq_cards';
+  info: {
+    displayName: 'FAQ Card';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Question: Attribute.Component<'volunteer-page.dropdown-data', true>;
+  };
+}
+
+export interface VolunteerPageHero extends Schema.Component {
+  collectionName: 'components_volunteer_page_heroes';
+  info: {
+    displayName: 'Hero';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Banner: Attribute.Media;
+  };
+}
+
+export interface VolunteerPageWhyVolunteerCard extends Schema.Component {
+  collectionName: 'components_volunteer_page_why_volunteer_cards';
+  info: {
+    displayName: 'Why Volunteer Card';
+    description: '';
+  };
+  attributes: {
+    Info: Attribute.Component<'volunteer-page.dropdown-data'>;
+    Subtext: Attribute.Component<'volunteer-page.dropdown-data', true> &
+      Attribute.SetMinMax<
+        {
+          min: 3;
+          max: 3;
+        },
+        number
+      >;
+    Banner: Attribute.Media;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -248,6 +325,12 @@ declare module '@strapi/types' {
       'resources-page.who-to-call-card': ResourcesPageWhoToCallCard;
       'shield-your-sip-page.sub-heading': ShieldYourSipPageSubHeading;
       'shield-your-sip-page.sys-faq': ShieldYourSipPageSysFaq;
+      'volunteer-page.about-section': VolunteerPageAboutSection;
+      'volunteer-page.activities-card': VolunteerPageActivitiesCard;
+      'volunteer-page.dropdown-data': VolunteerPageDropdownData;
+      'volunteer-page.faq-card': VolunteerPageFaqCard;
+      'volunteer-page.hero': VolunteerPageHero;
+      'volunteer-page.why-volunteer-card': VolunteerPageWhyVolunteerCard;
     }
   }
 }

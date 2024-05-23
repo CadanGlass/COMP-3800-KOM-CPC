@@ -11,6 +11,9 @@ import Hero from '../components/volunteer/Hero';
 import AboutCard from '../components/volunteer/About';
 import { Section, PageHeading } from '../components/DefaultComponents';
 import data from '../test_data/volunteer/volunteer_page.json';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 const heroTitle = data.HeroTitle;
 const about = data.About.description;
@@ -19,12 +22,36 @@ const why = data.WhyVolunteer[0];
 const faq = data.FAQs[0];
 
 export default function VolunteerPage() {
+  const baseURL = 'http://localhost:1337';
   const { colorMode } = useColorMode();
   const getBackground = (darkGradient) =>
     colorMode === 'light' ? '#ffffff' : darkGradient;
 
+  const [volunteerData, setVolunteerData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      axios
+        .get(`${baseURL}/api/volunteer-page`)
+        .then((response) => {
+          if (!response.data) {
+            return;
+          }
+          const apiData = response.data.data.attributes;
+          setVolunteerData(apiData);
+        })
+        .catch((error) => {
+          console.error('Error fetching volunteer data:', error);
+        });
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
+      {/* <BlocksRenderer content={data} /> */}
+      {console.log(volunteerData)}
       <Section
         bg={getBackground('linear-gradient(to bottom, #1a202c, #2d3748)')}
       >

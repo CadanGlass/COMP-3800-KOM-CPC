@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_volunteer_page_faq_cards",
+  "info": {
+    "displayName": "FAQ Card"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Question": {
+      "type": "component",
+      "repeatable": true,
+      "component": "volunteer-page.dropdown-data"
+    }
+  }
+}

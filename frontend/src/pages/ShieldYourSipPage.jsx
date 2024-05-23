@@ -133,7 +133,7 @@ export default function ShieldYourSipPage() {
         bgGradient={
           colorMode === 'light'
             ? 'linear(yellow.100, red.100, green.100)'
-            : 'linear(#1a202c, #2d3748)'
+            : 'linear(green.900, purple.900)'
         }
       >
         <CallPoliceBanner />
