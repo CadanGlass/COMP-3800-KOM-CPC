@@ -9,8 +9,6 @@ import Programs from '../components/home/Programs';
 import Events from '../components/home/Events';
 import axios from 'axios';
 
-import data from '../test_data/home_page.json';
-
 const baseURL = 'http://localhost:1337';
 
 export default function HomePage() {
@@ -25,9 +23,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       axios
-        .get(
-          `${baseURL}/api/home-page?populate[BannerImage][fields][0]=url&populate[BannerImage][fields][1]=alternativeText&populate[Introduction][populate]=*&populate[Sponsors][fields][0]=Name&populate[Sponsors][fields][1]=Url&populate[Sponsors][populate][Logo][fields][0]=url&populate[Sponsors][populate][Logo][fields][1]=alternativeText`
-        )
+        .get(`${baseURL}/api/home-page`)
         .then((response) => {
           if (!response.data) {
             return;
