@@ -13,7 +13,9 @@ import {
 } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 
-const WhoToCallCard = () => {
+const baseURL = 'http://localhost:1337'; // Base URL for Strapi images
+
+const WhoToCallCard = ({ data }) => {
   return (
     <DefaultCard>
       <Flex
@@ -22,23 +24,24 @@ const WhoToCallCard = () => {
         justify="center"
       >
         <Box flex="1" mb={{ base: 4, md: 0 }} mr={{ md: 4 }}>
-          <Image
-            src="https://via.placeholder.com/600x400" // Placeholder image
-            alt="Who to call"
-            objectFit="cover"
-            width="100%"
-            borderRadius="md"
-          />
+          {data.Image && data.Image.data && data.Image.data.attributes && (
+            <Image
+              src={`${baseURL}${data.Image.data.attributes.url}`} // Strapi image URL
+              alt={data.Image.data.attributes.alternativeText || 'Who to call'}
+              objectFit="cover"
+              width="100%"
+              borderRadius="md"
+            />
+          )}
         </Box>
         <Box flex="1" p={6}>
           <VStack spacing={4} align="start">
             <Heading as="h3" size="lg">
-              Who to call and when?
+              {data.Title || 'Who to call and when?'}
             </Heading>
             <Text>
-              <strong>Call 911 immediately to report a serious crime</strong>,
-              including a crime in progress or one that might be about to
-              happen.
+              {data.Description ||
+                'Call 911 immediately to report a serious crime, including a crime in progress or one that might be about to happen.'}
             </Text>
             <List spacing={3}>
               <ListItem>
