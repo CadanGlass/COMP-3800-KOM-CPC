@@ -11,13 +11,13 @@
       "repeatable": false,
       "component": "blocks.title-description-image"
     },
-    "GetYourShieldButton": {
+    "FirstButton": {
       "displayName": "Button",
       "type": "component",
       "repeatable": false,
       "component": "blocks.button"
     },
-    "VPDResourcesButton": {
+    "SecondButton": {
       "type": "component",
       "repeatable": false,
       "component": "blocks.button"

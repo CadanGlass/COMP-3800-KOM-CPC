@@ -27,7 +27,7 @@
       "displayName": "Header",
       "type": "component",
       "repeatable": false,
-      "component": "shield-your-sip-page.header"
+      "component": "blocks.header"
     },
     "SubHeading": {
       "displayName": "SubHeading",

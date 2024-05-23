@@ -5,8 +5,8 @@ const populate = {
   Header: {
     populate: {
       HeaderInfo: { populate: { Image: { populate: true } } },
-      GetYourShieldButton: { populate: true },
-      VPDResourcesButton: { populate: true },
+      FirstButton: { populate: true },
+      SecondButton: { populate: true },
     },
   },
   SubHeading: {
