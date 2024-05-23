@@ -62,16 +62,22 @@ const ProgramsPage = () => {
         )}
       >
         <VStack spacing={10} align="start">
-          {programsData.map((program, index) => (
-            <ProgramCard
-              key={program.id}
-              title={program.attributes.Title}
-              description={program.attributes.Description}
-              image={`${baseURL}${program.attributes.Image.data.attributes.url}`}
-              accordionContent={program.attributes.AccordionContent ? [program.attributes.AccordionContent] : []}
-              isReversed={index % 2 === 1}
-            />
-          ))}
+          {programsData.map((program, index) => {
+            const { Title, Description, Image, AccordionContent } = program.attributes;
+            return (
+              <ProgramCard
+                key={program.id}
+                title={Title}
+                description={Description}
+                image={`${baseURL}${Image.data.attributes.url}`}
+                accordionContent={AccordionContent ? AccordionContent.Content.map(item => ({
+                  title: AccordionContent.Title,
+                  content: item.children.map(child => child.text)
+                })) : []}
+                isReversed={index % 2 === 1}
+              />
+            );
+          })}
         </VStack>
       </Section>
     </>
