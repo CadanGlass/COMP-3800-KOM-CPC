@@ -19,6 +19,7 @@ const fetchAboutData = async (url, attributeName) => {
   const firstItem = data.data[0];
 
   // Check if the specified attribute exists within the first item's attributes
+  // not really necessary, b/c can just not use on front end if only need Title and Description
   if (
     !firstItem ||
     !firstItem.attributes ||
