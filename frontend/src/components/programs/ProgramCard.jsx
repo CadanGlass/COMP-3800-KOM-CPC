@@ -8,6 +8,7 @@ import {
   Image,
   Collapse,
   VStack,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 import AccordionInfo from '../programs/AccordionInfo';
@@ -23,6 +24,14 @@ const ProgramCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const handleLearnMoreClick = () => setIsExpanded(!isExpanded);
 
+  const imageSrc = useBreakpointValue({
+    base: `${image}?w=480`, // Image URL with width parameter for mobile devices
+    md: `${image}?w=768`,  // Image URL with width parameter for tablets
+    lg: `${image}?w=1024`, // Image URL with width parameter for desktop
+  });
+
+  const imageMaxHeight = useBreakpointValue({ base: '150px', md: '200px', lg: '300px' });
+
   return (
     <DefaultCard>
       <Grid
@@ -33,12 +42,12 @@ const ProgramCard = ({
         {!isReversed && (
           <GridItem>
             <Image
-              src={image}
+              src={imageSrc}
               alt={title}
               objectFit="cover"
               width="100%"
               height="auto"
-              maxHeight="300px"
+              maxHeight={imageMaxHeight}
               borderRadius="md"
             />
           </GridItem>
@@ -67,12 +76,12 @@ const ProgramCard = ({
         {isReversed && (
           <GridItem>
             <Image
-              src={image}
+              src={imageSrc}
               alt={title}
               objectFit="cover"
               width="100%"
               height="auto"
-              maxHeight="300px"
+              maxHeight={imageMaxHeight}
               borderRadius="md"
             />
           </GridItem>
