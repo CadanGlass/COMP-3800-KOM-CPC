@@ -2,11 +2,14 @@ import { Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import './DonateButton.css';
 
-export default function DonateButton() {
+export default function DonateButton({
+  label = 'Donate',
+  link = 'https://www.canadahelps.org/en/dn/81226',
+}) {
   return (
     <Link
       className="button-wrapper"
-      to="https://www.canadahelps.org/en/dn/81226"
+      to={link}
       target="_blank"
       rel="noopener noreferrer"
       style={{ width: '120px' }} // Set a fixed width
@@ -22,7 +25,7 @@ export default function DonateButton() {
         }}
         width="full" // Ensure button takes the full width of its container
       >
-        DONATE
+        {label.toUpperCase()}
       </Button>
       <div className="button-bg"></div>
     </Link>

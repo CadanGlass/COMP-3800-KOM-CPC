@@ -12,6 +12,7 @@ import ShieldYourSipPage from './pages/ShieldYourSipPage';
 import NewsEventsPage from './pages/NewsEventsPage';
 import ResourcesPage from './pages/ResourcesPage';
 import HowCanIHelpPage from './pages/HowCanIHelpPage';
+import ErrorPage from './pages/ErrorPage';
 import theme from './components/theme';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
               <Route path="/about-us" element={<AboutUsPage />} />
               <Route path="/resources" element={<ResourcesPage />} />
               <Route path="/contact-us" element={<ContactUsPage />} />
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </Box>
           <Footer />

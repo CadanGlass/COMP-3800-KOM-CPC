@@ -1,12 +1,12 @@
 // components/VolunteerNowButton.jsx
 import { Button, Link } from '@chakra-ui/react';
 
-export default function VolunteerNowButton() {
+export default function VolunteerNowButton({
+  label = 'Volunteer Now',
+  link = 'https://app.betterimpact.com/PublicOrganization/9751335d-c792-494f-83e0-f504c28ed30c/1',
+}) {
   return (
-    <Link
-      href="https://app.betterimpact.com/PublicOrganization/9751335d-c792-494f-83e0-f504c28ed30c/1"
-      isExternal
-    >
+    <Link href={link} isExternal>
       <Button
         fontSize={'sm'}
         fontWeight={600}
@@ -23,7 +23,7 @@ export default function VolunteerNowButton() {
         boxShadow="lg"
         transition="all 0.2s ease-in-out"
       >
-        VOLUNTEER NOW
+        {label.toUpperCase()}
       </Button>
     </Link>
   );

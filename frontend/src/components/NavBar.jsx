@@ -127,8 +127,8 @@ export default function Navbar() {
               isRound={true}
               size="sm"
             />
-            {ContactUsButton()}
-            {DonateButton()}
+            <ContactUsButton />
+            <DonateButton />
           </HStack>
           <IconButton
             size={'md'}
@@ -156,8 +156,8 @@ export default function Navbar() {
               </NavItem>
             ))}
             <HStack flexWrap="wrap" spacing={4} justify="center">
-              {ContactUsButton()}
-              {DonateButton()}
+              <ContactUsButton />
+              <DonateButton />
               <IconButton
                 icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                 onClick={toggleColorMode}
