@@ -292,7 +292,8 @@ export interface VolunteerPageWhyVolunteerCard extends Schema.Component {
   };
   attributes: {
     Info: Attribute.Component<'volunteer-page.dropdown-data'>;
-    Subtext: Attribute.Component<'volunteer-page.dropdown-data', true> &
+    Banner: Attribute.Media;
+    Subpoint: Attribute.Component<'blocks.title-description', true> &
       Attribute.SetMinMax<
         {
           min: 3;
@@ -300,7 +301,6 @@ export interface VolunteerPageWhyVolunteerCard extends Schema.Component {
         },
         number
       >;
-    Banner: Attribute.Media;
   };
 }
 

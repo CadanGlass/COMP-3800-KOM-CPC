@@ -9,9 +9,7 @@ export default function SysAwarenessCard({ data }) {
         <Heading as="h3" size="lg" pb={8}>
           {data.title}
         </Heading>
-        <Box>
-          <CustomAccordion accordionData={data.questions} />
-        </Box>
+        <Box>{/* <CustomAccordion accordionData={data.questions} /> */}</Box>
       </Stack>
     </DefaultCard>
   );

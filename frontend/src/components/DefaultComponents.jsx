@@ -96,7 +96,7 @@ const DefaultBlocksRenderer = ({ content }) => {
     <BlocksRenderer
       content={content}
       blocks={{
-        paragraph: ({ children }) => <Text pb={4}>{children}</Text>,
+        paragraph: ({ children }) => <Text pt={4}>{children}</Text>,
         link: ({ children, url }) => (
           <Link href={url} color="teal.500">
             {children}

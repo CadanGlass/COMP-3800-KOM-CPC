@@ -7,6 +7,7 @@ import {
   Box,
   Text,
 } from '@chakra-ui/react';
+import { DefaultBlocksRenderer } from './DefaultComponents';
 
 const CustomAccordion = ({ accordionData: data = [] }) => {
   if (!data.length) {
@@ -20,17 +21,13 @@ const CustomAccordion = ({ accordionData: data = [] }) => {
           <h2>
             <AccordionButton p={'4px 4px 4px 0px'}>
               <Box flex={1} textAlign="left">
-                <Text as="b"> {item.title} </Text>
+                <Text as="b"> {item.Title} </Text>
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4} pl={0}>
-            {item.description.map((line, index) => (
-              <Text key={`line${index}`} paddingTop={4}>
-                {line}
-              </Text>
-            ))}
+            <DefaultBlocksRenderer content={item.Description} />
           </AccordionPanel>
         </AccordionItem>
       ))}

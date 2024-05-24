@@ -24,8 +24,7 @@ const populate = {
   WhyVolunteerCard: {
     populate: {
       Info: { populate: true },
-      Subtext: { populate: true },
-      DropdownData: { populate: true },
+      Subpoint: { populate: true },
       Banner: { populate: true },
     },
   },

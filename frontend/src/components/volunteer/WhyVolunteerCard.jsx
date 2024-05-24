@@ -5,11 +5,13 @@ import {
   Text,
   Stack,
   useBreakpointValue,
+  AspectRatio,
 } from '@chakra-ui/react';
 import SubtextCardWithIcon from '../SubtextCardWithIcon';
-import { DefaultCard } from '../DefaultComponents';
+import { DefaultCard, DefaultBlocksRenderer } from '../DefaultComponents';
+import { MdEvent, MdWork, MdDiversity1 } from 'react-icons/md';
 
-const WhyVolunteerCard = ({ title, description, subtext = [] }) => {
+const WhyVolunteerCard = ({ data }) => {
   const stackSpacing = useBreakpointValue({ base: 8, md: 12, xl: 32 });
   const stackDirection = useBreakpointValue({ base: 'column', lg: 'row' });
   const subtextSpacing = useBreakpointValue({ base: 4, md: 8, lg: 16 });
@@ -24,34 +26,50 @@ const WhyVolunteerCard = ({ title, description, subtext = [] }) => {
         spacing={stackSpacing}
       >
         <Box flex={1}>
-          <Heading as="h3" size="lg" paddingBottom={8}>
-            {title}
+          <Heading as="h3" size="lg" paddingBottom={4}>
+            {data.Info.Title}
           </Heading>
           <Box>
-            {description.map((line, index) => (
-              <Text key={`line${index}`} paddingBottom={4}>
-                {line}
-              </Text>
-            ))}
+            <DefaultBlocksRenderer content={data.Info.Description} />
           </Box>
         </Box>
-        {/* decide how to justify the image */}
-        <Box flex={1} alignSelf="center">
-          <Image
-            src="https://via.placeholder.com/1000x300"
-            alt="test image"
-            fit="cover"
-            maxW="100%"
-            height="auto"
-          />
+        <Box
+          flex={1}
+          alignSelf={'flex-end'}
+          w={'100%'}
+          maxW={'1000px'}
+          maxH={'300px'}
+        >
+          <AspectRatio ratio={10 / 3} w={'100%'}>
+            <Image
+              src={data.Image}
+              alt={data.AlternativeText}
+              fit="cover"
+              maxW={'100%'}
+              height={'100%'}
+            />
+          </AspectRatio>
         </Box>
       </Stack>
       <Stack direction={subtextDirection} spacing={subtextSpacing}>
-        {subtext.map((subtextData, index) => (
-          <Box key={`subtext${index}`} flex={1}>
-            <SubtextCardWithIcon subtextData={subtextData} />
-          </Box>
-        ))}
+        <Box flex={1}>
+          <SubtextCardWithIcon
+            subtextData={data.Subpoint[0]}
+            iconName={MdEvent}
+          />
+        </Box>
+        <Box flex={1}>
+          <SubtextCardWithIcon
+            subtextData={data.Subpoint[1]}
+            iconName={MdWork}
+          />
+        </Box>
+        <Box flex={1}>
+          <SubtextCardWithIcon
+            subtextData={data.Subpoint[2]}
+            iconName={MdDiversity1}
+          />
+        </Box>
       </Stack>
     </DefaultCard>
   );

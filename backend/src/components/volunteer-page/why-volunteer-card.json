@@ -11,19 +11,20 @@
       "repeatable": false,
       "component": "volunteer-page.dropdown-data"
     },
-    "Subtext": {
-      "type": "component",
-      "repeatable": true,
-      "component": "volunteer-page.dropdown-data",
-      "max": 3,
-      "min": 3
-    },
     "Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "Subpoint": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.title-description",
+      "max": 3,
+      "min": 3
     }
   }
 }

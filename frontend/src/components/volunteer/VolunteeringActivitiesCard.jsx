@@ -1,21 +1,21 @@
 import CustomAccordion from '../AccordionMenu';
 import { Box, Heading, Stack, useBreakpointValue } from '@chakra-ui/react';
-import { DefaultCard } from '../DefaultComponents';
+import { DefaultCard, DefaultBlocksRenderer } from '../DefaultComponents';
 
-const VolunteeringActivitiesCard = ({ volunteerData, title, description }) => {
+const VolunteeringActivitiesCard = ({ data }) => {
   const stackSpacing = useBreakpointValue({ base: 8, md: 12, xl: 32 });
 
   return (
     <DefaultCard>
       <Stack direction={['column', 'row']} maxW="100%" spacing={stackSpacing}>
         <Box flex={1}>
-          <Heading as="h3" size="lg" pb={8}>
-            {title}
+          <Heading as="h3" size="lg" pb={4}>
+            {data.Title}
           </Heading>
-          <p>{description}</p>
+          <DefaultBlocksRenderer content={data.Description} />
         </Box>
         <Box flex={1}>
-          <CustomAccordion accordionData={volunteerData} />
+          <CustomAccordion accordionData={data.DropdownData} />
         </Box>
       </Stack>
     </DefaultCard>

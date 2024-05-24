@@ -14,9 +14,6 @@ import data from '../test_data/volunteer/volunteer_page.json';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const heroTitle = data.HeroTitle;
-// const about = data.About.description;
-const activities = data.Activities[0];
 const why = data.WhyVolunteer[0];
 const faq = data.FAQs[0];
 
@@ -59,7 +56,14 @@ export default function VolunteerPage() {
           };
           setAboutData(about);
           setActivitiesCardData(apiData.ActivitiesCard);
-          setWhyVolunteerCardData(apiData.WhyVolunteerCard);
+          const whyVolunteer = {
+            Info: apiData.WhyVolunteerCard.Info,
+            Subpoint: apiData.WhyVolunteerCard.Subpoint,
+            Image: `${baseURL}${apiData.WhyVolunteerCard.Banner.data.attributes.url}`,
+            AlternativeText:
+              apiData.WhyVolunteerCard.Banner.data.attributes.alternativeText,
+          };
+          setWhyVolunteerCardData(whyVolunteer);
           setFaqCardData(apiData.FAQCard);
           setLoading(false);
         })
@@ -75,7 +79,6 @@ export default function VolunteerPage() {
   }
   return (
     <>
-      {/* <BlocksRenderer content={data} /> */}
       <Section
         bg={getBackground('linear-gradient(to bottom, #1a202c, #2d3748)')}
       >
@@ -94,25 +97,18 @@ export default function VolunteerPage() {
       <Section
         bg={getBackground('linear-gradient(to bottom, #4a566e, #5b6b82)')}
       >
-        <VolunteeringActivitiesCard
-          volunteerData={activities.volunteerData}
-          title={activities.title}
-          description={activities.description}
-        />
+        <VolunteeringActivitiesCard data={activitiesCardData} />
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #5b6b82, #6c7f96)')}
       >
-        <WhyVolunteerCard
-          title={why.title}
-          description={why.description}
-          subtext={why.subtext}
-        />
+        <WhyVolunteerCard data={whyVolunteerCardData} />
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #6c7f96, #8a9aad)')}
       >
-        <FAQCard faqData={faq} />
+        {console.log(faqCardData)}
+        <FAQCard data={faqCardData} />
       </Section>
     </>
   );
