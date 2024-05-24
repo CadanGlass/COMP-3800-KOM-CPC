@@ -1,5 +1,3 @@
-
-
 import { DefaultCard } from '../DefaultComponents';
 import {
   Box,
@@ -13,9 +11,7 @@ import {
 import { useState, useEffect } from 'react';
 import { processStrapiData } from './strapiUtils'; // Adjust the path as necessary
 
-
 const CatchmentCard = () => {
-
   // const stackSpacing = useBreakpointValue({ base: 8, md: 12, '2xl': 32 });
   const mapWidth = useBreakpointValue({ base: '100%', md: '65%' });
 
@@ -27,36 +23,33 @@ const CatchmentCard = () => {
   const [catchmentData, setCatchmentData] = useState(null);
   const attributeName = 'CatchmentArea'; // Adjust the attribute name as necessary
 
+  useEffect(() => {
+    processStrapiData(endpointUrl, attributeName)
+      .then((data) => {
+        if (data) {
+          setCatchmentData(data);
+        } else {
+          console.error('Failed to fetch catchment data');
+        }
+      })
+      .catch((error) => {
+        console.error('There was a problem fetching the data:', error);
+        // Handle the error state here
+      });
+  }, []);
 
-    useEffect(() => {
-        processStrapiData(endpointUrl, attributeName)
-            .then(data => {
-                if (data) {
-                    setCatchmentData(data);
-                } else {
-                    console.error('Failed to fetch catchment data');
-                }
-            })
-            .catch(error => {
-                console.error('There was a problem fetching the data:', error);
-                // Handle the error state here
-            });
-    }, []);
+  if (!catchmentData) {
+    return <div>Loading...</div>; // You can customize the loading state as per your UI
+  }
 
-    if (!catchmentData) {
-        return <div>Loading...</div>; // You can customize the loading state as per your UI
-    }
-
-    return (
-        <DefaultCard>
+  return (
+    <DefaultCard>
       <Stack direction={stackDirection} spacing={stackSpacing}>
         <Box flex={1} alignSelf={'center'}>
           <Heading as="h2" size="lg" paddingBottom={4}>
             {catchmentData.dataTitle}
           </Heading>
-          <Text paddingBottom={4}>
-            {catchmentData.dataDescription}
-          </Text>
+          <Text paddingBottom={4}>{catchmentData.dataDescription}</Text>
         </Box>
         <Box flex={1} alignSelf="center" width={mapWidth}>
           <AspectRatio ratio={16 / 9} width="100%">
@@ -70,7 +63,7 @@ const CatchmentCard = () => {
         </Box>
       </Stack>
     </DefaultCard>
-    );
+  );
 };
 
 export default CatchmentCard;

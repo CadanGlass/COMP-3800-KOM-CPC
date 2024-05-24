@@ -1,12 +1,9 @@
-
-
 import { useColorMode } from '@chakra-ui/react';
 import { Section, PageHeading } from '../components/DefaultComponents';
 import MissionCard from '../components/aboutus/mission';
 import OurStoryCard from '../components/aboutus/ourStory';
 import CatchmentCard from '../components/aboutus/catchment';
 import OurPartnersCard from '../components/aboutus/ourPartners';
-
 
 export default function AboutUsPage() {
   const { colorMode } = useColorMode();
@@ -24,27 +21,26 @@ export default function AboutUsPage() {
       <Section
         bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}
       >
-        <MissionCard/>
+        <MissionCard />
       </Section>
 
       <Section
         bg={getBackground('linear-gradient(to bottom, #3c4a5e, #4a566e)')}
       >
-        <OurStoryCard/>
+        <OurStoryCard />
       </Section>
 
       <Section
         bg={getBackground('linear-gradient(to bottom, #4a566e, #5b6b82)')}
       >
-        <CatchmentCard/>
+        <CatchmentCard />
       </Section>
 
       <Section
         bg={getBackground('linear-gradient(to bottom, #5b6b82, #6c7f96)')}
       >
-        <OurPartnersCard/>
+        <OurPartnersCard />
       </Section>
     </>
   );
 }
-

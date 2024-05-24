@@ -13,7 +13,13 @@ import { DefaultCard } from '../DefaultComponents';
 import AccordionInfo from '../programs/AccordionInfo';
 import LearnMoreButton from '../buttons/LearnMoreButton';
 
-const ProgramCard = ({ title, description, image, accordionContent, isReversed }) => {
+const ProgramCard = ({
+  title,
+  description,
+  image,
+  accordionContent,
+  isReversed,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const handleLearnMoreClick = () => setIsExpanded(!isExpanded);
 

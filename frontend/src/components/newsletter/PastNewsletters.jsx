@@ -21,7 +21,6 @@ const PastNewsletters = ({ newsletters }) => {
 
   return (
     <Box>
-     
       {newsletters.map((newsletter, index) => (
         <Box
           key={index}

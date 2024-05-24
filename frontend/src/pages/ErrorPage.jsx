@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Section,
-  DefaultCard,
-} from '../components/DefaultComponents';
+import { Section, DefaultCard } from '../components/DefaultComponents';
 import { Box, useColorMode, Heading, Text } from '@chakra-ui/react';
 
 export default function ErrorPage() {

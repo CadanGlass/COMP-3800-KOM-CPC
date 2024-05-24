@@ -1,4 +1,4 @@
-import { Box, Image, Text, Button, SimpleGrid } from "@chakra-ui/react";
+import { Box, Image, Text, Button, SimpleGrid } from '@chakra-ui/react';
 
 const Cards = ({ cardsData = [] }) => {
   if (!cardsData.length) {

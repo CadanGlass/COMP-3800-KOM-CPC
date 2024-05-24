@@ -14,15 +14,19 @@ const ProgramsPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const pageResponse = await axios.get(`${baseURL}/api/programs-page?populate=hero`);
+        const pageResponse = await axios.get(
+          `${baseURL}/api/programs-page?populate=hero`
+        );
         if (pageResponse.data && pageResponse.data.data) {
           setPageData(pageResponse.data.data.attributes);
         }
 
-        const programsResponse = await axios.get(`${baseURL}/api/programs?populate=Image,AccordionContent`);
+        const programsResponse = await axios.get(
+          `${baseURL}/api/programs?populate=Image,AccordionContent`
+        );
         if (programsResponse.data && programsResponse.data.data) {
           setProgramsData(programsResponse.data.data);
-          console.log("Programs Data:", programsResponse.data.data); // Log the data structure
+          console.log('Programs Data:', programsResponse.data.data); // Log the data structure
         }
       } catch (error) {
         console.error('Error fetching data', error);
@@ -63,17 +67,22 @@ const ProgramsPage = () => {
       >
         <VStack spacing={10} align="start">
           {programsData.map((program, index) => {
-            const { Title, Description, Image, AccordionContent } = program.attributes;
+            const { Title, Description, Image, AccordionContent } =
+              program.attributes;
             return (
               <ProgramCard
                 key={program.id}
                 title={Title}
                 description={Description}
                 image={`${baseURL}${Image.data.attributes.url}`}
-                accordionContent={AccordionContent ? AccordionContent.Content.map(item => ({
-                  title: AccordionContent.Title,
-                  content: item.children.map(child => child.text)
-                })) : []}
+                accordionContent={
+                  AccordionContent
+                    ? AccordionContent.Content.map((item) => ({
+                        title: AccordionContent.Title,
+                        content: item.children.map((child) => child.text),
+                      }))
+                    : []
+                }
                 isReversed={index % 2 === 1}
               />
             );

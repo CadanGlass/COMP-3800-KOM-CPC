@@ -41,7 +41,6 @@ const ResourcesPage = () => {
 
   console.log('Final data state:', resourcesPage);
 
-
   return (
     <>
       <Section

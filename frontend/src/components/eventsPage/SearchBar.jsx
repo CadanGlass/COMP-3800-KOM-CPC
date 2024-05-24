@@ -1,5 +1,5 @@
-import { Flex, IconButton, Input } from "@chakra-ui/react";
-import { SearchIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { Flex, IconButton, Input } from '@chakra-ui/react';
+import { SearchIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 const SearchBar = ({ borderColor }) => {
   return (

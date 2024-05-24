@@ -1,4 +1,4 @@
-import { Stack, Button } from "@chakra-ui/react";
+import { Stack, Button } from '@chakra-ui/react';
 
 const CategoryFilter = ({
   borderColor,
@@ -7,11 +7,11 @@ const CategoryFilter = ({
   stackDirection,
 }) => {
   const categories = [
-    "All",
-    "Speed Control",
-    "Neighbourhood Watch",
-    "Workshops",
-    "Education",
+    'All',
+    'Speed Control',
+    'Neighbourhood Watch',
+    'Workshops',
+    'Education',
   ];
   return (
     <Stack direction={stackDirection} spacing={4} overflowX="auto">

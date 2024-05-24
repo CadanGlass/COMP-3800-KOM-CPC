@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Link } from "@chakra-ui/react";
+import { Box, Heading, VStack, Link } from '@chakra-ui/react';
 
 const VolunteerSection = () => {
   return (
