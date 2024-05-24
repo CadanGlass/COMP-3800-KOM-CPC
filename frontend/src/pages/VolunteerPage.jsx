@@ -1,21 +1,12 @@
-import {
-  VStack,
-  useBreakpointValue,
-  Container,
-  useColorMode,
-} from '@chakra-ui/react';
+import { useColorMode } from '@chakra-ui/react';
 import VolunteeringActivitiesCard from '../components/volunteer/VolunteeringActivitiesCard';
 import WhyVolunteerCard from '../components/volunteer/WhyVolunteerCard';
 import FAQCard from '../components/volunteer/FAQ';
 import Hero from '../components/volunteer/Hero';
 import AboutCard from '../components/volunteer/About';
 import { Section, PageHeading } from '../components/DefaultComponents';
-import data from '../test_data/volunteer/volunteer_page.json';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
-const why = data.WhyVolunteer[0];
-const faq = data.FAQs[0];
 
 export default function VolunteerPage() {
   const baseURL = 'http://localhost:1337';
@@ -39,23 +30,20 @@ export default function VolunteerPage() {
           if (!response.data) {
             return;
           }
+
           const apiData = response.data.data.attributes;
-          setPageTitle(apiData.PageTitle);
           const hero = {
             Title: apiData.Hero.Title,
             Image: `${baseURL}${apiData.Hero.Banner.data.attributes.url}`,
             AlternativeText:
               apiData.Hero.Banner.data.attributes.alternativeText,
           };
-          setHeroData(hero);
           const about = {
             Description: apiData.AboutSection.Description,
             Image: `${baseURL}${apiData.AboutSection.Banner.data.attributes.url}`,
             AlternativeText:
               apiData.AboutSection.Banner.data.attributes.alternativeText,
           };
-          setAboutData(about);
-          setActivitiesCardData(apiData.ActivitiesCard);
           const whyVolunteer = {
             Info: apiData.WhyVolunteerCard.Info,
             Subpoint: apiData.WhyVolunteerCard.Subpoint,
@@ -63,6 +51,11 @@ export default function VolunteerPage() {
             AlternativeText:
               apiData.WhyVolunteerCard.Banner.data.attributes.alternativeText,
           };
+
+          setPageTitle(apiData.PageTitle);
+          setHeroData(hero);
+          setAboutData(about);
+          setActivitiesCardData(apiData.ActivitiesCard);
           setWhyVolunteerCardData(whyVolunteer);
           setFaqCardData(apiData.FAQCard);
           setLoading(false);
@@ -74,20 +67,22 @@ export default function VolunteerPage() {
 
     fetchData();
   }, []);
+
   if (loading) {
     return <></>;
   }
+
   return (
     <>
       <Section
         bg={getBackground('linear-gradient(to bottom, #1a202c, #2d3748)')}
       >
-        <PageHeading title={pageTitle} />
+        {pageTitle && <PageHeading title={pageTitle} />}
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}
       >
-        <Hero data={heroData} />
+        {heroData && <Hero data={heroData} />}
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #3c4a5e, #4a566e)')}
@@ -97,18 +92,21 @@ export default function VolunteerPage() {
       <Section
         bg={getBackground('linear-gradient(to bottom, #4a566e, #5b6b82)')}
       >
-        <VolunteeringActivitiesCard data={activitiesCardData} />
+        {activitiesCardData && (
+          <VolunteeringActivitiesCard data={activitiesCardData} />
+        )}
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #5b6b82, #6c7f96)')}
       >
-        <WhyVolunteerCard data={whyVolunteerCardData} />
+        {whyVolunteerCardData && (
+          <WhyVolunteerCard data={whyVolunteerCardData} />
+        )}
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #6c7f96, #8a9aad)')}
       >
-        {console.log(faqCardData)}
-        <FAQCard data={faqCardData} />
+        {faqCardData && <FAQCard data={faqCardData} />}
       </Section>
     </>
   );
