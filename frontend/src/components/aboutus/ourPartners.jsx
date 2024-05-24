@@ -50,7 +50,7 @@ const MissionCard = () => {
         </Box>
         {ourPartnersData.dataImage && (
           <Box flex={1} alignSelf={'center'}>
-            <Box as="section" bg="gray.100" py={4} borderRadius="lg" m="2rem">
+           
               <Box textAlign="center" mb={2}>
                 <Box display="flex" justifyContent="center">
                   <Image
@@ -63,7 +63,7 @@ const MissionCard = () => {
                   />
                 </Box>
               </Box>
-            </Box>
+           
           </Box>
         )}
       </Stack>

@@ -44,7 +44,6 @@ const OurStoryCard = () => {
       <Stack direction={stackDirection} spacing={stackSpacing}>
         {ourStoryData.dataImage && (
           <Box flex={1} alignSelf={'center'}>
-            <Box as="section" bg="gray.100" py={4} borderRadius="lg" m="2rem">
               <Box textAlign="center" mb={2}>
                 <Box display="flex" justifyContent="center">
                   <Image
@@ -57,7 +56,6 @@ const OurStoryCard = () => {
                   />
                 </Box>
               </Box>
-            </Box>
           </Box>
         )}
         <Box flex={1} alignSelf={'center'}>
