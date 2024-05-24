@@ -27,7 +27,8 @@ const CommunityPolicingCentresCard = ({ data }) => {
                   data.Logo.data[0].attributes.alternativeText ||
                   'Vancouver Police Department Logo'
                 }
-                boxSize={{ base: '150px', md: '200px' }}
+                h={{ base: '150px', md: '200px' }}
+                w={'auto'}
                 mx="auto"
               />
             )}
