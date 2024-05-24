@@ -5,7 +5,10 @@ import {
   useBreakpointValue,
   useColorModeValue,
   Heading,
+  Text,
+  Link,
 } from '@chakra-ui/react';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
@@ -88,4 +91,30 @@ const PageHeading = ({ title }) => {
   );
 };
 
-export { DefaultVStack, DefaultCard, Section, PageHeading };
+const DefaultBlocksRenderer = ({ content }) => {
+  return (
+    <BlocksRenderer
+      content={content}
+      blocks={{
+        paragraph: ({ children }) => <Text pb={4}>{children}</Text>,
+        link: ({ children, url }) => (
+          <Link href={url} color="teal.500">
+            {children}
+          </Link>
+        ),
+      }}
+      modifiers={{
+        bold: ({ children }) => <strong>{children}</strong>,
+        italic: ({ children }) => <span className="italic">{children}</span>,
+      }}
+    />
+  );
+};
+
+export {
+  DefaultVStack,
+  DefaultCard,
+  Section,
+  PageHeading,
+  DefaultBlocksRenderer,
+};

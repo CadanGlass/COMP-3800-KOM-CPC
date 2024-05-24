@@ -13,10 +13,9 @@ import { Section, PageHeading } from '../components/DefaultComponents';
 import data from '../test_data/volunteer/volunteer_page.json';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 const heroTitle = data.HeroTitle;
-const about = data.About.description;
+// const about = data.About.description;
 const activities = data.Activities[0];
 const why = data.WhyVolunteer[0];
 const faq = data.FAQs[0];
@@ -27,7 +26,13 @@ export default function VolunteerPage() {
   const getBackground = (darkGradient) =>
     colorMode === 'light' ? '#ffffff' : darkGradient;
 
-  const [volunteerData, setVolunteerData] = useState({});
+  const [pageTitle, setPageTitle] = useState('');
+  const [heroData, setHeroData] = useState({});
+  const [aboutData, setAboutData] = useState({});
+  const [activitiesCardData, setActivitiesCardData] = useState({});
+  const [whyVolunteerCardData, setWhyVolunteerCardData] = useState({});
+  const [faqCardData, setFaqCardData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +43,25 @@ export default function VolunteerPage() {
             return;
           }
           const apiData = response.data.data.attributes;
-          setVolunteerData(apiData);
+          setPageTitle(apiData.PageTitle);
+          const hero = {
+            Title: apiData.Hero.Title,
+            Image: `${baseURL}${apiData.Hero.Banner.data.attributes.url}`,
+            AlternativeText:
+              apiData.Hero.Banner.data.attributes.alternativeText,
+          };
+          setHeroData(hero);
+          const about = {
+            Description: apiData.AboutSection.Description,
+            Image: `${baseURL}${apiData.AboutSection.Banner.data.attributes.url}`,
+            AlternativeText:
+              apiData.AboutSection.Banner.data.attributes.alternativeText,
+          };
+          setAboutData(about);
+          setActivitiesCardData(apiData.ActivitiesCard);
+          setWhyVolunteerCardData(apiData.WhyVolunteerCard);
+          setFaqCardData(apiData.FAQCard);
+          setLoading(false);
         })
         .catch((error) => {
           console.error('Error fetching volunteer data:', error);
@@ -47,25 +70,26 @@ export default function VolunteerPage() {
 
     fetchData();
   }, []);
-
+  if (loading) {
+    return <></>;
+  }
   return (
     <>
       {/* <BlocksRenderer content={data} /> */}
-      {console.log(volunteerData)}
       <Section
         bg={getBackground('linear-gradient(to bottom, #1a202c, #2d3748)')}
       >
-        <PageHeading title="Volunteer with KOM CPC" />
+        <PageHeading title={pageTitle} />
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}
       >
-        <Hero title={heroTitle} />
+        <Hero data={heroData} />
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #3c4a5e, #4a566e)')}
       >
-        <AboutCard aboutData={about} />
+        {aboutData && <AboutCard data={aboutData} />}
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #4a566e, #5b6b82)')}

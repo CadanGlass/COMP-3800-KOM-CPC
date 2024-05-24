@@ -6,11 +6,12 @@ import {
   Image,
   GridItem,
   Flex,
+  AspectRatio,
 } from '@chakra-ui/react';
 import VolunteerNowButton from '../buttons/VolunteerNowButton';
 import { DefaultCard } from '../DefaultComponents';
 
-const Hero = ({ title }) => {
+const Hero = ({ data }) => {
   const gridGap = useBreakpointValue({ base: 8, l: 12, xl: 32 });
   const gridTemplateAreas = useBreakpointValue({
     base: `"title" "image" "button"`,
@@ -22,42 +23,49 @@ const Hero = ({ title }) => {
   });
   const headingTextAlign = useBreakpointValue({ base: 'center', xl: 'left' });
   const buttonJustify = useBreakpointValue({ base: 'center', xl: 'left' });
-
   return (
     <DefaultCard>
-      <Flex justify={'center'}>
-        <Grid
-          templateAreas={gridTemplateAreas}
-          templateColumns={gridTemplateColumns}
-          columnGap={gridGap}
-          rowGap={8}
-        >
-          <GridItem gridArea="title" alignSelf={'flex-end'}>
-            <Heading as="h3" size="lg" textAlign={headingTextAlign}>
-              {title}
-            </Heading>
-          </GridItem>
+      <Grid
+        templateAreas={gridTemplateAreas}
+        templateColumns={gridTemplateColumns}
+        columnGap={gridGap}
+        rowGap={8}
+        w={'100%'}
+      >
+        <GridItem gridArea="title" alignSelf={'flex-end'}>
+          <Heading as="h3" size="lg" textAlign={headingTextAlign}>
+            {data.Title}
+          </Heading>
+        </GridItem>
 
-          <GridItem gridArea="image" alignSelf="center">
-            <Box flex={1}>
-              <Image
-                src="https://via.placeholder.com/1000x300"
-                alt="test image"
-                fit="cover"
-                maxW="100%"
-                height="auto"
-              />
-            </Box>
-          </GridItem>
-          <GridItem
-            gridArea="button"
+        <GridItem gridArea="image" display={'flex'}>
+          <Box
+            flex={1}
+            w={'100%'}
+            maxW={'1000px'}
+            maxH={'500px'}
             alignSelf={'center'}
-            justifySelf={buttonJustify}
+            m={'auto'}
           >
-            <VolunteerNowButton />
-          </GridItem>
-        </Grid>
-      </Flex>
+            <AspectRatio ratio={2 / 1} w={'100%'}>
+              <Image
+                src={data.Image}
+                alt={data.AlternativeText}
+                fit="cover"
+                width={'100%'}
+                height={'100%'}
+              />
+            </AspectRatio>
+          </Box>
+        </GridItem>
+        <GridItem
+          gridArea="button"
+          alignSelf={'center'}
+          justifySelf={buttonJustify}
+        >
+          <VolunteerNowButton />
+        </GridItem>
+      </Grid>
     </DefaultCard>
   );
 };
