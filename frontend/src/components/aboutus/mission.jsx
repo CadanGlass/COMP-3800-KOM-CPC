@@ -135,6 +135,7 @@ const MissionCard = () => {
                     fit="cover"
                     maxW="100%"
                     height="auto"
+                    borderRadius={8}
                     onError={(e) => console.error('Image loading error:', e)} // Log any image loading errors
                   />
                 </Box>
