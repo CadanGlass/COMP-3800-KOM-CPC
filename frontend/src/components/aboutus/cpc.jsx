@@ -11,6 +11,7 @@ import {
   Th,
   Td,
 } from '@chakra-ui/react';
+
 import { DefaultCard } from '../DefaultComponents';
 
 const CPCCard = ({ CPCData }) => {
