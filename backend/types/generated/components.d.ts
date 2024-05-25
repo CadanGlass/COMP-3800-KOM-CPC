@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlocksAccordion extends Schema.Component {
+  collectionName: 'components_blocks_accordions';
+  info: {
+    displayName: 'Accordion';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    ContactData: Attribute.Component<'blocks.cpc-contact-data', true>;
+  };
+}
+
 export interface BlocksActivity extends Schema.Component {
   collectionName: 'components_blocks_activities';
   info: {
@@ -307,6 +319,7 @@ export interface VolunteerPageWhyVolunteerCard extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'blocks.accordion': BlocksAccordion;
       'blocks.activity': BlocksActivity;
       'blocks.button': BlocksButton;
       'blocks.cpc-contact-data': BlocksCpcContactData;

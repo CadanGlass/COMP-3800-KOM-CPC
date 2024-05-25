@@ -806,6 +806,7 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
     OurPartners: Attribute.Component<'blocks.title-description-image'>;
     CPCTitleDescription: Attribute.Component<'blocks.title-description'>;
     CPCContactData: Attribute.Component<'blocks.cpc-contact-data', true>;
+    AccordionCard: Attribute.Component<'blocks.accordion', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

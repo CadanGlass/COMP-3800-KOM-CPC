@@ -41,6 +41,11 @@
       "type": "component",
       "repeatable": true,
       "component": "blocks.cpc-contact-data"
+    },
+    "AccordionCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.accordion"
     }
   }
 }

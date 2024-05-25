@@ -86,3 +86,39 @@ export async function processStrapiData(endpointUrl, attributeName) {
   }
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// Utility function to process Strapi data and extract title, description, and list of data for Accordion Data
+export async function processStrapiDataList(endpointUrl, attributeName) {
+  try {
+    // Fetch the JSON data from the endpoint
+    const response = await fetch(endpointUrl);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const jsonData = await response.json();
+
+    // Access the Strapi data using the provided attribute name
+    const strapiData = jsonData.data[0].attributes[attributeName]; // Added comments for clarity
+
+    if (strapiData) {
+      // Assign the required attributes to variables
+      const dataTitle = strapiData.Title;
+      const dataDescription = strapiData.Description;
+      const dataAccordionData = strapiData.AccordionData;
+
+
+      // Return all three variables if data exists
+      return {  dataTitle, dataDescription,  dataAccordionData };
+    } else {
+      throw new Error(
+        `Attribute "${attributeName}" not found in the JSON data.`
+      );
+    }
+  } catch (error) {
+    console.error('Error fetching or processing data:', error);
+    return null;
+  }
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
