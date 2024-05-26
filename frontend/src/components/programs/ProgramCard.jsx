@@ -25,9 +25,9 @@ const ProgramCard = ({
   const handleLearnMoreClick = () => setIsExpanded(!isExpanded);
 
   const imageSrc = useBreakpointValue({
-    base: `${image}?w=480`, // Image URL with width parameter for mobile devices
-    md: `${image}?w=768`,  // Image URL with width parameter for tablets
-    lg: `${image}?w=1024`, // Image URL with width parameter for desktop
+    base: `${image}?w=480`,
+    md: `${image}?w=768`,
+    lg: `${image}?w=1024`,
   });
 
   const imageMaxHeight = useBreakpointValue({ base: '150px', md: '200px', lg: '300px' });

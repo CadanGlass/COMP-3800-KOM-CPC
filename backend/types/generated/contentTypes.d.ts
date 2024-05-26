@@ -939,7 +939,6 @@ export interface ApiProgramProgram extends Schema.CollectionType {
     Title: Attribute.String;
     Description: Attribute.Text;
     Image: Attribute.Media;
-    AccordionContent: Attribute.Component<'program-page.accordion-content'>;
     AccordionContents: Attribute.Component<
       'program-page.accordion-content',
       true

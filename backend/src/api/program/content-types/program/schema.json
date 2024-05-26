@@ -29,12 +29,6 @@
         "audios"
       ]
     },
-    "AccordionContent": {
-      "displayName": "AccordionContent",
-      "type": "component",
-      "repeatable": false,
-      "component": "program-page.accordion-content"
-    },
     "AccordionContents": {
       "type": "component",
       "repeatable": true,

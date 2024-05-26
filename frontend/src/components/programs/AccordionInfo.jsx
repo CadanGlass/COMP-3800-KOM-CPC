@@ -8,6 +8,7 @@ import {
   Box,
   Text,
 } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
 
 function AccordionInfo({ items }) {
   return (
@@ -34,5 +35,18 @@ function AccordionInfo({ items }) {
     </Accordion>
   );
 }
+
+AccordionInfo.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      content: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ).isRequired,
+};
+
+AccordionInfo.defaultProps = {
+  items: [],
+};
 
 export default AccordionInfo;

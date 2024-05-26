@@ -22,11 +22,10 @@ const ProgramsPage = () => {
         }
 
         const programsResponse = await axios.get(
-          `${baseURL}/api/programs?populate=Image,AccordionContent`
+          `${baseURL}/api/programs?populate=Image,AccordionContents`
         );
         if (programsResponse.data && programsResponse.data.data) {
           setProgramsData(programsResponse.data.data);
-          console.log('Programs Data:', programsResponse.data.data); // Log the data structure
         }
       } catch (error) {
         console.error('Error fetching data', error);
@@ -67,7 +66,7 @@ const ProgramsPage = () => {
       >
         <VStack spacing={10} align="start">
           {programsData.map((program, index) => {
-            const { Title, Description, Image, AccordionContent } =
+            const { Title, Description, Image, AccordionContents } =
               program.attributes;
             return (
               <ProgramCard
@@ -76,10 +75,14 @@ const ProgramsPage = () => {
                 description={Description}
                 image={`${baseURL}${Image.data.attributes.url}`}
                 accordionContent={
-                  AccordionContent
-                    ? AccordionContent.Content.map((item) => ({
-                        title: AccordionContent.Title,
-                        content: item.children.map((child) => child.text),
+                  AccordionContents
+                    ? AccordionContents.map((item) => ({
+                        title: item.Title,
+                        content: item.Content.map((contentItem) =>
+                          typeof contentItem === 'object'
+                            ? contentItem.children.map((child) => child.text).join('')
+                            : contentItem
+                        ),
                       }))
                     : []
                 }
