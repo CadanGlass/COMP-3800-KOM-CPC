@@ -15,9 +15,10 @@ const ProgramsPage = () => {
     const fetchData = async () => {
       try {
         const pageResponse = await axios.get(
-          `${baseURL}/api/programs-page?populate=hero`
+          `${baseURL}/api/programs-page`
         );
         if (pageResponse.data && pageResponse.data.data) {
+          console.log("Page Data:", pageResponse.data.data.attributes);
           setPageData(pageResponse.data.data.attributes);
         }
 
@@ -25,6 +26,7 @@ const ProgramsPage = () => {
           `${baseURL}/api/programs?populate=Image,AccordionContents`
         );
         if (programsResponse.data && programsResponse.data.data) {
+          console.log("Programs Data:", programsResponse.data.data);
           setProgramsData(programsResponse.data.data);
         }
       } catch (error) {
@@ -51,10 +53,11 @@ const ProgramsPage = () => {
           'linear-gradient(to bottom, #2d3748, #3c4a5e)'
         )}
       >
-        {pageData.hero && (
+        {pageData.Description && (
           <ProgramsHero
-            title={pageData.hero.title}
-            description={pageData.hero.description}
+            title={pageData.Title}
+            description={pageData.Description}
+            image={pageData.hero?.image?.data?.attributes?.url ? `${baseURL}${pageData.hero.image.data.attributes.url}` : 'https://via.placeholder.com/1000x300'}
           />
         )}
       </Section>
@@ -77,13 +80,13 @@ const ProgramsPage = () => {
                 accordionContent={
                   AccordionContents
                     ? AccordionContents.map((item) => ({
-                        title: item.Title,
-                        content: item.Content.map((contentItem) =>
-                          typeof contentItem === 'object'
-                            ? contentItem.children.map((child) => child.text).join('')
-                            : contentItem
-                        ),
-                      }))
+                      title: item.Title,
+                      content: item.Content.map((contentItem) =>
+                        typeof contentItem === 'object'
+                          ? contentItem.children.map((child) => child.text).join('')
+                          : contentItem
+                      ),
+                    }))
                     : []
                 }
                 isReversed={index % 2 === 1}

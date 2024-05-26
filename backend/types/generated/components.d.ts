@@ -158,10 +158,11 @@ export interface ProgramPageHero extends Schema.Component {
   collectionName: 'components_program_page_heroes';
   info: {
     displayName: 'Hero';
+    description: '';
   };
   attributes: {
-    Title: Attribute.String;
     Description: Attribute.Text;
+    Image: Attribute.Media;
   };
 }
 
