@@ -1,0 +1,60 @@
+.embla-events {
+  position: relative;
+  overflow: hidden;
+}
+
+.embla-events__viewport {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.embla-events__container {
+  display: flex;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.embla-events__slide {
+  position: relative;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 10px; /* Adjust the padding if needed */
+  box-sizing: border-box;
+}
+
+.embla-events__controls {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.embla-events__buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.embla-events__dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.embla-events__dot {
+  background: #ccc;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.embla-events__dot--selected {
+  background: #000;
+}

@@ -1,48 +1,24 @@
-import React, { useState } from 'react';
-import { Box, Flex, Text, IconButton, Image, Collapse } from '@chakra-ui/react';
-import { ChevronRightIcon, ChevronDownIcon } from '@chakra-ui/icons';
+import React from 'react';
+import { Box, Text, Image } from '@chakra-ui/react';
 
-const EventCard = ({ event, cardBg, textColor }) => {
-  const [showImage, setShowImage] = useState(false);
-
-  const toggleImage = () => setShowImage(!showImage);
-
+const EventCard = ({ event }) => {
   return (
     <Box
-      bg={cardBg}
-      p={4}
-      rounded="md"
+      p={5}
       shadow="md"
-      w="full"
-      _hover={{ shadow: 'xl' }}
+      borderWidth="1px"
+      borderRadius="md"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
     >
-      <Flex justify="space-between" align="center">
-        <Box>
-          <Text fontWeight="bold" color={textColor}>
-            {event.date}
-          </Text>
-          <Text fontSize="lg" fontWeight="bold" color={textColor}>
-            {event.name}
-          </Text>
-          <Text color={textColor}>
-            {event.price} · {event.time}
-          </Text>
-        </Box>
-        <IconButton
-          icon={showImage ? <ChevronDownIcon /> : <ChevronRightIcon />}
-          aria-label="View Event"
-          variant="ghost"
-          colorScheme="gray"
-          onClick={toggleImage}
-        />
-      </Flex>
-      <Collapse in={showImage} animateOpacity>
-        <Image
-          src="https://d1jyxxz9imt9yb.cloudfront.net/medialib/4023/image/s768x1300/chimp_thumbnail.jpg"
-          alt="Event Image"
-          mt={4}
-        />
-      </Collapse>
+      <Image src={event.image} alt={event.name} mb={4} />
+      <Text fontSize="xl" fontWeight="bold" textAlign="center">
+        {event.name}
+      </Text>
+      <Text mt={2} textAlign="center">
+        {event.description}
+      </Text>
     </Box>
   );
 };
