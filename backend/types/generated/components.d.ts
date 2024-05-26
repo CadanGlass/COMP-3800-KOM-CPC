@@ -162,7 +162,6 @@ export interface ProgramPageHero extends Schema.Component {
   };
   attributes: {
     Description: Attribute.Text;
-    Image: Attribute.Media;
   };
 }
 

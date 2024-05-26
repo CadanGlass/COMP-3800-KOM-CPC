@@ -3,24 +3,23 @@ import {
   Grid,
   Box,
   useBreakpointValue,
-  Image,
   GridItem,
   Flex,
   Text,
 } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 
-const ProgramsHero = ({ description, image }) => {
+const ProgramsHero = ({ title, description }) => {
   const gridGap = useBreakpointValue({ base: 8, l: 12, xl: 32 });
   const gridTemplateAreas = useBreakpointValue({
-    base: `"description" "image"`,
-    xl: `"description image"`,
+    base: `"description"`,
+    xl: `"description"`,
   });
   const gridTemplateColumns = useBreakpointValue({
     base: '1fr',
-    xl: '1fr 1fr',
+    xl: '1fr',
   });
-  const textAlign = useBreakpointValue({ base: 'center', xl: 'left' });
+  const textAlign = useBreakpointValue({ base: 'center', xl: 'center' });
 
   return (
     <DefaultCard>
@@ -33,18 +32,6 @@ const ProgramsHero = ({ description, image }) => {
         >
           <GridItem gridArea="description" alignSelf={'center'}>
             <Text textAlign={textAlign}>{description}</Text>
-          </GridItem>
-
-          <GridItem gridArea="image" alignSelf="center">
-            <Box flex={1}>
-              <Image
-                src={image} // Use the passed image prop
-                alt={description}
-                fit="cover"
-                maxW="100%"
-                height="auto"
-              />
-            </Box>
           </GridItem>
         </Grid>
       </Flex>
