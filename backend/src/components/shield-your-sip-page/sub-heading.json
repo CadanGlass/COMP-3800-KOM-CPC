@@ -1,24 +1,25 @@
 {
   "collectionName": "components_shield_your_sip_page_sub_headings",
   "info": {
-    "displayName": "SubHeading"
+    "displayName": "SubHeading",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "WhatIsSys": {
+    "SysSurvey": {
       "type": "component",
       "repeatable": false,
-      "component": "blocks.title-description"
+      "component": "shield-your-sip-page.text-block-description"
     },
     "SysTeam": {
       "type": "component",
       "repeatable": false,
-      "component": "blocks.title-description"
+      "component": "shield-your-sip-page.title-block-description-images"
     },
-    "SysSurvey": {
+    "WhatIsSys": {
       "type": "component",
       "repeatable": false,
-      "component": "blocks.title-description"
+      "component": "shield-your-sip-page.text-block-description"
     }
   }
 }

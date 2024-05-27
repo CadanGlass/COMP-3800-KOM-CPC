@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shield_your_sip_page_text_block_descriptions",
+  "info": {
+    "displayName": "Text BlockDescription"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    }
+  }
+}

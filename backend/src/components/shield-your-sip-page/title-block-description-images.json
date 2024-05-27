@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shield_your_sip_page_title_block_description_images",
+  "info": {
+    "displayName": "Title BlockDescription Images"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.url-logo"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    }
+  }
+}

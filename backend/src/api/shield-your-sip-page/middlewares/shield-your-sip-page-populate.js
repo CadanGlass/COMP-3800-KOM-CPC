@@ -14,6 +14,7 @@ const populate = {
       WhatIsSys: { populate: true },
       SysTeam: { populate: true },
       SysSurvey: { populate: true },
+      What: { populate: true },
     },
   },
   SysFaqCard: {

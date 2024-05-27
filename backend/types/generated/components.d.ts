@@ -254,11 +254,12 @@ export interface ShieldYourSipPageSubHeading extends Schema.Component {
   collectionName: 'components_shield_your_sip_page_sub_headings';
   info: {
     displayName: 'SubHeading';
+    description: '';
   };
   attributes: {
-    WhatIsSys: Attribute.Component<'blocks.title-description'>;
-    SysTeam: Attribute.Component<'blocks.title-description'>;
-    SysSurvey: Attribute.Component<'blocks.title-description'>;
+    SysSurvey: Attribute.Component<'shield-your-sip-page.text-block-description'>;
+    SysTeam: Attribute.Component<'shield-your-sip-page.title-block-description-images'>;
+    WhatIsSys: Attribute.Component<'shield-your-sip-page.text-block-description'>;
   };
 }
 
@@ -271,6 +272,31 @@ export interface ShieldYourSipPageSysFaq extends Schema.Component {
   attributes: {
     QuestionAnswer: Attribute.Component<'blocks.title-description', true>;
     Title: Attribute.String;
+  };
+}
+
+export interface ShieldYourSipPageTextBlockDescription
+  extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_text_block_descriptions';
+  info: {
+    displayName: 'Text BlockDescription';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Blocks;
+  };
+}
+
+export interface ShieldYourSipPageTitleBlockDescriptionImages
+  extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_title_block_description_images';
+  info: {
+    displayName: 'Title BlockDescription Images';
+  };
+  attributes: {
+    logo: Attribute.Component<'blocks.url-logo', true>;
+    Title: Attribute.String;
+    Description: Attribute.Blocks;
   };
 }
 
@@ -376,6 +402,8 @@ declare module '@strapi/types' {
       'resources-page.who-to-call-card': ResourcesPageWhoToCallCard;
       'shield-your-sip-page.sub-heading': ShieldYourSipPageSubHeading;
       'shield-your-sip-page.sys-faq': ShieldYourSipPageSysFaq;
+      'shield-your-sip-page.text-block-description': ShieldYourSipPageTextBlockDescription;
+      'shield-your-sip-page.title-block-description-images': ShieldYourSipPageTitleBlockDescriptionImages;
       'volunteer-page.about-section': VolunteerPageAboutSection;
       'volunteer-page.activities-card': VolunteerPageActivitiesCard;
       'volunteer-page.dropdown-data': VolunteerPageDropdownData;
