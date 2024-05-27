@@ -143,6 +143,39 @@ export interface HomePageWhoWeAreSection extends Schema.Component {
   };
 }
 
+export interface HowCanIHelpPageHelpCard extends Schema.Component {
+  collectionName: 'components_how_can_i_help_page_help_cards';
+  info: {
+    displayName: 'helpCard';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+  };
+}
+
+export interface HowCanIHelpPageHowCanIhelpPage extends Schema.Component {
+  collectionName: 'components_how_can_i_help_page_how_can_ihelp_pages';
+  info: {
+    displayName: 'HowCanIhelpPage';
+  };
+  attributes: {
+    helpCard: Attribute.Component<'how-can-i-help-page.help-card'>;
+    supportUsCard: Attribute.Component<'how-can-i-help-page.support-us-card'>;
+  };
+}
+
+export interface HowCanIHelpPageSupportUsCard extends Schema.Component {
+  collectionName: 'components_how_can_i_help_page_support_us_cards';
+  info: {
+    displayName: 'supportUsCard';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+  };
+}
+
 export interface ProgramPageAccordionContent extends Schema.Component {
   collectionName: 'components_program_page_accordion_contents';
   info: {
@@ -330,6 +363,9 @@ declare module '@strapi/types' {
       'blocks.volunteer-card': BlocksVolunteerCard;
       'contact-page.contact-info': ContactPageContactInfo;
       'home-page.who-we-are-section': HomePageWhoWeAreSection;
+      'how-can-i-help-page.help-card': HowCanIHelpPageHelpCard;
+      'how-can-i-help-page.how-can-ihelp-page': HowCanIHelpPageHowCanIhelpPage;
+      'how-can-i-help-page.support-us-card': HowCanIHelpPageSupportUsCard;
       'program-page.accordion-content': ProgramPageAccordionContent;
       'program-page.hero': ProgramPageHero;
       'resources-page.community-policing-card': ResourcesPageCommunityPolicingCard;

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_how_can_i_help_page_how_can_ihelp_pages",
+  "info": {
+    "displayName": "HowCanIhelpPage"
+  },
+  "options": {},
+  "attributes": {
+    "helpCard": {
+      "displayName": "helpCard",
+      "type": "component",
+      "repeatable": false,
+      "component": "how-can-i-help-page.help-card"
+    },
+    "supportUsCard": {
+      "displayName": "supportUsCard",
+      "type": "component",
+      "repeatable": false,
+      "component": "how-can-i-help-page.support-us-card"
+    }
+  }
+}

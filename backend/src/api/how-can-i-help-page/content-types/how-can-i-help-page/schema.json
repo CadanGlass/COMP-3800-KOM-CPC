@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "how_can_i_help_pages",
+  "info": {
+    "singularName": "how-can-i-help-page",
+    "pluralName": "how-can-i-help-pages",
+    "displayName": "HowCanIHelpPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HowCanIHelpPage": {
+      "displayName": "HowCanIhelpPage",
+      "type": "component",
+      "repeatable": false,
+      "component": "how-can-i-help-page.how-can-ihelp-page"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

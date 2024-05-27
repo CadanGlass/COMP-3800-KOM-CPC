@@ -958,6 +958,38 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
+export interface ApiHowCanIHelpPageHowCanIHelpPage extends Schema.SingleType {
+  collectionName: 'how_can_i_help_pages';
+  info: {
+    singularName: 'how-can-i-help-page';
+    pluralName: 'how-can-i-help-pages';
+    displayName: 'HowCanIHelpPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HowCanIHelpPage: Attribute.Component<'how-can-i-help-page.how-can-ihelp-page'>;
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::how-can-i-help-page.how-can-i-help-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::how-can-i-help-page.how-can-i-help-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNewsLetterNewsLetter extends Schema.SingleType {
   collectionName: 'news_letters';
   info: {
@@ -1213,6 +1245,7 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::how-can-i-help-page.how-can-i-help-page': ApiHowCanIHelpPageHowCanIHelpPage;
       'api::news-letter.news-letter': ApiNewsLetterNewsLetter;
       'api::partner.partner': ApiPartnerPartner;
       'api::program.program': ApiProgramProgram;

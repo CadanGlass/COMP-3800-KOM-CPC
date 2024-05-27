@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_how_can_i_help_page_help_cards",
+  "info": {
+    "displayName": "helpCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
