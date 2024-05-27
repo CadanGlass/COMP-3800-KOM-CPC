@@ -158,10 +158,12 @@ export interface HowCanIHelpPageHowCanIhelpPage extends Schema.Component {
   collectionName: 'components_how_can_i_help_page_how_can_ihelp_pages';
   info: {
     displayName: 'HowCanIhelpPage';
+    description: '';
   };
   attributes: {
     helpCard: Attribute.Component<'how-can-i-help-page.help-card'>;
     supportUsCard: Attribute.Component<'how-can-i-help-page.support-us-card'>;
+    title: Attribute.String;
   };
 }
 

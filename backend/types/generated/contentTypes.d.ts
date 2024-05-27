@@ -971,7 +971,6 @@ export interface ApiHowCanIHelpPageHowCanIHelpPage extends Schema.SingleType {
   };
   attributes: {
     HowCanIHelpPage: Attribute.Component<'how-can-i-help-page.how-can-ihelp-page'>;
-    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

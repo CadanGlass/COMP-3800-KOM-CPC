@@ -1,7 +1,8 @@
 {
   "collectionName": "components_how_can_i_help_page_how_can_ihelp_pages",
   "info": {
-    "displayName": "HowCanIhelpPage"
+    "displayName": "HowCanIhelpPage",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,6 +17,9 @@
       "type": "component",
       "repeatable": false,
       "component": "how-can-i-help-page.support-us-card"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

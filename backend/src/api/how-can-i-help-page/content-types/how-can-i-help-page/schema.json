@@ -17,9 +17,6 @@
       "type": "component",
       "repeatable": false,
       "component": "how-can-i-help-page.how-can-ihelp-page"
-    },
-    "title": {
-      "type": "string"
     }
   }
 }
