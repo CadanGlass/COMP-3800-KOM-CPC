@@ -26,11 +26,11 @@ const DefaultCard = ({
   internalPaddingY = 6,
   borderRadius = 'xl',
 }) => {
-  const backgroundColor = useColorModeValue('#ffffff', 'gray.700');
+  const backgroundColor = useColorModeValue('#ffffff', 'gray.800');
   const color = useColorModeValue('black', 'white');
   const boxShadow = useColorModeValue(
     '0px 4px 20px rgba(0, 0, 0, 0.1)',
-    '0px 4px 20px rgba(0, 0, 0, 0.5)'
+    '0px 4px 20px rgba(0, 0, 0, 0.7)'
   );
   const borderColor = useColorModeValue('gray.200', 'gray.600');
 
@@ -64,15 +64,10 @@ const DefaultCard = ({
 };
 
 const Section = ({ bg, children, ...props }) => {
-  const backgroundColor = useColorModeValue(
-    bg ? bg : 'white',
-    bg ? bg : 'gray.700'
-  );
-
   return (
     <Box
       width="100%"
-      bg={backgroundColor}
+      bg={bg}
       px={{ base: 4, lg: 12 }}
       py={{ base: 4, md: 6 }}
       {...props}
@@ -85,7 +80,7 @@ const Section = ({ bg, children, ...props }) => {
 };
 
 const PageHeading = ({ title }) => {
-  const headingColor = useColorModeValue('black', 'gray.200');
+  const headingColor = useColorModeValue('black', 'white');
 
   return (
     <Box textAlign="center" py={8}>
