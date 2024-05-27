@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_letters",
+  "info": {
+    "singularName": "news-letter",
+    "pluralName": "news-letters",
+    "displayName": "NewsLetter"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "newsLetterImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
