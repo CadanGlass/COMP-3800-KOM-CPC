@@ -19,11 +19,15 @@ import {
   Button,
   Image,
   Text,
+  IconButton,
 } from '@chakra-ui/react';
-import { InfoOutlineIcon } from '@chakra-ui/icons';
+import {
+  InfoOutlineIcon,
+  ArrowBackIcon,
+  ArrowForwardIcon,
+} from '@chakra-ui/icons';
 import axios from 'axios';
 
-import EventsCarousel from '../components/eventsPage/EventCarousel';
 import InstagramFeed from '../components/eventsPage/InstagramFeed';
 import {
   Section,
@@ -45,6 +49,7 @@ const NewsEventsPage = () => {
   const stackDirection = useBreakpointValue({ base: 'column', md: 'row' });
 
   const [events, setEvents] = useState([]);
+  const [currentEventIndex, setCurrentEventIndex] = useState(0);
   const [newsletterImage, setNewsletterImage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -115,6 +120,18 @@ const NewsEventsPage = () => {
     setIsModalOpen(false);
   };
 
+  const handlePrevEvent = () => {
+    setCurrentEventIndex(
+      (prevIndex) => (prevIndex - 1 + events.length) % events.length
+    );
+  };
+
+  const handleNextEvent = () => {
+    setCurrentEventIndex((prevIndex) => (prevIndex + 1) % events.length);
+  };
+
+  const currentEvent = events[currentEventIndex];
+
   return (
     <>
       <Section
@@ -140,7 +157,34 @@ const NewsEventsPage = () => {
                   <Heading as="h2" size="lg" textAlign="center" mb={4}>
                     Upcoming Events
                   </Heading>
-                  <EventsCarousel events={events} />
+                  {currentEvent && (
+                    <Box textAlign="center">
+                      <Image
+                        src={currentEvent.image}
+                        alt={currentEvent.name}
+                        mb={4}
+                      />
+                      <Heading as="h3" size="md">
+                        {currentEvent.name}
+                      </Heading>
+                      <Text>{currentEvent.date}</Text>
+                      <Text>{currentEvent.description}</Text>
+                    </Box>
+                  )}
+                  <HStack justify="space-between" mt={4}>
+                    <IconButton
+                      icon={<ArrowBackIcon />}
+                      onClick={handlePrevEvent}
+                      aria-label="Previous event"
+                      isDisabled={events.length <= 1}
+                    />
+                    <IconButton
+                      icon={<ArrowForwardIcon />}
+                      onClick={handleNextEvent}
+                      aria-label="Next event"
+                      isDisabled={events.length <= 1}
+                    />
+                  </HStack>
                 </Box>
               </DefaultCard>
             </VStack>
@@ -198,8 +242,8 @@ const NewsEventsPage = () => {
               <Image
                 src={newsletterImage}
                 alt="Newsletter"
-                width="150%" // Adjust zoom level
-                transform="scale(1.2)" // Adjust zoom level
+                width="100%" // Adjust zoom level
+                transform="scale(1.5)" // Adjust zoom level
                 transformOrigin="center"
               />
             </Box>
