@@ -70,11 +70,14 @@ const NewsEventsPage = () => {
 
             return {
               id: event.id,
-              date: new Date(event.attributes.createdAt).toLocaleDateString(
+              date: new Date(event.attributes.dateAndTime).toLocaleDateString(
                 'en-US',
                 {
                   month: 'short',
                   day: 'numeric',
+                  year: 'numeric',
+                  hour: 'numeric',
+                  minute: 'numeric',
                 }
               ),
               name: event.attributes.eventTitle,
@@ -110,7 +113,7 @@ const NewsEventsPage = () => {
     fetchNewsletter();
   }, []);
 
-  const cardMinHeight = '400px'; // Set the minimum height for both sections
+  const cardMinHeight = '500px'; // Increase the minimum height for both sections
 
   const handleImageClick = () => {
     setIsModalOpen(true);
@@ -153,7 +156,7 @@ const NewsEventsPage = () => {
             {/* Events Section */}
             <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
               <DefaultCard height="100%" minHeight={cardMinHeight}>
-                <Box width="100%">
+                <Box width="100%" p={6}>
                   <Heading as="h2" size="lg" textAlign="center" mb={4}>
                     Upcoming Events
                   </Heading>
@@ -167,7 +170,7 @@ const NewsEventsPage = () => {
                       <Heading as="h3" size="md">
                         {currentEvent.name}
                       </Heading>
-                      <Text>{currentEvent.date}</Text>
+                      <Text mb={4}>{currentEvent.date}</Text>
                       <Text>{currentEvent.description}</Text>
                     </Box>
                   )}
