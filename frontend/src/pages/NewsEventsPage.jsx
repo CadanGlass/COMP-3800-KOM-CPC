@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   VStack,
@@ -9,7 +9,19 @@ import {
   useColorModeValue,
   useBreakpointValue,
   Container,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  Image,
+  Text,
 } from '@chakra-ui/react';
+import { InfoOutlineIcon } from '@chakra-ui/icons';
+import axios from 'axios';
 
 import EventsCarousel from '../components/eventsPage/EventCarousel';
 import InstagramFeed from '../components/eventsPage/InstagramFeed';
@@ -19,6 +31,8 @@ import {
   PageHeading,
 } from '../components/DefaultComponents';
 import NewsletterCard from '../components/eventsPage/NewsLetterCard';
+
+const baseURL = 'http://localhost:1337';
 
 const NewsEventsPage = () => {
   const { colorMode } = useColorMode();
@@ -30,38 +44,76 @@ const NewsEventsPage = () => {
   const borderColor = useColorModeValue('gray.200', 'gray.600');
   const stackDirection = useBreakpointValue({ base: 'column', md: 'row' });
 
-  const events = [
-    {
-      date: 'OCT 24',
-      name: 'Speed Control',
-      description:
-        'Learn the importance of speed control and safe driving habits.',
-      image:
-        'https://d1jyxxz9imt9yb.cloudfront.net/medialib/4023/image/s768x1300/chimp_thumbnail.jpg',
-    },
-    {
-      date: 'OCT 27',
-      name: 'Community Outreach',
-      description:
-        'Join us for a community outreach event to connect and support each other.',
-      image:
-        'https://d1jyxxz9imt9yb.cloudfront.net/medialib/4023/image/s768x1300/chimp_thumbnail.jpg',
-    },
-    {
-      date: 'OCT 30',
-      name: 'Networking with VPD',
-      description:
-        'Network with the Vancouver Police Department and learn about safety initiatives.',
-      image:
-        'https://d1jyxxz9imt9yb.cloudfront.net/medialib/4023/image/s768x1300/chimp_thumbnail.jpg',
-    },
-  ];
+  const [events, setEvents] = useState([]);
+  const [newsletterImage, setNewsletterImage] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const currentNewsletter = {
-    image: 'https://example.com/newsletter-image.jpg', // Replace with actual newsletter image URL
-  };
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get(
+          `${baseURL}/api/events?populate=eventImage`
+        );
+        if (response.data && response.data.data) {
+          const eventsData = response.data.data.map((event) => {
+            const eventImageUrl = event.attributes.eventImage?.data?.attributes
+              ?.url
+              ? `${baseURL}${event.attributes.eventImage.data.attributes.url}`
+              : '';
+
+            console.log('Event Image URL:', eventImageUrl); // Debug log for event image URL
+
+            return {
+              id: event.id,
+              date: new Date(event.attributes.createdAt).toLocaleDateString(
+                'en-US',
+                {
+                  month: 'short',
+                  day: 'numeric',
+                }
+              ),
+              name: event.attributes.eventTitle,
+              description: event.attributes.eventDescription,
+              image: eventImageUrl,
+            };
+          });
+          setEvents(eventsData);
+        }
+      } catch (error) {
+        console.error('Error fetching events data', error);
+      }
+    };
+
+    const fetchNewsletter = async () => {
+      try {
+        const response = await axios.get(
+          `${baseURL}/api/news-letter?populate=newsLetterImage`
+        );
+        if (response.data && response.data.data) {
+          const imageUrl = response.data.data.attributes.newsLetterImage?.data
+            ?.attributes?.url
+            ? `${baseURL}${response.data.data.attributes.newsLetterImage.data.attributes.url}`
+            : '';
+          setNewsletterImage(imageUrl);
+        }
+      } catch (error) {
+        console.error('Error fetching newsletter image', error);
+      }
+    };
+
+    fetchEvents();
+    fetchNewsletter();
+  }, []);
 
   const cardMinHeight = '400px'; // Set the minimum height for both sections
+
+  const handleImageClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <>
@@ -96,11 +148,33 @@ const NewsEventsPage = () => {
             {/* Newsletter Section */}
             <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
               <DefaultCard height="100%" minHeight={cardMinHeight}>
-                <Box width="100%" textAlign="center">
+                <Box width="100%" textAlign="center" position="relative">
                   <Heading as="h2" size="lg" textAlign="center" mb={4}>
                     Current Newsletter
                   </Heading>
-                  <NewsletterCard image={currentNewsletter.image} />
+                  <Box
+                    cursor="pointer"
+                    onClick={handleImageClick}
+                    position="relative"
+                  >
+                    <NewsletterCard image={newsletterImage} />
+                    <Box
+                      position="absolute"
+                      top="10px"
+                      left="50%"
+                      transform="translateX(-50%)"
+                      bg="rgba(0, 0, 0, 0.6)"
+                      color="white"
+                      px={3}
+                      py={1}
+                      borderRadius="md"
+                      display="flex"
+                      alignItems="center"
+                    >
+                      <InfoOutlineIcon mr={2} />
+                      <Text fontSize="sm">Click to expand</Text>
+                    </Box>
+                  </Box>
                 </Box>
               </DefaultCard>
             </VStack>
@@ -112,6 +186,31 @@ const NewsEventsPage = () => {
           </Box>
         </Container>
       </Section>
+
+      {/* Modal for Newsletter Image */}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} size="6xl">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Newsletter Image</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box maxW="full" overflow="auto">
+              <Image
+                src={newsletterImage}
+                alt="Newsletter"
+                width="150%" // Adjust zoom level
+                transform="scale(1.2)" // Adjust zoom level
+                transformOrigin="center"
+              />
+            </Box>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" onClick={handleCloseModal}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };

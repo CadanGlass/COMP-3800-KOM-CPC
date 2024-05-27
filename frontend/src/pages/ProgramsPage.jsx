@@ -70,6 +70,8 @@ const ProgramsPage = () => {
               ? `${baseURL}${Image.data.attributes.url}`
               : '';
 
+            console.log('Program Image URL:', programImageUrl); // Debug log for program image URL
+
             return (
               <ProgramCard
                 key={program.id}
