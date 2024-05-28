@@ -14,7 +14,11 @@ const SupportUsCard = ({ title, description }) => {
       <Stack spacing={4} align="left">
         <Heading size="md">{title}</Heading>
         <Text>{description}</Text>
-        <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          spacing={4}
+          justify="center"
+        >
           <DonateButton />
           <ContactUsButton />
         </Stack>
