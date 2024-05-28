@@ -24,7 +24,7 @@ const ContactSection = () => {
         </HStack>
         <HStack spacing={1} justifyContent={alignment}>
           <FaEnvelope />
-          <Text fontSize="sm">email@email.com</Text>
+          <Text fontSize="sm">shieldyoursip@komcpc.com</Text>
         </HStack>
       </VStack>
     </Box>
