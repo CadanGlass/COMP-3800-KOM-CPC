@@ -8,8 +8,8 @@ const HowCanYouHelpCard = ({ title, description }) => {
       internalPaddingX={{ base: 4, md: 8, xl: 16 }}
       internalPaddingY={8}
     >
-      <Stack spacing={8} textAlign="center">
-        <Box>
+      <Stack spacing={8}>
+        <Box textAlign="left">
           <Heading size="md" mb={4}>
             {title}
           </Heading>

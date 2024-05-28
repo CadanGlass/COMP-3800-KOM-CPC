@@ -11,7 +11,7 @@ const SupportUsCard = ({ title, description }) => {
       h="400px" // Taller height
       mx="auto" // Center the card
     >
-      <Stack spacing={4} align="center">
+      <Stack spacing={4} align="left">
         <Heading size="md">{title}</Heading>
         <Text>{description}</Text>
         <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
