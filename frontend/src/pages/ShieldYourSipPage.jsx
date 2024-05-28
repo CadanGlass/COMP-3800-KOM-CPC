@@ -126,7 +126,7 @@ export default function ShieldYourSipPage() {
       return apiData.SubHeading[key];
     });
 
-  console.log(subHeading);
+  console.log({ subHeading });
 
   return (
     <>
@@ -158,7 +158,7 @@ export default function ShieldYourSipPage() {
           )}
         </Section>
 
-        {/* <Section>{subHeading && <SysInfoCard data={subHeading} />}</Section> */}
+        <Section>{subHeading && <SysInfoCard data={subHeading} />}</Section>
 
         <Section>
           <SysAwarenessCard data={data.awareness} />
