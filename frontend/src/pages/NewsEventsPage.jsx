@@ -162,11 +162,13 @@ const NewsEventsPage = () => {
                   </Heading>
                   {currentEvent && (
                     <Box textAlign="center">
-                      <Image
-                        src={currentEvent.image}
-                        alt={currentEvent.name}
-                        mb={4}
-                      />
+                      <Box display="flex" justifyContent="center" alignItems="center">
+                        <Image
+                          src={currentEvent.image}
+                          alt={currentEvent.name}
+                          mb={4}
+                        />
+                      </Box>
                       <Heading as="h3" size="md">
                         {currentEvent.name}
                       </Heading>
