@@ -1,32 +1,39 @@
+import React from 'react';
 import {
-  Card,
+  Box,
+  VStack,
   Heading,
-  Stack,
-  Button,
   Text,
   Image,
+  Button,
   AspectRatio,
 } from '@chakra-ui/react';
+import { DefaultCard } from '../DefaultComponents';
 
-export default function EventCard({ name, date, time, price, image }) {
+export default function EventCard({ name, date, image }) {
   return (
-    <Card direction={'row'} overflow="hidden" variant="outline">
-      {image && (
-        <AspectRatio ratio={3 / 4} minW={36}>
-          <Image objectFit="cover" src={image} alt="image" />
-        </AspectRatio>
-      )}
-
-      <Stack p={4} spacing={4} align="start">
-        <Heading size="md">{name}</Heading>
-
-        <Text>
-          {date} at {time}
+    <DefaultCard p={8} minHeight="500px">
+      <Box textAlign="center">
+        <Box display="flex" justifyContent="center" alignItems="center" mb={4}>
+          {image && (
+            <AspectRatio maxH="300px" w="full" ratio={4 / 3}>
+              <Image
+                objectFit="cover"
+                src={image}
+                alt={name}
+                borderRadius="md"
+              />
+            </AspectRatio>
+          )}
+        </Box>
+        <Heading as="h3" size="lg" mb={2}>
+          {name}
+        </Heading>
+        <Text fontSize="lg" mb={2}>
+          {date}
         </Text>
-        <Text>{price}</Text>
-
         <Button>Learn More</Button>
-      </Stack>
-    </Card>
+      </Box>
+    </DefaultCard>
   );
 }

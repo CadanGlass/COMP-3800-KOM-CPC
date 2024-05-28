@@ -1,6 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Text, VStack, Container, Box, useColorMode } from '@chakra-ui/react';
-import { Section } from '../components/DefaultComponents';
+import {
+  Text,
+  Heading,
+  VStack,
+  HStack,
+  Container,
+  Box,
+  useColorMode,
+  Divider,
+  useColorModeValue,
+  useBreakpointValue,
+  Button,
+  Image,
+  IconButton,
+} from '@chakra-ui/react';
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+
+import { Section, DefaultCard } from '../components/DefaultComponents';
 import Banner from '../components/home/Banner';
 import PartnershipBanner from '../components/home/PartnershipBanner';
 import CallPoliceBanner from '../components/home/CallPoliceBanner';
@@ -8,7 +24,7 @@ import WhoWeAreCard from '../components/home/WhoWeAreCard';
 import Programs from '../components/home/Programs';
 import Events from '../components/home/Events';
 import axios from 'axios';
-
+import EventCard from '../components/home/EventCard';
 const baseURL = 'http://localhost:1337';
 
 export default function HomePage() {
@@ -19,15 +35,14 @@ export default function HomePage() {
   const [introduction, setIntroduction] = useState({});
   const [bannerImage, setBannerImage] = useState({});
   const [sponsors, setSponsors] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [currentEventIndex, setCurrentEventIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
-      axios
-        .get(`${baseURL}/api/home-page`)
-        .then((response) => {
-          if (!response.data) {
-            return;
-          }
+      try {
+        const response = await axios.get(`${baseURL}/api/home-page`);
+        if (response.data) {
           const apiData = response.data.data.attributes;
           const bannerData = apiData.BannerImage.data.attributes;
 
@@ -40,25 +55,69 @@ export default function HomePage() {
           setIntroduction(introductionData);
 
           const sponsorData = apiData.Sponsors;
-          const sponsorList = [];
-          sponsorData.map((sponsor) => {
-            sponsorList.push({
-              name: sponsor.Name,
-              url: sponsor.Url,
-              logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
-              alternativeText: sponsor.Logo.data.attributes.alternativeText,
-            });
-          });
+          const sponsorList = sponsorData.map((sponsor) => ({
+            name: sponsor.Name,
+            url: sponsor.Url,
+            logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
+            alternativeText: sponsor.Logo.data.attributes.alternativeText,
+          }));
           setSponsors(sponsorList);
-        })
+        }
+      } catch (error) {
+        console.error('Error fetching home page data:', error);
+      }
+    };
 
-        .catch((error) => {
-          console.error('Error fetching home page data:', error);
-        });
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get(
+          `${baseURL}/api/events?populate=eventImage`
+        );
+        if (response.data && response.data.data) {
+          const eventsData = response.data.data.map((event) => {
+            const eventImageUrl = event.attributes.eventImage?.data[0]
+              ?.attributes?.url
+              ? `${baseURL}${event.attributes.eventImage.data[0].attributes.url}`
+              : '';
+
+            return {
+              id: event.id,
+              date: new Date(event.attributes.dateAndTime).toLocaleDateString(
+                'en-US',
+                {
+                  month: 'short',
+                  day: 'numeric',
+                  year: 'numeric',
+                  hour: 'numeric',
+                  minute: 'numeric',
+                }
+              ),
+              name: event.attributes.eventTitle,
+              image: eventImageUrl,
+            };
+          });
+          setEvents(eventsData);
+        }
+      } catch (error) {
+        console.error('Error fetching events data:', error);
+      }
     };
 
     fetchData();
+    fetchEvents();
   }, []);
+
+  const handlePrevEvent = () => {
+    setCurrentEventIndex(
+      (prevIndex) => (prevIndex - 1 + events.length) % events.length
+    );
+  };
+
+  const handleNextEvent = () => {
+    setCurrentEventIndex((prevIndex) => (prevIndex + 1) % events.length);
+  };
+
+  const currentEvent = events[currentEventIndex];
 
   return (
     <>
@@ -86,7 +145,41 @@ export default function HomePage() {
       <Section
         bg={getBackground('linear-gradient(to bottom, #5b6b7e, #4a566e)')}
       >
-        <Events />
+        <VStack spacing={8}>
+          <DefaultCard p={8} minHeight="600px">
+            <Box width="100%">
+              <Heading as="h2" size="lg" textAlign="center" mb={6}>
+                Upcoming Events
+              </Heading>
+              {currentEvent && (
+                <EventCard
+                  name={currentEvent.name}
+                  date={currentEvent.date}
+                  image={currentEvent.image}
+                />
+              )}
+              <HStack justify="space-between" mt={6}>
+                <IconButton
+                  icon={<ArrowBackIcon />}
+                  onClick={handlePrevEvent}
+                  aria-label="Previous event"
+                  isDisabled={events.length <= 1}
+                />
+                <IconButton
+                  icon={<ArrowForwardIcon />}
+                  onClick={handleNextEvent}
+                  aria-label="Next event"
+                  isDisabled={events.length <= 1}
+                />
+              </HStack>
+            </Box>
+          </DefaultCard>
+          <Divider
+            orientation="horizontal"
+            borderColor={useColorModeValue('gray.200', 'gray.600')}
+            my={4}
+          />
+        </VStack>
       </Section>
     </>
   );
