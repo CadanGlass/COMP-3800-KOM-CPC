@@ -13,7 +13,7 @@ export default function PartnerCard({ data }) {
   const cardBg = useColorModeValue('#ffffff', '#1A202C');
   const textColor = useColorModeValue('gray.800', 'white');
   return (
-    <Link href={data.url}>
+    <Link href={data.url} isExternal>
       <Card
         direction={'column'}
         overflow="hidden"
