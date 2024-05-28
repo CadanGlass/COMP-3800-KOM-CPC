@@ -127,8 +127,6 @@ export default function ShieldYourSipPage() {
       return apiData.SubHeading[key];
     });
 
-  console.log({ subHeading });
-
   return (
     <>
       <VStack

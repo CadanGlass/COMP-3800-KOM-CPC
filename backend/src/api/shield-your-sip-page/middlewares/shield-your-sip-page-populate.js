@@ -23,6 +23,11 @@ const populate = {
       QuestionAnswer: { populate: true },
     },
   },
+  SponsorsAndSupport: {
+    populate: {
+      Sponsor: { populate: { Logo: { populate: true } } },
+    },
+  },
 };
 
 module.exports = (config, { strapi }) => {
