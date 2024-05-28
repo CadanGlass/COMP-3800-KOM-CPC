@@ -12,9 +12,10 @@ const populate = {
   SubHeading: {
     populate: {
       WhatIsSys: { populate: true },
-      SysTeam: { populate: true },
+      SysTeam: {
+        populate: { logo: { populate: { Logo: { populate: true } } } },
+      },
       SysSurvey: { populate: true },
-      What: { populate: true },
     },
   },
   SysFaqCard: {

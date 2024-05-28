@@ -110,7 +110,6 @@ export default function ShieldYourSipPage() {
   const headerInfo = apiData.Header.HeaderInfo;
   const logo = `${baseURL}${apiData.Logo.data.attributes.url}`;
   const header_image = `${baseURL}${headerInfo.Image.data.attributes.url}`;
-  console.log(apiData);
 
   const GetYourShieldBtn = SysButton(
     apiData.Header.FirstButton.ButtonLabel,
@@ -126,6 +125,8 @@ export default function ShieldYourSipPage() {
     .map((key) => {
       return apiData.SubHeading[key];
     });
+
+  console.log(subHeading);
 
   return (
     <>
