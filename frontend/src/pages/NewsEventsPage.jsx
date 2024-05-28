@@ -61,9 +61,9 @@ const NewsEventsPage = () => {
         );
         if (response.data && response.data.data) {
           const eventsData = response.data.data.map((event) => {
-            const eventImageUrl = event.attributes.eventImage?.data?.attributes
+            const eventImageUrl = event.attributes.eventImage?.data[0]?.attributes
               ?.url
-              ? `${baseURL}${event.attributes.eventImage.data.attributes.url}`
+              ? `${baseURL}${event.attributes.eventImage.data[0].attributes.url}`
               : '';
 
             console.log('Event Image URL:', eventImageUrl); // Debug log for event image URL
