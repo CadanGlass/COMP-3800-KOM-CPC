@@ -61,9 +61,9 @@ const NewsEventsPage = () => {
         );
         if (response.data && response.data.data) {
           const eventsData = response.data.data.map((event) => {
-            const eventImageUrl = event.attributes.eventImage?.data?.attributes
+            const eventImageUrl = event.attributes.eventImage?.data[0]?.attributes
               ?.url
-              ? `${baseURL}${event.attributes.eventImage.data.attributes.url}`
+              ? `${baseURL}${event.attributes.eventImage.data[0].attributes.url}`
               : '';
 
             console.log('Event Image URL:', eventImageUrl); // Debug log for event image URL
@@ -162,11 +162,13 @@ const NewsEventsPage = () => {
                   </Heading>
                   {currentEvent && (
                     <Box textAlign="center">
-                      <Image
-                        src={currentEvent.image}
-                        alt={currentEvent.name}
-                        mb={4}
-                      />
+                      <Box display="flex" justifyContent="center" alignItems="center">
+                        <Image
+                          src={currentEvent.image}
+                          alt={currentEvent.name}
+                          mb={4}
+                        />
+                      </Box>
                       <Heading as="h3" size="md">
                         {currentEvent.name}
                       </Heading>
