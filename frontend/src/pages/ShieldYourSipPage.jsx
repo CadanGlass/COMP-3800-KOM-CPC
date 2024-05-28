@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import { VStack, useColorMode, Image } from '@chakra-ui/react';
+
 import CallPoliceBanner from '../components/home/CallPoliceBanner';
 import { Section } from '../components/DefaultComponents';
 import Header from '../components/Header';
@@ -79,7 +82,7 @@ export default function ShieldYourSipPage() {
   const { colorMode } = useColorMode();
   const url = `${baseURL}/api/shield-your-sip-page`;
 
-  const [d, setData] = useState(null);
+  const [apiData, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -87,27 +90,29 @@ export default function ShieldYourSipPage() {
     const fetchData = async () => {
       setLoading(true);
 
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const json = await response.json();
-        setData(json);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
+      axios
+        .get(url)
+        .then((res) => {
+          if (!res.data) {
+            throw new Error('Failed to fetch data');
+          }
+          const apiData = res.data.data.attributes;
+          setData(apiData);
+          setError(null);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err);
+          setLoading(false);
+        });
     };
 
     fetchData();
-  }, [url]);
+  }, []);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
 
-  const apiData = d.data.attributes;
   const headerInfo = apiData.Header.HeaderInfo;
   const logo = `${baseURL}${apiData.Logo.data.attributes.url}`;
   const header_image = `${baseURL}${headerInfo.Image.data.attributes.url}`;
@@ -126,6 +131,19 @@ export default function ShieldYourSipPage() {
     .map((key) => {
       return apiData.SubHeading[key];
     });
+
+  const sponsors = {
+    ...apiData.SponsorsAndSupport,
+    Sponsor: apiData.SponsorsAndSupport.Sponsor.map((sponsor) => {
+      return {
+        name: sponsor.Name,
+        url: sponsor.Url,
+        logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
+        alternativeText: sponsor.Logo.data.attributes.alternativeText,
+      };
+    }),
+  };
+  console.log(sponsors);
 
   return (
     <>
@@ -159,9 +177,7 @@ export default function ShieldYourSipPage() {
 
         <Section>{subHeading && <SysInfoCard data={subHeading} />}</Section>
 
-        <Section>
-          <SysSponsorsCard data={{ Title: 'Sponsors & Support' }} />
-        </Section>
+        <Section>{sponsors && <SysSponsorsCard data={sponsors} />}</Section>
 
         <Section>
           <SysAwarenessCard data={data.awareness} />
