@@ -61,8 +61,8 @@ const NewsEventsPage = () => {
         );
         if (response.data && response.data.data) {
           const eventsData = response.data.data.map((event) => {
-            const eventImageUrl = event.attributes.eventImage?.data[0]?.attributes
-              ?.url
+            const eventImageUrl = event.attributes.eventImage?.data[0]
+              ?.attributes?.url
               ? `${baseURL}${event.attributes.eventImage.data[0].attributes.url}`
               : '';
 
@@ -113,7 +113,7 @@ const NewsEventsPage = () => {
     fetchNewsletter();
   }, []);
 
-  const cardMinHeight = '500px'; // Increase the minimum height for both sections
+  const cardMinHeight = '600px'; // Increase the minimum height for both sections
 
   const handleImageClick = () => {
     setIsModalOpen(true);
@@ -155,28 +155,35 @@ const NewsEventsPage = () => {
           >
             {/* Events Section */}
             <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
-              <DefaultCard height="100%" minHeight={cardMinHeight}>
-                <Box width="100%" p={6}>
-                  <Heading as="h2" size="lg" textAlign="center" mb={4}>
+              <DefaultCard height="100%" minHeight={cardMinHeight} p={8}>
+                <Box width="100%">
+                  <Heading as="h2" size="lg" textAlign="center" mb={6}>
                     Upcoming Events
                   </Heading>
                   {currentEvent && (
                     <Box textAlign="center">
-                      <Box display="flex" justifyContent="center" alignItems="center">
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        mb={6}
+                      >
                         <Image
                           src={currentEvent.image}
                           alt={currentEvent.name}
-                          mb={4}
+                          borderRadius="md"
                         />
                       </Box>
-                      <Heading as="h3" size="md">
+                      <Heading as="h3" size="lg" mb={4}>
                         {currentEvent.name}
                       </Heading>
-                      <Text mb={4}>{currentEvent.date}</Text>
-                      <Text>{currentEvent.description}</Text>
+                      <Text fontSize="lg" mb={4}>
+                        {currentEvent.date}
+                      </Text>
+                      <Text fontSize="md">{currentEvent.description}</Text>
                     </Box>
                   )}
-                  <HStack justify="space-between" mt={4}>
+                  <HStack justify="space-between" mt={6}>
                     <IconButton
                       icon={<ArrowBackIcon />}
                       onClick={handlePrevEvent}
@@ -196,9 +203,9 @@ const NewsEventsPage = () => {
 
             {/* Newsletter Section */}
             <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
-              <DefaultCard height="100%" minHeight={cardMinHeight}>
+              <DefaultCard height="100%" minHeight={cardMinHeight} p={8}>
                 <Box width="100%" textAlign="center" position="relative">
-                  <Heading as="h2" size="lg" textAlign="center" mb={4}>
+                  <Heading as="h2" size="lg" textAlign="center" mb={6}>
                     Current Newsletter
                   </Heading>
                   <Box
