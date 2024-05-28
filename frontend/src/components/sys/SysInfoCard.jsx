@@ -97,9 +97,9 @@ export default function SysInfoCard({
                 </Heading>
                 <VStack spacing={4} textAlign="center">
                   <DefaultBlocksRenderer content={item.Description} />
-                  {item.logo && (
+                  {item.Logos && (
                     <HStack wrap={'wrap'} spacing={4} justify={'center'}>
-                      <Logos Logos={item.logo} />
+                      <Logos Logos={item.Logos} />
                     </HStack>
                   )}
                 </VStack>

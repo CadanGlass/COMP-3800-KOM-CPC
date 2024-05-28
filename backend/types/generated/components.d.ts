@@ -292,9 +292,10 @@ export interface ShieldYourSipPageTitleBlockDescriptionImages
   collectionName: 'components_shield_your_sip_page_title_block_description_images';
   info: {
     displayName: 'Title BlockDescription Images';
+    description: '';
   };
   attributes: {
-    logo: Attribute.Component<'blocks.url-logo', true>;
+    Logos: Attribute.Component<'blocks.url-logo', true>;
     Title: Attribute.String;
     Description: Attribute.Blocks;
   };

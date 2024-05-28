@@ -13,7 +13,7 @@ const populate = {
     populate: {
       WhatIsSys: { populate: true },
       SysTeam: {
-        populate: { logo: { populate: { Logo: { populate: true } } } },
+        populate: { Logos: { populate: { Logo: { populate: true } } } },
       },
       SysSurvey: { populate: true },
     },
