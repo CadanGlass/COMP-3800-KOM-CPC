@@ -88,7 +88,35 @@ export default function Navbar() {
         justify={'space-between'}
         py={{ base: 4, md: 6 }}
       >
-        <Box flex={1} display="flex" justifyContent="center">
+        <Box
+          display={{ base: 'flex', md: 'none' }}
+          flex={1}
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Link
+            display="flex"
+            alignItems="center"
+            rounded={'md'}
+            position="relative"
+            zIndex={1}
+            className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}
+            href="/"
+            mb={2}
+          >
+            <Image
+              boxSize="80px"
+              objectFit="contain"
+              src={KOM_logo}
+              alt="KOM CPC Logo"
+            />
+            <Text fontSize="xl" fontWeight="extrabold" ml={4} color="white">
+              KOM CPC
+            </Text>
+          </Link>
+        </Box>
+
+        <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
           <Link
             display="flex"
             alignItems="center"
