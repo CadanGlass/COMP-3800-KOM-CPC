@@ -31,7 +31,7 @@ export default function Programs() {
                 title={program.title}
                 description={program.description}
                 image={program.image}
-                link={program.link}
+                //link={program.link}
               />
             ))}
           </SimpleGrid>
