@@ -12,29 +12,57 @@ const HowCanIHelpPage = () => {
   const getBackground = (darkGradient) =>
     useColorModeValue('white', darkGradient);
   const textColor = useColorModeValue('gray.800', 'white');
+  const titleColor = useColorModeValue('yellow.400', 'yellow.400'); // Adjust this if needed
 
   const [pageData, setPageData] = useState({});
+  const [sponsors, setSponsors] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('Fetching data from API...');
-        const response = await axios.get(
+        console.log('Fetching page data from API...');
+        const pageResponse = await axios.get(
           `${baseURL}/api/how-can-i-help-page?populate[HowCanIHelpPage][populate][helpCard]=*&populate[HowCanIHelpPage][populate][supportUsCard]=*`
         );
-        console.log('API response:', response.data);
+        console.log('Page API response:', pageResponse.data);
 
         if (
-          response.data &&
-          response.data.data &&
-          response.data.data.attributes
+          pageResponse.data &&
+          pageResponse.data.data &&
+          pageResponse.data.data.attributes
         ) {
-          const apiData = response.data.data.attributes;
+          const apiData = pageResponse.data.data.attributes;
           const pageData = apiData.HowCanIHelpPage;
-          console.log('Extracted data:', pageData);
+          console.log('Extracted page data:', pageData);
           setPageData(pageData);
         } else {
-          console.warn('Unexpected API response structure:', response.data);
+          console.warn(
+            'Unexpected page API response structure:',
+            pageResponse.data
+          );
+        }
+
+        console.log('Fetching sponsor data from API...');
+        const sponsorsResponse = await axios.get(
+          `${baseURL}/api/sponsors?populate=SponsorImage`
+        );
+        console.log('Sponsors API response:', sponsorsResponse.data);
+
+        if (sponsorsResponse.data && sponsorsResponse.data.data) {
+          const sponsorsData = sponsorsResponse.data.data.map((sponsor) => ({
+            name: sponsor.attributes.SponsorTitle,
+            logo: `${baseURL}${sponsor.attributes.SponsorImage.data[0].attributes.url}`,
+            alternativeText:
+              sponsor.attributes.SponsorImage.data[0].attributes
+                .alternativeText,
+          }));
+          console.log('Extracted sponsors data:', sponsorsData);
+          setSponsors(sponsorsData);
+        } else {
+          console.warn(
+            'Unexpected sponsors API response structure:',
+            sponsorsResponse.data
+          );
         }
       } catch (error) {
         console.error('Error fetching data', error);
@@ -45,6 +73,7 @@ const HowCanIHelpPage = () => {
   }, []);
 
   console.log('Final data state:', pageData);
+  console.log('Final sponsors state:', sponsors);
 
   return (
     <>
@@ -57,14 +86,10 @@ const HowCanIHelpPage = () => {
         bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}
         py={8}
       >
-        <VStack spacing={8}>
-          <Heading as="h2" size="lg" textAlign="center" color={textColor}>
-            Our Partners
-          </Heading>
-          <Box w="full">
-            <PartnersCarousel />
-          </Box>
-        </VStack>
+        <PageHeading title="Our Partners" />
+        <Box w="full">
+          <PartnersCarousel sponsors={sponsors} />
+        </Box>
       </Section>
       <Section
         bg={getBackground('linear-gradient(to bottom, #3c4a5e, #4a5568)')}
