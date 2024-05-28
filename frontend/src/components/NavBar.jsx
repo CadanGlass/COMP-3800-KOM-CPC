@@ -79,44 +79,40 @@ export default function Navbar() {
       bg={useColorModeValue('gray.800', '#1A202C')}
       color={useColorModeValue('gray.100', 'gray.200')}
       px={6}
-      pt={4} // Added padding top
+      pt={4}
       w="100%"
     >
       <Flex
         h={16}
         alignItems={'center'}
         justify={'space-between'}
-        py={{ base: 4, md: 6 }} // Reduced padding
+        py={{ base: 4, md: 6 }}
       >
-        <Link
-          display="flex"
-          alignItems="center"
-          rounded={'md'}
-          position="relative"
-          zIndex={1}
-          className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}
-          href="/"
-          mb={2} // Added margin bottom
-        >
-          <Image
-            boxSize="80px" // Reduced image size
-            objectFit="contain"
-            src={KOM_logo}
-            alt="KOM CPC Logo"
-          />
-          <Text fontSize="xl" fontWeight="extrabold" ml={4} color="white">
-            {/* Reduced font size */}
-            KOM{' '}
-            <Text as="span" color="#1a73e8" fontSize="xl">
-              {/* Updated color for CPC */}
-              CPC
+        <Box flex={1} display="flex" justifyContent="center">
+          <Link
+            display="flex"
+            alignItems="center"
+            rounded={'md'}
+            position="relative"
+            zIndex={1}
+            className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}
+            href="/"
+            mb={2}
+          >
+            <Image
+              boxSize="80px"
+              objectFit="contain"
+              src={KOM_logo}
+              alt="KOM CPC Logo"
+            />
+            <Text fontSize="xl" fontWeight="extrabold" ml={4} color="white">
+              KOM CPC
             </Text>
-          </Text>
-        </Link>
+          </Link>
+        </Box>
 
         <Flex alignItems={'center'}>
           <HStack spacing={8} display={{ base: 'none', '3xl': 'flex' }} mr={4}>
-            {/* Reduced spacing */}
             {NAV_ITEMS.map((navItem) => (
               <NavItem
                 key={navItem.path}
@@ -130,13 +126,13 @@ export default function Navbar() {
               onClick={toggleColorMode}
               aria-label="Toggle dark mode"
               isRound={true}
-              size="md" // Reduced icon size
+              size="md"
             />
             <ContactUsButton />
             <DonateButton />
           </HStack>
           <IconButton
-            size={'md'} // Reduced icon size
+            size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={'Open Menu'}
             display={{ base: 'flex', '3xl': 'none' }}
@@ -168,7 +164,7 @@ export default function Navbar() {
                 onClick={toggleColorMode}
                 aria-label="Toggle dark mode"
                 isRound={true}
-                size="md" // Reduced icon size
+                size="md"
                 alignSelf="center"
               />
             </HStack>
