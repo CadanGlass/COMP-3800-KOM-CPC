@@ -250,6 +250,18 @@ export interface ResourcesPageWhoToCallCard extends Schema.Component {
   };
 }
 
+export interface ShieldYourSipPageSponsors extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_sponsors';
+  info: {
+    displayName: 'Sponsors';
+    description: '';
+  };
+  attributes: {
+    Sponsor: Attribute.Component<'blocks.url-logo', true>;
+    Title: Attribute.String;
+  };
+}
+
 export interface ShieldYourSipPageSubHeading extends Schema.Component {
   collectionName: 'components_shield_your_sip_page_sub_headings';
   info: {
@@ -401,6 +413,7 @@ declare module '@strapi/types' {
       'resources-page.resources-page': ResourcesPageResourcesPage;
       'resources-page.volunteer-card': ResourcesPageVolunteerCard;
       'resources-page.who-to-call-card': ResourcesPageWhoToCallCard;
+      'shield-your-sip-page.sponsors': ShieldYourSipPageSponsors;
       'shield-your-sip-page.sub-heading': ShieldYourSipPageSubHeading;
       'shield-your-sip-page.sys-faq': ShieldYourSipPageSysFaq;
       'shield-your-sip-page.text-block-description': ShieldYourSipPageTextBlockDescription;

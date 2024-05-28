@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shield_your_sip_page_sponsors",
+  "info": {
+    "displayName": "Sponsors",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Sponsor": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.url-logo"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}
