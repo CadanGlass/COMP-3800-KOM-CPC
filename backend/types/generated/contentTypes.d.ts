@@ -1166,8 +1166,8 @@ export interface ApiShieldYourSipPageShieldYourSipPage
     Logo: Attribute.Media;
     Header: Attribute.Component<'blocks.header'>;
     SubHeading: Attribute.Component<'shield-your-sip-page.sub-heading'>;
-    SysFaqCard: Attribute.Component<'shield-your-sip-page.sys-faq'>;
     SponsorsAndSupport: Attribute.Component<'shield-your-sip-page.sponsors'>;
+    SysFaqCard: Attribute.Component<'shield-your-sip-page.sys-faq'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

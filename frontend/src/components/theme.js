@@ -25,7 +25,7 @@ const theme = extendTheme({
             ? '#ffffff'
             : 'linear-gradient(to bottom right, #0d1117, #161b22, #21262d)',
         minHeight: '100vh',
-        fontSize: '16px', // Set to a default value
+        fontSize: '18px', // Set to a default value
         fontFamily: 'Inter, sans-serif',
         overflowX: 'hidden',
       },
@@ -81,7 +81,7 @@ const theme = extendTheme({
     },
     Text: {
       baseStyle: (props) => ({
-        fontSize: '16px', // Default font size
+        fontSize: '18px', // Default font size
         fontFamily: 'Inter, sans-serif',
         color: props.colorMode === 'light' ? 'black' : 'gray.100',
       }),
@@ -100,7 +100,7 @@ const theme = extendTheme({
       sizes: {
         md: {
           field: {
-            fontSize: '16px', // Consistent font size
+            fontSize: '18px', // Consistent font size
             px: 4,
             py: 2,
           },

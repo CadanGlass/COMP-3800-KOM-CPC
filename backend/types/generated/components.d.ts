@@ -282,8 +282,11 @@ export interface ShieldYourSipPageSysFaq extends Schema.Component {
     description: '';
   };
   attributes: {
-    QuestionAnswer: Attribute.Component<'blocks.title-description', true>;
     Title: Attribute.String;
+    QuestionAnswer: Attribute.Component<
+      'shield-your-sip-page.text-block-description',
+      true
+    >;
   };
 }
 

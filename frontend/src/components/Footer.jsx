@@ -22,19 +22,19 @@ const Footer = () => {
 
   return (
     <Box bg={bg} color={textColor} px={4} py={10}>
-      <Container maxW="container.xl">
+      <Container maxW="1700px">
         <Stack spacing={8}>
           <VStack align="start" spacing={4}>
             <Divider borderColor={dividerColor} />
           </VStack>
           <Stack
-            direction={{ base: 'column', md: 'row' }}
+            direction={{ base: 'column', xl: 'row' }}
             spacing={8}
             justify="space-between"
-            alignItems={{ base: 'center', md: 'flex-start' }} // Center items on mobile, align to top on larger screens
+            alignItems={{ base: 'center', xl: 'flex-start' }} // Center items on mobile, align to top on larger screens
           >
             <VStack
-              alignItems={{ base: 'center', md: 'flex-start' }}
+              alignItems={{ base: 'center', xl: 'flex-start' }}
               color={textColor}
             >
               <LogoSection />
@@ -43,19 +43,20 @@ const Footer = () => {
               </HStack>
             </VStack>
             <VStack
-              alignItems={{ base: 'center', md: 'flex-start' }}
+              alignItems={{ base: 'center', xl: 'flex-start' }}
               color={textColor}
+              maxW="430px"
             >
               <MailchimpForm />
             </VStack>
             <VStack
-              alignItems={{ base: 'center', md: 'flex-start' }}
+              alignItems={{ base: 'center', xl: 'flex-start' }}
               color={textColor}
             >
               <OperationHours />
             </VStack>
             <VStack
-              alignItems={{ base: 'center', md: 'flex-start' }}
+              alignItems={{ base: 'center', xl: 'flex-start' }}
               color={textColor}
             >
               <ContactSection />

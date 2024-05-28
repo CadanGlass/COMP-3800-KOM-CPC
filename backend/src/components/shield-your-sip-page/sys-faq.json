@@ -6,13 +6,13 @@
   },
   "options": {},
   "attributes": {
+    "Title": {
+      "type": "string"
+    },
     "QuestionAnswer": {
       "type": "component",
       "repeatable": true,
-      "component": "blocks.title-description"
-    },
-    "Title": {
-      "type": "string"
+      "component": "shield-your-sip-page.text-block-description"
     }
   }
 }

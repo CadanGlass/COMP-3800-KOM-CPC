@@ -13,7 +13,7 @@ const MailchimpForm = () => {
       <Heading as="h5" textAlign="center" size="sm">
         Subscribe
       </Heading>
-      <Text fontSize="xs" textAlign="center">
+      <Text fontSize="sm" textAlign="center">
         Want crime alerts, community safety tips and news? Subscribe to the
         'KOMmunity Beacon' newsletter for all your Southwest Vancouver public
         safety news and events.

@@ -35,17 +35,16 @@
       "repeatable": false,
       "component": "shield-your-sip-page.sub-heading"
     },
-    "SysFaqCard": {
-      "displayName": "Sys FAQ",
-      "type": "component",
-      "repeatable": false,
-      "component": "shield-your-sip-page.sys-faq"
-    },
     "SponsorsAndSupport": {
       "displayName": "Sponsors",
       "type": "component",
       "repeatable": false,
       "component": "shield-your-sip-page.sponsors"
+    },
+    "SysFaqCard": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shield-your-sip-page.sys-faq"
     }
   }
 }
