@@ -52,8 +52,7 @@ export default function SysInfoCard({
       <Link
         key={logo.id}
         href={logo.Url}
-        target="_blank"
-        rel="noopener noreferrer"
+        isExternal
         bg={useColorModeValue('transparent', 'gray.200')}
         borderRadius="xl"
       >

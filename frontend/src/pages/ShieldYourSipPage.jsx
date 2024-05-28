@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import SysButton from '../components/buttons/SysButton';
 import SysInfoCard from '../components/sys/SysInfoCard';
 import SysAwarenessCard from '../components/sys/SysAwarenessCard';
+import SysSponsorsCard from '../components/sys/SysSponsorsCard';
 
 const data = {
   header: {
@@ -159,6 +160,10 @@ export default function ShieldYourSipPage() {
         </Section>
 
         <Section>{subHeading && <SysInfoCard data={subHeading} />}</Section>
+
+        <Section>
+          <SysSponsorsCard data={{ Title: 'Sponsors & Support' }} />
+        </Section>
 
         <Section>
           <SysAwarenessCard data={data.awareness} />
