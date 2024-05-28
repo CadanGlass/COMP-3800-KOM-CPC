@@ -1186,6 +1186,38 @@ export interface ApiShieldYourSipPageShieldYourSipPage
   };
 }
 
+export interface ApiSponsorSponsor extends Schema.CollectionType {
+  collectionName: 'sponsors';
+  info: {
+    singularName: 'sponsor';
+    pluralName: 'sponsors';
+    displayName: 'Sponsor';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    SponsorImage: Attribute.Media;
+    SponsorTitle: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sponsor.sponsor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sponsor.sponsor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiVolunteerPageVolunteerPage extends Schema.SingleType {
   collectionName: 'volunteer_pages';
   info: {
@@ -1252,6 +1284,7 @@ declare module '@strapi/types' {
       'api::programs-page.programs-page': ApiProgramsPageProgramsPage;
       'api::resource-page.resource-page': ApiResourcePageResourcePage;
       'api::shield-your-sip-page.shield-your-sip-page': ApiShieldYourSipPageShieldYourSipPage;
+      'api::sponsor.sponsor': ApiSponsorSponsor;
       'api::volunteer-page.volunteer-page': ApiVolunteerPageVolunteerPage;
     }
   }
