@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, VStack, useColorModeValue, Heading } from '@chakra-ui/react';
 import { Section, PageHeading } from '../components/DefaultComponents';
-import PartnersCarousel from '../components/howCanIHelp/PartnersCarousel';
+import PartnershipBanner from '../components/home/PartnershipBanner';
 import HowCanYouHelpCard from '../components/howCanIHelp/HowCanYouHelpCard';
 import SupportUsCard from '../components/howCanIHelp/SupportUsCard';
 import axios from 'axios';
@@ -12,7 +12,7 @@ const HowCanIHelpPage = () => {
   const getBackground = (darkGradient) =>
     useColorModeValue('white', darkGradient);
   const textColor = useColorModeValue('gray.800', 'white');
-  const titleColor = useColorModeValue('yellow.400', 'yellow.400'); // Adjust this if needed
+  const titleColor = useColorModeValue('yellow.400', 'yellow.400');
 
   const [pageData, setPageData] = useState({});
   const [sponsors, setSponsors] = useState([]);
@@ -44,18 +44,18 @@ const HowCanIHelpPage = () => {
 
         console.log('Fetching sponsor data from API...');
         const sponsorsResponse = await axios.get(
-          `${baseURL}/api/sponsors?populate=SponsorImage`
+          `${baseURL}/api/home-page?populate=Sponsors.Logo`
         );
         console.log('Sponsors API response:', sponsorsResponse.data);
 
         if (sponsorsResponse.data && sponsorsResponse.data.data) {
-          const sponsorsData = sponsorsResponse.data.data.map((sponsor) => ({
-            name: sponsor.attributes.SponsorTitle,
-            logo: `${baseURL}${sponsor.attributes.SponsorImage.data[0].attributes.url}`,
-            alternativeText:
-              sponsor.attributes.SponsorImage.data[0].attributes
-                .alternativeText,
-          }));
+          const sponsorsData =
+            sponsorsResponse.data.data.attributes.Sponsors.map((sponsor) => ({
+              name: sponsor.Name,
+              url: sponsor.Url,
+              logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
+              alternativeText: sponsor.Logo.data.attributes.alternativeText,
+            }));
           console.log('Extracted sponsors data:', sponsorsData);
           setSponsors(sponsorsData);
         } else {
@@ -86,9 +86,8 @@ const HowCanIHelpPage = () => {
         bg={getBackground('linear-gradient(to bottom, #2d3748, #3c4a5e)')}
         py={8}
       >
-        <PageHeading title="Our Partners" />
         <Box w="full">
-          <PartnersCarousel sponsors={sponsors} />
+          <PartnershipBanner data={sponsors} />
         </Box>
       </Section>
       <Section
