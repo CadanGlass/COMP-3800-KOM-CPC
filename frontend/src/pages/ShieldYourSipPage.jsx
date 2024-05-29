@@ -21,6 +21,7 @@ import SysButton from '../components/buttons/SysButton';
 import SysInfoCard from '../components/sys/SysInfoCard';
 import SysSponsorsCard from '../components/sys/SysSponsorsCard';
 import VolunteerNowButton from '../components/buttons/VolunteerNowButton';
+import Slideshow from '../components/sys/Slideshow';
 
 const baseURL = 'http://localhost:1337';
 
@@ -131,7 +132,7 @@ export default function ShieldYourSipPage() {
               <Heading as="h2" size="lg">
                 What is Drink Spiking?
               </Heading>
-              <Text>*slideshow*</Text>
+              <Slideshow />
             </VStack>
           </DefaultCard>
         </Section>

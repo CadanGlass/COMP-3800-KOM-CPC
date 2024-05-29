@@ -12,10 +12,8 @@ export default function Carousel({ sponsors }) {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
   };
-
-  console.log(sponsors);
 
   return (
     <>
@@ -33,7 +31,7 @@ export default function Carousel({ sponsors }) {
         />
         <Slider {...settings} ref={(slider) => setSlider(slider)}>
           {sponsors.map((sponsor, index) => (
-            <Box>
+            <Box key={index}>
               <Card
                 position="relative"
                 transition="transform 0.3s, box-shadow 0.3s"
@@ -46,7 +44,6 @@ export default function Carousel({ sponsors }) {
                 <Link
                   href={sponsor.Url}
                   isExternal
-                  key={index}
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
