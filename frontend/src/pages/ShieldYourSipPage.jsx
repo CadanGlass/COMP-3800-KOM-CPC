@@ -6,6 +6,7 @@ import {
   useColorMode,
   Image,
   Box,
+  Stack,
   HStack,
   Heading,
   Text,
@@ -18,73 +19,8 @@ import { Section, DefaultCard } from '../components/DefaultComponents';
 import Header from '../components/Header';
 import SysButton from '../components/buttons/SysButton';
 import SysInfoCard from '../components/sys/SysInfoCard';
-import SysAwarenessCard from '../components/sys/SysAwarenessCard';
 import SysSponsorsCard from '../components/sys/SysSponsorsCard';
-
-const data = {
-  header: {
-    title: 'Shield Your Sip',
-    description:
-      'Shield Your Sip is a campaign to raise awareness about drink spiking and provide resources to help prevent it.',
-    firstButton: {
-      title: 'Get Your Shield',
-      link: 'https://www.canadahelps.org/en/dn/81226',
-    },
-    secondButton: {
-      title: 'VPD Resources',
-      link: 'https://vpd.ca/crime-prevention-safety/drug-assisted-sex-assault/',
-    },
-  },
-  subPoints: [
-    {
-      Title: 'What is #ShieldYourSip?',
-      Description: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend dolor. Nullam sit amet scelerisque nunc',
-      ],
-    },
-    {
-      Title: 'The SYS Team!',
-      Description: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend dolor. Nullam sit amet scelerisque nunc',
-      ],
-    },
-    {
-      Title: 'SYS Survey',
-      Description: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend dolor. Nullam sit amet scelerisque nunc',
-      ],
-    },
-  ],
-  awareness: {
-    title: 'Drink Spiking Awareness',
-    questions: [
-      {
-        title: 'What is Drink Spiking?',
-        description: [
-          'Drink spiking is when someone adds alcohol or drugs to your drink without you knowing. It can happen to anyone, anywhere, and at any time. Drink spiking is illegal and can have serious consequences.',
-        ],
-      },
-      {
-        title: 'What to Look Out For?',
-        description: [
-          'If you think you have been spiked, you may feel drunk even if you have not drunk any alcohol. You may feel dizzy, drowsy, or have memory loss. You may also feel sick, have difficulty speaking, or feel confused. If you think you have been spiked, you should seek help immediately.',
-        ],
-      },
-      {
-        title: 'I think I / My Friend Have Been Spiked?',
-        description: [
-          'If you think you or a friend have been spiked, you should seek help immediately. You should go to a safe place, tell someone you trust, and seek medical help. You should also report the incident to the police.',
-        ],
-      },
-      {
-        title: 'The Drugs and Reports',
-        description: [
-          'Common drugs used in drink spiking include GHB, ketamine, and Rohypnol. If you think you have been spiked, you should report the incident to the police. You should also seek medical help.',
-        ],
-      },
-    ],
-  },
-};
+import VolunteerNowButton from '../components/buttons/VolunteerNowButton';
 
 const baseURL = 'http://localhost:1337';
 
@@ -127,11 +63,14 @@ export default function ShieldYourSipPage() {
   const logo = `${baseURL}${apiData.Logo.data.attributes.url}`;
   const header_image = `${baseURL}${headerInfo.Image.data.attributes.url}`;
 
-  const FirstBtn = SysButton('Donate to SYS', apiData.Header.FirstButton.Link);
-  const SecondBtn = SysButton(
-    apiData.Header.SecondButton.ButtonLabel,
-    apiData.Header.SecondButton.Link
-  );
+  const FirstBtn = VolunteerNowButton({
+    label: 'Donate to SYS',
+    link: apiData.Header.FirstButton.Link,
+  });
+  const SecondBtn = VolunteerNowButton({
+    label: apiData.Header.SecondButton.ButtonLabel,
+    link: apiData.Header.SecondButton.Link,
+  });
 
   const subHeading = Object.keys(apiData.SubHeading)
     .filter((key) => key !== 'id')
@@ -143,14 +82,11 @@ export default function ShieldYourSipPage() {
     ...apiData.SponsorsAndSupport,
     Sponsor: apiData.SponsorsAndSupport.Sponsor.map((sponsor) => {
       return {
-        name: sponsor.Name,
-        url: sponsor.Url,
-        logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
-        alternativeText: sponsor.Logo.data.attributes.alternativeText,
+        ...sponsor,
+        Logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
       };
     }),
   };
-  console.log(apiData);
 
   const d =
     '- Alert a trusted person such as a friend, venue staff or host what is happening. \n- Go a safe place - have a trusted person with you. \n- Keep a close eye on anyone who has had their drink spiked. \n- Call an ambulance if their condition deteriorates in any way (for example, if they lose consciousness). \n- Go to your nearest hospital Emergency Room and ask for testing (drug spiking can be with a variety of both legal and illegal drugs NOT just GHB) \n- Contact police as soon as possible after a suspected incident of drink spiking.';
@@ -188,10 +124,6 @@ export default function ShieldYourSipPage() {
         <Section>{subHeading && <SysInfoCard data={subHeading} />}</Section>
 
         <Section>{sponsors && <SysSponsorsCard data={sponsors} />}</Section>
-
-        {/* <Section>
-          <SysAwarenessCard data={data.awareness} />
-        </Section> */}
 
         <Section>
           <DefaultCard>
@@ -330,16 +262,14 @@ export default function ShieldYourSipPage() {
           <DefaultCard>
             <VStack spacing={4} align="left">
               <Heading size="md">Support Us</Heading>
-              <HStack
+              <Stack
                 direction={{ base: 'column', md: 'row' }}
-                spacing={4}
+                spacing={{ base: 4, md: 8 }}
                 justify="center"
               >
                 <Button>Volunteer with Shield Your Sip</Button>
                 <Button>Donate</Button>
-                {/* <DonateButton />
-                <ContactUsButton /> */}
-              </HStack>
+              </Stack>
             </VStack>
           </DefaultCard>
         </Section>
