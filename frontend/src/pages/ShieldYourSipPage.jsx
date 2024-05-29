@@ -98,6 +98,11 @@ export default function ShieldYourSipPage() {
     btnLink: apiData.SexualAssault.DirectReportingButton.Link,
   };
   const supportServices = apiData.SupportServices;
+  const supportUs = {
+    ...apiData.SupportUs,
+  };
+
+  console.log(apiData.SupportUs);
 
   return (
     <>
@@ -218,7 +223,7 @@ export default function ShieldYourSipPage() {
                     document.getElementById('sys-info-card')?.scrollIntoView()
                   }
                 />
-                <VolunteerNowButton
+                <RainbowButton
                   label="Donate to SYS"
                   link="https://www.canadahelps.org/en/charities/kerrisdale-oakridge-marpole-crime-prevention-society/p2p/shieldyoursip/ "
                 />

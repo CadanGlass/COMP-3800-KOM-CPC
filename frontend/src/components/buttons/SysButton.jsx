@@ -48,25 +48,37 @@ const buttonBgStyle = css`
   transition: filter 1s ease-in;
 `;
 
-const RainbowButton = ({ label = 'Volunteer Now', click = () => {} }) => {
+const btn = (label, click) => {
+  return (
+    <Button
+      fontSize={'sm'}
+      fontWeight={600}
+      color={'white'}
+      position="relative"
+      zIndex={1}
+      width="100%"
+      bg="transparent"
+      _hover={{ bg: 'transparent' }}
+      _active={{ bg: 'transparent' }}
+      borderRadius="md"
+      {...(click ? { onClick: click } : {})}
+    >
+      {label.toUpperCase()}
+    </Button>
+  );
+};
+
+const RainbowButton = ({ label, link, click = () => {} }) => {
   return (
     <Box css={buttonWrapperStyle} className="button-wrapper">
       <Box css={buttonBgStyle} className="button-bg" />
-      <Button
-        fontSize={'sm'}
-        fontWeight={600}
-        color={'white'}
-        position="relative"
-        zIndex={1}
-        width="100%"
-        bg="transparent"
-        _hover={{ bg: 'transparent' }}
-        _active={{ bg: 'transparent' }}
-        borderRadius="md"
-        onClick={click}
-      >
-        {label.toUpperCase()}
-      </Button>
+      {link ? (
+        <Link href={link} isExternal>
+          {btn(label)}
+        </Link>
+      ) : (
+        btn(label, click)
+      )}
     </Box>
   );
 };

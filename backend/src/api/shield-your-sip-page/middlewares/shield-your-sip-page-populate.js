@@ -29,6 +29,7 @@ const populate = {
   SuspectDrinkSpiking: { populate: true },
   SexualAssault: { populate: { DirectReportingButton: { populate: true } } },
   SupportServices: { populate: true },
+  SupportUs: { populate: { Buttons: { populate: true } } },
 };
 
 module.exports = (config, { strapi }) => {
