@@ -7,7 +7,6 @@ import {
   Divider,
   useColorMode,
   useColorModeValue,
-  useBreakpointValue,
   Container,
   Modal,
   ModalOverlay,
@@ -46,7 +45,6 @@ const NewsEventsPage = () => {
   const bg = useColorModeValue('white', 'gray.800');
   const cardBg = useColorModeValue('white', 'gray.700');
   const borderColor = useColorModeValue('gray.200', 'gray.600');
-  const stackDirection = useBreakpointValue({ base: 'column', md: 'row' });
 
   const [events, setEvents] = useState([]);
   const [currentEventIndex, setCurrentEventIndex] = useState(0);
@@ -113,8 +111,6 @@ const NewsEventsPage = () => {
     fetchNewsletter();
   }, []);
 
-  const cardMinHeight = '600px'; // Increase the minimum height for both sections
-
   const handleImageClick = () => {
     setIsModalOpen(true);
   };
@@ -147,94 +143,85 @@ const NewsEventsPage = () => {
       >
         <Container maxW="7xl">
           <Divider orientation="horizontal" borderColor={borderColor} my={4} />
-          <HStack
-            spacing={10}
-            justify="center" // Center the content horizontally
-            alignItems="stretch" // Stretch the items to the full height
-            flexDirection={{ base: 'column', lg: 'row' }}
-          >
+          <VStack spacing={10} alignItems="stretch" width="100%">
             {/* Events Section */}
-            <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
-              <DefaultCard height="100%" minHeight={cardMinHeight} p={8}>
-                <Box width="100%">
-                  <Heading as="h2" size="lg" textAlign="center" mb={6}>
-                    Upcoming Events
-                  </Heading>
-                  {currentEvent && (
-                    <Box textAlign="center">
-                      <Box
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                        mb={6}
-                      >
-                        <Image
-                          src={currentEvent.image}
-                          alt={currentEvent.name}
-                          borderRadius="md"
-                        />
-                      </Box>
-                      <Heading as="h3" size="lg" mb={4}>
-                        {currentEvent.name}
-                      </Heading>
-                      <Text fontSize="lg" mb={4}>
-                        {currentEvent.date}
-                      </Text>
-                      <Text fontSize="md">{currentEvent.description}</Text>
+            <DefaultCard height="100%" minHeight="600px" p={8}>
+              <Box width="100%">
+                <Heading as="h2" size="lg" textAlign="center" mb={6}>
+                  Upcoming Events
+                </Heading>
+                {currentEvent && (
+                  <Box textAlign="center">
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                      mb={6}
+                    >
+                      <Image
+                        src={currentEvent.image}
+                        alt={currentEvent.name}
+                        borderRadius="md"
+                      />
                     </Box>
-                  )}
-                  <HStack justify="space-between" mt={6}>
-                    <IconButton
-                      icon={<ArrowBackIcon />}
-                      onClick={handlePrevEvent}
-                      aria-label="Previous event"
-                      isDisabled={events.length <= 1}
-                    />
-                    <IconButton
-                      icon={<ArrowForwardIcon />}
-                      onClick={handleNextEvent}
-                      aria-label="Next event"
-                      isDisabled={events.length <= 1}
-                    />
-                  </HStack>
-                </Box>
-              </DefaultCard>
-            </VStack>
+                    <Heading as="h3" size="lg" mb={4}>
+                      {currentEvent.name}
+                    </Heading>
+                    <Text fontSize="lg" mb={4}>
+                      {currentEvent.date}
+                    </Text>
+                    <Text fontSize="md">{currentEvent.description}</Text>
+                  </Box>
+                )}
+                <HStack justify="space-between" mt={6}>
+                  <IconButton
+                    icon={<ArrowBackIcon />}
+                    onClick={handlePrevEvent}
+                    aria-label="Previous event"
+                    isDisabled={events.length <= 1}
+                  />
+                  <IconButton
+                    icon={<ArrowForwardIcon />}
+                    onClick={handleNextEvent}
+                    aria-label="Next event"
+                    isDisabled={events.length <= 1}
+                  />
+                </HStack>
+              </Box>
+            </DefaultCard>
 
             {/* Newsletter Section */}
-            <VStack flex={1} spacing={4} alignItems="stretch" width="100%">
-              <DefaultCard height="100%" minHeight={cardMinHeight} p={8}>
-                <Box width="100%" textAlign="center" position="relative">
-                  <Heading as="h2" size="lg" textAlign="center" mb={6}>
-                    Current Newsletter
-                  </Heading>
+            <DefaultCard height="100%" minHeight="600px" p={8}>
+              <Box width="100%" textAlign="center" position="relative">
+                <Heading as="h2" size="lg" textAlign="center" mb={6}>
+                  Current Newsletter
+                </Heading>
+                <Box
+                  cursor="pointer"
+                  onClick={handleImageClick}
+                  position="relative"
+                >
+                  <NewsletterCard image={newsletterImage} />
                   <Box
-                    cursor="pointer"
-                    onClick={handleImageClick}
-                    position="relative"
+                    position="absolute"
+                    top="10px"
+                    left="50%"
+                    transform="translateX(-50%)"
+                    bg="rgba(0, 0, 0, 0.6)"
+                    color="white"
+                    px={3}
+                    py={1}
+                    borderRadius="md"
+                    display="flex"
+                    alignItems="center"
                   >
-                    <NewsletterCard image={newsletterImage} />
-                    <Box
-                      position="absolute"
-                      top="10px"
-                      left="50%"
-                      transform="translateX(-50%)"
-                      bg="rgba(0, 0, 0, 0.6)"
-                      color="white"
-                      px={3}
-                      py={1}
-                      borderRadius="md"
-                      display="flex"
-                      alignItems="center"
-                    >
-                      <InfoOutlineIcon mr={2} />
-                      <Text fontSize="sm">Click to expand</Text>
-                    </Box>
+                    <InfoOutlineIcon mr={2} />
+                    <Text fontSize="sm">Click to expand</Text>
                   </Box>
                 </Box>
-              </DefaultCard>
-            </VStack>
-          </HStack>
+              </Box>
+            </DefaultCard>
+          </VStack>
 
           <Divider orientation="horizontal" borderColor={borderColor} my={4} />
           <Box mt={10}>
