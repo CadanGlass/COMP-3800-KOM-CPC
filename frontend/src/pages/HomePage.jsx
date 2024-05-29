@@ -4,6 +4,7 @@ import {
   Heading,
   VStack,
   HStack,
+  Stack,
   Container,
   Box,
   useColorMode,
@@ -13,6 +14,8 @@ import {
   Button,
   Image,
   IconButton,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react';
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 
@@ -118,6 +121,7 @@ export default function HomePage() {
   };
 
   const currentEvent = events[currentEventIndex];
+  const breakpointValue = useBreakpointValue({ base: 'base', lg: 'lg' });
 
   return (
     <>
@@ -151,13 +155,43 @@ export default function HomePage() {
               <Heading as="h2" size="lg" textAlign="center" mb={6}>
                 Upcoming Events
               </Heading>
-              {currentEvent && (
-                <EventCard
-                  name={currentEvent.name}
-                  date={currentEvent.date}
-                  image={currentEvent.image}
-                />
-              )}
+              <Grid>
+                {breakpointValue === 'lg' ? (
+                  <>
+                    {events[currentEventIndex] && (
+                      <Box>
+                        <EventCard
+                          name={events[currentEventIndex].name}
+                          date={events[currentEventIndex].date}
+                          image={events[currentEventIndex].image}
+                        />
+                      </Box>
+                    )}
+
+                    {events[(currentEventIndex + 1) % events.length] && (
+                      <EventCard
+                        name={
+                          events[(currentEventIndex + 1) % events.length].name
+                        }
+                        date={
+                          events[(currentEventIndex + 1) % events.length].date
+                        }
+                        image={
+                          events[(currentEventIndex + 1) % events.length].image
+                        }
+                      />
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <EventCard
+                      name={events[currentEventIndex].name}
+                      date={events[currentEventIndex].date}
+                      image={events[currentEventIndex].image}
+                    />
+                  </>
+                )}
+              </Grid>
               <HStack justify="space-between" mt={6}>
                 <IconButton
                   icon={<ArrowBackIcon />}
