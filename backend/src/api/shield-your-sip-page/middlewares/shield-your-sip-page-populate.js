@@ -18,16 +18,17 @@ const populate = {
       SysSurvey: { populate: true },
     },
   },
-  SysFaqCard: {
-    populate: {
-      QuestionAnswer: { populate: true },
-    },
-  },
   SponsorsAndSupport: {
     populate: {
       Sponsor: { populate: { Logo: { populate: true } } },
     },
   },
+  WhatToLookOutFor: {
+    populate: true,
+  },
+  SuspectDrinkSpiking: { populate: true },
+  SexualAssault: { populate: { DirectReportingButton: { populate: true } } },
+  SupportServices: { populate: true },
 };
 
 module.exports = (config, { strapi }) => {

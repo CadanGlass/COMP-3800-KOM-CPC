@@ -89,6 +89,15 @@ export default function ShieldYourSipPage() {
     }),
   };
 
+  const whatToLookOutFor = apiData.WhatToLookOutFor;
+  const suspectDrinkSpiking = apiData.SuspectDrinkSpiking;
+  const sexualAssault = {
+    ...apiData.SexualAssault,
+    btnLabel: apiData.SexualAssault.DirectReportingButton.ButtonLabel,
+    btnLink: apiData.SexualAssault.DirectReportingButton.Link,
+  };
+  const supportServices = apiData.SupportServices;
+
   const d =
     '- Alert a trusted person such as a friend, venue staff or host what is happening. \n- Go a safe place - have a trusted person with you. \n- Keep a close eye on anyone who has had their drink spiked. \n- Call an ambulance if their condition deteriorates in any way (for example, if they lose consciousness). \n- Go to your nearest hospital Emergency Room and ask for testing (drug spiking can be with a variety of both legal and illegal drugs NOT just GHB) \n- Contact police as soon as possible after a suspected incident of drink spiking.';
 
@@ -132,7 +141,39 @@ export default function ShieldYourSipPage() {
               <Heading as="h2" size="lg">
                 What is Drink Spiking?
               </Heading>
-              <Slideshow />
+              {/* <Slideshow /> */}
+              <div
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '0',
+                  paddingTop: '56.25%',
+                  paddingBottom: '0',
+                  boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+                  marginTop: '1.6em',
+                  marginBottom: '0.9em',
+                  overflow: 'hidden',
+                  borderRadius: '8px',
+                  willChange: 'transform',
+                }}
+              >
+                <iframe
+                  loading="lazy"
+                  style={{
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                    top: '0',
+                    left: '0',
+                    border: 'none',
+                    padding: '0',
+                    margin: '0',
+                  }}
+                  src="https://www.canva.com/design/DAGF9ZWsvQ8/KnxIm9HE6qieeGBr8hUbXQ/view?embed"
+                  allowFullScreen
+                  allow="fullscreen"
+                ></iframe>
+              </div>
             </VStack>
           </DefaultCard>
         </Section>
