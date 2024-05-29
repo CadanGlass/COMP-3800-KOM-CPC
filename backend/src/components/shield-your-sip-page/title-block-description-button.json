@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shield_your_sip_page_title_block_description_buttons",
+  "info": {
+    "displayName": "Title BlockDescription Button"
+  },
+  "options": {},
+  "attributes": {
+    "DirectReportingButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.button"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    }
+  }
+}

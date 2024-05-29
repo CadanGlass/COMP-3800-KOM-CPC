@@ -41,10 +41,26 @@
       "repeatable": false,
       "component": "shield-your-sip-page.sponsors"
     },
-    "SysFaqCard": {
+    "WhatToLookOutFor": {
       "type": "component",
       "repeatable": false,
-      "component": "shield-your-sip-page.sys-faq"
+      "component": "shield-your-sip-page.text-block-description"
+    },
+    "SuspectDrinkSpiking": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shield-your-sip-page.text-block-description"
+    },
+    "SexualAssault": {
+      "displayName": "Title BlockDescription Button",
+      "type": "component",
+      "repeatable": false,
+      "component": "shield-your-sip-page.title-block-description-button"
+    },
+    "SupportServices": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shield-your-sip-page.text-block-description"
     }
   }
 }

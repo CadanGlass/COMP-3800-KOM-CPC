@@ -302,6 +302,19 @@ export interface ShieldYourSipPageTextBlockDescription
   };
 }
 
+export interface ShieldYourSipPageTitleBlockDescriptionButton
+  extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_title_block_description_buttons';
+  info: {
+    displayName: 'Title BlockDescription Button';
+  };
+  attributes: {
+    DirectReportingButton: Attribute.Component<'blocks.button'>;
+    Title: Attribute.String;
+    Description: Attribute.Blocks;
+  };
+}
+
 export interface ShieldYourSipPageTitleBlockDescriptionImages
   extends Schema.Component {
   collectionName: 'components_shield_your_sip_page_title_block_description_images';
@@ -420,6 +433,7 @@ declare module '@strapi/types' {
       'shield-your-sip-page.sub-heading': ShieldYourSipPageSubHeading;
       'shield-your-sip-page.sys-faq': ShieldYourSipPageSysFaq;
       'shield-your-sip-page.text-block-description': ShieldYourSipPageTextBlockDescription;
+      'shield-your-sip-page.title-block-description-button': ShieldYourSipPageTitleBlockDescriptionButton;
       'shield-your-sip-page.title-block-description-images': ShieldYourSipPageTitleBlockDescriptionImages;
       'volunteer-page.about-section': VolunteerPageAboutSection;
       'volunteer-page.activities-card': VolunteerPageActivitiesCard;

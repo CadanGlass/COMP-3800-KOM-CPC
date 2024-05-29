@@ -1167,7 +1167,10 @@ export interface ApiShieldYourSipPageShieldYourSipPage
     Header: Attribute.Component<'blocks.header'>;
     SubHeading: Attribute.Component<'shield-your-sip-page.sub-heading'>;
     SponsorsAndSupport: Attribute.Component<'shield-your-sip-page.sponsors'>;
-    SysFaqCard: Attribute.Component<'shield-your-sip-page.sys-faq'>;
+    WhatToLookOutFor: Attribute.Component<'shield-your-sip-page.text-block-description'>;
+    SuspectDrinkSpiking: Attribute.Component<'shield-your-sip-page.text-block-description'>;
+    SexualAssault: Attribute.Component<'shield-your-sip-page.title-block-description-button'>;
+    SupportServices: Attribute.Component<'shield-your-sip-page.text-block-description'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
