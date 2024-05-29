@@ -68,9 +68,9 @@ const btn = (label, click) => {
   );
 };
 
-const RainbowButton = ({ label, link, click = () => {} }) => {
+const RainbowButton = ({ label, link, click = () => {}, key }) => {
   return (
-    <Box css={buttonWrapperStyle} className="button-wrapper">
+    <Box css={buttonWrapperStyle} className="button-wrapper" key={key}>
       <Box css={buttonBgStyle} className="button-bg" />
       {link ? (
         <Link href={link} isExternal>

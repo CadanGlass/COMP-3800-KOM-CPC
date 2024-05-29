@@ -333,10 +333,12 @@ export interface ShieldYourSipPageTitleButtons extends Schema.Component {
   collectionName: 'components_shield_your_sip_page_title_buttons';
   info: {
     displayName: 'Title Buttons';
+    description: '';
   };
   attributes: {
     Buttons: Attribute.Component<'blocks.button', true>;
     Title: Attribute.String;
+    Description: Attribute.Blocks;
   };
 }
 

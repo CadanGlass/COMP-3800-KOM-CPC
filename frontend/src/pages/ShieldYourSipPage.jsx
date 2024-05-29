@@ -23,6 +23,7 @@ import SysSponsorsCard from '../components/sys/SysSponsorsCard';
 import VolunteerNowButton from '../components/buttons/VolunteerNowButton';
 import Slideshow from '../components/sys/Slideshow';
 import TitleBlockDescription from '../components/sys/TitleBlockDescription';
+import SysSupportUsCard from '../components/sys/SysSupportUsCard';
 
 const baseURL = 'http://localhost:1337';
 
@@ -101,8 +102,6 @@ export default function ShieldYourSipPage() {
   const supportUs = {
     ...apiData.SupportUs,
   };
-
-  console.log(apiData.SupportUs);
 
   return (
     <>
@@ -208,29 +207,7 @@ export default function ShieldYourSipPage() {
           {supportServices && <TitleBlockDescription data={supportServices} />}
         </Section>
 
-        <Section>
-          <DefaultCard>
-            <VStack spacing={4} align="left">
-              <Heading size="md">Support Us</Heading>
-              <Stack
-                direction={{ base: 'column', md: 'row' }}
-                spacing={{ base: 4, md: 8 }}
-                justify="center"
-              >
-                <RainbowButton
-                  label="Volunteer with SYS"
-                  click={() =>
-                    document.getElementById('sys-info-card')?.scrollIntoView()
-                  }
-                />
-                <RainbowButton
-                  label="Donate to SYS"
-                  link="https://www.canadahelps.org/en/charities/kerrisdale-oakridge-marpole-crime-prevention-society/p2p/shieldyoursip/ "
-                />
-              </Stack>
-            </VStack>
-          </DefaultCard>
-        </Section>
+        <Section>{supportUs && <SysSupportUsCard data={supportUs} />}</Section>
       </VStack>
     </>
   );
