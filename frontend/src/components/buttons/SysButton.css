@@ -1,6 +1,6 @@
 .sys-btn {
   color: #1a202c;
-  width: 160px;
+  width: auto;
   height: 45px;
   font-weight: 550;
   transition: all 0.3s ease;
@@ -16,6 +16,7 @@
   display: block;
   width: 100%;
   height: 100%;
+  padding: 0 20px;
 }
 .sys-btn:hover {
   background: #1a202c;

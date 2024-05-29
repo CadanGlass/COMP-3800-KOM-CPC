@@ -7,6 +7,8 @@ import {
   Heading,
   Text,
   Link,
+  OrderedList,
+  UnorderedList,
 } from '@chakra-ui/react';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { InView } from 'react-intersection-observer';
@@ -93,16 +95,24 @@ const PageHeading = ({ title }) => {
 };
 
 const DefaultBlocksRenderer = ({ content }) => {
+  const linkColor = useColorModeValue('teal.500', 'teal.300');
   return (
     <BlocksRenderer
       content={content}
       blocks={{
         paragraph: ({ children }) => <Text pt={4}>{children}</Text>,
         link: ({ children, url }) => (
-          <Link href={url} color="teal.500">
+          <Link href={url} color={linkColor}>
             {children}
           </Link>
         ),
+        list: ({ children, format }) => {
+          if (format === 'ordered') {
+            return <OrderedList>{children}</OrderedList>;
+          } else {
+            return <UnorderedList>{children}</UnorderedList>;
+          }
+        },
       }}
       modifiers={{
         bold: ({ children }) => <strong>{children}</strong>,
