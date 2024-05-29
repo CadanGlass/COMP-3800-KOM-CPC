@@ -185,9 +185,9 @@ export default function HomePage() {
                 ) : (
                   <>
                     <EventCard
-                      name={events[currentEventIndex].name}
-                      date={events[currentEventIndex].date}
-                      image={events[currentEventIndex].image}
+                      name={events[currentEventIndex]?.name}
+                      date={events[currentEventIndex]?.date}
+                      image={events[currentEventIndex]?.image}
                     />
                   </>
                 )}
