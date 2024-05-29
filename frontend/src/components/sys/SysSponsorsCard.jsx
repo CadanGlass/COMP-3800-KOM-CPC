@@ -1,5 +1,5 @@
 import { DefaultCard } from '../DefaultComponents';
-import PartnersCarousel from '../howCanIHelp/PartnersCarousel';
+import Carousel from '../Carousel';
 
 import { Stack, Heading } from '@chakra-ui/react';
 
@@ -7,10 +7,10 @@ export default function SysSponsorsCard({ data }) {
   return (
     <DefaultCard>
       <Stack spacing={4}>
-        <Heading as="h3" size="lg" pb={8}>
+        <Heading as="h2" size="lg">
           {data.Title}
         </Heading>
-        <PartnersCarousel sponsors={data.Sponsor} />
+        <Carousel sponsors={data.Sponsor} />
       </Stack>
     </DefaultCard>
   );
