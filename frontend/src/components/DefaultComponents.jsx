@@ -25,6 +25,7 @@ const DefaultCard = ({
   internalPaddingX = useBreakpointValue({ base: 4, md: 8, xl: 16 }),
   internalPaddingY = 6,
   borderRadius = 'xl',
+  useAnimation = true,
 }) => {
   const backgroundColor = useColorModeValue('#ffffff', 'gray.800');
   const color = useColorModeValue('black', 'white');
@@ -42,7 +43,7 @@ const DefaultCard = ({
             ref={ref}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 100 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: useAnimation ? 0.7 : 0 }}
           >
             <Box
               px={internalPaddingX}

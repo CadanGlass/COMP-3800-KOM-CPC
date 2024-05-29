@@ -8,7 +8,6 @@ import {
   AspectRatio,
   Link,
   Stack,
-  ChakraProvider,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { DefaultCard } from '../DefaultComponents';
@@ -17,7 +16,7 @@ import LearnMoreButton from '../buttons/LearnMoreButton';
 
 export default function EventCard({ name, date, image }) {
   return (
-    <DefaultCard p={8} maxHeight="400px">
+    <DefaultCard p={8} maxHeight="400px" useAnimation={false}>
       <Box textAlign="center" h={'400px'}>
         <Box display="flex" justifyContent="center" mb={4}>
           {image && (
