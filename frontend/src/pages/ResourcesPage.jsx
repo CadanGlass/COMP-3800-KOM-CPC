@@ -83,7 +83,7 @@ const ResourcesPage = () => {
                 <Link color="teal.500" href="https://www.vpd.ca/" isExternal>
                   VPD/Fire/Medical Emergency 911
                 </Link>{" "}
-                Call <Link color="teal.500" href="tel:911">911</Link> for emergencies only.
+                Call 911 for emergencies only.
               </Text>
 
               <Text>
