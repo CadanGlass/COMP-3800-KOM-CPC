@@ -329,6 +329,17 @@ export interface ShieldYourSipPageTitleBlockDescriptionImages
   };
 }
 
+export interface ShieldYourSipPageTitleButtons extends Schema.Component {
+  collectionName: 'components_shield_your_sip_page_title_buttons';
+  info: {
+    displayName: 'Title Buttons';
+  };
+  attributes: {
+    Buttons: Attribute.Component<'blocks.button', true>;
+    Title: Attribute.String;
+  };
+}
+
 export interface VolunteerPageAboutSection extends Schema.Component {
   collectionName: 'components_volunteer_page_about_sections';
   info: {
@@ -435,6 +446,7 @@ declare module '@strapi/types' {
       'shield-your-sip-page.text-block-description': ShieldYourSipPageTextBlockDescription;
       'shield-your-sip-page.title-block-description-button': ShieldYourSipPageTitleBlockDescriptionButton;
       'shield-your-sip-page.title-block-description-images': ShieldYourSipPageTitleBlockDescriptionImages;
+      'shield-your-sip-page.title-buttons': ShieldYourSipPageTitleButtons;
       'volunteer-page.about-section': VolunteerPageAboutSection;
       'volunteer-page.activities-card': VolunteerPageActivitiesCard;
       'volunteer-page.dropdown-data': VolunteerPageDropdownData;

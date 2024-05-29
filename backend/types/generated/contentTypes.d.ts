@@ -1171,6 +1171,7 @@ export interface ApiShieldYourSipPageShieldYourSipPage
     SuspectDrinkSpiking: Attribute.Component<'shield-your-sip-page.text-block-description'>;
     SexualAssault: Attribute.Component<'shield-your-sip-page.title-block-description-button'>;
     SupportServices: Attribute.Component<'shield-your-sip-page.text-block-description'>;
+    SupportUs: Attribute.Component<'shield-your-sip-page.title-buttons'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shield_your_sip_page_title_buttons",
+  "info": {
+    "displayName": "Title Buttons"
+  },
+  "options": {},
+  "attributes": {
+    "Buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.button"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}

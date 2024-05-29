@@ -61,6 +61,12 @@
       "type": "component",
       "repeatable": false,
       "component": "shield-your-sip-page.text-block-description"
+    },
+    "SupportUs": {
+      "displayName": "Title Buttons",
+      "type": "component",
+      "repeatable": false,
+      "component": "shield-your-sip-page.title-buttons"
     }
   }
 }
