@@ -8,14 +8,16 @@ import {
   AspectRatio,
   Link,
   Stack,
+  ChakraProvider,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { DefaultCard } from '../DefaultComponents';
+import { keyframes } from '@emotion/react';
 import LearnMoreButton from '../buttons/LearnMoreButton';
 
 export default function EventCard({ name, date, image }) {
   return (
-    <DefaultCard p={4} maxHeight="400px">
+    <DefaultCard p={8} maxHeight="400px">
       <Box textAlign="center" h={'400px'}>
         <Box display="flex" justifyContent="center" mb={4}>
           {image && (
@@ -29,11 +31,11 @@ export default function EventCard({ name, date, image }) {
             </AspectRatio>
           )}
         </Box>
-        <Stack spacing={2} align="center">
-          <Heading as="h3" size="md" mb={2} isTruncated>
+        <Stack spacing={4}>
+          <Heading as="h3" size="lg" mb={2} isTruncated>
             {name}
           </Heading>
-          <Text fontSize="md" mb={2}>
+          <Text fontSize="lg" mb={2}>
             {date}
           </Text>
           <Link
@@ -41,7 +43,7 @@ export default function EventCard({ name, date, image }) {
             to="/news-events"
             _hover={{ textDecoration: 'none' }}
           >
-            <LearnMoreButton size="sm">Learn More →</LearnMoreButton>
+            <LearnMoreButton>Learn More →</LearnMoreButton>
           </Link>
         </Stack>
       </Box>

@@ -14,7 +14,8 @@ import {
   Button,
   Image,
   IconButton,
-  SimpleGrid,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react';
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 
@@ -154,16 +155,57 @@ export default function HomePage() {
               <Heading as="h2" size="lg" textAlign="center" mb={6}>
                 Upcoming Events
               </Heading>
-              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-                {events.map((event) => (
-                  <EventCard
-                    key={event.id}
-                    name={event.name}
-                    date={event.date}
-                    image={event.image}
-                  />
-                ))}
-              </SimpleGrid>
+              <Grid>
+                {breakpointValue === 'lg' ? (
+                  <>
+                    {events[currentEventIndex] && (
+                      <Box>
+                        <EventCard
+                          name={events[currentEventIndex].name}
+                          date={events[currentEventIndex].date}
+                          image={events[currentEventIndex].image}
+                        />
+                      </Box>
+                    )}
+
+                    {events[(currentEventIndex + 1) % events.length] && (
+                      <EventCard
+                        name={
+                          events[(currentEventIndex + 1) % events.length].name
+                        }
+                        date={
+                          events[(currentEventIndex + 1) % events.length].date
+                        }
+                        image={
+                          events[(currentEventIndex + 1) % events.length].image
+                        }
+                      />
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <EventCard
+                      name={events[currentEventIndex]?.name}
+                      date={events[currentEventIndex]?.date}
+                      image={events[currentEventIndex]?.image}
+                    />
+                  </>
+                )}
+              </Grid>
+              <HStack justify="space-between" mt={6}>
+                <IconButton
+                  icon={<ArrowBackIcon />}
+                  onClick={handlePrevEvent}
+                  aria-label="Previous event"
+                  isDisabled={events.length <= 1}
+                />
+                <IconButton
+                  icon={<ArrowForwardIcon />}
+                  onClick={handleNextEvent}
+                  aria-label="Next event"
+                  isDisabled={events.length <= 1}
+                />
+              </HStack>
             </Box>
           </DefaultCard>
           <Divider
