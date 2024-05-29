@@ -64,8 +64,6 @@ const NewsEventsPage = () => {
               ? `${baseURL}${event.attributes.eventImage.data[0].attributes.url}`
               : '';
 
-            console.log('Event Image URL:', eventImageUrl); // Debug log for event image URL
-
             return {
               id: event.id,
               date: new Date(event.attributes.dateAndTime).toLocaleDateString(
@@ -231,7 +229,7 @@ const NewsEventsPage = () => {
       </Section>
 
       {/* Modal for Newsletter Image */}
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} size="6xl">
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} size="full">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Newsletter Image</ModalHeader>
@@ -241,9 +239,10 @@ const NewsEventsPage = () => {
               <Image
                 src={newsletterImage}
                 alt="Newsletter"
-                width="100%" // Adjust zoom level
-                transform="scale(1.5)" // Adjust zoom level
-                transformOrigin="center"
+                width="auto"
+                height="auto"
+                transform="scale(2)" // Adjust zoom level
+                transformOrigin="top left" // Align top left of the image with the container
               />
             </Box>
           </ModalBody>
