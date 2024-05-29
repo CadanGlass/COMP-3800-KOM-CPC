@@ -87,12 +87,12 @@ export default function Navbar() {
         alignItems={'center'}
         justify={'space-between'}
         py={{ base: 4, md: 6 }}
+        position="relative"
       >
         <Box
           display={{ base: 'flex', md: 'none' }}
           flex={1}
-          justifyContent="center"
-          alignItems="center"
+          justifyContent="flex-start"
         >
           <Link
             display="flex"
@@ -110,10 +110,19 @@ export default function Navbar() {
               src={KOM_logo}
               alt="KOM CPC Logo"
             />
-            <Text fontSize="xl" fontWeight="extrabold" ml={4} color="white">
-              KOM CPC
-            </Text>
           </Link>
+        </Box>
+
+        <Box
+          display={{ base: 'flex', md: 'none' }}
+          position="absolute"
+          left="50%"
+          transform="translateX(-50%)"
+          zIndex={1}
+        >
+          <Text fontSize="xl" fontWeight="extrabold" color="white">
+            KOM CPC
+          </Text>
         </Box>
 
         <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
