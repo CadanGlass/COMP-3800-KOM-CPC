@@ -41,7 +41,7 @@ const NavItem = ({ children, isActive }) => {
       position="relative"
       zIndex={1}
       className={`nav-item ${isActive ? 'active' : ''}`}
-      fontSize={{ base: 'md', xl: 'xl' }}
+      fontSize={{ base: 'md', xl: 'lg' }}
       fontWeight={'extrabold'}
       href={children.path}
       color={isActive ? activeColor : 'white'}
@@ -79,16 +79,10 @@ export default function Navbar() {
       bg={useColorModeValue('gray.800', '#1A202C')}
       color={useColorModeValue('gray.100', 'gray.200')}
       px={6}
-      pt={4}
       w="100%"
+      position="fixed"
     >
-      <Flex
-        h={16}
-        alignItems={'center'}
-        justify={'space-between'}
-        py={{ base: 4, md: 6 }}
-        position="relative"
-      >
+      <Flex h={'80px'} alignItems={'center'} justify={'space-between'}>
         <Box
           display={{ base: 'flex', md: 'none' }}
           flex={1}
@@ -102,7 +96,6 @@ export default function Navbar() {
             zIndex={1}
             className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}
             href="/"
-            mb={2}
           >
             <Image
               boxSize="80px"
@@ -134,7 +127,6 @@ export default function Navbar() {
             zIndex={1}
             className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}
             href="/"
-            mb={2}
           >
             <Image
               boxSize="80px"
@@ -186,12 +178,11 @@ export default function Navbar() {
         >
           <Stack as={'nav'} spacing={6}>
             {NAV_ITEMS.map((navItem) => (
-              <NavItem
-                key={navItem.path}
-                isActive={location.pathname === `/${navItem.path}`}
-              >
-                {navItem}
-              </NavItem>
+              <Box key={navItem.path}>
+                <NavItem isActive={location.pathname === `/${navItem.path}`}>
+                  {navItem}
+                </NavItem>
+              </Box>
             ))}
             <HStack flexWrap="wrap" spacing={6} justify="center">
               <ContactUsButton />

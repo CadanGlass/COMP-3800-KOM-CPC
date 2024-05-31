@@ -20,10 +20,10 @@ function App() {
     <ChakraProvider theme={theme}>
       <Router>
         <Box display="flex" flexDirection="column" minHeight="100vh">
-          <Flex position={'fixed'} w={'100%'} zIndex={200}>
+          <Flex w={'100%'} zIndex={200}>
             <NavBar />
           </Flex>
-          <Box flex="1" mt={16}>
+          <Box flex="1" mt={'80px'}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/volunteer" element={<VolunteerPage />} />

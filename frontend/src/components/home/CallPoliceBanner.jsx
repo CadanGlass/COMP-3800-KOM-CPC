@@ -19,7 +19,7 @@ const CallPoliceBanner = () => {
           py={'0.3em'}
           display="flex"
           justifyContent="space-between"
-          mt="1rem" // Adjust this value as needed
+          // mt="1rem" // Adjust this value as needed
         >
           <Text textColor={'white'} as="b" mx="auto">
             {
