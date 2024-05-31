@@ -25,7 +25,7 @@ import Slideshow from '../components/sys/Slideshow';
 import TitleBlockDescription from '../components/sys/TitleBlockDescription';
 import SysSupportUsCard from '../components/sys/SysSupportUsCard';
 
-const baseURL = 'http://localhost:1337';
+const baseURL = 'https://api.komcpc.com';
 
 export default function ShieldYourSipPage() {
   const { colorMode } = useColorMode();

@@ -18,7 +18,7 @@ const CatchmentCard = () => {
   const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
   const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
 
-  const endpointUrl = 'http://localhost:1337/api/about-uses'; // Adjust the endpoint URL as necessary
+  const endpointUrl = 'https://api.komcpc.com/api/about-uses'; // Adjust the endpoint URL as necessary
 
   const [catchmentData, setCatchmentData] = useState(null);
   const attributeName = 'CatchmentArea'; // Adjust the attribute name as necessary

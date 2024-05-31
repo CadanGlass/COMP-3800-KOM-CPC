@@ -41,7 +41,6 @@
 //   );
 // }
 
-
 import { useState, useEffect } from 'react';
 import { Heading, Stack, SimpleGrid } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
@@ -49,37 +48,33 @@ import { ProgramCard } from './ProgramCard';
 import StyledButton from '../buttons/StyledButton';
 import axios from 'axios';
 
-
-const baseURL = 'http://localhost:1337';
+const baseURL = 'https://api.komcpc.com';
 
 export default function Programs() {
-    
-    const [pageData, setPageData] = useState({});
-    const [programsData, setProgramsData] = useState([]);
+  const [pageData, setPageData] = useState({});
+  const [programsData, setProgramsData] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-        try {
-            const pageResponse = await axios.get(`${baseURL}/api/programs-page`);
-            if (pageResponse.data && pageResponse.data.data) {
-            setPageData(pageResponse.data.data.attributes);
-            }
-
-            const programsResponse = await axios.get(
-            `${baseURL}/api/programs?populate=Image,AccordionContents`
-            );
-            if (programsResponse.data && programsResponse.data.data) {
-            setProgramsData(programsResponse.data.data);
-            }
-        } catch (error) {
-            console.error('Error fetching data', error);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const pageResponse = await axios.get(`${baseURL}/api/programs-page`);
+        if (pageResponse.data && pageResponse.data.data) {
+          setPageData(pageResponse.data.data.attributes);
         }
-        };
 
-        fetchData();
-    }, []);
+        const programsResponse = await axios.get(
+          `${baseURL}/api/programs?populate=Image,AccordionContents`
+        );
+        if (programsResponse.data && programsResponse.data.data) {
+          setProgramsData(programsResponse.data.data);
+        }
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    };
 
-
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -99,28 +94,26 @@ export default function Programs() {
           <p>{pageData.Description}</p>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
             {programsData.map((program, index) => {
-            const { Title, Description, Image } =
-              program.attributes;
-            const programImageUrl = Image?.data?.attributes?.url
-              ? `${baseURL}${Image.data.attributes.url}`
-              : '';
+              const { Title, Description, Image } = program.attributes;
+              const programImageUrl = Image?.data?.attributes?.url
+                ? `${baseURL}${Image.data.attributes.url}`
+                : '';
 
-            console.log('Program Image URL:', programImageUrl); // Debug log for program image URL
+              console.log('Program Image URL:', programImageUrl); // Debug log for program image URL
 
-            return (
-              <ProgramCard
-                key={program.id}
-                title={Title}
-                description={Description}
-                image={programImageUrl}
-                isReversed={index % 2 === 1}
-              />
-            );
-          })}
+              return (
+                <ProgramCard
+                  key={program.id}
+                  title={Title}
+                  description={Description}
+                  image={programImageUrl}
+                  isReversed={index % 2 === 1}
+                />
+              );
+            })}
           </SimpleGrid>
         </Stack>
       </DefaultCard>
     </>
   );
 }
-

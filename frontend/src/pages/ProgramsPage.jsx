@@ -5,7 +5,7 @@ import ProgramsHero from '../components/programs/ProgramsHero';
 import ProgramCard from '../components/programs/ProgramCard';
 import axios from 'axios';
 
-const baseURL = 'http://localhost:1337';
+const baseURL = 'https://api.komcpc.com';
 
 const ProgramsPage = () => {
   const [pageData, setPageData] = useState({});

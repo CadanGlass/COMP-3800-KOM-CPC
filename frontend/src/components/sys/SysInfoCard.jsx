@@ -15,7 +15,7 @@ import { DefaultCard, DefaultBlocksRenderer } from '../DefaultComponents';
 import { QuestionIcon } from '@chakra-ui/icons';
 import { Icon } from '@chakra-ui/react';
 
-const baseURL = 'http://localhost:1337';
+const baseURL = 'https://api.komcpc.com';
 
 export default function SysInfoCard({
   data,

@@ -35,7 +35,7 @@ import {
 } from '../components/DefaultComponents';
 import NewsletterCard from '../components/eventsPage/NewsLetterCard';
 
-const baseURL = 'http://localhost:1337';
+const baseURL = 'https://api.komcpc.com';
 
 const NewsEventsPage = () => {
   const { colorMode } = useColorMode();
