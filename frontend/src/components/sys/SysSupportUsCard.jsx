@@ -21,7 +21,8 @@ export default function SysSupportUsCard({ data }) {
     <DefaultCard>
       <VStack spacing={4} align="left">
         <Heading size="lg">{data.Title}</Heading>
-        {data.Description && (
+        {(data?.Description.length > 1 ||
+          data?.Description[0]?.children[0].text) && (
           <DefaultBlocksRenderer content={data.Description} />
         )}
         <Stack
