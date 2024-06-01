@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 export default function VolunteerPage() {
-  const baseURL = 'http://localhost:1337';
+  const baseURL = 'https://api.komcpc.com';
   const { colorMode } = useColorMode();
   const getBackground = (darkGradient) =>
     colorMode === 'light' ? '#ffffff' : darkGradient;

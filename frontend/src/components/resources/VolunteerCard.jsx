@@ -4,7 +4,7 @@ import { Box, Flex, Image, Heading, Text, VStack } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 import VolunteerNowButton from '../buttons/VolunteerNowButton';
 
-const baseURL = 'http://localhost:1337'; // Base URL for Strapi images
+const baseURL = 'https://api.komcpc.com'; // Base URL for Strapi images
 
 const VolunteerCard = ({ data }) => {
   return (
