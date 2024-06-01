@@ -35,7 +35,7 @@ import {
 } from '../components/DefaultComponents';
 import NewsletterCard from '../components/eventsPage/NewsLetterCard';
 
-const baseURL = 'http://localhost:1337';
+const baseURL = 'https://api.komcpc.com';
 
 const NewsEventsPage = () => {
   const { colorMode } = useColorMode();
@@ -160,6 +160,7 @@ const NewsEventsPage = () => {
                         src={currentEvent.image}
                         alt={currentEvent.name}
                         borderRadius="md"
+                        maxH="400px"
                       />
                     </Box>
                     <Heading as="h3" size="lg" mb={4}>
@@ -239,9 +240,9 @@ const NewsEventsPage = () => {
               <Image
                 src={newsletterImage}
                 alt="Newsletter"
-                width="auto"
+                width="100%"
                 height="auto"
-                transform="scale(2)" // Adjust zoom level
+                // transform="scale(2)" // Adjust zoom level
                 transformOrigin="top left" // Align top left of the image with the container
               />
             </Box>

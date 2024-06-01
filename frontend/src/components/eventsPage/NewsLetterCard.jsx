@@ -11,6 +11,8 @@ const NewsletterCard = ({ image }) => {
       display="flex"
       flexDirection="column"
       alignItems="center"
+      maxH={'800px'}
+      overflow="hidden"
     >
       <Image src={image} alt="Newsletter" borderRadius="md" />
     </Box>
