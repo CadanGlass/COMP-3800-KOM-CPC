@@ -12,6 +12,8 @@ const theme = extendTheme({
     xl: '80em',
     '2xl': '96em',
     '3xl': '112em',
+    '4xl': '120em',
+    '5xl': '128em',
   },
   styles: {
     global: (props) => ({

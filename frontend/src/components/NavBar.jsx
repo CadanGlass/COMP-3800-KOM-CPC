@@ -41,7 +41,7 @@ const NavItem = ({ children, isActive }) => {
       position="relative"
       zIndex={1}
       className={`nav-item ${isActive ? 'active' : ''}`}
-      fontSize={{ base: 'md', xl: 'lg' }}
+      fontSize={{ base: 'md', '3xl': 'lg', '5xl': 'xl' }}
       fontWeight={'extrabold'}
       href={children.path}
       color={isActive ? activeColor : 'white'}
@@ -63,6 +63,7 @@ const NavItem = ({ children, isActive }) => {
           transform: 'scaleX(1)',
         },
       }}
+      whiteSpace="nowrap"
     >
       {children.label}
     </Link>
@@ -134,14 +135,17 @@ export default function Navbar() {
               src={KOM_logo}
               alt="KOM CPC Logo"
             />
-            <Text fontSize="xl" fontWeight="extrabold" ml={4} color="white">
+            <Text fontSize="xl" fontWeight="extrabold" color="white">
               KOM CPC
             </Text>
           </Link>
         </Box>
 
         <Flex alignItems={'center'}>
-          <HStack spacing={8} display={{ base: 'none', '3xl': 'flex' }} mr={4}>
+          <HStack
+            spacing={{ base: 3, '4xl': 6, '5xl': 7 }}
+            display={{ base: 'none', '3xl': 'flex' }}
+          >
             {NAV_ITEMS.map((navItem) => (
               <NavItem
                 key={navItem.path}
