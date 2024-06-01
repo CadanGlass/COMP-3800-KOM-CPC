@@ -127,6 +127,7 @@ export default function ContactUsPage() {
             spacing="8"
             py={{ base: 8, md: 12 }}
             direction={{ base: 'column', md: 'row' }}
+            justifyContent="center"
           >
             <VStack flex={0.5} spacing={{ base: 5, md: 10 }}>
               {contactInfo && (
@@ -139,9 +140,9 @@ export default function ContactUsPage() {
               )}
             </VStack>
 
-            <Stack flex={1} minW={{ base: '100%', md: 'auto' }}>
+            {/* <Stack flex={1} minW={{ base: '100%', md: 'auto' }}>
               <ContactUsForm />
-            </Stack>
+            </Stack> */}
           </Stack>
         </DefaultCard>
       </Section>
