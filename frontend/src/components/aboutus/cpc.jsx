@@ -78,8 +78,6 @@
 
 // export default CPCCard;
 
-
-
 import {
   Stack,
   Heading,
@@ -97,12 +95,11 @@ const CPCCard = () => {
   const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
   const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
 
-  const endpointUrl = 'http://localhost:1337/api/about-uses'; // Adjust the endpoint URL as necessary
+  const endpointUrl = 'https://api.komcpc.com/api/about-uses'; // Adjust the endpoint URL as necessary
 
   const [CPCData, setCPCData] = useState(null);
 
   const attributeName = 'CPCTitleDescription'; // Adjust the attribute name as necessary
-
 
   useEffect(() => {
     processStrapiDataList(endpointUrl, attributeName)
@@ -117,8 +114,6 @@ const CPCCard = () => {
         console.error('There was a problem fetching the data:', error);
         // Handle the error state here
       });
-
-
   }, []);
 
   if (!CPCData) {
@@ -136,21 +131,19 @@ const CPCCard = () => {
         </Box>
         {CPCData.dataImage && (
           <Box flex={1} alignSelf={'center'}>
-           
-              <Box textAlign="center" mb={2}>
-                <Box display="flex" justifyContent="center">
-                  <Image
-                    src={CPCData.dataImage} // Set the image URL here
-                    alt="Mission Image"
-                    fit="cover"
-                    maxW="100%"
-                    height="auto"
-                    borderRadius={8}
-                    onError={(e) => console.error('Image loading error:', e)} // Log any image loading errors
-                  />
-                </Box>
+            <Box textAlign="center" mb={2}>
+              <Box display="flex" justifyContent="center">
+                <Image
+                  src={CPCData.dataImage} // Set the image URL here
+                  alt="Mission Image"
+                  fit="cover"
+                  maxW="100%"
+                  height="auto"
+                  borderRadius={8}
+                  onError={(e) => console.error('Image loading error:', e)} // Log any image loading errors
+                />
               </Box>
-            
+            </Box>
           </Box>
         )}
       </Stack>

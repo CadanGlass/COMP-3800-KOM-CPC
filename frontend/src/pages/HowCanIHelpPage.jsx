@@ -6,7 +6,7 @@ import HowCanYouHelpCard from '../components/howCanIHelp/HowCanYouHelpCard';
 import SupportUsCard from '../components/howCanIHelp/SupportUsCard';
 import axios from 'axios';
 
-const baseURL = 'http://localhost:1337';
+const baseURL = 'https://api.komcpc.com';
 
 const HowCanIHelpPage = () => {
   const getBackground = (darkGradient) =>

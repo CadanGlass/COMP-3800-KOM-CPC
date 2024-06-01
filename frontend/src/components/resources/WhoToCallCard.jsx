@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
 
-const baseURL = 'http://localhost:1337'; // Base URL for Strapi images
+const baseURL = 'https://api.komcpc.com'; // Base URL for Strapi images
 
 const WhoToCallCard = ({ data }) => {
   return (

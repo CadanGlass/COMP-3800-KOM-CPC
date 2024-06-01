@@ -27,7 +27,7 @@ import Programs from '../components/home/Programs';
 import Events from '../components/home/Events';
 import axios from 'axios';
 import EventCard from '../components/home/EventCard';
-const baseURL = 'http://localhost:1337';
+const baseURL = 'https://api.komcpc.com';
 
 export default function HomePage() {
   const { colorMode } = useColorMode();

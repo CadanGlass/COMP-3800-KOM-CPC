@@ -78,17 +78,9 @@
 
 // export default Events;
 
-
-
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {
-  Box,
-  Heading,
-  Stack,
-  SimpleGrid,
-} from '@chakra-ui/react';
+import { Box, Heading, Stack, SimpleGrid } from '@chakra-ui/react';
 
 import EventCard from '../home/EventCard';
 import { DefaultCard } from '../DefaultComponents';
@@ -98,33 +90,42 @@ const Events = () => {
   const [events, setEvents] = useState([]);
   // const cardBg = useColorModeValue('white', 'gray.700');
   // const textColor = useColorModeValue('gray.800', 'white');
-  const baseURL = 'http://localhost:1337';
+  const baseURL = 'https://api.komcpc.com';
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get(`${baseURL}/api/events?populate=eventImage`);
+        const response = await axios.get(
+          `${baseURL}/api/events?populate=eventImage`
+        );
         if (response.data && response.data.data) {
           const eventsData = response.data.data.map((event) => {
-            const eventImageUrl = event.attributes.eventImage?.data[0]?.attributes?.url
+            const eventImageUrl = event.attributes.eventImage?.data[0]
+              ?.attributes?.url
               ? `${baseURL}${event.attributes.eventImage.data[0].attributes.url}`
               : '';
 
             const eventDate = event.attributes.dateAndTime
-              ? new Date(event.attributes.dateAndTime).toLocaleDateString('en-US', {
-                  month: 'short',
-                  day: 'numeric',
-                  year: 'numeric',
-                  hour: 'numeric',
-                  minute: 'numeric',
-                })
+              ? new Date(event.attributes.dateAndTime).toLocaleDateString(
+                  'en-US',
+                  {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                  }
+                )
               : 'Date not available';
 
             const eventTime = event.attributes.dateAndTime
-              ? new Date(event.attributes.dateAndTime).toLocaleTimeString('en-US', {
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })
+              ? new Date(event.attributes.dateAndTime).toLocaleTimeString(
+                  'en-US',
+                  {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  }
+                )
               : 'Time not available';
 
             return {
@@ -146,7 +147,6 @@ const Events = () => {
 
     fetchEvents();
   }, [baseURL]);
-  
 
   return (
     <DefaultCard>

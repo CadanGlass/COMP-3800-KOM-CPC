@@ -15,7 +15,7 @@ const OurStoryCard = () => {
   const stackDirection = useBreakpointValue({ base: 'column', xl: 'row' });
   const stackSpacing = useBreakpointValue({ base: 8, lg: 12, xl: 32 });
 
-  const endpointUrl = 'http://localhost:1337/api/about-uses'; // Adjust the endpoint URL as necessary
+  const endpointUrl = 'https://api.komcpc.com/api/about-uses'; // Adjust the endpoint URL as necessary
 
   const [ourStoryData, setOurStoryData] = useState(null);
   const attributeName = 'OurStory'; // Adjust the attribute name as necessary
@@ -44,19 +44,19 @@ const OurStoryCard = () => {
       <Stack direction={stackDirection} spacing={stackSpacing}>
         {ourStoryData.dataImage && (
           <Box flex={1} alignSelf={'center'}>
-              <Box textAlign="center" mb={2}>
-                <Box display="flex" justifyContent="center">
-                  <Image
-                    src={ourStoryData.dataImage} // Set the image URL here
-                    alt="Mission Image"
-                    fit="cover"
-                    maxW="100%"
-                    height="auto"
-                    borderRadius={8}
-                    onError={(e) => console.error('Image loading error:', e)} // Log any image loading errors
-                  />
-                </Box>
+            <Box textAlign="center" mb={2}>
+              <Box display="flex" justifyContent="center">
+                <Image
+                  src={ourStoryData.dataImage} // Set the image URL here
+                  alt="Mission Image"
+                  fit="cover"
+                  maxW="100%"
+                  height="auto"
+                  borderRadius={8}
+                  onError={(e) => console.error('Image loading error:', e)} // Log any image loading errors
+                />
               </Box>
+            </Box>
           </Box>
         )}
         <Box flex={1} alignSelf={'center'}>

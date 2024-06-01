@@ -21,7 +21,7 @@ import DonateButton from '../components/buttons/DonateButton';
 import axios from 'axios';
 import ErrorPage from './ErrorPage';
 
-const baseURL = 'http://localhost:1337';
+const baseURL = 'https://api.komcpc.com';
 
 export default function ContactUsPage() {
   const { colorMode } = useColorMode();
