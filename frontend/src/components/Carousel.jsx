@@ -37,7 +37,7 @@ export default function Carousel({ sponsors }) {
                 transition="transform 0.3s, box-shadow 0.3s"
                 _hover={{ transform: 'scale(1.05)', boxShadow: 'xl' }}
                 padding={4}
-                margin={{ base: 2, md: 8 }}
+                mx={{ base: 2, md: 8, xl: 16 }}
                 bg="white"
                 variant="outline"
               >
@@ -50,9 +50,10 @@ export default function Carousel({ sponsors }) {
                 >
                   <Image
                     src={sponsor.Logo}
-                    alt={sponsor.Name}
+                    alt={sponsor.Alt || sponsor.Name}
                     w="100%"
-                    maxW="200px"
+                    maxW="150px"
+                    color="black"
                   />
                 </Link>
               </Card>

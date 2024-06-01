@@ -6,7 +6,7 @@ import { Stack, Heading } from '@chakra-ui/react';
 export default function SysSponsorsCard({ data }) {
   return (
     <DefaultCard>
-      <Stack spacing={4}>
+      <Stack spacing={8}>
         <Heading as="h2" size="lg">
           {data.Title}
         </Heading>

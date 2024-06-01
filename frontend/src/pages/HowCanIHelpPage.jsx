@@ -51,10 +51,9 @@ const HowCanIHelpPage = () => {
         if (sponsorsResponse.data && sponsorsResponse.data.data) {
           const sponsorsData =
             sponsorsResponse.data.data.attributes.Sponsors.map((sponsor) => ({
-              name: sponsor.Name,
-              url: sponsor.Url,
-              logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
-              alternativeText: sponsor.Logo.data.attributes.alternativeText,
+              ...sponsor,
+              Logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
+              Alt: sponsor.Logo.data.attributes.alternativeText,
             }));
           console.log('Extracted sponsors data:', sponsorsData);
           setSponsors(sponsorsData);

@@ -16,7 +16,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { DefaultCard } from '../DefaultComponents';
-import PartnersCarousel from '../howCanIHelp/PartnersCarousel';
+import Carousel from '../Carousel';
 
 const PartnershipBanner = ({ data }) => {
   return (
@@ -31,7 +31,7 @@ const PartnershipBanner = ({ data }) => {
           {'Meet Our Sponsors'}
         </Heading>
         <Box w="full">
-          <PartnersCarousel sponsors={data} />
+          <Carousel sponsors={data} />
         </Box>
       </VStack>
     </DefaultCard>

@@ -58,10 +58,9 @@ export default function HomePage() {
 
           const sponsorData = apiData.Sponsors;
           const sponsorList = sponsorData.map((sponsor) => ({
-            name: sponsor.Name,
-            url: sponsor.Url,
-            logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
-            alternativeText: sponsor.Logo.data.attributes.alternativeText,
+            ...sponsor,
+            Logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
+            Alt: sponsor.Logo.data.attributes.alternativeText,
           }));
           setSponsors(sponsorList);
         }

@@ -67,7 +67,7 @@ export default function ShieldYourSipPage() {
   const header_image = `${baseURL}${headerInfo.Image.data.attributes.url}`;
 
   const FirstBtn = VolunteerNowButton({
-    label: 'Donate to SYS',
+    label: apiData.Header.FirstButton.ButtonLabel,
     link: apiData.Header.FirstButton.Link,
   });
   const SecondBtn = VolunteerNowButton({
@@ -87,6 +87,7 @@ export default function ShieldYourSipPage() {
       return {
         ...sponsor,
         Logo: `${baseURL}${sponsor.Logo.data.attributes.url}`,
+        Alt: sponsor.Logo.data.attributes.alt,
       };
     }),
   };
